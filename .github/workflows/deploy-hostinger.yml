@@ -29,6 +29,35 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Check connectivity to Hostinger (HOST:PORT)
+        env:
+          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
+          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
+        run: |
+          python - <<'PY'
+          import os, socket, sys
+          host = os.environ.get("HOSTINGER_HOST", "").strip()
+          port_raw = os.environ.get("HOSTINGER_PORT", "").strip()
+          if not host or not port_raw:
+            print("Missing HOSTINGER_HOST or HOSTINGER_PORT")
+            sys.exit(1)
+          port = int(port_raw)
+          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+          s.settimeout(10)
+          try:
+            s.connect((host, port))
+          except Exception as e:
+            print("CONNECT_FAIL:", type(e).__name__, str(e))
+            sys.exit(1)
+          else:
+            print("CONNECT_OK")
+          finally:
+            try:
+              s.close()
+            except Exception:
+              pass
+          PY
+
       # Required GitHub Secrets (Settings → Secrets and variables → Actions):
       # - HOSTINGER_HOST        (e.g. "123.123.123.123" or "srv123.hostinger.com")
       # - HOSTINGER_PORT        (usually "22")
@@ -47,7 +76,7 @@ jobs:
           username: ${{ secrets.HOSTINGER_USERNAME }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: ${{ secrets.HOSTINGER_PORT }}
-          timeout: 120s
+          timeout: 300s
           source: "dist/**"
           target: "${{ secrets.HOSTINGER_TARGET }}/__deploy_tmp"
 
@@ -58,8 +87,8 @@ jobs:
           username: ${{ secrets.HOSTINGER_USERNAME }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: ${{ secrets.HOSTINGER_PORT }}
-          timeout: 120s
-          command_timeout: 120s
+          timeout: 300s
+          command_timeout: 300s
           script: |
             set -e
 
