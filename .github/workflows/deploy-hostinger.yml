@@ -1,0 +1,87 @@
+name: Deploy to Hostinger (static)
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+
+concurrency:
+  group: deploy-hostinger-main
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      # Required GitHub Secrets (Settings → Secrets and variables → Actions):
+      # - HOSTINGER_HOST        (e.g. "123.123.123.123" or "srv123.hostinger.com")
+      # - HOSTINGER_PORT        (usually "22")
+      # - HOSTINGER_USERNAME
+      # - HOSTINGER_PASSWORD    (or switch to SSH keys; see notes below)
+      # - HOSTINGER_TARGET      (absolute path to the site root, typically ".../public_html")
+      #
+      # Notes:
+      # - This workflow uploads dist/** into a temp folder then activates by moving into HOSTINGER_TARGET.
+      # - We deploy "htaccess" (no dot) then rename to ".htaccess" on the server to avoid dotfile issues.
+
+      - name: Upload dist/ to Hostinger (temp) via SCP
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          source: "dist/**"
+          target: "${{ secrets.HOSTINGER_TARGET }}/__deploy_tmp"
+
+      - name: Activate deployment (move build to target root)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOSTINGER_HOST }}
+          username: ${{ secrets.HOSTINGER_USERNAME }}
+          password: ${{ secrets.HOSTINGER_PASSWORD }}
+          port: ${{ secrets.HOSTINGER_PORT }}
+          script: |
+            set -e
+
+            TARGET="${{ secrets.HOSTINGER_TARGET }}"
+            TMP="$TARGET/__deploy_tmp"
+
+            # Remove everything in target except the temp folder
+            find "$TARGET" -mindepth 1 -maxdepth 1 ! -name "__deploy_tmp" -exec rm -rf {} +
+
+            # Some SCP setups create TMP/dist/...; handle both cases.
+            if [ -d "$TMP/dist" ]; then
+              SRC="$TMP/dist"
+            else
+              SRC="$TMP"
+            fi
+
+            # Move build artifacts to the target root
+            mv "$SRC"/* "$TARGET"/
+
+            # Ensure SPA fallback works on Hostinger: Apache/LiteSpeed reads ".htaccess" (dotfile).
+            if [ -f "$TARGET/htaccess" ]; then
+              mv "$TARGET/htaccess" "$TARGET/.htaccess"
+            fi
+
+            # Cleanup
+            rm -rf "$TMP"
+
+

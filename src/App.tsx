@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Tarifas from './pages/Tarifas';
 import Horarios from './pages/Horarios';
 import Volunteering from './components/Volunteering';
+import Gracias from './pages/Gracias';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/tarifas" element={<Tarifas />} />
           <Route path="/horarios" element={<Horarios />} />
+          <Route path="/gracias" element={<Gracias />} />
           <Route path="/voluntariado" element={
             <div className="pt-20">
               <Volunteering />

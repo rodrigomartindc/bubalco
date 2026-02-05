@@ -1,8 +1,43 @@
 import { Heart, Zap, TrendingUp, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useMemo, useState } from 'react';
 
 const Donations = () => {
   const { ref, isVisible } = useScrollAnimation();
+  const [isOpen, setIsOpen] = useState(false);
+  const [isPayLoading, setIsPayLoading] = useState(false);
+  const [payError, setPayError] = useState<string | null>(null);
+
+  const donationOptions = useMemo(
+    () => [
+      { id: 'feed_1', label: 'Alimento', amount: 5000 },
+      { id: 'vet_1', label: 'Veterinaria', amount: 10000 },
+      { id: 'rescue_1', label: 'Rescate', amount: 20000 },
+    ],
+    [],
+  );
+
+  const startCheckout = async (donationId: string) => {
+    setPayError(null);
+    setIsPayLoading(true);
+    try {
+      const res = await fetch('/api/mp/create_preference.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ donation_id: donationId }),
+      });
+      const json = (await res.json()) as { ok: true; init_point: string } | { ok: false; error: string };
+      if (!json.ok) {
+        setPayError(json.error || 'No se pudo iniciar el pago.');
+        return;
+      }
+      window.location.href = json.init_point;
+    } catch {
+      setPayError('No se pudo iniciar el pago. Intentá de nuevo en unos segundos.');
+    } finally {
+      setIsPayLoading(false);
+    }
+  };
 
   return (
     <section id="donaciones" ref={ref} className="scroll-section min-h-screen flex items-center relative overflow-hidden bg-white">
@@ -43,10 +78,17 @@ const Donations = () => {
               </div>
             </div>
 
-            <button className="group flex items-center gap-3 px-8 py-5 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold rounded-2xl hover:shadow-2xl transition-all transform hover:scale-105">
+            <button
+              onClick={() => setIsOpen(true)}
+              className="group flex items-center gap-3 px-8 py-5 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold rounded-2xl hover:shadow-2xl transition-all transform hover:scale-105"
+            >
               <span className="text-lg">Donar Ahora</span>
               <ArrowRight className="group-hover:translate-x-2 transition-transform" size={24} />
             </button>
+
+            {payError && (
+              <p className="text-sm text-amber-700 font-semibold">{payError}</p>
+            )}
           </div>
 
           <div className={`space-y-6 ${isVisible ? 'animate-fade-in-right delay-200' : 'opacity-0'}`}>
@@ -106,6 +148,52 @@ const Donations = () => {
           </div>
         </div>
       </div>
+
+      {isOpen && (
+        <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 backdrop-blur-sm px-6">
+          <div className="w-full max-w-xl rounded-3xl bg-white shadow-2xl border border-emerald-100 overflow-hidden">
+            <div className="p-6 md:p-8">
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <h3 className="text-2xl font-black text-gray-900">Elegí tu donación</h3>
+                  <p className="mt-2 text-gray-600">
+                    Vas a pagar de forma segura con Mercado Pago y luego volverás a esta web.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setIsOpen(false)}
+                  className="px-3 py-2 rounded-xl font-bold text-gray-700 hover:bg-gray-100 transition-colors"
+                >
+                  Cerrar
+                </button>
+              </div>
+
+              <div className="mt-6 grid sm:grid-cols-3 gap-3">
+                {donationOptions.map((opt) => (
+                  <button
+                    key={opt.id}
+                    onClick={() => void startCheckout(opt.id)}
+                    disabled={isPayLoading}
+                    className="text-left rounded-2xl border border-emerald-100 hover:border-emerald-300 hover:bg-emerald-50 transition-colors p-4 disabled:opacity-60"
+                  >
+                    <p className="text-sm font-semibold text-gray-600">{opt.label}</p>
+                    <p className="mt-1 text-2xl font-black text-gray-900">
+                      ${opt.amount.toLocaleString('es-AR')}
+                    </p>
+                    <p className="mt-2 text-sm font-bold text-emerald-700">
+                      {isPayLoading ? 'Iniciando…' : 'Pagar con Mercado Pago'}
+                    </p>
+                  </button>
+                ))}
+              </div>
+
+              {payError && (
+                <p className="mt-4 text-sm text-amber-700 font-semibold">{payError}</p>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };
