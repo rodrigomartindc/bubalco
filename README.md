@@ -14,7 +14,7 @@ Este repo incluye el workflow `/.github/workflows/deploy-hostinger.yml` que hace
 **Tenés que crear estos GitHub Secrets (repo → Settings → Secrets and variables → Actions):**
 
 - `HOSTINGER_HOST`
-- `HOSTINGER_PORT` (normalmente `22`)
+- `HOSTINGER_PORT` (**en Hostinger Shared suele ser `65002`**, confirmalo en hPanel → SSH Access)
 - `HOSTINGER_USERNAME`
 - `HOSTINGER_PASSWORD`
 - `HOSTINGER_TARGET` (ruta absoluta al root del sitio, típicamente `.../public_html`)

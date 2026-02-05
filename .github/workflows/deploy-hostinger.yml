@@ -47,6 +47,7 @@ jobs:
           username: ${{ secrets.HOSTINGER_USERNAME }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: ${{ secrets.HOSTINGER_PORT }}
+          timeout: 120s
           source: "dist/**"
           target: "${{ secrets.HOSTINGER_TARGET }}/__deploy_tmp"
 
@@ -57,6 +58,8 @@ jobs:
           username: ${{ secrets.HOSTINGER_USERNAME }}
           password: ${{ secrets.HOSTINGER_PASSWORD }}
           port: ${{ secrets.HOSTINGER_PORT }}
+          timeout: 120s
+          command_timeout: 120s
           script: |
             set -e
 
