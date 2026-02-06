@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -7,24 +7,40 @@ import Horarios from './pages/Horarios';
 import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
 
-function App() {
+function AppShell() {
+  const location = useLocation();
+  const isHome = location.pathname === '/';
+
   return (
-    <Router>
-      <div className="min-h-screen bg-white">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/tarifas" element={<Tarifas />} />
-          <Route path="/horarios" element={<Horarios />} />
-          <Route path="/gracias" element={<Gracias />} />
-          <Route path="/voluntariado" element={
+    <div className="min-h-screen bg-white">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/tarifas" element={<Tarifas />} />
+        <Route path="/horarios" element={<Horarios />} />
+        <Route path="/gracias" element={<Gracias />} />
+        <Route
+          path="/voluntariado"
+          element={
             <div className="pt-20">
               <Volunteering />
             </div>
-          } />
-        </Routes>
+          }
+        />
+      </Routes>
+
+      {/* Home on mobile has its own footer slide inside the snap scroller */}
+      <div className={isHome ? 'hidden md:block' : ''}>
         <Footer />
       </div>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppShell />
     </Router>
   );
 }

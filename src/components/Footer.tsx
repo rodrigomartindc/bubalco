@@ -67,7 +67,8 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-emerald-400 flex-shrink-0 mt-1" />
                 <span className="text-gray-400">
-                  Ruta 25 Km 3.5, Pilar<br />Buenos Aires
+                  Isla 19, Contralmirante Guerrico<br />
+                  Allen, Río Negro, Argentina
                 </span>
               </li>
               <li className="flex items-start gap-3">

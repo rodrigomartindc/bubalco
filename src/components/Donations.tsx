@@ -40,10 +40,65 @@ const Donations = () => {
   };
 
   return (
-    <section id="donaciones" ref={ref} className="scroll-section min-h-screen flex items-center relative overflow-hidden bg-white">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-emerald-50 to-transparent"></div>
+    <section id="donaciones" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:overflow-hidden md:bg-white">
+      <div className="slide-card md:hidden">
+        <div className="slide-card__scroll relative bg-white overflow-hidden">
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-emerald-50 to-transparent"></div>
+          <div className="relative z-10 w-full px-6 py-9">
+            <div className={`space-y-5 ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-full">
+                <Heart className="text-emerald-600" size={18} fill="currentColor" />
+                <span className="text-emerald-700 text-sm font-semibold">Tu apoyo salva vidas</span>
+              </div>
 
-      <div className="relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
+              <h2 className="text-3xl font-black text-gray-900 leading-tight">
+                Cada aporte
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-700">
+                  marca la diferencia
+                </span>
+              </h2>
+
+              <p className="text-sm text-gray-600 leading-relaxed">
+                Tu donación nos ayuda a continuar nuestro trabajo de rescate, rehabilitación y conservación.
+              </p>
+
+              <div className="rounded-3xl border border-emerald-100 bg-white shadow-sm p-5">
+                <p className="text-sm font-bold text-gray-900">Elegí tu donación</p>
+                <div className="mt-4 grid gap-3">
+                  {donationOptions.map((opt) => (
+                    <button
+                      key={opt.id}
+                      onClick={() => void startCheckout(opt.id)}
+                      disabled={isPayLoading}
+                      className="w-full text-left rounded-2xl border border-emerald-100 hover:border-emerald-300 hover:bg-emerald-50 transition-colors p-4 disabled:opacity-60"
+                    >
+                      <div className="flex items-center justify-between gap-4">
+                        <div className="min-w-0">
+                          <p className="text-sm font-semibold text-gray-600">{opt.label}</p>
+                          <p className="mt-1 text-2xl font-black text-gray-900">
+                            ${opt.amount.toLocaleString('es-AR')}
+                          </p>
+                        </div>
+                        <p className="text-sm font-bold text-emerald-700">
+                          {isPayLoading ? 'Iniciando…' : 'Mercado Pago'}
+                        </p>
+                      </div>
+                    </button>
+                  ))}
+                </div>
+
+                {payError && (
+                  <p className="mt-4 text-sm text-amber-700 font-semibold">{payError}</p>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="hidden md:block absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-emerald-50 to-transparent"></div>
+
+      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <div className={`space-y-8 ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 rounded-full">
