@@ -42,7 +42,6 @@ const Navbar = () => {
   const goToDonations = () => {
     if (location.pathname !== '/') {
       navigate('/');
-      // Wait for navigation to paint
       setTimeout(() => {
         const el = document.getElementById('donaciones');
         if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -57,7 +56,7 @@ const Navbar = () => {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         isScrolled || !isHome || isMobile
-          ? 'bg-white/95 backdrop-blur-lg shadow-lg'
+          ? 'bg-white/95 backdrop-blur-lg shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -65,9 +64,9 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex-shrink-0">
             <img
-              src="https://bubalco.com/wp-content/uploads/2023/05/bubalco-logo-dark.webp"
-              alt="Bubalco Logo"
-              className="h-12 w-auto transition-all"
+              src={isScrolled || !isHome || isMobile ? '/logos/logo-negro.png' : '/logos/logo-blanco.png'}
+              alt="Bubalcó Patagonia"
+              className="h-10 w-auto transition-all"
             />
           </Link>
 
@@ -77,12 +76,12 @@ const Navbar = () => {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `font-semibold transition-colors ${
+                  `text-sm tracking-wide transition-colors ${
                     isActive
-                      ? 'text-emerald-600'
+                      ? isScrolled || !isHome ? 'text-gray-900 font-medium' : 'text-white font-medium'
                       : isScrolled || !isHome
-                      ? 'text-gray-700 hover:text-emerald-600'
-                      : 'text-white hover:text-emerald-300'
+                      ? 'text-gray-600 hover:text-gray-900'
+                      : 'text-white/80 hover:text-white'
                   }`
                 }
               >
@@ -91,7 +90,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={goToDonations}
-              className="px-6 py-3 bg-emerald-600 text-white font-bold rounded-full hover:bg-emerald-700 transition-all transform hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors"
             >
               Donar
             </button>
@@ -103,23 +102,23 @@ const Navbar = () => {
               isScrolled || !isHome || isMobile ? 'text-gray-900' : 'text-white'
             }`}
           >
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white border-t shadow-xl">
-          <div className="px-6 py-4 space-y-3">
+        <div className="md:hidden bg-white border-t">
+          <div className="px-6 py-4 space-y-1">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `block w-full text-left px-4 py-3 font-semibold rounded-lg transition-colors ${
+                  `block w-full text-left px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${
                     isActive
-                      ? 'bg-emerald-100 text-emerald-700'
-                      : 'text-gray-700 hover:bg-emerald-50 hover:text-emerald-600'
+                      ? 'bg-gray-50 text-gray-900 font-medium'
+                      : 'text-gray-600 hover:bg-gray-50 hover:text-gray-900'
                   }`
                 }
               >
@@ -128,7 +127,7 @@ const Navbar = () => {
             ))}
             <button
               onClick={goToDonations}
-              className="block w-full text-center px-6 py-3 bg-emerald-600 text-white font-bold rounded-lg hover:bg-emerald-700 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white"
+              className="block w-full text-center px-6 py-3 bg-brand text-white text-sm tracking-wide rounded-lg hover:bg-brand-dark transition-colors"
             >
               Donar Ahora
             </button>
