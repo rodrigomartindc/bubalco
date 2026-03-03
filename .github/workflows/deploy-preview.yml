@@ -1,0 +1,40 @@
+name: Deploy Preview to GitHub Pages
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Version name (e.g. v1, v2, v3)"
+        required: true
+        type: string
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build with versioned base path
+        run: npx vite build --base=/bubalco/${{ inputs.version }}/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          destination_dir: ${{ inputs.version }}
+          keep_files: true
