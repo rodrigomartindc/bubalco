@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
@@ -7,12 +8,21 @@ import Horarios from './pages/Horarios';
 import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
+
 function AppShell() {
   const location = useLocation();
   const isHome = location.pathname === '/';
 
   return (
     <div className="min-h-screen bg-white">
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
