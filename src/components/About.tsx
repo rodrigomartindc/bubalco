@@ -53,19 +53,29 @@ const About = () => {
       </div>
 
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`text-center mb-20 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Nuestra Misión</p>
+        <div className={`grid lg:grid-cols-2 gap-16 items-center mb-20 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div>
+            <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Nuestra Misión</p>
 
-          <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
-            Más que un refugio,
-            <br />
-            una familia
-          </h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
+              Más que un refugio,
+              <br />
+              una familia
+            </h2>
 
-          <p className="text-base md:text-lg text-gray-500 max-w-3xl mx-auto leading-relaxed">
-            Rescatamos, rehabilitamos y protegemos la fauna silvestre mientras educamos
-            a la comunidad sobre la importancia de la conservación.
-          </p>
+            <p className="text-base md:text-lg text-gray-500 leading-relaxed">
+              Rescatamos, rehabilitamos y protegemos la fauna silvestre mientras educamos
+              a la comunidad sobre la importancia de la conservación.
+            </p>
+          </div>
+
+          <div className="flex justify-center">
+            <img
+              src="/tucan-bubalco.jpg"
+              alt="Tucán en Bubalcó Patagonia"
+              className="w-full max-w-md rounded-2xl object-cover h-[420px]"
+            />
+          </div>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
