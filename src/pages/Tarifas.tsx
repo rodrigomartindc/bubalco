@@ -5,7 +5,7 @@ export default function Tarifas() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <div className="min-h-screen pt-24 pb-20 bg-brand-dark">
+    <div className="min-h-screen pt-[7.5rem] pb-20 bg-brand-dark">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-medium text-white mb-4">

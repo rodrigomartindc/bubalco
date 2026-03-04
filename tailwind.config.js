@@ -5,9 +5,10 @@ export default {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#26b294',
-          dark: '#068f6b',
+          DEFAULT: '#417558',
+          dark: '#2b5962',
         },
+        accent: '#ffa300',
       },
       fontFamily: {
         brandon: ['Brandon', 'system-ui', 'sans-serif'],

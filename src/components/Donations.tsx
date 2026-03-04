@@ -122,7 +122,7 @@ const Donations = () => {
 
             <button
               onClick={() => setIsOpen(true)}
-              className="group flex items-center gap-3 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors"
+              className="group flex items-center gap-3 px-8 py-4 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors"
             >
               <span>Donar Ahora</span>
               <ArrowRight className="group-hover:translate-x-1 transition-transform" size={18} />
