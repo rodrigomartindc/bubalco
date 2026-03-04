@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { asset } from '../utils/asset';
 
 const ParkMap = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -25,7 +26,7 @@ const ParkMap = () => {
               <h2 className="text-2xl font-medium text-gray-900 mb-6 text-center">Mapa del Bioparque</h2>
 
               <img
-                src="/mapa-bubalco.jpg"
+                src={asset('/mapa-bubalco.jpg')}
                 alt="Mapa del Bioparque Bubalcó Patagonia"
                 className="w-full rounded-2xl"
               />
@@ -63,7 +64,7 @@ const ParkMap = () => {
 
           <div className={`${isVisible ? 'animate-fade-in-right delay-200' : 'opacity-0'}`}>
             <img
-              src="/mapa-bubalco.jpg"
+              src={asset('/mapa-bubalco.jpg')}
               alt="Mapa del Bioparque Bubalcó Patagonia"
               className="w-full rounded-2xl shadow-sm"
             />

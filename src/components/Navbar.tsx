@@ -1,6 +1,7 @@
 import { Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { asset } from '../utils/asset';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,7 +65,7 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex-shrink-0">
             <img
-              src={isScrolled || !isHome || isMobile ? '/logos/logo-negro.png' : '/logos/logo-blanco.png'}
+              src={isScrolled || !isHome || isMobile ? asset('/logos/logo-negro.png') : asset('/logos/logo-blanco.png')}
               alt="Bubalcó Patagonia"
               className="h-10 w-auto transition-all"
             />

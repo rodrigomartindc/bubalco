@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Mail, MapPin } from 'lucide-react';
+import { asset } from '../utils/asset';
 
 export default function FooterSlide() {
   return (
@@ -8,7 +9,7 @@ export default function FooterSlide() {
           <div className="px-6 py-10 h-full flex flex-col justify-between">
             <div>
               <img
-                src="/logos/logo-blanco.png"
+                src={asset("/logos/logo-blanco.png")}
                 alt="Bubalcó Patagonia"
                 className="h-10 mb-4"
               />

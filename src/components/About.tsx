@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { asset } from '../utils/asset';
 
 const About = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -71,7 +72,7 @@ const About = () => {
 
           <div className="flex justify-center">
             <img
-              src="/tucan-bubalco.jpg"
+              src={asset('/tucan-bubalco.jpg')}
               alt="Tucán en Bubalcó Patagonia"
               className="w-full max-w-md rounded-2xl object-cover h-[420px]"
             />

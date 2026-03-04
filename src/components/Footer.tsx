@@ -1,4 +1,5 @@
 import { Instagram, Facebook, Mail, MapPin, Heart } from 'lucide-react';
+import { asset } from '../utils/asset';
 
 const Footer = () => {
   const scrollToSection = (id: string) => {
@@ -14,7 +15,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-12">
           <div className="md:col-span-2">
             <img
-              src="/logos/logo-blanco.png"
+              src={asset("/logos/logo-blanco.png")}
               alt="Bubalcó Patagonia"
               className="h-12 mb-4"
             />

@@ -1,5 +1,6 @@
 import { ChevronDown } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { asset } from '../utils/asset';
 
 const Hero = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -19,7 +20,7 @@ const Hero = () => {
             <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
               <div className="mb-7 animate-fade-in-up delay-100">
                 <img
-                  src="/logos/logo-blanco.png"
+                  src={asset("/logos/logo-blanco.png")}
                   alt="Bubalcó Patagonia"
                   className="h-16 mx-auto"
                 />
@@ -62,7 +63,7 @@ const Hero = () => {
         <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
           <div className="mb-8 animate-fade-in-up delay-100">
             <img
-              src="/logos/logo-blanco.png"
+              src={asset("/logos/logo-blanco.png")}
               alt="Bubalcó Patagonia"
               className="h-20 md:h-24 mx-auto"
             />
