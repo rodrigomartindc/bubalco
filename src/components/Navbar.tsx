@@ -5,28 +5,9 @@ import { asset } from '../utils/asset';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
   const location = useLocation();
 
-  useEffect(() => {
-    const mq = window.matchMedia('(max-width: 767px)');
-    const handleMq = () => setIsMobile(mq.matches);
-    handleMq();
-    mq.addEventListener('change', handleMq);
-    return () => mq.removeEventListener('change', handleMq);
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   useEffect(() => { setIsOpen(false); }, [location]);
-
-  const isHome = location.pathname === '/';
-  const isDark = !isScrolled && isHome && !isMobile;
 
   const navLinks = [
     { to: '/', label: 'Inicio' },
@@ -36,14 +17,14 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isDark ? 'bg-transparent' : 'bg-white/95 backdrop-blur-lg shadow-sm'}`}>
+    <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-lg shadow-sm">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex justify-between items-center h-20">
           <Link to="/" className="flex-shrink-0">
             <img
-              src={isDark ? asset('/logos/logo-blanco.png') : asset('/logos/logo-negro.png')}
+              src={asset('/logos/logo-negro.png')}
               alt="Bubalcó Patagonia"
-              className="h-10 w-auto transition-all"
+              className="h-10 w-auto"
             />
           </Link>
 
@@ -54,9 +35,7 @@ const Navbar = () => {
                 to={link.to}
                 className={({ isActive }) =>
                   `text-sm tracking-wide transition-colors ${
-                    isActive
-                      ? isDark ? 'text-white font-medium' : 'text-gray-900 font-medium'
-                      : isDark ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'
+                    isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'
                   }`
                 }
               >
@@ -64,8 +43,7 @@ const Navbar = () => {
               </NavLink>
             ))}
             <a href="https://www.instagram.com/bubalco/" target="_blank" rel="noreferrer"
-              className={`transition-colors ${isDark ? 'text-white/80 hover:text-white' : 'text-gray-600 hover:text-gray-900'}`}
-              aria-label="Instagram">
+              className="text-gray-600 hover:text-gray-900 transition-colors" aria-label="Instagram">
               <Instagram size={18} />
             </a>
           </div>
