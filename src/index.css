@@ -60,16 +60,19 @@
 @media (max-width: 767px) {
   .home-slides {
     --home-nav: 120px;
-    height: 100dvh;
+    position: fixed;
+    top: var(--home-nav);
+    left: 0;
+    right: 0;
+    bottom: 0;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
-    scroll-padding-top: 0px;
-    padding-top: var(--home-nav);
     -webkit-overflow-scrolling: touch;
     background: #ffffff;
   }
 
   .home-slides .scroll-section {
+    height: calc(100dvh - var(--home-nav));
     min-height: calc(100dvh - var(--home-nav));
     display: flex;
     align-items: center;
@@ -79,7 +82,7 @@
 
   .slide-card {
     width: min(420px, 100%);
-    height: calc(100dvh - var(--home-nav) - 20px);
+    height: calc(100dvh - var(--home-nav) - 24px);
     border-radius: 28px;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.06);
