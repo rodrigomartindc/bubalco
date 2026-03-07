@@ -1,4 +1,4 @@
-import { Instagram, Mail, MapPin, Heart } from 'lucide-react';
+import { Instagram, Mail, MapPin, Phone, Heart } from 'lucide-react';
 import { asset } from '../utils/asset';
 
 const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
@@ -27,21 +27,28 @@ const Footer = () => {
             <h4 className="text-sm font-medium mb-6">Contacto</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-gray-500 flex-shrink-0 mt-1" />
-                <span className="text-sm text-gray-400">Isla 19, Contralmirante Guerrico<br />Allen, Río Negro, Argentina</span>
+                <Phone size={16} className="text-gray-500 flex-shrink-0 mt-1" />
+                <a href={WA_URL} target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">+54 9 298 473-1612</a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail size={16} className="text-gray-500 flex-shrink-0 mt-1" />
                 <span className="text-sm text-gray-400">info@bubalco.com</span>
               </li>
+              <li className="flex items-start gap-3">
+                <MapPin size={16} className="text-gray-500 flex-shrink-0 mt-1" />
+                <span className="text-sm text-gray-400">Isla 19, Contralmirante Guerrico<br />Allen, Río Negro, Argentina</span>
+              </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-sm font-medium mb-6">WhatsApp</h4>
-            <a href={WA_URL} target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">
-              +54 9 298 473-1612
-            </a>
+            <h4 className="text-sm font-medium mb-6">Enlaces</h4>
+            <ul className="space-y-3">
+              <li><a href="/nosotros" className="text-sm text-gray-400 hover:text-white transition-colors">Quiénes Somos</a></li>
+              <li><a href="/bioparque" className="text-sm text-gray-400 hover:text-white transition-colors">Bioparque</a></li>
+              <li><a href="/tarifas" className="text-sm text-gray-400 hover:text-white transition-colors">Tarifas</a></li>
+              <li><a href="/horarios" className="text-sm text-gray-400 hover:text-white transition-colors">Horarios</a></li>
+            </ul>
           </div>
         </div>
 
