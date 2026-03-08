@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
 import About from '../components/About';
 import NuestroTrabajo from '../components/NuestroTrabajo';
@@ -9,6 +10,16 @@ import Footer from '../components/Footer';
 import FooterSlide from '../components/FooterSlide';
 
 export default function Home() {
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const handle = () => setIsDesktop(mq.matches);
+    handle();
+    mq.addEventListener('change', handle);
+    return () => mq.removeEventListener('change', handle);
+  }, []);
+
   return (
     <>
       <div className="home-slides md:contents">
@@ -20,10 +31,12 @@ export default function Home() {
         <BioparqueBlock />
         <FooterSlide />
       </div>
-      <div className="hidden md:block">
-        <GoogleMapsFooter />
-        <Footer />
-      </div>
+      {isDesktop && (
+        <>
+          <GoogleMapsFooter />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
