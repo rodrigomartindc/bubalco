@@ -5,39 +5,16 @@ import { useMemo, useState } from 'react';
 const Donations = () => {
   const { ref, isVisible } = useScrollAnimation();
   const [isOpen, setIsOpen] = useState(false);
-  const [isPayLoading, setIsPayLoading] = useState(false);
-  const [payError, setPayError] = useState<string | null>(null);
+  const payError = null;
 
   const donationOptions = useMemo(
     () => [
-      { id: 'feed_1', label: 'Alimento', amount: 5000 },
-      { id: 'vet_1', label: 'Veterinaria', amount: 10000 },
-      { id: 'rescue_1', label: 'Rescate', amount: 20000 },
+      { id: 'feed_1', label: 'Alimento' },
+      { id: 'vet_1', label: 'Veterinaria' },
+      { id: 'rescue_1', label: 'Rescate' },
     ],
     [],
   );
-
-  const startCheckout = async (donationId: string) => {
-    setPayError(null);
-    setIsPayLoading(true);
-    try {
-      const res = await fetch('/api/mp/create_preference.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ donation_id: donationId }),
-      });
-      const json = (await res.json()) as { ok: true; init_point: string } | { ok: false; error: string };
-      if (!json.ok) {
-        setPayError(json.error || 'No se pudo iniciar el pago.');
-        return;
-      }
-      window.location.href = json.init_point;
-    } catch {
-      setPayError('No se pudo iniciar el pago. Intentá de nuevo en unos segundos.');
-    } finally {
-      setIsPayLoading(false);
-    }
-  };
 
   return (
     <section id="donaciones" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:overflow-hidden md:bg-white">
@@ -57,27 +34,16 @@ const Donations = () => {
               </p>
 
               <div className="rounded-2xl border border-gray-100 bg-gray-50 p-5">
-                <p className="text-sm font-medium text-gray-900">Elegí tu donación</p>
+                <p className="text-sm font-medium text-gray-900">Elegí cómo ayudar</p>
                 <div className="mt-4 grid gap-3">
                   {donationOptions.map((opt) => (
-                    <button
+                    <div
                       key={opt.id}
-                      onClick={() => void startCheckout(opt.id)}
-                      disabled={isPayLoading}
-                      className="w-full text-left rounded-xl border border-gray-200 hover:border-gray-300 bg-white hover:bg-gray-50 transition-colors p-4 disabled:opacity-60"
+                      className="w-full text-left rounded-xl border border-gray-200 bg-white p-4"
                     >
-                      <div className="flex items-center justify-between gap-4">
-                        <div className="min-w-0">
-                          <p className="text-sm text-gray-500">{opt.label}</p>
-                          <p className="mt-1 text-xl font-medium text-gray-900">
-                            ${opt.amount.toLocaleString('es-AR')}
-                          </p>
-                        </div>
-                        <p className="text-xs text-gray-400">
-                          {isPayLoading ? 'Iniciando…' : 'Mercado Pago'}
-                        </p>
-                      </div>
-                    </button>
+                      <p className="text-sm text-gray-900">{opt.label}</p>
+                      <p className="text-xs text-gray-400 mt-1">Próximamente</p>
+                    </div>
                   ))}
                 </div>
 
@@ -203,20 +169,13 @@ const Donations = () => {
 
               <div className="mt-6 grid sm:grid-cols-3 gap-3">
                 {donationOptions.map((opt) => (
-                  <button
+                  <div
                     key={opt.id}
-                    onClick={() => void startCheckout(opt.id)}
-                    disabled={isPayLoading}
-                    className="text-left rounded-xl border border-gray-200 hover:border-gray-300 hover:bg-gray-50 transition-colors p-4 disabled:opacity-60"
+                    className="text-left rounded-xl border border-gray-200 p-4"
                   >
-                    <p className="text-sm text-gray-500">{opt.label}</p>
-                    <p className="mt-1 text-xl font-medium text-gray-900">
-                      ${opt.amount.toLocaleString('es-AR')}
-                    </p>
-                    <p className="mt-2 text-xs text-gray-400">
-                      {isPayLoading ? 'Iniciando…' : 'Pagar con Mercado Pago'}
-                    </p>
-                  </button>
+                    <p className="text-sm text-gray-900">{opt.label}</p>
+                    <p className="mt-2 text-xs text-gray-400">Próximamente</p>
+                  </div>
                 ))}
               </div>
 

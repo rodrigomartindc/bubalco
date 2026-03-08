@@ -38,8 +38,8 @@ function AppShell() {
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[7.5rem]"><Volunteering /></div>} />
       </Routes>
-      <GoogleMapsFooter />
-      <div className={isHome ? 'hidden md:block' : ''}><Footer /></div>
+      {!isHome && <GoogleMapsFooter />}
+      {!isHome && <Footer />}
     </div>
   );
 }
