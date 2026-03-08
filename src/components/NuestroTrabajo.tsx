@@ -1,10 +1,10 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const pillars = [
-  { n: '01', title: 'Refugio', desc: 'Hogar seguro para animales que no pueden volver a su hábitat natural.' },
-  { n: '02', title: 'Conservación', desc: 'Proyectos de preservación de especies nativas y sus ecosistemas.' },
-  { n: '03', title: 'Rescate', desc: 'Respuesta 24/7 a emergencias, rescatando animales en peligro.' },
-  { n: '04', title: 'Educación', desc: 'Concientizamos sobre conservación ambiental y respeto por la vida silvestre.' },
+  { n: '01', title: 'Refugio', desc: 'Hogar seguro para fauna silvestre.' },
+  { n: '02', title: 'Conservación', desc: 'Preservación de especies nativas.' },
+  { n: '03', title: 'Rescate', desc: 'Respuesta 24/7 a emergencias.' },
+  { n: '04', title: 'Educación', desc: 'Concientización ambiental.' },
 ];
 
 export default function NuestroTrabajo() {
