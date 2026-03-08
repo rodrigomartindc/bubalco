@@ -14,6 +14,7 @@ export default function GoogleMapsFooter() {
       />
       <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur rounded-lg px-4 py-2 text-sm">
         <p className="text-gray-900 font-medium">Isla 19, Contralmirante Guerrico</p>
+        <p className="text-gray-500 text-xs">Allen, Río Negro, Argentina</p>
         <a
           href={mapsUrl}
           target="_blank"
