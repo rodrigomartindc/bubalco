@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { asset } from '../utils/asset';
 
 const Donations = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -32,12 +33,12 @@ const Donations = () => {
             <div className="mx-6 border-t border-gray-100" />
 
             {/* Mitad inferior: Bioparque */}
-            <div className="flex-1 flex flex-col items-center justify-center px-6 py-8 text-center bg-brand-dark rounded-b-[28px]">
-              <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Bioparque Bubalcó</p>
-              <h3 className="text-xl font-medium text-white mb-2">
-                Fundación Bubalcó Patagonia
+            <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center bg-brand-dark rounded-b-[28px]">
+              <img src={asset('/logos/isologo-blanco.png')} alt="Bubalcó" className="h-10 mb-3 opacity-60" />
+              <h3 className="text-lg font-medium text-white mb-1">
+                Bioparque Bubalcó
               </h3>
-              <p className="text-sm text-white/50 mb-6">
+              <p className="text-xs text-white/50 mb-5">
                 Visitas educativas · Grupos escolares
               </p>
               <Link

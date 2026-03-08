@@ -54,7 +54,7 @@ const Footer = () => {
 
         <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-xs text-gray-500 flex items-center gap-1">
-            © 2024 Bubalcó. Hecho con <Heart size={12} className="text-accent" fill="currentColor" /> para los animales
+            © 2026 Bubalcó. Hecho con <Heart size={12} className="text-accent" fill="currentColor" /> para los animales
           </p>
           <div className="flex gap-6 text-xs">
             <a href="#" className="text-gray-500 hover:text-white transition-colors">Privacidad</a>
