@@ -28,11 +28,11 @@ export default function Home() {
         <NuestroTrabajo />
         <MapsBlock />
         <Donations />
-        <BioparqueBlock />
         <FooterSlide />
       </div>
       {isDesktop && (
         <>
+          <BioparqueBlock />
           <GoogleMapsFooter />
           <Footer />
         </>

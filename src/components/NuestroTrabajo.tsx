@@ -14,19 +14,21 @@ export default function NuestroTrabajo() {
     <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-gray-50">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-gray-50">
-          <div className="px-6 py-10">
+          <div className="px-6 py-8">
             <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Nuestro Trabajo</p>
+              <p className="text-xs tracking-widest text-brand uppercase mb-4">Nuestro Trabajo</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-3">Lo que hacemos cada día</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-8">
-                Nuestro trabajo se sostiene sobre cuatro pilares fundamentales que guían cada acción para proteger la fauna silvestre.
+              <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                Cuatro pilares fundamentales que guían cada acción.
               </p>
               <div className="space-y-3">
                 {pillars.map((c) => (
                   <div key={c.n} className="rounded-xl p-5 bg-white border border-gray-100">
-                    <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">{c.n}</p>
-                    <h3 className="text-base font-medium text-gray-900 mb-1">{c.title}</h3>
-                    <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="w-6 h-6 rounded-full bg-brand/10 text-brand text-[10px] font-medium flex items-center justify-center flex-shrink-0">{c.n}</span>
+                      <h3 className="text-base font-medium text-gray-900">{c.title}</h3>
+                    </div>
+                    <p className="text-sm text-gray-500 leading-relaxed pl-9">{c.desc}</p>
                   </div>
                 ))}
               </div>
@@ -37,7 +39,7 @@ export default function NuestroTrabajo() {
 
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Nuestro Trabajo</p>
+          <p className="text-xs tracking-widest text-brand uppercase mb-6">Nuestro Trabajo</p>
           <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">Lo que hacemos cada día</h2>
           <p className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Nuestro trabajo se sostiene sobre cuatro pilares fundamentales que guían cada acción para proteger la fauna silvestre.
@@ -45,8 +47,10 @@ export default function NuestroTrabajo() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((c, i) => (
-            <div key={c.n} className={`rounded-2xl p-7 md:p-8 bg-white border border-gray-100 hover:border-gray-200 transition-colors ${isVisible ? `animate-scale-in delay-${(i + 1) * 100}` : 'opacity-0'}`}>
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">{c.n}</p>
+            <div key={c.n} className={`rounded-2xl p-7 md:p-8 bg-white border border-gray-100 hover:border-brand/30 transition-colors ${isVisible ? `animate-scale-in delay-${(i + 1) * 100}` : 'opacity-0'}`}>
+              <div className="flex items-center gap-3 mb-6">
+                <span className="w-8 h-8 rounded-full bg-brand/10 text-brand text-xs font-medium flex items-center justify-center flex-shrink-0">{c.n}</span>
+              </div>
               <h3 className="text-lg font-medium text-gray-900 mb-3">{c.title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
             </div>
