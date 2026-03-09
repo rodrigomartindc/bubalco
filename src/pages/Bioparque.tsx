@@ -17,26 +17,26 @@ export default function Bioparque() {
       <div className="bioparque-slides md:hidden">
         {/* Slide 1: Intro */}
         <section className="bp-slide">
-          <div className="bp-card bg-white">
+          <div className="bp-card bg-brand-dark text-white">
             <div className="px-6 py-10 h-full flex flex-col justify-center text-center">
-              <img src={asset('/logos/isologo-colores.png')} alt="Bubalcó" className="h-16 mx-auto mb-4" />
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-3">Bioparque</p>
-              <h1 className="text-2xl font-medium text-gray-900 mb-3">Bubalcó Patagonia</h1>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <img src={asset('/logos/isologo-blanco.png')} alt="Bubalcó" className="h-16 mx-auto mb-4 opacity-70" />
+              <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Bioparque</p>
+              <h1 className="text-2xl font-medium text-white mb-3">Bubalcó Patagonia</h1>
+              <p className="text-sm text-white/60 leading-relaxed">
                 34 hectáreas a orillas del Río Negro dedicadas al rescate y conservación de fauna silvestre.
               </p>
               <div className="mt-6 grid grid-cols-3 gap-3">
-                <div className="rounded-xl bg-gray-50 border border-gray-100 p-3 text-center">
-                  <Users size={16} className="text-gray-400 mx-auto mb-1" />
-                  <p className="text-[10px] text-gray-500">Visitas educativas</p>
+                <div className="rounded-xl bg-white/10 border border-white/10 p-3 text-center">
+                  <Users size={16} className="text-white/50 mx-auto mb-1" />
+                  <p className="text-[10px] text-white/60">Visitas educativas</p>
                 </div>
-                <div className="rounded-xl bg-gray-50 border border-gray-100 p-3 text-center">
-                  <Clock size={16} className="text-gray-400 mx-auto mb-1" />
-                  <p className="text-[10px] text-gray-500">3hs de recorrido</p>
+                <div className="rounded-xl bg-white/10 border border-white/10 p-3 text-center">
+                  <Clock size={16} className="text-white/50 mx-auto mb-1" />
+                  <p className="text-[10px] text-white/60">3hs de recorrido</p>
                 </div>
-                <div className="rounded-xl bg-gray-50 border border-gray-100 p-3 text-center">
-                  <MapPin size={16} className="text-gray-400 mx-auto mb-1" />
-                  <p className="text-[10px] text-gray-500">9 zonas temáticas</p>
+                <div className="rounded-xl bg-white/10 border border-white/10 p-3 text-center">
+                  <MapPin size={16} className="text-white/50 mx-auto mb-1" />
+                  <p className="text-[10px] text-white/60">9 zonas temáticas</p>
                 </div>
               </div>
             </div>
