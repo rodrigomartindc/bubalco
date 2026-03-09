@@ -1,5 +1,9 @@
-import { Clock, Sun, Moon, Calendar, MapPin, Info, Users } from 'lucide-react';
+import { Clock, Sun, Moon, Calendar, MapPin, Info, Users, Instagram, Mail, Phone } from 'lucide-react';
 import { asset } from '../utils/asset';
+
+const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
+const plusCode = 'W6RR+5X Allen, Río Negro';
+const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(plusCode)}&output=embed`;
 
 const zones = [
   'Área Silvestre', 'Parque de Loros', 'Primates', 'Llanura Pampeana',
@@ -136,13 +140,59 @@ export default function Bioparque() {
           </div>
         </section>
 
-        {/* Slide 4: Mapa */}
+        {/* Slide 4: Mapa descargable */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-4 py-6 h-full flex flex-col justify-center">
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-3 text-center">Recorrido</p>
-              <h2 className="text-xl font-medium text-gray-900 mb-4 text-center">Mapa del Bioparque</h2>
-              <img src={asset('/mapa-bubalco.jpg')} alt="Mapa del Bioparque" className="w-full rounded-xl flex-1 object-contain" />
+            <div className="px-6 py-10 h-full flex flex-col items-center justify-center text-center">
+              <MapPin size={32} className="text-brand mb-4" />
+              <p className="text-xs tracking-widest text-gray-400 uppercase mb-3">Recorrido</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-3">Mapa del Bioparque</h2>
+              <p className="text-sm text-gray-500 mb-8">
+                9 zonas temáticas a orillas del Río Negro. Descargá el mapa para planificar tu recorrido.
+              </p>
+              <a
+                href={asset('/mapa-bubalco.jpg')}
+                download="mapa-bubalco-patagonia.jpg"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors"
+              >
+                Descargar mapa
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* Slide 5: Google Maps + Footer */}
+        <section className="bp-slide">
+          <div className="bp-card bg-gray-900 text-white">
+            <div className="h-full flex flex-col">
+              <div className="relative h-[45%] flex-shrink-0">
+                <iframe title="Ubicación Bubalcó" src={embedUrl} className="w-full h-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur rounded-md px-3 py-1.5">
+                  <p className="text-gray-900 text-xs font-medium">Isla 19, Contralmirante Guerrico</p>
+                  <p className="text-gray-500 text-[10px]">Allen, Río Negro, Argentina</p>
+                </div>
+              </div>
+              <div className="flex-1 px-5 py-5 flex flex-col justify-between">
+                <div>
+                  <img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-8 mb-3" />
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2">
+                      <Phone size={13} className="text-gray-500" />
+                      <a href={WA_URL} target="_blank" rel="noreferrer" className="text-xs text-gray-400">+54 9 298 473-1612</a>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Mail size={13} className="text-gray-500" />
+                      <p className="text-xs text-gray-400">info@bubalco.com</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="pt-4 border-t border-gray-800 flex items-center justify-between">
+                  <div className="flex gap-2">
+                    <a href="https://www.instagram.com/bubalco/" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center" aria-label="Instagram"><Instagram size={14} /></a>
+                  </div>
+                  <p className="text-[10px] text-gray-500">© 2026 Bubalcó.</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>

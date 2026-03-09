@@ -21,7 +21,6 @@ function ScrollToTop() {
 function AppShell() {
   const location = useLocation();
   const isHome = location.pathname === '/';
-  const isBioparque = location.pathname === '/bioparque';
 
   return (
     <div className="min-h-screen bg-white">
@@ -37,8 +36,8 @@ function AppShell() {
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[7.5rem]"><Volunteering /></div>} />
       </Routes>
-      {!isHome && !isBioparque && <GoogleMapsFooter />}
-      {!isHome && !isBioparque && <Footer />}
+      {!isHome && <GoogleMapsFooter />}
+      {!isHome && <Footer />}
     </div>
   );
 }

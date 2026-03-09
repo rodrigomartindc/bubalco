@@ -5,10 +5,10 @@ import { asset } from '../utils/asset';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [bioparqueOpen, setBioparqueOpen] = useState(false);
+  const [bioparqueOpen, setBioparqueOpen] = useState(true);
   const location = useLocation();
 
-  useEffect(() => { setIsOpen(false); setBioparqueOpen(false); }, [location]);
+  useEffect(() => { setIsOpen(false); }, [location]);
 
   const isBioparque = location.pathname === '/bioparque';
 
