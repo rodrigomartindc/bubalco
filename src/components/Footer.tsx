@@ -46,8 +46,8 @@ const Footer = () => {
             <ul className="space-y-3">
               <li><a href="/nosotros" className="text-sm text-gray-400 hover:text-white transition-colors">Quiénes Somos</a></li>
               <li><a href="/bioparque" className="text-sm text-gray-400 hover:text-white transition-colors">Bioparque</a></li>
-              <li><a href="/tarifas" className="text-sm text-gray-400 hover:text-white transition-colors">Tarifas</a></li>
-              <li><a href="/horarios" className="text-sm text-gray-400 hover:text-white transition-colors">Horarios</a></li>
+              <li><a href="/bioparque#tarifas" className="text-sm text-gray-400 hover:text-white transition-colors">Tarifas</a></li>
+              <li><a href="/bioparque#horarios" className="text-sm text-gray-400 hover:text-white transition-colors">Horarios</a></li>
             </ul>
           </div>
         </div>

@@ -97,6 +97,41 @@
     overflow: hidden;
     -webkit-overflow-scrolling: touch;
   }
+
+  .bioparque-slides {
+    --bp-nav: 120px;
+    position: fixed;
+    top: var(--bp-nav);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    background: #ffffff;
+  }
+
+  .bp-slide {
+    height: calc(100dvh - var(--bp-nav));
+    min-height: calc(100dvh - var(--bp-nav));
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px;
+  }
+
+  .bp-card {
+    width: min(420px, 100%);
+    height: calc(100dvh - var(--bp-nav) - 24px);
+    border-radius: 28px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    box-shadow:
+      0 18px 50px rgba(0, 0, 0, 0.08),
+      0 2px 10px rgba(0, 0, 0, 0.04);
+  }
 }
 
 @keyframes fadeInUp {

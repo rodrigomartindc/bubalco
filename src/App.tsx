@@ -6,10 +6,9 @@ import WhatsAppButton from './components/WhatsAppButton';
 import Footer from './components/Footer';
 import GoogleMapsFooter from './components/GoogleMapsFooter';
 import Home from './pages/Home';
-import Tarifas from './pages/Tarifas';
-import Horarios from './pages/Horarios';
 import Nosotros from './pages/Nosotros';
 import Bioparque from './pages/Bioparque';
+import Donaciones from './pages/Donaciones';
 import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
 
@@ -22,6 +21,7 @@ function ScrollToTop() {
 function AppShell() {
   const location = useLocation();
   const isHome = location.pathname === '/';
+  const isBioparque = location.pathname === '/bioparque';
 
   return (
     <div className="min-h-screen bg-white">
@@ -31,15 +31,14 @@ function AppShell() {
       <WhatsAppButton />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/tarifas" element={<Tarifas />} />
-        <Route path="/horarios" element={<Horarios />} />
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/bioparque" element={<Bioparque />} />
+        <Route path="/donaciones" element={<Donaciones />} />
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[7.5rem]"><Volunteering /></div>} />
       </Routes>
-      {!isHome && <GoogleMapsFooter />}
-      {!isHome && <Footer />}
+      {!isHome && !isBioparque && <GoogleMapsFooter />}
+      {!isHome && !isBioparque && <Footer />}
     </div>
   );
 }
