@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import DonationStrip from './components/DonationStrip';
@@ -20,7 +20,20 @@ function ScrollToTop() {
 
 function AppShell() {
   const location = useLocation();
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia('(min-width: 768px)');
+    const handle = () => setIsDesktop(mq.matches);
+    handle();
+    mq.addEventListener('change', handle);
+    return () => mq.removeEventListener('change', handle);
+  }, []);
+
   const isHome = location.pathname === '/';
+  const isBioparque = location.pathname === '/bioparque';
+  const hasOwnMobileFooter = isHome || isBioparque;
+  const showAppFooter = hasOwnMobileFooter ? isDesktop : true;
 
   return (
     <div className="min-h-screen bg-white">
@@ -36,8 +49,8 @@ function AppShell() {
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[7.5rem]"><Volunteering /></div>} />
       </Routes>
-      {!isHome && <GoogleMapsFooter />}
-      {!isHome && <Footer />}
+      {showAppFooter && <GoogleMapsFooter />}
+      {showAppFooter && <Footer />}
     </div>
   );
 }
