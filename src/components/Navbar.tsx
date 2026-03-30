@@ -13,18 +13,19 @@ const Navbar = () => {
 
   const isBioparque = location.pathname === '/bioparque';
 
+  const scrollToId = (id: string) => {
+    const el = document.getElementById(id) || document.getElementById(id + '-m');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
   const goToSection = (hash: string) => {
+    setIsOpen(false);
     if (isBioparque) {
-      const el = document.getElementById(hash);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
+      scrollToId(hash);
     } else {
       navigate('/bioparque');
-      setTimeout(() => {
-        const el = document.getElementById(hash);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 100);
+      setTimeout(() => scrollToId(hash), 300);
     }
-    setIsOpen(false);
   };
 
   return (

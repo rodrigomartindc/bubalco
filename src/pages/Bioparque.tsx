@@ -44,7 +44,7 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 2: Horarios */}
-        <section id="horarios" className="bp-slide">
+        <section id="horarios-m" className="bp-slide">
           <div className="bp-card bg-brand-dark text-white">
             <div className="px-6 py-8 h-full flex flex-col justify-center">
               <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Horarios</p>
@@ -94,7 +94,7 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 3: Tarifas */}
-        <section id="tarifas" className="bp-slide">
+        <section id="tarifas-m" className="bp-slide">
           <div className="bp-card bg-brand-dark text-white">
             <div className="px-6 py-8 h-full flex flex-col justify-center">
               <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Tarifas</p>
