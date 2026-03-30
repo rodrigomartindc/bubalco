@@ -1,16 +1,31 @@
 import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { asset } from '../utils/asset';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [bioparqueOpen, setBioparqueOpen] = useState(true);
+  const [bioparqueOpen] = useState(true);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => { setIsOpen(false); }, [location]);
 
   const isBioparque = location.pathname === '/bioparque';
+
+  const goToSection = (hash: string) => {
+    if (isBioparque) {
+      const el = document.getElementById(hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/bioparque');
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    }
+    setIsOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 w-full z-50 bg-white/95 backdrop-blur-lg shadow-sm">
@@ -32,8 +47,8 @@ const Navbar = () => {
               </NavLink>
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                 <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[160px]">
-                  <a href="/bioparque#horarios" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Horarios</a>
-                  <a href="/bioparque#tarifas" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Tarifas</a>
+                  <button onClick={() => goToSection('horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Horarios</button>
+                  <button onClick={() => goToSection('tarifas')} className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Tarifas</button>
                 </div>
               </div>
             </div>
@@ -72,24 +87,17 @@ const Navbar = () => {
             </NavLink>
 
             <div>
-              <button
-                onClick={() => setBioparqueOpen(!bioparqueOpen)}
-                className={`w-full flex items-center justify-between px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isBioparque ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}
-              >
+              <Link to="/bioparque" className={`block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isBioparque ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
                 Bioparque
-                <ChevronDown size={16} className={`transition-transform ${bioparqueOpen ? 'rotate-180' : ''}`} />
-              </button>
+              </Link>
               {bioparqueOpen && (
                 <div className="ml-4 mt-1 space-y-1">
-                  <Link to="/bioparque" className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
-                    General
-                  </Link>
-                  <a href="/bioparque#horarios" className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                  <button onClick={() => goToSection('horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
                     Horarios
-                  </a>
-                  <a href="/bioparque#tarifas" className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                  </button>
+                  <button onClick={() => goToSection('tarifas')} className="block w-full text-left px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
                     Tarifas
-                  </a>
+                  </button>
                 </div>
               )}
             </div>
