@@ -1,10 +1,10 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const pillars = [
-  { n: '01', title: 'Refugio', desc: 'Hogar seguro para fauna silvestre.' },
-  { n: '02', title: 'Conservación', desc: 'Preservación de especies nativas.' },
-  { n: '03', title: 'Rescate', desc: 'Respuesta 24/7 a emergencias.' },
-  { n: '04', title: 'Educación', desc: 'Concientización ambiental.' },
+  { n: '01', title: 'Refugio', desc: 'Una casa para animales que no pueden volver a la naturaleza.' },
+  { n: '02', title: 'Conservación', desc: 'Proyectos concretos para proteger especies.' },
+  { n: '03', title: 'Rescate', desc: 'Intervenimos cuando la fauna silvestre necesita ayuda.' },
+  { n: '04', title: 'Educación', desc: 'El conocimiento y el amor por la naturaleza son la base del cambio.' },
 ];
 
 export default function NuestroTrabajo() {
@@ -16,19 +16,17 @@ export default function NuestroTrabajo() {
         <div className="slide-card__scroll bg-gray-50">
           <div className="px-6 py-8">
             <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <p className="text-xs tracking-widest text-brand uppercase mb-4">Nuestro Trabajo</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-3">Lo que hacemos cada día</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                Cuatro pilares fundamentales que guían cada acción.
+              <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestro Trabajo</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-2">Cómo protegemos la vida silvestre</h2>
+              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+                Cuatro ejes que orientan todo lo que hacemos.
               </p>
-              <div className="space-y-3">
+              <div className="grid grid-cols-2 gap-3">
                 {pillars.map((c) => (
-                  <div key={c.n} className="rounded-xl p-5 bg-white border border-gray-100">
-                    <div className="flex items-center gap-3 mb-2">
-                      <span className="w-6 h-6 rounded-full bg-brand/10 text-brand text-[10px] font-medium flex items-center justify-center flex-shrink-0">{c.n}</span>
-                      <h3 className="text-base font-medium text-gray-900">{c.title}</h3>
-                    </div>
-                    <p className="text-sm text-gray-500 leading-relaxed pl-9">{c.desc}</p>
+                  <div key={c.n} className="rounded-xl p-4 bg-white border border-gray-100">
+                    <span className="w-6 h-6 rounded-full bg-brand/10 text-brand text-[10px] font-medium flex items-center justify-center mb-2">{c.n}</span>
+                    <h3 className="text-sm font-medium text-gray-900 mb-1">{c.title}</h3>
+                    <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>
                   </div>
                 ))}
               </div>
@@ -40,17 +38,15 @@ export default function NuestroTrabajo() {
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
         <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <p className="text-xs tracking-widest text-brand uppercase mb-6">Nuestro Trabajo</p>
-          <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">Lo que hacemos cada día</h2>
+          <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">Cómo protegemos la vida silvestre</h2>
           <p className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">
-            Nuestro trabajo se sostiene sobre cuatro pilares fundamentales que guían cada acción para proteger la fauna silvestre.
+            Cuatro ejes de trabajo que orientan todo lo que hacemos cada día para proteger la vida silvestre.
           </p>
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((c, i) => (
             <div key={c.n} className={`rounded-2xl p-7 md:p-8 bg-white border border-gray-100 hover:border-brand/30 transition-colors ${isVisible ? `animate-scale-in delay-${(i + 1) * 100}` : 'opacity-0'}`}>
-              <div className="flex items-center gap-3 mb-6">
-                <span className="w-8 h-8 rounded-full bg-brand/10 text-brand text-xs font-medium flex items-center justify-center flex-shrink-0">{c.n}</span>
-              </div>
+              <span className="w-8 h-8 rounded-full bg-brand/10 text-brand text-xs font-medium flex items-center justify-center mb-6">{c.n}</span>
               <h3 className="text-lg font-medium text-gray-900 mb-3">{c.title}</h3>
               <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
             </div>

@@ -1,4 +1,5 @@
 import { Instagram, Mail, MapPin, Phone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { asset } from '../utils/asset';
 
 const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
@@ -29,7 +30,8 @@ export default function FooterSlide() {
             {/* Footer abajo */}
             <div className="flex-1 px-5 py-5 flex flex-col justify-between">
               <div>
-                <img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-8 mb-3" />
+                  <Link to="/"><img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-8 mb-1" /></Link>
+                  <p className="text-xs text-gray-500 mb-2">Fundación Bubalcó Patagonia</p>
                 <div className="space-y-2">
                   <div className="flex items-center gap-2">
                     <Phone size={13} className="text-gray-500" />
@@ -47,7 +49,7 @@ export default function FooterSlide() {
               </div>
               <div className="pt-4 border-t border-gray-800 flex items-center justify-between">
                 <div className="flex gap-2">
-                  <a href="https://www.instagram.com/bubalco/" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand transition-colors" aria-label="Instagram">
+                  <a href="https://www.instagram.com/bubalcopatagonia/" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand transition-colors" aria-label="Instagram">
                     <Instagram size={14} />
                   </a>
                   <a href={WA_URL} target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-[#25d366] transition-colors" aria-label="WhatsApp">

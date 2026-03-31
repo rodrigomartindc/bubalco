@@ -9,6 +9,8 @@ import Home from './pages/Home';
 import Nosotros from './pages/Nosotros';
 import Bioparque from './pages/Bioparque';
 import Donaciones from './pages/Donaciones';
+import VisitasEscolares from './pages/VisitasEscolares';
+import Novedades from './pages/Novedades';
 import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
 
@@ -46,6 +48,8 @@ function AppShell() {
         <Route path="/nosotros" element={<Nosotros />} />
         <Route path="/bioparque" element={<Bioparque />} />
         <Route path="/donaciones" element={<Donaciones />} />
+        <Route path="/visitas-escolares" element={<VisitasEscolares />} />
+        <Route path="/novedades" element={<Novedades />} />
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[7.5rem]"><Volunteering /></div>} />
       </Routes>

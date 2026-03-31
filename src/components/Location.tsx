@@ -81,7 +81,7 @@ const Location = () => {
           </div>
 
           <div className="flex gap-3">
-            <a href="https://www.instagram.com/bubalco/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center hover:bg-brand transition-colors">
+            <a href="https://www.instagram.com/bubalcopatagonia/" target="_blank" rel="noreferrer" className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center hover:bg-brand transition-colors">
               <Instagram className="text-white" size={20} />
             </a>
             <a href={WA_URL} target="_blank" rel="noreferrer" className="w-12 h-12 bg-gray-900 rounded-xl flex items-center justify-center hover:bg-[#25d366] transition-colors">

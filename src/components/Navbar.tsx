@@ -5,7 +5,6 @@ import { asset } from '../utils/asset';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [bioparqueOpen] = useState(true);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -13,18 +12,17 @@ const Navbar = () => {
 
   const isBioparque = location.pathname === '/bioparque';
 
-  const scrollToId = (id: string) => {
-    const el = document.getElementById(id) || document.getElementById(id + '-m');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
-
   const goToSection = (hash: string) => {
     setIsOpen(false);
     if (isBioparque) {
-      scrollToId(hash);
+      const el = document.getElementById(hash) || document.getElementById(hash + '-m');
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
     } else {
       navigate('/bioparque');
-      setTimeout(() => scrollToId(hash), 300);
+      setTimeout(() => {
+        const el = document.getElementById(hash) || document.getElementById(hash + '-m');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
     }
   };
 
@@ -37,39 +35,44 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7">
             <NavLink to="/" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
               Inicio
             </NavLink>
 
             <div className="relative group">
               <NavLink to="/bioparque" className={`text-sm tracking-wide transition-colors flex items-center gap-1 ${isBioparque ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
-                Bioparque <ChevronDown size={14} />
+                Visitar el Bioparque <ChevronDown size={14} />
               </NavLink>
               <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
-                <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[160px]">
-                  <button onClick={() => goToSection('horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Horarios</button>
-                  <button onClick={() => goToSection('tarifas')} className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Tarifas</button>
+                <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[180px]">
+                  <Link to="/bioparque" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">El Bioparque</Link>
+                  <button onClick={() => goToSection('tarifas-horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Tarifas y Horarios</button>
+                  <Link to="/visitas-escolares" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Visitas Escolares</Link>
                 </div>
               </div>
             </div>
+
+            <NavLink to="/novedades" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
+              Novedades
+            </NavLink>
 
             <NavLink to="/voluntariado" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
               Voluntariado
             </NavLink>
 
-            <NavLink to="/donaciones" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
-              Donaciones
+            <NavLink to="/donaciones" className={({ isActive }) => `text-sm tracking-wide transition-colors font-medium ${isActive ? 'text-accent' : 'text-accent hover:text-amber-600'}`}>
+              Apoyar la conservación
             </NavLink>
 
-            <a href="https://www.instagram.com/bubalco/" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors" aria-label="Instagram">
+            <a href="https://www.instagram.com/bubalcopatagonia/" target="_blank" rel="noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors" aria-label="Instagram">
               <Instagram size={18} />
             </a>
           </div>
 
           {/* Mobile */}
           <div className="flex md:hidden items-center gap-4">
-            <a href="https://www.instagram.com/bubalco/" target="_blank" rel="noreferrer" className="text-gray-900" aria-label="Instagram">
+            <a href="https://www.instagram.com/bubalcopatagonia/" target="_blank" rel="noreferrer" className="text-gray-900" aria-label="Instagram">
               <Instagram size={20} />
             </a>
             <button onClick={() => setIsOpen(!isOpen)} className="text-gray-900">
@@ -89,26 +92,31 @@ const Navbar = () => {
 
             <div>
               <Link to="/bioparque" className={`block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isBioparque ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
-                Bioparque
+                Visitar el Bioparque
               </Link>
-              {bioparqueOpen && (
-                <div className="ml-4 mt-1 space-y-1">
-                  <button onClick={() => goToSection('horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
-                    Horarios
-                  </button>
-                  <button onClick={() => goToSection('tarifas')} className="block w-full text-left px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
-                    Tarifas
-                  </button>
-                </div>
-              )}
+              <div className="ml-4 mt-1 space-y-1">
+                <Link to="/bioparque" className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                  El Bioparque
+                </Link>
+                <button onClick={() => goToSection('tarifas-horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                  Tarifas y Horarios
+                </button>
+                <Link to="/visitas-escolares" className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                  Visitas Escolares
+                </Link>
+              </div>
             </div>
+
+            <NavLink to="/novedades" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+              Novedades
+            </NavLink>
 
             <NavLink to="/voluntariado" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
               Voluntariado
             </NavLink>
 
-            <NavLink to="/donaciones" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
-              Donaciones
+            <NavLink to="/donaciones" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg font-medium transition-colors ${isActive ? 'bg-accent/10 text-accent' : 'text-accent hover:bg-accent/10'}`}>
+              Apoyar la conservación
             </NavLink>
           </div>
         </div>
