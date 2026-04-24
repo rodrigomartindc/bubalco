@@ -84,7 +84,7 @@ const Navbar = () => {
 
       {/* Mobile menu */}
       {isOpen && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden fixed top-[124px] left-0 right-0 bottom-0 bg-white border-t overflow-y-auto z-50">
           <div className="px-6 py-4 space-y-1">
             <NavLink to="/" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
               Inicio
