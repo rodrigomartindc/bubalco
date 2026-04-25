@@ -54,11 +54,15 @@ const Navbar = () => {
                 </div>
               </div>
 
-              <NavLink to="/novedades" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
-                Novedades
-              </NavLink>
+            <NavLink to="/nuestro-trabajo" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
+              Nuestro Trabajo
+            </NavLink>
 
-              <NavLink to="/voluntariado" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
+            <NavLink to="/novedades" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
+              Novedades
+            </NavLink>
+
+            <NavLink to="/voluntariado" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
                 Voluntariado
               </NavLink>
 
@@ -111,6 +115,10 @@ const Navbar = () => {
                 </Link>
               </div>
             </div>
+
+            <NavLink to="/nuestro-trabajo" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+              Nuestro Trabajo
+            </NavLink>
 
             <NavLink to="/novedades" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
               Novedades
