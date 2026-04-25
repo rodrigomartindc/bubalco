@@ -36,7 +36,7 @@ export default function Bioparque() {
         {/* Slide 2: Qué es */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center">
+            <div className="px-6 py-8 h-full flex flex-col justify-center items-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Conservación en acción</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">Un refugio para animales que no pueden volver a la naturaleza</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -71,7 +71,7 @@ export default function Bioparque() {
         {/* Slide 4: De dónde vienen */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center">
+            <div className="px-6 py-8 h-full flex flex-col justify-center items-center">
               <p className="text-xs tracking-widest text-gray-400 uppercase mb-3">Historias que merecen ser contadas</p>
               <h2 className="text-xl font-medium text-gray-900 mb-4">De dónde vienen los habitantes del parque</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -92,7 +92,7 @@ export default function Bioparque() {
         {/* Slide 5: Por qué abrimos */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-6 h-full flex flex-col justify-center">
+            <div className="px-6 py-6 h-full flex flex-col justify-center items-center">
               <p className="text-xs tracking-widest text-gray-400 uppercase mb-3">Nuestra misión</p>
               <h2 className="text-lg font-medium text-gray-900 mb-4">Por qué abrimos el bioparque al público</h2>
               <div className="space-y-3">
@@ -117,7 +117,7 @@ export default function Bioparque() {
         {/* Slide 6: Tarifas y Horarios */}
         <section id="tarifas-horarios-m" className="bp-slide">
           <div className="bp-card bg-brand-dark text-white">
-            <div className="px-6 py-6 h-full flex flex-col justify-center">
+            <div className="px-6 py-6 h-full flex flex-col justify-center items-center">
               <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Planificá tu visita</p>
               <h2 className="text-xl font-medium text-white mb-4">Horarios y Tarifas</h2>
 
