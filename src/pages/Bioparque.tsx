@@ -103,7 +103,7 @@ export default function Bioparque() {
                 ].map((b) => (
                   <div key={b.n} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="w-5 h-5 rounded-full bg-brand/10 text-brand text-[10px] flex items-center justify-center flex-shrink-0">{b.n}</span>
+                      <span className="w-5 h-5 rounded-full bg-brand/10 text-brand text-[12px] flex items-center justify-center flex-shrink-0">{b.n}</span>
                       <h3 className="text-sm font-medium text-gray-900">{b.title}</h3>
                     </div>
                     <p className="text-xs text-gray-500 leading-relaxed pl-7">{b.desc}</p>
@@ -148,7 +148,7 @@ export default function Bioparque() {
                 </div>
               </div>
 
-              <p className="text-[10px] text-white/40 mt-3 text-center">Tu entrada contribuye directamente al trabajo de la fundación</p>
+              <p className="text-[12px] text-white/40 mt-3 text-center">Tu entrada contribuye directamente al trabajo de la fundación</p>
             </div>
           </div>
         </section>
@@ -177,7 +177,7 @@ export default function Bioparque() {
                 <iframe title="Ubicación Bubalcó" src={embedUrl} className="w-full h-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
                 <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur rounded-md px-3 py-1.5">
                   <p className="text-gray-900 text-xs font-medium">Isla 19, Contralmirante Guerrico</p>
-                  <p className="text-gray-500 text-[10px]">Allen, Río Negro, Argentina</p>
+                  <p className="text-gray-500 text-[12px]">Allen, Río Negro, Argentina</p>
                 </div>
               </div>
               <div className="flex-1 px-5 py-5 flex flex-col justify-between">
@@ -193,7 +193,7 @@ export default function Bioparque() {
                   <div className="flex gap-2">
                     <a href="https://www.instagram.com/bubalcopatagonia/" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center" aria-label="Instagram"><Instagram size={14} /></a>
                   </div>
-                  <p className="text-[10px] text-gray-500">© 2026 Fundación Bubalcó</p>
+                  <p className="text-[12px] text-gray-500">© 2026 Fundación Bubalcó</p>
                 </div>
               </div>
             </div>

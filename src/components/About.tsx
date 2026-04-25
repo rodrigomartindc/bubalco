@@ -33,7 +33,7 @@ const About = () => {
                 ].map((s) => (
                   <div key={s.label} className="text-center">
                     <p className="text-2xl font-medium text-gray-900">{s.value}</p>
-                    <p className="text-[10px] text-gray-500 mt-1 leading-tight">{s.label}</p>
+                    <p className="text-[12px] text-gray-500 mt-1 leading-tight">{s.label}</p>
                   </div>
                 ))}
               </div>

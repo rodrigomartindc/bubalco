@@ -24,7 +24,7 @@ export default function NuestroTrabajo() {
               <div className="grid grid-cols-2 gap-3">
                 {pillars.map((c) => (
                   <div key={c.n} className="rounded-xl p-4 bg-white border border-gray-100">
-                    <span className="w-6 h-6 rounded-full bg-brand/10 text-brand text-[10px] font-medium flex items-center justify-center mb-2">{c.n}</span>
+                    <span className="w-6 h-6 rounded-full bg-brand/10 text-brand text-[12px] font-medium flex items-center justify-center mb-2">{c.n}</span>
                     <h3 className="text-sm font-medium text-gray-900 mb-1">{c.title}</h3>
                     <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>
                   </div>
