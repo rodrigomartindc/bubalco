@@ -10,22 +10,26 @@ const Hero = () => {
       {/* Mobile */}
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative h-full bg-white">
-          <div className="relative z-10 px-6 py-10 w-full h-full flex flex-col items-center justify-center">
-            <div className={`text-center flex-1 flex flex-col justify-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-              <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-6 border-2 border-gray-100 animate-fade-in-up delay-100">
-                <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó" className="w-full h-full object-cover" />
-              </div>
-              <h1 className="text-2xl font-medium text-gray-900 mb-3 animate-fade-in-up delay-200">
+          <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="p-3 pb-0 animate-fade-in-up delay-100" style={{ flex: '0 0 45%' }}>
+              <img
+                src={asset('/hero-ciervos.jpg')}
+                alt="Fauna silvestre en Bubalcó Patagonia"
+                className="w-full h-full object-cover rounded-t-[24px]"
+              />
+            </div>
+            <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center">
+              <h1 className="text-xl font-medium text-gray-900 mb-2 animate-fade-in-up delay-200">
                 Refugio, rescate y conservación en la Patagonia Argentina
               </h1>
-              <p className="text-sm text-gray-500 mb-8 animate-fade-in-up delay-300">
+              <p className="text-sm text-gray-500 mb-5 animate-fade-in-up delay-300">
                 Inspirando a salvar la fauna silvestre para el futuro
               </p>
-              <div className="flex flex-col gap-3 items-stretch animate-fade-in-up delay-400">
-                <Link to="/bioparque" className="px-7 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors text-center">
+              <div className="flex flex-col gap-3 items-stretch w-full animate-fade-in-up delay-400">
+                <Link to="/bioparque" className="px-7 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors text-center">
                   Descubrí el Bioparque
                 </Link>
-                <Link to="/nosotros" className="px-7 py-4 border border-gray-200 text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-50 transition-colors text-center">
+                <Link to="/nosotros" className="px-7 py-3 border border-gray-200 text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-50 transition-colors text-center">
                   Nuestro trabajo en conservación
                 </Link>
               </div>
@@ -37,8 +41,12 @@ const Hero = () => {
       {/* Desktop */}
       <div className="hidden md:block relative z-10 px-6 md:px-12 max-w-5xl mx-auto w-full">
         <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="w-32 h-32 rounded-full overflow-hidden mx-auto mb-8 border-2 border-gray-100 animate-fade-in-up delay-100">
-            <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó" className="w-full h-full object-cover" />
+          <div className="max-w-3xl mx-auto mb-10 rounded-2xl overflow-hidden animate-fade-in-up delay-100">
+            <img
+              src={asset('/hero-ciervos.jpg')}
+              alt="Fauna silvestre en Bubalcó Patagonia"
+              className="w-full h-[360px] object-cover"
+            />
           </div>
           <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight animate-fade-in-up delay-200">
             Refugio, rescate y conservación<br />en la Patagonia Argentina
