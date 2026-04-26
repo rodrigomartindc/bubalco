@@ -11,11 +11,11 @@ const Hero = () => {
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative h-full bg-white">
           <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="p-3 pb-0 animate-fade-in-up delay-100" style={{ flex: '0 0 45%' }}>
+            <div className="animate-fade-in-up delay-100" style={{ flex: '0 0 35%' }}>
               <img
                 src={asset('/hero-ciervos.jpg')}
                 alt="Fauna silvestre en Bubalcó Patagonia"
-                className="w-full h-full object-cover rounded-t-[24px]"
+                className="w-full h-full object-cover"
               />
             </div>
             <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center">
@@ -41,11 +41,11 @@ const Hero = () => {
       {/* Desktop */}
       <div className="hidden md:block relative z-10 px-6 md:px-12 max-w-5xl mx-auto w-full">
         <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="max-w-3xl mx-auto mb-10 rounded-2xl overflow-hidden animate-fade-in-up delay-100">
+          <div className="max-w-2xl mx-auto mb-10 overflow-hidden animate-fade-in-up delay-100">
             <img
               src={asset('/hero-ciervos.jpg')}
               alt="Fauna silvestre en Bubalcó Patagonia"
-              className="w-full h-[360px] object-cover"
+              className="w-full h-[280px] object-cover"
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight animate-fade-in-up delay-200">
