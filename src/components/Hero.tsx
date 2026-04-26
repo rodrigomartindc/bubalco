@@ -11,11 +11,11 @@ const Hero = () => {
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative h-full bg-white">
           <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="animate-fade-in-up delay-100" style={{ flex: '0 0 35%' }}>
+            <div className="flex items-center justify-center animate-fade-in-up delay-100 px-6 pt-4" style={{ flex: '0 0 38%' }}>
               <img
                 src={asset('/hero-ciervos.jpg')}
                 alt="Fauna silvestre en Bubalcó Patagonia"
-                className="w-full h-full object-cover"
+                className="w-4/5 h-full object-cover rounded-xl"
               />
             </div>
             <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center">
