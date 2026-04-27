@@ -25,22 +25,22 @@ const About = () => {
                 Protegemos a la fauna silvestre y trabajamos para que la comunidad comprenda y valore la importancia de conservarla.
               </p>
 
-              <div className="grid grid-cols-3 gap-3 mb-6 bg-gray-50 rounded-2xl p-4 border border-gray-100">
+              <Link to="/nosotros" className="group inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors mb-6">
+                Conocer más <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
+
+              <div className="grid grid-cols-3 gap-3 bg-gray-50 rounded-2xl p-4 border border-gray-100">
                 {[
-                  { value: `+${years}`, label: 'Años en conservación' },
-                  { value: `${hectares}`, label: 'Hectáreas en Patagonia' },
-                  { value: `${animals}`, label: 'Animales protegidos' },
+                  { value: `+${years}`, label: 'Años trabajando en conservación' },
+                  { value: `${hectares}`, label: 'Hectáreas en Patagonia Argentina' },
+                  { value: `${animals}`, label: 'Animales protegidos en 2025' },
                 ].map((s) => (
                   <div key={s.label} className="text-center">
                     <p className="text-2xl font-medium text-gray-900">{s.value}</p>
-                    <p className="text-[12px] text-gray-500 mt-1 leading-tight">{s.label}</p>
+                    <p className="text-sm text-gray-500 mt-1 leading-tight">{s.label}</p>
                   </div>
                 ))}
               </div>
-
-              <Link to="/nosotros" className="group inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-                Conocer más <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
             </div>
           </div>
         </div>
