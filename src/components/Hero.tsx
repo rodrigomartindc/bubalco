@@ -11,8 +11,8 @@ const Hero = () => {
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative h-full bg-white">
           <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="flex items-center justify-center animate-fade-in-up delay-100 pt-4 pb-2">
-              <div className="w-40 h-40 rounded-full overflow-hidden">
+            <div className="flex items-center justify-center animate-fade-in-up delay-100 pt-3">
+              <div className="w-[15rem] h-[15rem] rounded-full overflow-hidden flex-shrink-0">
                 <img
                   src={asset('/hero-ciervos.jpg')}
                   alt="Fauna silvestre en Bubalcó Patagonia"
@@ -20,7 +20,7 @@ const Hero = () => {
                 />
               </div>
             </div>
-            <div className="flex-1 flex flex-col items-center justify-center px-6 py-2 text-center">
+            <div className="flex-1 flex flex-col items-center justify-center px-6 py-0 text-center -mt-2">
               <h1 className="text-xl font-medium text-gray-900 mb-2 animate-fade-in-up delay-200">
                 Refugio, rescate y conservación en la Patagonia Argentina
               </h1>
