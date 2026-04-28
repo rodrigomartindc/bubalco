@@ -29,15 +29,18 @@ const About = () => {
                 Conocer más <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
 
-              <div className="grid grid-cols-3 gap-3 bg-gray-50 rounded-2xl p-4 border border-gray-100">
+              <div className="space-y-3 w-full">
                 {[
-                  { value: `+${years}`, label: 'Años trabajando en conservación' },
-                  { value: `${hectares}`, label: 'Hectáreas en Patagonia Argentina' },
-                  { value: `${animals}`, label: 'Animales protegidos en 2025' },
+                  { value: `+${years}`, line1: 'Años trabajando', line2: 'en conservación' },
+                  { value: `${hectares}`, line1: 'Hectáreas en', line2: 'Patagonia Argentina' },
+                  { value: `${animals}`, line1: 'Animales protegidos', line2: 'en 2025' },
                 ].map((s) => (
-                  <div key={s.label} className="text-center">
-                    <p className="text-2xl font-medium text-gray-900">{s.value}</p>
-                    <p className="text-sm text-gray-500 mt-1 leading-tight">{s.label}</p>
+                  <div key={s.line1} className="flex items-center gap-4 bg-gray-50 rounded-xl px-5 py-3 border border-gray-100">
+                    <p className="text-3xl font-medium text-brand w-16 text-right flex-shrink-0">{s.value}</p>
+                    <div className="text-left">
+                      <p className="text-sm text-gray-700 leading-tight">{s.line1}</p>
+                      <p className="text-sm text-gray-500 leading-tight">{s.line2}</p>
+                    </div>
                   </div>
                 ))}
               </div>
