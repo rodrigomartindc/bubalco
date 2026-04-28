@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { asset } from '../utils/asset';
 
 const pillars = [
   { n: '01', title: 'Refugio', desc: 'Una casa para animales que no pueden volver a la naturaleza.' },
@@ -35,6 +36,9 @@ export default function NuestroTrabajo() {
                     <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>
                   </div>
                 ))}
+              </div>
+              <div className="flex justify-center mt-4">
+                <img src={asset('/leaves-img.jpg')} alt="" className="h-16 opacity-60" />
               </div>
             </div>
           </div>
