@@ -17,14 +17,13 @@ export default function NuestroTrabajo() {
           <div className="px-6 py-8">
             <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestro Trabajo</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-2">Cómo protegemos la vida silvestre</h2>
+              <h2 className="text-2xl font-medium text-gray-900 mb-2">Cómo protegemos<br />la vida silvestre</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-5">
                 Cuatro ejes que orientan todo lo que hacemos.
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {pillars.map((c) => (
                   <div key={c.n} className="rounded-xl p-4 bg-white border border-gray-100">
-                    <span className="w-6 h-6 rounded-full bg-brand/10 text-brand text-[12px] font-medium flex items-center justify-center mb-2">{c.n}</span>
                     <h3 className="text-sm font-medium text-gray-900 mb-1">{c.title}</h3>
                     <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>
                   </div>

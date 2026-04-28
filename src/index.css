@@ -60,7 +60,7 @@
 
 @media (max-width: 767px) {
   .home-slides {
-    --home-nav: 128px;
+    --home-nav: 135px;
     position: fixed;
     top: var(--home-nav);
     left: 0;
@@ -102,7 +102,7 @@
   }
 
   .bioparque-slides {
-    --bp-nav: 128px;
+    --bp-nav: 135px;
     position: fixed;
     top: var(--bp-nav);
     left: 0;
