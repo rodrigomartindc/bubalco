@@ -38,7 +38,7 @@ export default function NuestroTrabajo() {
                 ))}
               </div>
               <div className="flex justify-center mt-4">
-                <img src={asset('/leaves-img.jpg')} alt="" className="h-16 opacity-60" />
+                <img src={asset('/leaves-img.png')} alt="" className="h-16 opacity-60" />
               </div>
             </div>
           </div>
