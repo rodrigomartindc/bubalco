@@ -21,9 +21,16 @@ export default function NuestroTrabajo() {
               <p className="text-sm text-gray-500 leading-relaxed mb-5">
                 Cuatro ejes que orientan todo lo que hacemos.
               </p>
-              <div className="grid grid-cols-2 gap-3">
-                {pillars.map((c) => (
-                  <div key={c.n} className="rounded-xl p-4 bg-white border border-brand">
+              <div className="grid grid-cols-2 gap-0">
+                {pillars.map((c, i) => (
+                  <div key={c.n} className={`p-4 ${
+                    [
+                      'bg-emerald-50/60',
+                      'bg-teal-50/60',
+                      'bg-amber-50/60',
+                      'bg-sky-50/60',
+                    ][i]
+                  }`}>
                     <h3 className="text-base font-medium text-gray-900 mb-1">{c.title}</h3>
                     <p className="text-xs text-gray-500 leading-relaxed">{c.desc}</p>
                   </div>
