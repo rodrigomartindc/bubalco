@@ -94,6 +94,13 @@
     background: white;
   }
 
+  .hero-full-card {
+    width: 100%;
+    height: calc(100dvh - var(--home-nav));
+    overflow: hidden;
+    background: white;
+  }
+
   .slide-card__scroll {
     height: 100%;
     overflow: hidden;
