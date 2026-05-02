@@ -7,16 +7,13 @@ const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Ho
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
+        <div className="grid md:grid-cols-4 gap-12 mb-10">
           <div className="md:col-span-2">
             <Link to="/">
               <img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-12 mb-4" />
             </Link>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-md">
-              Fundación Bubalcó Patagonia. Refugio de vida silvestre dedicado al rescate, rehabilitación y conservación de la fauna nativa.
-            </p>
-            <div className="flex gap-3 mt-6">
+            <div className="flex gap-3 mt-4">
               <a href="https://www.instagram.com/bubalcopatagonia/" target="_blank" rel="noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand transition-colors" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
@@ -35,7 +32,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="text-sm font-medium mb-6">Contacto</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
@@ -49,7 +46,7 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div>
+          <div className="hidden md:block">
             <h4 className="text-sm font-medium mb-6">Enlaces</h4>
             <ul className="space-y-3">
               <li><Link to="/nosotros" className="text-sm text-gray-400 hover:text-white transition-colors">Quiénes Somos</Link></li>
@@ -60,9 +57,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-gray-800 pt-6 flex flex-col items-center gap-1 text-center">
           <p className="text-xs text-gray-500 flex items-center gap-1">
-            Hecho con <Heart size={12} className="text-accent" fill="currentColor" /> para los animales · © 2026 Fundación Bubalcó Patagonia
+            Hecho con <Heart size={12} className="text-accent" fill="currentColor" /> para los animales
+          </p>
+          <p className="text-xs text-gray-600">
+            © 2026 Fundación Bubalcó Patagonia
           </p>
         </div>
       </div>
