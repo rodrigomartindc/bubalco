@@ -15,7 +15,7 @@ const Donations = () => {
               <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">Cómo ayudar</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Tu donación sostiene nuestro trabajo</h2>
               <p className="text-xs text-gray-500 mb-4 leading-relaxed">
-                Cada aporte ayuda a cuidar a los animales y a impulsar nuestros proyectos de conservación.
+                Personas y empresas que creen en proteger la naturaleza y confían en lo que hacemos hacen posible este proyecto. Cada aporte ayuda a rescatar animales y a impulsar nuestros proyectos de conservación.
               </p>
               <Link to="/donaciones" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors">
                 Quiero Donar <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -27,7 +27,7 @@ const Donations = () => {
             <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center bg-brand-dark rounded-b-[28px]">
               <h3 className="text-lg font-medium text-white mb-2">Visitá el bioparque</h3>
               <p className="text-xs text-white/50 mb-4 leading-relaxed">
-                Cada visita es una contribución directa al trabajo de la fundación.
+                Cada visita es una contribución directa al trabajo de la fundación. Al visitarnos ayudás a cuidar a los animales que viven con nosotros y a apoyar nuestros programas de educación.
               </p>
               <Link to="/bioparque" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
                 Descubrí el Bioparque <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -46,7 +46,7 @@ const Donations = () => {
           <div className="bg-gray-50 rounded-2xl p-10 border border-gray-100 text-center flex flex-col items-center justify-center">
             <h2 className="text-2xl font-medium text-gray-900 mb-4">Tu donación sostiene nuestro trabajo</h2>
             <p className="text-sm text-gray-500 leading-relaxed mb-8 max-w-md">
-              Personas y empresas que creen en proteger la naturaleza y confían en lo que hacemos hacen posible este proyecto. Cada aporte ayuda a cuidar a los animales y a impulsar nuestros proyectos de conservación.
+              Personas y empresas que creen en proteger la naturaleza y confían en lo que hacemos hacen posible este proyecto. Cada aporte ayuda a rescatar animales y a impulsar nuestros proyectos de conservación.
             </p>
             <Link to="/donaciones" className="group inline-flex items-center gap-2 px-8 py-4 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors">
               Quiero Donar <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
@@ -54,9 +54,9 @@ const Donations = () => {
           </div>
 
           <div className="bg-brand-dark rounded-2xl p-10 text-center flex flex-col items-center justify-center">
-            <h2 className="text-2xl font-medium text-white mb-4">Visitá el bioparque y apoyá la conservación</h2>
+            <h2 className="text-2xl font-medium text-white mb-4">Visitá el bioparque</h2>
             <p className="text-sm text-white/60 leading-relaxed mb-8 max-w-md">
-              Cada visita es una contribución directa al trabajo de la fundación. Al visitarnos ayudás a cuidar a los animales y a apoyar nuestros proyectos de conservación.
+              Cada visita es una contribución directa al trabajo de la fundación. Al visitarnos ayudás a cuidar a los animales que viven con nosotros y a apoyar nuestros programas de educación.
             </p>
             <Link to="/bioparque" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
               Descubrí el Bioparque <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

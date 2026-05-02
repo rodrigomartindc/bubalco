@@ -10,9 +10,9 @@ export default function MapsBlock() {
           <div className="px-6 py-8">
             <div className={`text-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <p className="text-xs tracking-widest text-gray-400 uppercase mb-3">Dónde Estamos</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-3">En el corazón de la Patagonia norte</h2>
+              <h2 className="text-2xl font-medium text-gray-900 mb-3">En el corazón<br />de la Patagonia norte</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                En una isla del Río Negro, cerca del límite con Neuquén, rodeados de naturaleza y lejos de lo urbano.
+                En una isla de Río Negro, cerca del límite con Neuquén, rodeados de naturaleza y lejos de lo urbano. Una ubicación estratégica que nos permite trabajar directamente en los ecosistemas que protegemos.
               </p>
               <div className="rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 p-12 flex items-center justify-center">
                 <p className="text-xs text-gray-400">Mapa próximamente</p>
