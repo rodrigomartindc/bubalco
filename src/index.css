@@ -85,7 +85,7 @@
   .slide-card {
     width: min(420px, 100%);
     height: calc(100dvh - var(--home-nav) - 24px);
-    border-radius: 28px;
+    border-radius: 14px;
     overflow: hidden;
     border: 1px solid rgba(0, 0, 0, 0.06);
     box-shadow:
