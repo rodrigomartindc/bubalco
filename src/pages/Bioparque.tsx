@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import { asset } from '../utils/asset';
 
 const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
-const plusCode = 'W6RR+5X Allen, Río Negro';
-const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(plusCode)}&output=embed`;
+const query = 'Fundación Bubalcó Patagonia';
+const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
 
 export default function Bioparque() {
   return (

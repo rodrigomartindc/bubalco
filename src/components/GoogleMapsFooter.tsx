@@ -1,6 +1,6 @@
-const plusCode = 'W6RR+5X Allen, Río Negro';
-const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(plusCode)}&output=embed`;
-const mapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(plusCode)}`;
+const query = 'Fundación Bubalcó Patagonia';
+const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
+const mapsUrl = `https://www.google.com/maps/place/Fundaci%C3%B3n+Bubalc%C3%B3+Patagonia/@-39.0595151,-67.7601751,17z`;
 
 export default function GoogleMapsFooter() {
   return (
