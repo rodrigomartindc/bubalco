@@ -82,6 +82,10 @@
     padding: 8px 14px;
   }
 
+  .home-slides .scroll-section:has(.hero-full-card) {
+    padding: 0;
+  }
+
   .slide-card {
     width: min(420px, 100%);
     height: calc(100dvh - var(--home-nav) - 24px);

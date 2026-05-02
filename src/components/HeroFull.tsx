@@ -9,14 +9,14 @@ const HeroFull = () => {
     <section ref={ref} className="scroll-section md:hidden">
       <div className="hero-full-card">
         <div className={`h-full flex flex-col bg-white transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="overflow-hidden flex-1">
+          <div className="overflow-hidden" style={{ flex: '1 1 0', maxHeight: '48%' }}>
             <img
               src={asset('/hero-ciervos.jpg')}
               alt="Fauna silvestre en Bubalcó Patagonia"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover object-center"
             />
           </div>
-          <div className="flex flex-col items-center justify-center px-6 py-4 text-center flex-shrink-0">
+          <div className="flex flex-col items-center justify-center px-6 py-3 text-center flex-shrink-0">
             <h1 className="text-xl font-medium text-gray-900 mb-2">
               Refugio, rescate y conservación en la Patagonia Argentina
             </h1>
