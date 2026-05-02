@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import { asset } from '../utils/asset';
 
 const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
-const query = 'Fundación Bubalcó Patagonia';
-const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(query)}&output=embed`;
+const embedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3051.5!2d-67.7601751!3d-39.0595151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a30fb8b3461c5%3A0x4edf452aaba697d8!2sFundaci%C3%B3n%20Bubalc%C3%B3%20Patagonia!5e0!3m2!1ses!2sar!4v1714600000000!5m2!1ses!2sar';
 
 export default function Bioparque() {
   return (
