@@ -10,16 +10,14 @@ const HeroAlt = () => {
       <div className="slide-card">
         <div className="slide-card__scroll relative h-full bg-white">
           <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="flex items-center justify-center mb-5 mt-0">
-              <div className="w-[30rem] h-[20rem] overflow-hidden flex-shrink-0">
-                <img
-                  src={asset('/hero-ciervos.jpg')}
-                  alt="Fauna silvestre en Bubalcó Patagonia"
-                  className="w-full h-full object-cover"
-                />
-              </div>
+            <div className="overflow-hidden flex-1">
+              <img
+                src={asset('/hero-ciervos.jpg')}
+                alt="Fauna silvestre en Bubalcó Patagonia"
+                className="w-full h-full object-cover"
+              />
             </div>
-            <div className="flex flex-col items-center justify-start px-6 py-3 text-center mb-auto">
+            <div className="flex flex-col items-center justify-center px-6 py-4 text-center flex-shrink-0">
               <h1 className="text-xl font-medium text-gray-900 mb-2">
                 Refugio, rescate y conservación en la Patagonia Argentina
               </h1>
