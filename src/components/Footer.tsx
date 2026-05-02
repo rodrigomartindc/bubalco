@@ -9,7 +9,7 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-12">
         <div className="grid md:grid-cols-4 gap-12 mb-10">
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 flex flex-col items-center md:items-start">
             <Link to="/">
               <img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-12 mb-4" />
             </Link>
@@ -32,16 +32,16 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="hidden md:block">
-            <h4 className="text-sm font-medium mb-6">Contacto</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Phone size={16} className="text-gray-500 flex-shrink-0 mt-1" />
+          <div>
+            <h4 className="text-sm font-medium mb-6 text-center md:text-left">Contacto</h4>
+            <ul className="space-y-4 flex flex-col items-center md:items-start">
+              <li className="flex items-center gap-3">
+                <Phone size={16} className="text-gray-500 flex-shrink-0" />
                 <a href={WA_URL} target="_blank" rel="noreferrer" className="text-sm text-gray-400 hover:text-white transition-colors">+54 9 298 473-1612</a>
               </li>
-              <li className="flex items-start gap-3">
-                <MapPin size={16} className="text-gray-500 flex-shrink-0 mt-1" />
-                <span className="text-sm text-gray-400">Isla 19, Contralmirante Guerrico<br />Allen, Río Negro, Argentina</span>
+              <li className="flex items-center gap-3">
+                <MapPin size={16} className="text-gray-500 flex-shrink-0" />
+                <span className="text-sm text-gray-400 text-center md:text-left">Isla 19, Contralmirante Guerrico<br />Allen, Río Negro, Argentina</span>
               </li>
             </ul>
           </div>
