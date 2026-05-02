@@ -22,7 +22,7 @@ const About = () => {
                 Aliados de la Naturaleza
               </h2>
               <p className="text-sm text-gray-500 max-w-sm mx-auto leading-relaxed mb-6">
-                Protegemos a la fauna silvestre y trabajamos para que la comunidad comprenda y valore la importancia de conservarla.
+                Protegemos la fauna silvestre<br />y trabajamos para que la comunidad comprenda y valore la importancia de conservarla.
               </p>
 
               <Link to="/nosotros" className="group inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors mb-6">
