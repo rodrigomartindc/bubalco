@@ -2,6 +2,10 @@ import { Sun, Moon, ArrowRight, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { asset } from '../utils/asset';
 
+const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
+const plusCode = 'W6RR+5X Allen, Río Negro';
+const embedUrl = `https://www.google.com/maps?q=${encodeURIComponent(plusCode)}&output=embed`;
+import { Instagram, Phone } from 'lucide-react';
 
 export default function Bioparque() {
   return (
@@ -165,6 +169,36 @@ export default function Bioparque() {
           </div>
         </section>
 
+        {/* Slide 8: Footer */}
+        <section className="bp-slide">
+          <div className="bp-card bg-gray-900 text-white">
+            <div className="h-full flex flex-col">
+              <div className="relative h-[45%] flex-shrink-0">
+                <iframe title="Ubicación Bubalcó" src={embedUrl} className="w-full h-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+                <div className="absolute bottom-2 left-2 bg-white/90 backdrop-blur rounded-md px-3 py-1.5">
+                  <p className="text-gray-900 text-xs font-medium">Isla 19, Contralmirante Guerrico</p>
+                  <p className="text-gray-500 text-[12px]">Allen, Río Negro, Argentina</p>
+                </div>
+              </div>
+              <div className="flex-1 px-5 py-5 flex flex-col justify-between">
+                <div>
+                  <Link to="/"><img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-8 mb-3" /></Link>
+                  <p className="text-xs text-gray-500 mb-2">Fundación Bubalcó Patagonia</p>
+                  <div className="flex items-center gap-2">
+                    <Phone size={13} className="text-gray-500" />
+                    <a href={WA_URL} target="_blank" rel="noreferrer" className="text-xs text-gray-400">+54 9 298 473-1612</a>
+                  </div>
+                </div>
+                <div className="pt-3 border-t border-gray-800 flex items-center justify-between">
+                  <div className="flex gap-2">
+                    <a href="https://www.instagram.com/bubalcopatagonia/" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center" aria-label="Instagram"><Instagram size={14} /></a>
+                  </div>
+                  <p className="text-[12px] text-gray-500">© 2026 Fundación Bubalcó</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       {/* Desktop: normal flow */}
