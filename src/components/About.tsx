@@ -14,28 +14,28 @@ const About = () => {
     <section id="quienes-somos" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:overflow-hidden">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative bg-white overflow-hidden">
-          <div className="relative z-10 w-full px-6 py-8">
+          <div className="relative z-10 w-full px-6 py-6">
             <div className={`text-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-              <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-12 mx-auto mb-3" />
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Fundación Bubalcó</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-3 leading-tight">
+              <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-11 mx-auto mb-2" />
+              <p className="text-xs tracking-widest text-brand uppercase mb-2">Fundación Bubalcó</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-2 leading-tight">
                 Aliados de la Naturaleza
               </h2>
-              <p className="text-sm text-gray-500 max-w-sm mx-auto leading-relaxed mb-6">
+              <p className="text-sm text-gray-500 max-w-sm mx-auto leading-relaxed mb-4">
                 Protegemos a la fauna silvestre y trabajamos para que la comunidad comprenda y valore la importancia de conservarla.
               </p>
 
-              <Link to="/nosotros" className="group inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors mb-6">
+              <Link to="/nosotros" className="group inline-flex items-center gap-2 px-6 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors mb-4">
                 Conocer más <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </Link>
 
-              <div className="space-y-3 w-full">
+              <div className="space-y-2 w-full">
                 {[
                   { value: `+${years}`, line1: 'Años trabajando', line2: 'en conservación' },
                   { value: `${hectares}`, line1: 'Hectáreas en', line2: 'Patagonia Argentina' },
                   { value: `${animals}`, line1: 'Animales protegidos', line2: 'en 2025' },
                 ].map((s) => (
-                  <div key={s.line1} className="flex items-center gap-4 bg-gray-50 rounded-xl px-5 py-3 border border-gray-100">
+                  <div key={s.line1} className="flex items-center gap-4 bg-gray-50 rounded-xl px-5 py-2 border border-gray-100">
                     <p className="text-3xl font-medium text-brand w-16 text-right flex-shrink-0">{s.value}</p>
                     <div className="text-left">
                       <p className="text-sm text-gray-700 leading-tight">{s.line1}</p>
