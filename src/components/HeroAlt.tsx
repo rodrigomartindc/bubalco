@@ -1,0 +1,45 @@
+import { Link } from 'react-router-dom';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { asset } from '../utils/asset';
+
+const HeroAlt = () => {
+  const { ref, isVisible } = useScrollAnimation();
+
+  return (
+    <section ref={ref} className="scroll-section md:hidden">
+      <div className="slide-card">
+        <div className="slide-card__scroll relative h-full bg-white">
+          <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+            <div className="flex items-center justify-center mb-5 mt-0">
+              <div className="w-[30rem] h-[20rem] overflow-hidden flex-shrink-0">
+                <img
+                  src={asset('/hero-ciervos.jpg')}
+                  alt="Fauna silvestre en Bubalcó Patagonia"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-start px-6 py-3 text-center mb-auto">
+              <h1 className="text-xl font-medium text-gray-900 mb-2">
+                Refugio, rescate y conservación en la Patagonia Argentina
+              </h1>
+              <p className="text-sm text-gray-500 mb-5">
+                Inspirando a salvar la fauna silvestre para el futuro
+              </p>
+              <div className="flex flex-col gap-3 items-stretch w-full">
+                <Link to="/bioparque" className="px-7 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors text-center">
+                  Descubrí el Bioparque
+                </Link>
+                <Link to="/nosotros" className="px-7 py-3 border border-gray-200 text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-50 transition-colors text-center">
+                  Nuestro trabajo en conservación
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default HeroAlt;
