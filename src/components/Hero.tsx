@@ -48,7 +48,6 @@ const Hero = () => {
             src={asset('/hero-ciervos.jpg')}
             alt="Fauna silvestre en Bubalcó Patagonia"
             className="w-full h-full object-cover"
-            style={{ transform: 'scale(0.85)', transformOrigin: 'center center' }}
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
