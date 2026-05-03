@@ -48,18 +48,19 @@ const Hero = () => {
             src={asset('/hero-ciervos.jpg')}
             alt="Fauna silvestre en Bubalcó Patagonia"
             className="w-full h-full object-cover"
+            style={{ transform: 'scale(0.85)', transformOrigin: 'center center' }}
           />
           <div className="absolute inset-0 bg-black/50" />
         </div>
-        <div className={`relative flex-1 flex items-center justify-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div className="text-center max-w-4xl mx-auto px-6 md:px-12">
+        <div className={`relative flex-1 flex items-center transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+          <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 w-full">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium text-white mb-6 leading-tight animate-fade-in-up delay-100">
               Refugio, rescate y conservación<br />en la Patagonia Argentina
             </h1>
             <p className="text-lg text-white/70 mb-12 animate-fade-in-up delay-200">
               Inspirando a salvar la fauna silvestre para el futuro
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in-up delay-300">
+            <div className="flex flex-col sm:flex-row gap-4 items-start animate-fade-in-up delay-300">
               <Link to="/bioparque" className="px-8 py-4 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
                 Descubrí el Bioparque
               </Link>
