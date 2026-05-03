@@ -35,11 +35,7 @@ export default function Home() {
         <FooterSlide />
       </div>
       {isDesktop && (
-        <>
-          <BioparqueBlock />
-          <GoogleMapsFooter />
-          <Footer />
-        </>
+        <BioparqueBlock />
       )}
     </>
   );
