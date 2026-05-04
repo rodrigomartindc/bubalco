@@ -7,7 +7,7 @@ const Hero = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:justify-center md:bg-white">
+    <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:justify-center md:bg-white md:pt-[135px]">
       {/* Mobile */}
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative h-full bg-white">
