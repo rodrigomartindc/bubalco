@@ -47,7 +47,7 @@ const Navbar = () => {
                 </NavLink>
                 <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                   <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[180px]">
-                    <Link to="/bioparque" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">El Bioparque</Link>
+                    <Link to="/bioparque" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Planificar tu visita</Link>
                     <button onClick={() => goToSection('tarifas-horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Tarifas y Horarios</button>
                     <Link to="/visitas-escolares" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Visitas Escolares</Link>
                   </div>
