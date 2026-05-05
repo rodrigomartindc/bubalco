@@ -12,6 +12,7 @@ import Donaciones from './pages/Donaciones';
 import VisitasEscolares from './pages/VisitasEscolares';
 import NuestroTrabajoPage from './pages/NuestroTrabajoPage';
 import Novedades from './pages/Novedades';
+import PreguntasFrecuentes from './pages/PreguntasFrecuentes';
 import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
 
@@ -52,6 +53,7 @@ function AppShell() {
         <Route path="/visitas-escolares" element={<VisitasEscolares />} />
         <Route path="/nuestro-trabajo" element={<NuestroTrabajoPage />} />
         <Route path="/novedades" element={<Novedades />} />
+        <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[7.5rem]"><Volunteering /></div>} />
       </Routes>
