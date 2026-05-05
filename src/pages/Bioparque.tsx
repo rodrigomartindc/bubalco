@@ -74,19 +74,27 @@ export default function Bioparque() {
 
         {/* Slide 4: De dónde vienen */}
         <section className="bp-slide">
-          <div className="bp-card bg-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center items-center">
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-3">Historias que merecen ser contadas</p>
-              <h2 className="text-xl font-medium text-gray-900 mb-4">De dónde vienen los habitantes del parque</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                Cada animal tiene su historia y conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
-              </p>
-              <div className="space-y-3">
-                <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                  <p className="text-xs text-gray-500 leading-relaxed">Algunos animales llegaron como rescates, otros nacen y se crían en cautiverio dentro de programas de conservación de especies en peligro.</p>
+          <div className="bp-card bg-white overflow-hidden">
+            <div className="h-full flex flex-col">
+              <div className="bg-brand/5 px-6 pt-6 pb-4 text-center">
+                <p className="text-xs tracking-widest text-brand uppercase mb-2">Historias que merecen ser contadas</p>
+                <h2 className="text-xl font-medium text-gray-900 mb-2">De dónde vienen los habitantes del parque</h2>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  Cada animal tiene su historia y conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
+                </p>
+              </div>
+              <div className="flex-1 flex flex-col justify-center px-6 py-4 space-y-3">
+                <div className="bg-brand-dark rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <span className="w-7 h-7 rounded-full bg-white/20 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">1</span>
+                    <p className="text-sm text-white/80 leading-relaxed">Algunos animales llegaron como rescates, otros nacen y se crían en cautiverio dentro de programas de conservación de especies en peligro.</p>
+                  </div>
                 </div>
-                <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                  <p className="text-xs text-gray-500 leading-relaxed">Cada historia nos muestra los desafíos que enfrentan y por qué su cuidado es esencial.</p>
+                <div className="bg-brand-dark rounded-xl p-4">
+                  <div className="flex items-start gap-3">
+                    <span className="w-7 h-7 rounded-full bg-white/20 text-white text-xs flex items-center justify-center flex-shrink-0 mt-0.5">2</span>
+                    <p className="text-sm text-white/80 leading-relaxed">Cada historia nos muestra los desafíos que enfrentan y por qué su cuidado es esencial: en el bioparque y en la naturaleza.</p>
+                  </div>
                 </div>
               </div>
             </div>
