@@ -126,38 +126,44 @@ export default function Bioparque() {
         {/* Slide 6: Tarifas y Horarios */}
         <section id="tarifas-horarios-m" className="bp-slide">
           <div className="bp-card bg-brand-dark text-white">
-            <div className="px-6 py-6 h-full flex flex-col justify-center items-center">
-              <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Planificá tu visita</p>
-              <h2 className="text-xl font-medium text-white mb-4">Horarios y Tarifas</h2>
+            <div className="px-6 py-5 h-full flex flex-col justify-between text-center">
+              <div>
+                <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Planificá tu visita</p>
+                <h2 className="text-xl font-medium text-white mb-1">Horarios y Tarifas</h2>
+              </div>
 
-              <div className="space-y-2 mb-4">
-                <div className="bg-white/10 p-3 rounded-xl border border-white/10">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Sun className="text-white/50" size={14} />
-                    <span className="text-sm font-medium">Jueves a Domingo</span>
+              <div className="w-full">
+                <h3 className="text-sm font-medium text-white/70 mb-2 text-left">Horarios</h3>
+                <div className="bg-white/10 p-4 rounded-xl border border-white/10 mb-2">
+                  <div className="flex items-center gap-2 mb-3">
+                    <Sun className="text-white/50" size={16} />
+                    <span className="text-base font-medium">Jueves a Domingo</span>
                   </div>
-                  <div className="flex justify-between text-xs"><span className="text-white/60">Boletería</span><span>10:00 - 16:00</span></div>
-                  <div className="flex justify-between text-xs mt-1"><span className="text-white/60">Cierre</span><span>18:00 hs</span></div>
+                  <div className="flex justify-between text-sm"><span className="text-white/60">Boletería</span><span>10:00 - 16:00</span></div>
+                  <div className="flex justify-between text-sm mt-1"><span className="text-white/60">Cierre</span><span>18:00 hs</span></div>
                 </div>
-                <div className="bg-white/5 p-2 rounded-xl border border-white/10 flex justify-between items-center">
-                  <div className="flex items-center gap-2"><Moon className="text-white/40" size={12} /><span className="text-xs">Lun, Mar, Mié</span></div>
-                  <span className="text-xs text-white/50">CERRADO</span>
-                </div>
-              </div>
-
-              <div className="space-y-1.5">
-                <div className="bg-white/5 p-2.5 rounded-lg border border-white/10 flex justify-between text-xs">
-                  <span>Entrada General</span><span>$25.800</span>
-                </div>
-                <div className="bg-white/5 p-2.5 rounded-lg border border-white/10 flex justify-between text-xs">
-                  <span>Menores y Jubilados</span><span>$21.000</span>
-                </div>
-                <div className="bg-white/5 p-2.5 rounded-lg border border-white/10 flex justify-between text-xs">
-                  <span>Menores de 4</span><span>GRATIS</span>
+                <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between items-center">
+                  <div className="flex items-center gap-2"><Moon className="text-white/40" size={14} /><span className="text-sm">Lun, Mar, Mié</span></div>
+                  <span className="text-sm text-white/50">CERRADO</span>
                 </div>
               </div>
 
-              <p className="text-[12px] text-white/40 mt-3 text-center">Tu entrada contribuye directamente al trabajo de la fundación</p>
+              <div className="w-full">
+                <h3 className="text-sm font-medium text-white/70 mb-2 text-left">Tarifas</h3>
+                <div className="space-y-2">
+                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
+                    <span>Entrada General</span><span className="font-medium">$25.800</span>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
+                    <span>Menores y Jubilados</span><span className="font-medium">$21.000</span>
+                  </div>
+                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
+                    <span>Menores de 4</span><span className="font-medium">GRATIS</span>
+                  </div>
+                </div>
+              </div>
+
+              <p className="text-xs text-white/40">Tu entrada contribuye directamente al trabajo de la fundación</p>
             </div>
           </div>
         </section>
