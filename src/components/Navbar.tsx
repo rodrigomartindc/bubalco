@@ -105,7 +105,7 @@ const Navbar = () => {
               </Link>
               <div className="ml-4 mt-1 space-y-1">
                 <Link to="/bioparque" className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
-                  El Bioparque
+                  Planificar tu visita
                 </Link>
                 <button onClick={() => goToSection('tarifas-horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
                   Tarifas y Horarios
