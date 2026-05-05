@@ -126,7 +126,7 @@ export default function Bioparque() {
         {/* Slide 6: Tarifas y Horarios */}
         <section id="tarifas-horarios-m" className="bp-slide">
           <div className="bp-card bg-brand-dark text-white">
-            <div className="px-6 pt-5 pb-8 h-full flex flex-col justify-between text-center">
+            <div className="px-6 pt-5 pb-[50px] h-full flex flex-col justify-between text-center">
               <div>
                 <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Planificá tu visita</p>
                 <h2 className="text-xl font-medium text-white mb-1">Horarios y Tarifas</h2>
