@@ -31,20 +31,20 @@ export default function Bioparque() {
           </div>
         </section>
 
-        {/* Slide 2: Qué es */}
+        {/* Slide 2: Qué es + Legislatura */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center items-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Conservación en acción</p>
-              <h2 className="text-xl font-medium text-gray-900 mb-3">Un refugio para animales que no pueden volver a la naturaleza</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                En 34 hectáreas de la Patagonia argentina, cuidamos a nuestros habitantes, protegemos a las especies y enseñamos por qué conservar la naturaleza es responsabilidad de todos.
-              </p>
-              <div className="border-t border-gray-100 pt-4">
-                <h3 className="text-sm font-medium text-gray-900 mb-2">Reconocimiento provincial</h3>
-                <p className="text-xs text-gray-500 leading-relaxed">
-                  Declarado de interés científico, educativo, conservacionista y turístico por la Legislatura de la Provincia de Río Negro.
+            <div className="h-full flex flex-col">
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center bg-brand-dark rounded-t-[14px]">
+                <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Conservación en acción</p>
+                <h2 className="text-lg font-medium text-white mb-2">Un refugio para animales que no pueden volver a la naturaleza</h2>
+                <p className="text-xs text-white/60 leading-relaxed">
+                  En 34 hectáreas de la Patagonia argentina, cuidamos a nuestros habitantes, protegemos a las especies y enseñamos por qué conservar la naturaleza es responsabilidad de todos.
                 </p>
+              </div>
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center">
+                <h3 className="text-base font-medium text-gray-900 mb-3">Un proyecto reconocido por su aporte a la conservación y la educación</h3>
+                <img src={asset('/certif-legislatura-bubalco.webp')} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" />
               </div>
             </div>
           </div>
