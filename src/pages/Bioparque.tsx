@@ -99,21 +99,23 @@ export default function Bioparque() {
         {/* Slide 5: Por qué abrimos */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-6 h-full flex flex-col justify-center items-center">
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-3">Nuestra misión</p>
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Por qué abrimos el bioparque al público</h2>
-              <div className="space-y-3">
+            <div className="px-6 py-5 h-full flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestra misión</p>
+              <h2 className="text-lg font-medium text-gray-900 mb-4">Por qué abrimos el bioparque<br />al público</h2>
+              <div className="space-y-2">
                 {[
-                  { n: '1', title: 'Conectar con la naturaleza', desc: 'Conocer a los animales y sus historias nos ayuda a reconectar y comprender por qué protegerla es fundamental.' },
-                  { n: '2', title: 'Animales que necesitan cuidado', desc: 'Los animales del recorrido no pueden volver a la naturaleza. Les damos un hogar seguro.' },
-                  { n: '3', title: 'Educación para generar cambio', desc: 'Conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
+                  { n: '1', title: 'Educación para generar cambio', desc: 'Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
+                  { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro.' },
+                  { n: '3', title: 'Conectar con la naturaleza', desc: 'Cada vez estamos más alejados de la naturaleza. Conocer a los animales y sus historias nos ayuda a reconectar y comprender por qué protegerla es fundamental.' },
                 ].map((b) => (
-                  <div key={b.n} className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                    <div className="flex items-center gap-2 mb-1">
-                      <span className="w-5 h-5 rounded-full bg-brand/10 text-brand text-[12px] flex items-center justify-center flex-shrink-0">{b.n}</span>
-                      <h3 className="text-sm font-medium text-gray-900">{b.title}</h3>
+                  <div key={b.n} className="rounded-xl p-3 text-left" style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n)-1] }}>
+                    <div className="flex items-start gap-2">
+                      <span className="w-5 h-5 rounded-full bg-brand/15 text-brand text-[11px] font-medium flex items-center justify-center flex-shrink-0 mt-0.5">{b.n}</span>
+                      <div>
+                        <h3 className="text-sm font-medium text-gray-900 mb-0.5">{b.title}</h3>
+                        <p className="text-xs text-gray-500 leading-relaxed">{b.desc}</p>
+                      </div>
                     </div>
-                    <p className="text-xs text-gray-500 leading-relaxed pl-7">{b.desc}</p>
                   </div>
                 ))}
               </div>
