@@ -17,7 +17,7 @@ export default function Bioparque() {
               <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Bioparque</p>
               <h1 className="text-2xl font-medium text-white mb-3">Bubalcó Patagonia</h1>
               <p className="text-sm text-white/60 leading-relaxed mb-6">
-                Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales.
+                Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
               </p>
               <div className="flex flex-col gap-3">
                 <button onClick={() => { const el = document.getElementById('tarifas-horarios-m'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="px-6 py-3 bg-white text-gray-900 text-sm rounded-full">
