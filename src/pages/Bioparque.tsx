@@ -130,6 +130,7 @@ export default function Bioparque() {
               <div>
                 <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Planificá tu visita</p>
                 <h2 className="text-xl font-medium text-white mb-1">Horarios y Tarifas</h2>
+                <p className="text-xs text-white/40">Tu entrada contribuye directamente al trabajo de la fundación</p>
               </div>
 
               <div className="w-full">
@@ -163,7 +164,6 @@ export default function Bioparque() {
                 </div>
               </div>
 
-              <p className="text-xs text-white/40">Tu entrada contribuye directamente al trabajo de la fundación</p>
             </div>
           </div>
         </section>
