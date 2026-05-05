@@ -75,22 +75,18 @@ export default function Bioparque() {
         {/* Slide 4: De dónde vienen */}
         <section className="bp-slide">
           <div className="bp-card bg-white overflow-hidden">
-            <div className="h-full flex flex-col">
-              <div className="bg-brand/5 px-6 pt-6 pb-4 text-center">
-                <p className="text-xs tracking-widest text-brand uppercase mb-2">Historias que merecen<br />ser contadas</p>
-                <h2 className="text-xl font-medium text-gray-900 mb-2">De dónde vienen<br />los habitantes del parque</h2>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Cada animal tiene su historia y conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
-                </p>
-              </div>
-              <div className="flex-1 flex flex-col justify-center px-6 py-4">
-                <div className="border-l-2 border-brand pl-4 mb-4">
-                  <p className="text-sm text-gray-600 leading-relaxed">Algunos animales llegaron como rescates, otros nacen y se crían en cautiverio dentro de programas de conservación de especies en peligro.</p>
-                </div>
-                <div className="border-l-2 border-brand/40 pl-4">
-                  <p className="text-sm text-gray-600 leading-relaxed">Cada historia nos muestra los desafíos que enfrentan y por qué su cuidado es esencial: en el bioparque y en la naturaleza.</p>
-                </div>
-              </div>
+            <div className="h-full flex flex-col px-6 py-6 justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-3">Historias que merecen<br />ser contadas</p>
+              <h2 className="text-xl font-medium text-gray-900 mb-4">De dónde vienen<br />los habitantes del parque</h2>
+              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+                Cada animal tiene su historia y conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
+              </p>
+              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+                Algunos animales llegaron como rescates, otros nacen y se crían en cautiverio dentro de programas de conservación de especies en peligro.
+              </p>
+              <p className="text-sm text-gray-600 leading-relaxed font-medium italic">
+                Cada historia nos muestra los desafíos que enfrentan y por qué su cuidado es esencial: en el bioparque y en la naturaleza.
+              </p>
             </div>
           </div>
         </section>
