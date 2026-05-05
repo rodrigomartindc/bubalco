@@ -11,22 +11,26 @@ export default function Bioparque() {
       {/* Mobile: scroll-snap slides */}
       <div className="bioparque-slides md:hidden">
         {/* Slide 1: Hero */}
-        <section className="bp-slide">
-          <div className="bp-card bg-brand-dark text-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Bioparque</p>
-              <h1 className="text-2xl font-medium text-white mb-3">Bubalcó Patagonia</h1>
-              <img src={asset('/bubalco-fondo.png')} alt="Ave en Bubalcó" className="w-full h-28 object-cover rounded-xl mb-3" />
-              <p className="text-sm text-white/60 leading-relaxed mb-4">
-                Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
-              </p>
-              <div className="flex flex-col gap-3">
-                <button onClick={() => { const el = document.getElementById('tarifas-horarios-m'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="px-6 py-3 bg-white text-gray-900 text-sm rounded-full">
-                  Tarifas y Horarios
-                </button>
-                <Link to="/visitas-escolares" className="px-6 py-3 border border-white/30 text-white text-sm rounded-full text-center">
-                  Visitas Escolares
-                </Link>
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-white">
+            <div className="h-full flex flex-col">
+              <div className="overflow-hidden" style={{ flex: '0 0 40%' }}>
+                <img src={asset('/bubalco-fondo.png')} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center">
+                <p className="text-xs tracking-widest text-brand uppercase mb-2">Bioparque</p>
+                <h1 className="text-2xl font-medium text-gray-900 mb-2">Bubalcó Patagonia</h1>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                  Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
+                </p>
+                <div className="flex flex-col gap-3 w-full">
+                  <button onClick={() => { const el = document.getElementById('tarifas-horarios-m'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="px-6 py-3 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
+                    Tarifas y Horarios
+                  </button>
+                  <Link to="/visitas-escolares" className="px-6 py-3 border border-gray-200 text-gray-900 text-sm rounded-full text-center hover:bg-gray-50 transition-colors">
+                    Visitas Escolares
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
