@@ -60,6 +60,7 @@ export default function Bioparque() {
           <div className="bp-card bg-white">
             <div className="px-6 py-8 h-full flex flex-col justify-center text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación</p>
+              <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-28 object-cover rounded-xl mb-3" />
               <h2 className="text-xl font-medium text-gray-900 mb-3">Un aula en la naturaleza</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
                 Acercamos a estudiantes a la fauna y la conservación de forma directa y participativa.
