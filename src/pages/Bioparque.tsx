@@ -16,7 +16,8 @@ export default function Bioparque() {
             <div className="px-6 py-8 h-full flex flex-col justify-center text-center">
               <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Bioparque</p>
               <h1 className="text-2xl font-medium text-white mb-3">Bubalcó Patagonia</h1>
-              <p className="text-sm text-white/60 leading-relaxed mb-6">
+              <img src={asset('/bubalco-ave.jpg')} alt="Ave en Bubalcó" className="w-full h-28 object-cover rounded-xl mb-3" />
+              <p className="text-sm text-white/60 leading-relaxed mb-4">
                 Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
               </p>
               <div className="flex flex-col gap-3">
