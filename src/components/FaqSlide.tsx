@@ -7,7 +7,7 @@ export default function FaqSlide() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
 
-  const preview = faqItems.slice(0, 4);
+  const preview = faqItems;
 
   return (
     <section className="scroll-section md:hidden">
@@ -29,11 +29,11 @@ export default function FaqSlide() {
                       aria-expanded={isOpen}
                       className="w-full flex items-center justify-between px-4 py-3 text-left bg-white"
                     >
-                      <span className="text-xs font-medium text-gray-900 pr-3">{item.question}</span>
+                      <span className="text-sm font-medium text-gray-900 pr-3">{item.question}</span>
                       <ChevronDown size={14} className={`text-gray-400 flex-shrink-0 transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
                     </button>
                     <div className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-48' : 'max-h-0'}`}>
-                      <p className="px-4 pb-3 text-xs text-gray-500 leading-relaxed">{item.answer}</p>
+                      <p className="px-4 pb-3 text-sm text-gray-500 leading-relaxed">{item.answer}</p>
                     </div>
                   </div>
                 );
