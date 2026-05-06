@@ -66,6 +66,10 @@ const Navbar = () => {
                 Voluntariado
               </NavLink>
 
+              <NavLink to="/preguntas-frecuentes" className={({ isActive }) => `text-sm tracking-wide transition-colors ${isActive ? 'text-gray-900 font-medium' : 'text-gray-600 hover:text-gray-900'}`}>
+                Preguntas Frecuentes
+              </NavLink>
+
               <NavLink to="/donaciones" className={({ isActive }) => `text-sm tracking-wide transition-colors font-medium ${isActive ? 'text-accent' : 'text-accent hover:text-amber-600'}`}>
                 Apoyar la conservación
               </NavLink>
@@ -126,6 +130,10 @@ const Navbar = () => {
 
             <NavLink to="/voluntariado" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
               Voluntariado
+            </NavLink>
+
+            <NavLink to="/preguntas-frecuentes" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+              Preguntas Frecuentes
             </NavLink>
 
             <NavLink to="/donaciones" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide rounded-lg font-medium transition-colors ${isActive ? 'bg-accent/10 text-accent' : 'text-accent hover:bg-accent/10'}`}>
