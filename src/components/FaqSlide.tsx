@@ -12,7 +12,7 @@ export default function FaqSlide() {
   return (
     <section className="scroll-section md:hidden">
       <div className="slide-card">
-        <div className="slide-card__scroll bg-white">
+        <div className="slide-card__scroll bg-white" style={{ textAlign: 'left' }}>
           <div className="h-full flex flex-col px-5 py-5">
             <div className="text-center mb-3">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">FAQ</p>
