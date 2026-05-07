@@ -11,7 +11,7 @@ const HeroMinimal = () => {
         <div className="slide-card__scroll bg-brand-dark" style={{ textAlign: 'left' }}>
           <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             {/* Top: logo + tagline */}
-            <div className="px-7 pt-8 pb-4 flex items-center gap-3">
+            <div className="px-7 pt-8 pb-1 flex items-center gap-3">
               <img src={asset('/logos/isologo-blanco.png')} alt="Bubalcó" className="h-9 opacity-70 flex-shrink-0" />
               <p className="text-xs tracking-[0.2em] text-white/30 uppercase">Fundación Bubalcó Patagonia</p>
             </div>
