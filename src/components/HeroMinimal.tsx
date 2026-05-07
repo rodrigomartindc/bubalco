@@ -17,7 +17,7 @@ const HeroMinimal = () => {
             </div>
 
             {/* Middle: title + subtitle */}
-            <div className="flex-1 flex flex-col justify-center px-7">
+            <div className="flex-1 flex flex-col justify-start pt-6 px-7">
               <h1 className="text-3xl font-medium text-white leading-snug mb-4">
                 Refugio, rescate<br />y conservación<br />
                 <span className="text-brand">en la Patagonia</span>
