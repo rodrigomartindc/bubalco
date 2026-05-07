@@ -55,7 +55,7 @@ function AppShell() {
         <Route path="/novedades" element={<Novedades />} />
         <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
         <Route path="/gracias" element={<Gracias />} />
-        <Route path="/voluntariado" element={<div className="pt-[7.5rem]"><Volunteering /></div>} />
+        <Route path="/voluntariado" element={<div className="pt-[9rem]"><Volunteering /></div>} />
       </Routes>
       {showAppFooter && <GoogleMapsFooter />}
       {showAppFooter && <Footer />}

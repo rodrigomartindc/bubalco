@@ -6,7 +6,7 @@ export default function VisitasEscolares() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <div className="pt-[7.5rem] pb-20 bg-white">
+    <div className="pt-[9rem] pb-20 bg-white">
       <div className="max-w-4xl mx-auto px-6">
         <div ref={ref} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <p className="text-xs tracking-widest text-brand uppercase mb-6">Educación</p>
