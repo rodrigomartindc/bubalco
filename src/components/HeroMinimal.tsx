@@ -28,7 +28,7 @@ const HeroMinimal = () => {
             </div>
 
             {/* Bottom: CTAs */}
-            <div className="px-7 pb-8">
+            <div className="px-7 pb-[20%]">
               <div className="flex gap-3">
                 <Link to="/bioparque" className="flex-1 py-3 bg-white text-gray-900 text-sm tracking-wide rounded-full text-center hover:bg-gray-100 transition-colors">
                   Bioparque
