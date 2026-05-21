@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
 import Hero from '../components/Hero';
-import HeroAlt from '../components/HeroAlt';
 import HeroFull from '../components/HeroFull';
-import HeroMinimal from '../components/HeroMinimal';
 import About from '../components/About';
 import NuestroTrabajo from '../components/NuestroTrabajo';
 import MapsBlock from '../components/MapsBlock';
@@ -26,10 +24,8 @@ export default function Home() {
   return (
     <>
       <div className="home-slides md:contents">
-        <Hero />
-        <HeroAlt />
+        {isDesktop && <Hero />}
         <HeroFull />
-        <HeroMinimal />
         <About />
         <NuestroTrabajo />
         <MapsBlock />
