@@ -11,10 +11,10 @@ const Donations = () => {
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-white">
           <div className="h-full flex flex-col">
-            <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center">
+            <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center">
               <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">Cómo ayudar</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Tu donación sostiene nuestro trabajo</h2>
-              <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+              <p className="text-xs text-gray-500 mb-3 leading-relaxed">
                 Personas y empresas que creen en proteger la naturaleza y confían en lo que hacemos hacen posible este proyecto. Cada aporte ayuda a rescatar animales y a impulsar nuestros proyectos de conservación.
               </p>
               <Link to="/donaciones" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors">
@@ -24,9 +24,9 @@ const Donations = () => {
 
             <div className="mx-6 border-t border-gray-100" />
 
-            <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center bg-brand-dark rounded-b-[28px]">
+            <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center bg-brand-dark rounded-b-[28px]">
               <h3 className="text-lg font-medium text-white mb-2">Visitá el bioparque</h3>
-              <p className="text-xs text-white/50 mb-4 leading-relaxed">
+              <p className="text-xs text-white/50 mb-3 leading-relaxed">
                 Cada visita es una contribución directa al trabajo de la fundación. Al visitarnos ayudás a cuidar a los animales que viven con nosotros y a apoyar nuestros programas de educación.
               </p>
               <Link to="/bioparque" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">

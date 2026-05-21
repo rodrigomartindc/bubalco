@@ -13,7 +13,7 @@ const About = () => {
   return (
     <section id="quienes-somos" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:overflow-hidden">
       <div className="slide-card md:hidden">
-        <div className="slide-card__scroll relative bg-white overflow-hidden">
+        <div className="slide-card__scroll relative bg-white">
           <div className="relative z-10 w-full px-6 py-6">
             <div className={`text-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
               <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-11 mx-auto mb-2" />
