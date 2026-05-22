@@ -105,7 +105,7 @@ export default function Bioparque() {
               <div className="space-y-2">
                 {[
                   { n: '1', title: 'Educación para generar cambio', desc: 'Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
-                  { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro.' },
+                  { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro y sus historias contribuyen a generar conciencia sobre la conservación.' },
                   { n: '3', title: 'Conectar con la naturaleza', desc: 'Cada vez estamos más alejados de la naturaleza. Conocer a los animales y sus historias nos ayuda a reconectar y comprender por qué protegerla es fundamental.' },
                 ].map((b) => (
                   <div key={b.n} className="rounded-xl p-3 text-left" style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n)-1] }}>
@@ -286,7 +286,7 @@ export default function Bioparque() {
             <div className="grid md:grid-cols-3 gap-6">
               {[
                 { n: '1', title: 'Conectar con la naturaleza', desc: 'Cada vez estamos más alejados de la naturaleza. Conocer a los animales y sus historias nos ayuda a reconectar y comprender por qué protegerla es fundamental.' },
-                { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro.' },
+                { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro y sus historias contribuyen a generar conciencia sobre la conservación.' },
                 { n: '3', title: 'Educación para generar cambio', desc: 'Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
               ].map((b) => (
                 <div key={b.n} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
