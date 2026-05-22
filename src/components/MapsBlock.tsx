@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { asset } from '../utils/asset';
 
 export default function MapsBlock() {
   const { ref, isVisible } = useScrollAnimation();
@@ -14,8 +15,9 @@ export default function MapsBlock() {
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
                 En una isla de Río Negro, cerca del límite con Neuquén, rodeados de naturaleza y lejos de lo urbano. Una ubicación estratégica que nos permite trabajar directamente en los ecosistemas que protegemos.
               </p>
-              <div className="rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 p-12 flex items-center justify-center">
-                <p className="text-xs text-gray-400">Mapa próximamente</p>
+              <div className="flex gap-3">
+                <img src={asset('/bubalco-map-1.png')} alt="Mapa Bubalcó Patagonia 1" className="flex-1 min-w-0 rounded-xl object-cover" />
+                <img src={asset('/bubalco-map-2.png')} alt="Mapa Bubalcó Patagonia 2" className="flex-1 min-w-0 rounded-xl object-cover" />
               </div>
             </div>
           </div>
@@ -29,8 +31,9 @@ export default function MapsBlock() {
           <p className="text-base text-gray-500 leading-relaxed mb-10">
             Nos encontramos en una isla de Río Negro, cerca del límite con Neuquén, rodeados de naturaleza y lejos de lo urbano. Una ubicación estratégica que nos permite trabajar directamente en los ecosistemas que protegemos.
           </p>
-          <div className="rounded-2xl border-2 border-dashed border-gray-200 bg-gray-50 p-20 flex items-center justify-center">
-            <p className="text-base text-gray-400">Mapa próximamente</p>
+          <div className="flex gap-6">
+            <img src={asset('/bubalco-map-1.png')} alt="Mapa Bubalcó Patagonia 1" className="flex-1 min-w-0 rounded-2xl object-cover" />
+            <img src={asset('/bubalco-map-2.png')} alt="Mapa Bubalcó Patagonia 2" className="flex-1 min-w-0 rounded-2xl object-cover" />
           </div>
         </div>
       </div>
