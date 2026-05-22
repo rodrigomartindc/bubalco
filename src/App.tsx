@@ -13,6 +13,7 @@ import VisitasEscolares from './pages/VisitasEscolares';
 import NuestroTrabajoPage from './pages/NuestroTrabajoPage';
 import Novedades from './pages/Novedades';
 import PreguntasFrecuentes from './pages/PreguntasFrecuentes';
+import HorariosYTarifas from './pages/HorariosYTarifas';
 import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
 
@@ -54,6 +55,7 @@ function AppShell() {
         <Route path="/nuestro-trabajo" element={<NuestroTrabajoPage />} />
         <Route path="/novedades" element={<Novedades />} />
         <Route path="/bioparque/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
+        <Route path="/bioparque/horarios-y-tarifas" element={<HorariosYTarifas />} />
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[9rem]"><Volunteering /></div>} />
       </Routes>

@@ -1,30 +1,15 @@
 import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { Link, NavLink, useLocation } from 'react-router-dom';
 import { asset } from '../utils/asset';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  const navigate = useNavigate();
 
   useEffect(() => { setIsOpen(false); }, [location]);
 
   const isBioparque = location.pathname.startsWith('/bioparque');
-
-  const goToSection = (hash: string) => {
-    setIsOpen(false);
-    if (location.pathname === '/bioparque') {
-      const el = document.getElementById(hash) || document.getElementById(hash + '-m');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      navigate('/bioparque');
-      setTimeout(() => {
-        const el = document.getElementById(hash) || document.getElementById(hash + '-m');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
-    }
-  };
 
   return (
     <>
@@ -47,7 +32,7 @@ const Navbar = () => {
                 </NavLink>
                 <div className="absolute top-full left-0 pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all">
                   <div className="bg-white rounded-lg shadow-lg border border-gray-100 py-2 min-w-[200px]">
-                    <button onClick={() => goToSection('tarifas-horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Horarios y Tarifas</button>
+                    <Link to="/bioparque/horarios-y-tarifas" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Horarios y Tarifas</Link>
                     <Link to="/visitas-escolares" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Visitas Escolares</Link>
                     <Link to="/bioparque/preguntas-frecuentes" className="block px-4 py-2 text-sm text-gray-600 hover:bg-gray-50 hover:text-gray-900">Preguntas Frecuentes</Link>
                   </div>
@@ -96,9 +81,9 @@ const Navbar = () => {
                 Qué es el Bioparque
               </Link>
               <div className="ml-4 mt-1 space-y-1">
-                <button onClick={() => goToSection('tarifas-horarios')} className="block w-full text-left px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                <Link to="/bioparque/horarios-y-tarifas" className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
                   Horarios y Tarifas
-                </button>
+                </Link>
                 <Link to="/visitas-escolares" className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
                   Visitas Escolares
                 </Link>
