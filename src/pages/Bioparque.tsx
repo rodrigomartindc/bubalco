@@ -63,7 +63,7 @@ export default function Bioparque() {
               <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-28 object-cover rounded-xl mb-3" />
               <h2 className="text-xl font-medium text-gray-900 mb-3">Un aula en la naturaleza</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                Acercamos a estudiantes a la fauna y la conservación de forma directa y participativa.
+                Acercamos a estudiantes y visitantes a la fauna y la conservación de forma directa y participativa.
               </p>
               <Link to="/visitas-escolares" className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full mx-auto">
                 Visitas Escolares <ArrowRight size={14} />
