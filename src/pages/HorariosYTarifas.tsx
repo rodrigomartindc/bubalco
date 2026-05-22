@@ -74,7 +74,7 @@ export default function HorariosYTarifas() {
               </div>
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
                 <div className="flex items-center gap-3 mb-3">
-                  <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-8 object-contain" />
+                  <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-16 object-contain" />
                 </div>
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-sm">
@@ -255,7 +255,7 @@ export default function HorariosYTarifas() {
             </div>
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
               <div className="flex items-center gap-4 mb-4">
-                <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-10 object-contain" />
+                <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-16 object-contain" />
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
