@@ -25,7 +25,7 @@ const Donations = () => {
             <div className="mx-6 border-t border-gray-100" />
 
             <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center bg-brand-dark rounded-b-[28px]">
-              <h3 className="text-lg font-medium text-white mb-2">Visitá el bioparque</h3>
+              <h2 className="text-xl font-medium text-white mb-2">Visitá el bioparque</h2>
               <p className="text-xs text-white/50 mb-3 leading-relaxed">
                 Cada visita es una contribución directa al trabajo de la fundación. Al visitarnos ayudás a cuidar a los animales que viven con nosotros y a apoyar nuestros programas de educación.
               </p>
