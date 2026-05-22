@@ -48,7 +48,7 @@ export default function Bioparque() {
                 </p>
               </div>
               <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center">
-                <h3 className="text-base font-medium text-gray-900 mb-3">Un proyecto reconocido por su aporte a la conservación y la educación</h3>
+                <h2 className="text-lg font-medium text-gray-900 mb-3">Un proyecto reconocido por su aporte a la conservación y la educación</h2>
                 <img src={asset('/certif-legislatura-bubalco.webp')} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" />
               </div>
             </div>
