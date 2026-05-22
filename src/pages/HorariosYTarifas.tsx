@@ -31,13 +31,17 @@ function PriceRow({ name, sub, price }: { name: string; sub: string; price: stri
   );
 }
 
-function LogosPlaceholder() {
-  return (
-    <div className="inline-flex items-center justify-center px-4 py-2 bg-gray-100 rounded-lg border border-dashed border-gray-300">
-      <span className="text-xs text-gray-400 tracking-widest uppercase">logos</span>
-    </div>
-  );
-}
+const paymentLogos = [
+  { src: '/tarjeta-visa.png',             alt: 'Visa' },
+  { src: '/tarjeta-mastercard.png',       alt: 'Mastercard' },
+  { src: '/tarjeta-maestro.png',          alt: 'Maestro' },
+  { src: '/tarjeta-mercaddpago.png',      alt: 'Mercado Pago' },
+  { src: '/tarjeta-tarjeta-naranja.png',  alt: 'Naranja' },
+  { src: '/tarjeta-cabal.png',            alt: 'Cabal' },
+  { src: '/tarjeta-faro.png',             alt: 'Faro' },
+  { src: '/tarjeta-coopeplus.png',        alt: 'Coopeplus' },
+  { src: '/tarjeta-huilen.png',           alt: 'Huilen' },
+];
 
 export default function HorariosYTarifas() {
   return (
@@ -70,8 +74,7 @@ export default function HorariosYTarifas() {
               </div>
               <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
                 <div className="flex items-center gap-3 mb-3">
-                  <LogosPlaceholder />
-                  <p className="text-sm font-medium text-gray-900">Club Río Negro</p>
+                  <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-8 object-contain" />
                 </div>
                 <div className="space-y-1.5">
                   <div className="flex justify-between text-sm">
@@ -170,7 +173,9 @@ export default function HorariosYTarifas() {
                 La entrada se adquiere directo en boletería sin reserva.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                <LogosPlaceholder />
+                {paymentLogos.map((l) => (
+                  <img key={l.src} src={asset(l.src)} alt={l.alt} className="h-8 object-contain" />
+                ))}
               </div>
             </div>
           </div>
@@ -250,8 +255,7 @@ export default function HorariosYTarifas() {
             </div>
             <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
               <div className="flex items-center gap-4 mb-4">
-                <LogosPlaceholder />
-                <p className="font-medium text-gray-900">Club Río Negro</p>
+                <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-10 object-contain" />
               </div>
               <div className="space-y-2">
                 <div className="flex justify-between text-sm">
@@ -315,8 +319,10 @@ export default function HorariosYTarifas() {
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Tu entrada</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-4">Medios de pago</h2>
             <p className="text-base text-gray-500 leading-relaxed mb-8">La entrada se adquiere directo en boletería sin reserva.</p>
-            <div className="flex flex-wrap gap-4">
-              <LogosPlaceholder />
+            <div className="flex flex-wrap gap-4 items-center">
+              {paymentLogos.map((l) => (
+                <img key={l.src} src={asset(l.src)} alt={l.alt} className="h-10 object-contain" />
+              ))}
             </div>
           </div>
 
