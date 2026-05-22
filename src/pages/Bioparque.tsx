@@ -102,16 +102,16 @@ export default function Bioparque() {
         {/* Slide 5: Por qué abrimos */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-5 h-full flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestra misión</p>
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Convivencia Responsable</h2>
-              <div className="space-y-2">
+            <div className="py-5 h-full flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-2 px-6">Nuestra misión</p>
+              <h2 className="text-lg font-medium text-gray-900 mb-4 px-6">Convivencia Responsable</h2>
+              <div className="space-y-px">
                 {[
                   { n: '1', title: 'Educación para generar cambio', desc: 'La educación es un pilar de nuestro trabajo. Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
                   { n: '2', title: 'Animales que encontraron un hogar', desc: 'Los animales del parque no pueden volver a la naturaleza y están habituados a convivir con personas que respetan su bienestar y los cuidan. Les damos un hogar seguro y nos aseguramos que sus historias no sean en vano.' },
                   { n: '3', title: 'Conectar con lo que protegemos', desc: 'Cada vez vivimos más alejados de la naturaleza y es difícil proteger lo que no se conoce. Conectar con cada animal y entender sus desafíos nos impulsa a buscar un mundo en armonía con la naturaleza.' },
                 ].map((b) => (
-                  <div key={b.n} className="rounded-xl p-3 text-left" style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n)-1] }}>
+                  <div key={b.n} className="px-5 py-3 text-left" style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n)-1] }}>
                     <div className="flex items-start gap-2">
                       <span className="w-5 h-5 rounded-full bg-brand/15 text-brand text-[11px] font-medium flex items-center justify-center flex-shrink-0 mt-0.5">{b.n}</span>
                       <div>
