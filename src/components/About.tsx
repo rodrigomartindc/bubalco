@@ -25,10 +25,6 @@ const About = () => {
                 Protegemos a la fauna silvestre y trabajamos para que la comunidad comprenda y valore la importancia de conservarla.
               </p>
 
-              <Link to="/nosotros" className="group inline-flex items-center gap-2 px-6 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors mb-4">
-                Conocer más <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
-
               <div className="space-y-2 w-full">
                 {[
                   { value: `+${years}`, line1: 'Años trabajando', line2: 'en conservación' },

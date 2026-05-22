@@ -53,7 +53,7 @@ function AppShell() {
         <Route path="/visitas-escolares" element={<VisitasEscolares />} />
         <Route path="/nuestro-trabajo" element={<NuestroTrabajoPage />} />
         <Route path="/novedades" element={<Novedades />} />
-        <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
+        <Route path="/bioparque/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[9rem]"><Volunteering /></div>} />
       </Routes>

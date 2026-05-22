@@ -42,7 +42,7 @@ export default function FaqSlide() {
 
             <div className="text-center pt-3">
               <Link
-                to="/preguntas-frecuentes"
+                to="/bioparque/preguntas-frecuentes"
                 className="group inline-flex items-center gap-2 text-sm text-brand font-medium"
               >
                 Ver todas <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
