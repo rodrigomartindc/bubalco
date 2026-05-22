@@ -38,7 +38,7 @@ export default function FaqAccordion({ items }: Props) {
               aria-labelledby={`${id}-btn`}
               className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-[600px]' : 'max-h-0'}`}
             >
-              <p className="px-5 pb-4 text-sm text-gray-500 leading-relaxed whitespace-pre-line">{item.answer}</p>
+              <p className="px-5 pt-2 pb-4 text-sm text-gray-500 leading-relaxed whitespace-pre-line">{item.answer}</p>
             </div>
           </div>
         );
