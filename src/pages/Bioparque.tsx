@@ -104,12 +104,12 @@ export default function Bioparque() {
           <div className="bp-card bg-white">
             <div className="px-6 py-5 h-full flex flex-col justify-center text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestra misión</p>
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Por qué abrimos el bioparque<br />al público</h2>
+              <h2 className="text-lg font-medium text-gray-900 mb-4">Convivencia Responsable</h2>
               <div className="space-y-2">
                 {[
-                  { n: '1', title: 'Educación para generar cambio', desc: 'Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
-                  { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro y sus historias contribuyen a generar conciencia sobre la conservación.' },
-                  { n: '3', title: 'Conectar con la naturaleza', desc: 'Cada vez estamos más alejados de la naturaleza. Conocer a los animales y sus historias nos ayuda a reconectar y comprender por qué protegerla es fundamental.' },
+                  { n: '1', title: 'Educación para generar cambio', desc: 'La educación es un pilar de nuestro trabajo. Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
+                  { n: '2', title: 'Animales que encontraron un hogar', desc: 'Los animales del parque no pueden volver a la naturaleza y están habituados a convivir con personas que respetan su bienestar y los cuidan. Les damos un hogar seguro y nos aseguramos que sus historias no sean en vano.' },
+                  { n: '3', title: 'Conectar con lo que protegemos', desc: 'Cada vez vivimos más alejados de la naturaleza y es difícil proteger lo que no se conoce. Conectar con cada animal y entender sus desafíos nos impulsa a buscar un mundo en armonía con la naturaleza.' },
                 ].map((b) => (
                   <div key={b.n} className="rounded-xl p-3 text-left" style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n)-1] }}>
                     <div className="flex items-start gap-2">
@@ -288,12 +288,12 @@ export default function Bioparque() {
           {/* Por qué abrimos */}
           <div className="mb-20">
             <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Nuestra misión</p>
-            <h2 className="text-3xl font-medium text-gray-900 mb-8">Por qué abrimos el bioparque al público</h2>
+            <h2 className="text-3xl font-medium text-gray-900 mb-8">Convivencia Responsable</h2>
             <div className="grid md:grid-cols-3 gap-6">
               {[
-                { n: '1', title: 'Conectar con la naturaleza', desc: 'Cada vez estamos más alejados de la naturaleza. Conocer a los animales y sus historias nos ayuda a reconectar y comprender por qué protegerla es fundamental.' },
-                { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro y sus historias contribuyen a generar conciencia sobre la conservación.' },
-                { n: '3', title: 'Educación para generar cambio', desc: 'Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
+                { n: '1', title: 'Educación para generar cambio', desc: 'La educación es un pilar de nuestro trabajo. Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
+                { n: '2', title: 'Animales que encontraron un hogar', desc: 'Los animales del parque no pueden volver a la naturaleza y están habituados a convivir con personas que respetan su bienestar y los cuidan. Les damos un hogar seguro y nos aseguramos que sus historias no sean en vano.' },
+                { n: '3', title: 'Conectar con lo que protegemos', desc: 'Cada vez vivimos más alejados de la naturaleza y es difícil proteger lo que no se conoce. Conectar con cada animal y entender sus desafíos nos impulsa a buscar un mundo en armonía con la naturaleza.' },
               ].map((b) => (
                 <div key={b.n} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
                   <span className="w-8 h-8 rounded-full bg-brand/10 text-brand text-sm font-medium flex items-center justify-center mb-4">{b.n}</span>
