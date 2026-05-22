@@ -37,7 +37,8 @@ function AppShell() {
 
   const isHome = location.pathname === '/';
   const isBioparque = location.pathname === '/bioparque';
-  const hasOwnMobileFooter = isHome || isBioparque;
+  const isHorariosYTarifas = location.pathname === '/bioparque/horarios-y-tarifas';
+  const hasOwnMobileFooter = isHome || isBioparque || isHorariosYTarifas;
   const showAppFooter = hasOwnMobileFooter ? isDesktop : true;
 
   return (
