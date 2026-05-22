@@ -171,12 +171,11 @@ export default function Bioparque() {
         {/* Slide 7: Descargar mapa */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-10 h-full flex flex-col items-center justify-center text-center">
-              <Download size={32} className="text-brand mb-4" />
+            <div className="px-6 py-6 h-full flex flex-col items-center justify-center text-center">
               <h2 className="text-2xl font-medium text-gray-900 mb-3">Mapa del recorrido</h2>
-              <p className="text-sm text-gray-500 mb-8">
-                9 zonas temáticas. Descargá el mapa para planificar tu visita.
-              </p>
+              <img src={asset('/bubalco-map-0.png')} alt="Mapa del recorrido Bubalcó" className="w-full rounded-xl mb-4 object-contain" />
+              <p className="text-sm font-medium text-gray-700 mb-1">9 zonas temáticas.</p>
+              <p className="text-sm text-gray-500 mb-6">Descargá el mapa para planificar tu visita.</p>
               <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full">
                 Descargar mapa
               </a>
@@ -336,7 +335,9 @@ export default function Bioparque() {
           {/* Mapa descargable */}
           <div className="text-center">
             <h2 className="text-2xl font-medium text-gray-900 mb-4">Mapa del recorrido</h2>
-            <p className="text-sm text-gray-500 mb-8">9 zonas temáticas. Descargá el mapa para planificar tu visita.</p>
+            <img src={asset('/bubalco-map-0.png')} alt="Mapa del recorrido Bubalcó" className="w-full max-w-2xl mx-auto rounded-2xl mb-6 object-contain" />
+            <p className="text-sm font-medium text-gray-700 mb-1">9 zonas temáticas.</p>
+            <p className="text-sm text-gray-500 mb-8">Descargá el mapa para planificar tu visita.</p>
             <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
               <Download size={18} /> Descargar mapa
             </a>
