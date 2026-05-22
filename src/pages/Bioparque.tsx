@@ -83,16 +83,17 @@ export default function Bioparque() {
                   Cada animal tiene su historia. Conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
                 </p>
               </div>
-              <div className="flex-1 flex flex-col justify-center px-6 py-4 space-y-2">
-                {[
-                  'Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.',
-                  'Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.',
-                  'Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.',
-                ].map((text, i) => (
-                  <div key={i} className="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
-                    <p className="text-sm text-gray-600 leading-relaxed">{text}</p>
-                  </div>
-                ))}
+              <div className="flex-1 flex flex-col justify-center px-6 py-5 text-center">
+                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-4">
+                  Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.
+                </p>
+                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-4">
+                  Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.
+                </p>
+                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-5">
+                  Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.
+                </p>
+                <img src={asset('/leaves-img.png')} alt="" className="h-12 mx-auto opacity-40" />
               </div>
             </div>
           </div>
@@ -271,16 +272,16 @@ export default function Bioparque() {
             <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-3xl">
               Cada animal tiene su historia. Conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
             </p>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                'Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.',
-                'Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.',
-                'Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.',
-              ].map((text, i) => (
-                <div key={i} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                  <p className="text-sm text-gray-500 leading-relaxed">{text}</p>
-                </div>
-              ))}
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                <p className="text-sm text-gray-500 leading-relaxed italic">Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.</p>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                <p className="text-sm text-gray-500 leading-relaxed italic">Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.</p>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100 md:col-span-2">
+                <p className="text-sm text-gray-500 leading-relaxed italic">Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.</p>
+              </div>
             </div>
           </div>
 
