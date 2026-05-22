@@ -1,22 +1,37 @@
 import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { asset } from '../utils/asset';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => { setIsOpen(false); }, [location]);
 
   const isBioparque = location.pathname.startsWith('/bioparque');
+
+  const goHome = () => {
+    setIsOpen(false);
+    if (location.pathname === '/') {
+      const el = document.querySelector('.home-slides') as HTMLElement | null;
+      if (el) el.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      navigate('/');
+    }
+  };
 
   return (
     <>
       <nav className="fixed top-0 w-full z-[200] bg-white/95 backdrop-blur-lg shadow-sm">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
           <div className="flex justify-between items-center h-20">
-            <Link to="/" className="flex-shrink-0">
+            {/* Logo — mobile: goHome handler; desktop: normal link */}
+            <Link to="/" className="flex-shrink-0 md:hidden" onClick={goHome}>
+              <img src={asset('/logos/logo-negro.png')} alt="Bubalcó Patagonia" className="h-10 w-auto" />
+            </Link>
+            <Link to="/" className="flex-shrink-0 hidden md:block">
               <img src={asset('/logos/logo-negro.png')} alt="Bubalcó Patagonia" className="h-10 w-auto" />
             </Link>
 
@@ -72,7 +87,7 @@ const Navbar = () => {
           style={{ paddingTop: '124px' }}
         >
           <div className="px-6 py-4 space-y-1">
-            <NavLink to="/" className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide underline underline-offset-4 decoration-gray-300 rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+            <NavLink to="/" onClick={goHome} className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide underline underline-offset-4 decoration-gray-300 rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
               Inicio
             </NavLink>
 

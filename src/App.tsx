@@ -19,7 +19,11 @@ import Gracias from './pages/Gracias';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const snap = document.querySelector('.home-slides, .bioparque-slides') as HTMLElement | null;
+    if (snap) snap.scrollTop = 0;
+  }, [pathname]);
   return null;
 }
 
