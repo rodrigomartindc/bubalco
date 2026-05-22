@@ -80,17 +80,19 @@ export default function Bioparque() {
                 <p className="text-xs tracking-widest text-brand uppercase mb-3">Historias que merecen<br />ser contadas</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-3">De dónde vienen<br />los habitantes del parque</h2>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Cada animal tiene su historia y conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
+                  Cada animal tiene su historia. Conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
                 </p>
               </div>
-              <div className="flex-1 flex flex-col justify-center px-6 py-5 text-center">
-                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-4">
-                  Algunos animales llegaron como rescates, otros nacen y se crían en cautiverio dentro de programas de conservación de especies en peligro.
-                </p>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-5">
-                  Cada historia nos muestra los desafíos que enfrentan y por qué su cuidado es esencial: en el bioparque y en la naturaleza.
-                </p>
-                <img src={asset('/leaves-img.png')} alt="" className="h-12 mx-auto opacity-40" />
+              <div className="flex-1 flex flex-col justify-center px-6 py-4 space-y-2">
+                {[
+                  'Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.',
+                  'Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.',
+                  'Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.',
+                ].map((text, i) => (
+                  <div key={i} className="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+                    <p className="text-sm text-gray-600 leading-relaxed">{text}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -267,15 +269,18 @@ export default function Bioparque() {
             <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Historias que merecen ser contadas</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-4">De dónde vienen los habitantes del parque</h2>
             <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-3xl">
-              Cada animal tiene su historia y conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
+              Cada animal tiene su historia. Conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
             </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <p className="text-sm text-gray-500 leading-relaxed">Algunos animales llegaron como rescates, otros nacen y se crían en cautiverio dentro de programas de conservación de especies en peligro.</p>
-              </div>
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <p className="text-sm text-gray-500 leading-relaxed">Cada historia nos muestra los desafíos que enfrentan y por qué su cuidado es esencial, tanto en el bioparque como en la naturaleza.</p>
-              </div>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                'Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.',
+                'Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.',
+                'Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.',
+              ].map((text, i) => (
+                <div key={i} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+                  <p className="text-sm text-gray-500 leading-relaxed">{text}</p>
+                </div>
+              ))}
             </div>
           </div>
 
