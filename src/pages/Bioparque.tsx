@@ -126,47 +126,32 @@ export default function Bioparque() {
           </div>
         </section>
 
-        {/* Slide 6: Tarifas y Horarios */}
+        {/* Slide 6: Planificar tu visita */}
         <section id="tarifas-horarios-m" className="bp-slide">
-          <div className="bp-card bg-brand-dark text-white">
-            <div className="px-6 pt-5 pb-[50px] h-full flex flex-col justify-between text-center">
-              <div>
-                <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Planificá tu visita</p>
-                <h2 className="text-xl font-medium text-white mb-1">Horarios y Tarifas</h2>
-                <p className="text-xs text-white/40">Tu entrada contribuye directamente al trabajo de la fundación</p>
+          <div className="bp-card bg-white">
+            <div className="h-full flex flex-col">
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center">
+                <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">Planificar tu visita</p>
+                <h2 className="text-xl font-medium text-gray-900 mb-2">Entradas y Horarios</h2>
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                  El bioparque abre durante todo el año. Cada entrada contribuye directamente al trabajo de la Fundación.
+                </p>
+                <Link to="/bioparque/horarios-y-tarifas" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+                  Horarios y Tarifas <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
 
-              <div className="w-full">
-                <h3 className="text-sm font-medium text-white/70 mb-2 text-left">Horarios</h3>
-                <div className="bg-white/10 p-4 rounded-xl border border-white/10 mb-2">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Sun className="text-white/50" size={16} />
-                    <span className="text-base font-medium">Jueves a Domingo</span>
-                  </div>
-                  <div className="flex justify-between text-sm"><span className="text-white/60">Boletería</span><span>10:00 - 16:00</span></div>
-                  <div className="flex justify-between text-sm mt-1"><span className="text-white/60">Cierre</span><span>18:00 hs</span></div>
-                </div>
-                <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between items-center">
-                  <div className="flex items-center gap-2"><Moon className="text-white/40" size={14} /><span className="text-sm">Lun, Mar, Mié</span></div>
-                  <span className="text-sm text-white/50">CERRADO</span>
-                </div>
-              </div>
+              <div className="mx-6 border-t border-gray-100" />
 
-              <div className="w-full">
-                <h3 className="text-sm font-medium text-white/70 mb-2 text-left">Tarifas</h3>
-                <div className="space-y-2">
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
-                    <span>Entrada General</span><span className="font-medium">$25.800</span>
-                  </div>
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
-                    <span>Menores y Jubilados</span><span className="font-medium">$21.000</span>
-                  </div>
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
-                    <span>Menores de 4</span><span className="font-medium">GRATIS</span>
-                  </div>
-                </div>
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center bg-brand-dark rounded-b-[28px]">
+                <h2 className="text-xl font-medium text-white mb-2">¿Tenés dudas?</h2>
+                <p className="text-xs text-white/50 mb-4 leading-relaxed">
+                  Antes de venir, revisá las preguntas frecuentes.
+                </p>
+                <Link to="/bioparque/preguntas-frecuentes" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
+                  Preguntas Frecuentes <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
-
             </div>
           </div>
         </section>
