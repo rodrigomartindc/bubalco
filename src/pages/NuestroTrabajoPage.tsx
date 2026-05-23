@@ -37,12 +37,12 @@ function PhotoPlaceholder({ className = '', style }: { className?: string; style
 function FooterSlideContent() {
   const WA = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
   return (
-    <div className="w-full h-full bg-gray-900 text-white">
-      <div className="h-full flex flex-col">
-        <div className="relative h-[38%] flex-shrink-0">
+    <div className="w-full bg-gray-900 text-white">
+      <div className="flex flex-col">
+        <div className="relative h-64 flex-shrink-0">
           <iframe title="Ubicación Bubalcó" src={embedUrl} className="w-full h-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
         </div>
-        <div className="flex-1 px-6 py-4 flex flex-col justify-between items-center text-center">
+        <div className="px-6 py-8 flex flex-col items-center text-center gap-6">
           <div className="flex flex-col items-center">
             <Link to="/"><img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-9 mb-3" /></Link>
             <div className="flex gap-2 mb-3">
@@ -59,7 +59,7 @@ function FooterSlideContent() {
               <p className="text-sm text-gray-400">Allen, Río Negro, Argentina</p>
             </div>
           </div>
-          <div className="border-t border-gray-800 pt-3 w-full flex flex-col items-center gap-0.5">
+          <div className="border-t border-gray-800 pt-4 w-full flex flex-col items-center gap-0.5">
             <p className="text-xs text-gray-500 flex items-center gap-1">Hecho con <Heart size={12} className="text-accent" fill="currentColor" /> para los animales</p>
             <p className="text-xs text-gray-600">© 2026 Fundación Bubalcó Patagonia</p>
           </div>
@@ -73,14 +73,14 @@ export default function NuestroTrabajoPage() {
   return (
     <>
       {/* ── Mobile: scroll-snap slides ────────────────────────────── */}
-      <div className="bioparque-slides md:hidden">
+      <div className="md:hidden pt-[135px] bg-white">
 
-        {/* Slide 1: Hero */}
-        <section className="bp-slide" style={{ padding: 0 }}>
-          <div className="w-full h-full bg-white">
-            <div className="h-full flex flex-col">
-              <PhotoPlaceholder className="flex-shrink-0" style={{ height: '40%' } as React.CSSProperties} />
-              <div className="flex-1 slide-card__scroll px-6 py-5 text-center">
+        {/* Bloque 1: Hero */}
+        <section className="w-full">
+          <div className="w-full bg-white">
+            <div className="flex flex-col">
+              <PhotoPlaceholder className="h-52 w-full" />
+              <div className="px-6 py-5 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Fundación Bubalcó Patagonia Argentina</p>
                 <h1 className="text-2xl font-medium text-gray-900 mb-3">Proteger la Biodiversidad</h1>
                 <p className="text-sm text-gray-500 leading-relaxed mb-3">
@@ -94,9 +94,9 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 2: Misión */}
-        <section className="bp-slide" style={{ padding: 0 }}>
-          <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
+        {/* Bloque 2: Misión */}
+        <section className="w-full">
+          <div className="w-full bg-white">
             <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestra razón de ser</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Misión y compromiso</h2>
@@ -118,9 +118,9 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 3: Amenazas */}
-        <section className="bp-slide" style={{ padding: 0 }}>
-          <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
+        {/* Bloque 3: Amenazas */}
+        <section className="w-full">
+          <div className="w-full bg-white">
             <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">El contexto que nos convoca</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Las principales amenazas a la fauna silvestre</h2>
@@ -139,9 +139,9 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 4: Valores */}
-        <section className="bp-slide" style={{ padding: 0 }}>
-          <div className="w-full h-full bg-brand-dark text-white overflow-y-auto overflow-x-hidden">
+        {/* Bloque 4: Valores */}
+        <section className="w-full">
+          <div className="w-full bg-brand-dark text-white">
             <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Nuestros valores</p>
               <h2 className="text-xl font-medium text-white mb-2">Lo que nos mueve</h2>
@@ -160,11 +160,11 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 5: Refugio */}
-        <section className="bp-slide" style={{ padding: 0 }}>
-          <div className="w-full h-full bg-white flex flex-col overflow-hidden">
-            <PhotoPlaceholder className="flex-shrink-0" style={{ height: '35%' } as React.CSSProperties} />
-            <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-5 text-center">
+        {/* Bloque 5: Refugio */}
+        <section className="w-full">
+          <div className="w-full bg-white flex flex-col">
+            <PhotoPlaceholder className="h-52 w-full" />
+            <div className="px-6 py-5 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Refugio</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-2">Una casa para animales que no pueden volver a la naturaleza</h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-2">
@@ -177,11 +177,11 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 6: Conservación */}
-        <section className="bp-slide" style={{ padding: 0 }}>
-          <div className="w-full h-full bg-white flex flex-col overflow-hidden">
-            <PhotoPlaceholder className="flex-shrink-0" style={{ height: '35%' } as React.CSSProperties} />
-            <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-5 text-center">
+        {/* Bloque 6: Conservación */}
+        <section className="w-full">
+          <div className="w-full bg-white flex flex-col">
+            <PhotoPlaceholder className="h-52 w-full" />
+            <div className="px-6 py-5 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Conservación</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-2">Acciones para proteger</h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-2">
@@ -194,9 +194,9 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 7: Rescate */}
-        <section className="bp-slide" style={{ padding: 0 }}>
-          <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
+        {/* Bloque 7: Rescate */}
+        <section className="w-full">
+          <div className="w-full bg-white">
             <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Rescate</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Cuando la fauna silvestre necesita ayuda</h2>
@@ -218,9 +218,9 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 8: Educación */}
-        <section className="bp-slide" style={{ padding: 0 }}>
-          <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
+        {/* Bloque 8: Educación */}
+        <section className="w-full">
+          <div className="w-full bg-white">
             <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Educación Ambiental</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">El conocimiento es la base del cambio</h2>
@@ -243,8 +243,8 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 9: Footer */}
-        <section className="bp-slide" style={{ padding: 0 }}>
+        {/* Bloque 9: Footer */}
+        <section className="w-full">
           <FooterSlideContent />
         </section>
 
