@@ -37,7 +37,7 @@ function PhotoPlaceholder({ className = '', style }: { className?: string; style
 function FooterSlideContent() {
   const WA = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
   return (
-    <div className="bp-card bg-gray-900 text-white">
+    <div className="w-full h-full bg-gray-900 text-white">
       <div className="h-full flex flex-col">
         <div className="relative h-[38%] flex-shrink-0">
           <iframe title="Ubicación Bubalcó" src={embedUrl} className="w-full h-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
@@ -95,9 +95,9 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Slide 2: Misión */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white">
-            <div className="slide-card__scroll px-6 py-6">
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
+            <div className="px-6 py-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestra razón de ser</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Misión y compromiso</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-2">
@@ -119,9 +119,9 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Slide 3: Amenazas */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white">
-            <div className="slide-card__scroll px-6 py-6">
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
+            <div className="px-6 py-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">El contexto que nos convoca</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Las principales amenazas a la fauna silvestre</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -140,9 +140,9 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Slide 4: Valores */}
-        <section className="bp-slide">
-          <div className="bp-card bg-brand-dark text-white">
-            <div className="slide-card__scroll px-6 py-6">
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-brand-dark text-white overflow-y-auto overflow-x-hidden">
+            <div className="px-6 py-6">
               <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Nuestros valores</p>
               <h2 className="text-xl font-medium text-white mb-2">Lo que nos mueve</h2>
               <p className="text-sm text-white/60 leading-relaxed mb-4">
@@ -161,11 +161,10 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Slide 5: Refugio */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white overflow-hidden">
-            <div className="h-full flex flex-col">
-              <PhotoPlaceholder className="flex-shrink-0" style={{ height: '35%' } as React.CSSProperties} />
-              <div className="flex-1 slide-card__scroll px-6 py-5">
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-white flex flex-col overflow-hidden">
+            <PhotoPlaceholder className="flex-shrink-0" style={{ height: '35%' } as React.CSSProperties} />
+            <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-5">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Refugio</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-2">Una casa para animales que no pueden volver a la naturaleza</h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-2">
@@ -174,17 +173,15 @@ export default function NuestroTrabajoPage() {
                 <p className="text-sm text-gray-500 leading-relaxed">
                   Ubicado en una isla del río Negro, con 34 hectáreas íntegramente destinadas a los animales. Es hogar de más de 400 animales silvestres y cuenta con un equipo dedicado a garantizarles una vida digna y con bienestar.
                 </p>
-              </div>
             </div>
           </div>
         </section>
 
         {/* Slide 6: Conservación */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white overflow-hidden">
-            <div className="h-full flex flex-col">
-              <PhotoPlaceholder className="flex-shrink-0" style={{ height: '35%' } as React.CSSProperties} />
-              <div className="flex-1 slide-card__scroll px-6 py-5">
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-white flex flex-col overflow-hidden">
+            <PhotoPlaceholder className="flex-shrink-0" style={{ height: '35%' } as React.CSSProperties} />
+            <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-5">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Conservación</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-2">Acciones para proteger</h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-2">
@@ -193,15 +190,14 @@ export default function NuestroTrabajoPage() {
                 <p className="text-sm text-gray-500 leading-relaxed">
                   Trabajamos en la conservación de especies en peligro de extinción a través de programas concretos: reproducción controlada, reinserción en hábitat natural, investigación científica aplicada y educación ambiental.
                 </p>
-              </div>
             </div>
           </div>
         </section>
 
         {/* Slide 7: Rescate */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white">
-            <div className="slide-card__scroll px-6 py-6">
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
+            <div className="px-6 py-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Rescate</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Cuando la fauna silvestre necesita ayuda</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-3">
@@ -223,9 +219,9 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Slide 8: Educación */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white">
-            <div className="slide-card__scroll px-6 py-6">
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
+            <div className="px-6 py-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Educación Ambiental</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">El conocimiento es la base del cambio</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-3">
@@ -248,7 +244,7 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Slide 9: Footer */}
-        <section className="bp-slide">
+        <section className="bp-slide" style={{ padding: 0 }}>
           <FooterSlideContent />
         </section>
 
