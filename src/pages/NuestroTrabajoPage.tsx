@@ -75,16 +75,16 @@ export default function NuestroTrabajoPage() {
       {/* ── Mobile: scroll-snap slides ────────────────────────────── */}
       <div className="md:hidden pt-[135px] bg-white">
 
-        {/* Bloque 1: Hero */}
-        <section className="w-full bg-white">
-          <PhotoPlaceholder className="h-64 w-full" />
-          <div className="px-6 pt-8 pb-10 text-center">
-            <p className="text-xs tracking-widest text-brand uppercase mb-4">Fundación Bubalcó Patagonia Argentina</p>
-            <h1 className="text-3xl font-medium text-gray-900 leading-snug mb-5">Proteger la Biodiversidad</h1>
-            <p className="text-base text-gray-500 leading-relaxed mb-3">
+        {/* Bloque 1: Hero — ocupa exactamente un viewport */}
+        <section className="w-full bg-white flex flex-col overflow-hidden" style={{ height: 'calc(100dvh - 135px)' }}>
+          <PhotoPlaceholder className="w-full flex-shrink-0" style={{ height: '40%' }} />
+          <div className="flex-1 overflow-y-auto px-6 py-6 text-center">
+            <p className="text-xs tracking-widest text-brand uppercase mb-3">Fundación Bubalcó Patagonia Argentina</p>
+            <h1 className="text-2xl font-medium text-gray-900 leading-snug mb-4">Proteger la Biodiversidad</h1>
+            <p className="text-sm text-gray-500 leading-relaxed mb-3">
               En una isla del río Negro, en el corazón de la Patagonia argentina, Bubalcó trabaja para proteger la fauna silvestre, conservar especies en peligro de extinción y concientizar a la comunidad.
             </p>
-            <p className="text-base text-gray-500 leading-relaxed">
+            <p className="text-sm text-gray-500 leading-relaxed">
               Más de 400 animales refugiados y proyectos activos de rescate, conservación y educación en la región.
             </p>
           </div>
