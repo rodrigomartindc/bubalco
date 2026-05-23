@@ -80,7 +80,7 @@ export default function NuestroTrabajoPage() {
           <div className="w-full h-full bg-white">
             <div className="h-full flex flex-col">
               <PhotoPlaceholder className="flex-shrink-0" style={{ height: '40%' } as React.CSSProperties} />
-              <div className="flex-1 slide-card__scroll px-6 py-5">
+              <div className="flex-1 slide-card__scroll px-6 py-5 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Fundación Bubalcó Patagonia Argentina</p>
                 <h1 className="text-2xl font-medium text-gray-900 mb-3">Proteger la Biodiversidad</h1>
                 <p className="text-sm text-gray-500 leading-relaxed mb-3">
@@ -97,7 +97,7 @@ export default function NuestroTrabajoPage() {
         {/* Slide 2: Misión */}
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
-            <div className="px-6 py-6">
+            <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestra razón de ser</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Misión y compromiso</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-2">
@@ -108,7 +108,7 @@ export default function NuestroTrabajoPage() {
               </p>
               <div className="space-y-2">
                 {objetivos.map((o, i) => (
-                  <div key={i} className="flex gap-3 bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+                  <div key={i} className="flex gap-3 bg-gray-50 rounded-xl px-4 py-3 border border-gray-100 text-left">
                     <span className="w-5 h-5 rounded-full bg-brand/15 text-brand text-[11px] font-medium flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
                     <p className="text-xs text-gray-600 leading-relaxed">{o}</p>
                   </div>
@@ -121,7 +121,7 @@ export default function NuestroTrabajoPage() {
         {/* Slide 3: Amenazas */}
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
-            <div className="px-6 py-6">
+            <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">El contexto que nos convoca</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Las principales amenazas a la fauna silvestre</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -129,7 +129,7 @@ export default function NuestroTrabajoPage() {
               </p>
               <div className="space-y-2">
                 {amenazas.map((a, i) => (
-                  <div key={i} className="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100">
+                  <div key={i} className="bg-gray-50 rounded-xl px-4 py-3 border border-gray-100 text-left">
                     <p className="text-xs font-medium text-gray-900 mb-1">{a.title}</p>
                     <p className="text-xs text-gray-500 leading-relaxed">{a.desc}</p>
                   </div>
@@ -142,7 +142,7 @@ export default function NuestroTrabajoPage() {
         {/* Slide 4: Valores */}
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-brand-dark text-white overflow-y-auto overflow-x-hidden">
-            <div className="px-6 py-6">
+            <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Nuestros valores</p>
               <h2 className="text-xl font-medium text-white mb-2">Lo que nos mueve</h2>
               <p className="text-sm text-white/60 leading-relaxed mb-4">
@@ -150,7 +150,7 @@ export default function NuestroTrabajoPage() {
               </p>
               <div className="space-y-px">
                 {valores.map((v, i) => (
-                  <div key={i} className="bg-white/8 px-4 py-3" style={{ background: 'rgba(255,255,255,0.06)' }}>
+                  <div key={i} className="px-4 py-3 text-left" style={{ background: 'rgba(255,255,255,0.06)' }}>
                     <p className="text-xs font-medium text-white mb-0.5">{v.title}</p>
                     <p className="text-xs text-white/50 leading-relaxed">{v.desc}</p>
                   </div>
@@ -164,7 +164,7 @@ export default function NuestroTrabajoPage() {
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white flex flex-col overflow-hidden">
             <PhotoPlaceholder className="flex-shrink-0" style={{ height: '35%' } as React.CSSProperties} />
-            <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-5">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-5 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Refugio</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-2">Una casa para animales que no pueden volver a la naturaleza</h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-2">
@@ -181,7 +181,7 @@ export default function NuestroTrabajoPage() {
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white flex flex-col overflow-hidden">
             <PhotoPlaceholder className="flex-shrink-0" style={{ height: '35%' } as React.CSSProperties} />
-            <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-5">
+            <div className="flex-1 overflow-y-auto overflow-x-hidden px-6 py-5 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Conservación</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-2">Acciones para proteger</h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-2">
@@ -197,7 +197,7 @@ export default function NuestroTrabajoPage() {
         {/* Slide 7: Rescate */}
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
-            <div className="px-6 py-6">
+            <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Rescate</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">Cuando la fauna silvestre necesita ayuda</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-3">
@@ -206,7 +206,7 @@ export default function NuestroTrabajoPage() {
               <p className="text-sm text-gray-500 leading-relaxed mb-3">
                 En Bubalcó asistimos con rescates, tránsitos, liberaciones y cuidados permanentes de fauna silvestre a Fauna Río Negro y Neuquén. Colaboramos con instituciones afines y con la comunidad cuando es necesario.
               </p>
-              <div className="bg-brand/5 rounded-xl px-4 py-3 border border-brand/10 mb-3">
+              <div className="bg-brand/5 rounded-xl px-4 py-3 border border-brand/10 mb-3 text-left">
                 <p className="text-sm text-gray-700 leading-relaxed">
                   Hoy el <strong>40%</strong> de los animales que habitan el bioparque provienen de rescates cuya reinserción en la naturaleza no fue posible.
                 </p>
@@ -221,7 +221,7 @@ export default function NuestroTrabajoPage() {
         {/* Slide 8: Educación */}
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white overflow-y-auto overflow-x-hidden">
-            <div className="px-6 py-6">
+            <div className="px-6 py-6 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Educación Ambiental</p>
               <h2 className="text-xl font-medium text-gray-900 mb-2">El conocimiento es la base del cambio</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-3">
