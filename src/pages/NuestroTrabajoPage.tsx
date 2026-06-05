@@ -8,23 +8,25 @@ export default function NuestroTrabajoPage() {
     <div className="pt-[9rem] pb-20 bg-white">
       <div className="max-w-5xl mx-auto px-6">
         <div ref={ref} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Nuestro Trabajo</p>
-          <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">Más que un refugio,<br />una familia</h1>
-          <p className="text-base text-gray-500 leading-relaxed mb-12 max-w-2xl">
-            Rescatamos, rehabilitamos y protegemos la fauna silvestre mientras educamos a la comunidad sobre la importancia de la conservación. Desde hace más de 30 años trabajamos en Allen, Río Negro, Patagonia Argentina.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <img src={asset('/nuestro-trabajo-hero.jpeg')} alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-[400px]" />
-            <div className="flex flex-col justify-center">
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">Nuestra historia</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                Bubalcó nació con la misión de dar refugio a animales silvestres que no pueden regresar a su hábitat natural. A lo largo de los años, nos convertimos en un centro de referencia en conservación y educación ambiental en la Patagonia.
-              </p>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Hoy, con 34 hectáreas a orillas del Río Negro, somos hogar de cientos de animales y recibimos miles de visitantes cada año.
+          <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-12 mb-16 items-center">
+            <div>
+              <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Nuestro Trabajo</p>
+              <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">Más que un refugio,<br />una familia</h1>
+              <p className="text-base text-gray-500 leading-relaxed">
+                Rescatamos, rehabilitamos y protegemos la fauna silvestre mientras educamos a la comunidad sobre la importancia de la conservación. Desde hace más de 30 años trabajamos en Allen, Río Negro, Patagonia Argentina.
               </p>
             </div>
+            <img src={asset('/nuestro-trabajo-hero.jpeg')} alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-[400px]" />
+          </div>
+
+          <div className="mb-16 max-w-3xl">
+            <h2 className="text-2xl font-medium text-gray-900 mb-4">Nuestra historia</h2>
+            <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              Bubalcó nació con la misión de dar refugio a animales silvestres que no pueden regresar a su hábitat natural. A lo largo de los años, nos convertimos en un centro de referencia en conservación y educación ambiental en la Patagonia.
+            </p>
+            <p className="text-sm text-gray-500 leading-relaxed">
+              Hoy, con 34 hectáreas a orillas del Río Negro, somos hogar de cientos de animales y recibimos miles de visitantes cada año.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 mb-16 items-center">
