@@ -132,9 +132,9 @@ export default function Bioparque() {
             <div className="h-full flex flex-col">
               <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center">
                 <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">Planificar tu visita</p>
-                <h2 className="text-xl font-medium text-gray-900 mb-2">Entradas y Horarios</h2>
+                <h2 className="text-xl font-medium text-gray-900 mb-2">Horarios y Tarifas</h2>
                 <p className="text-xs text-gray-500 mb-4 leading-relaxed">
-                  El bioparque abre durante todo el año. Cada entrada contribuye directamente al trabajo de la Fundación.
+                  Consultá días, horarios, valores de entrada y promociones vigentes.
                 </p>
                 <Link to="/bioparque/horarios-y-tarifas" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
                   Horarios y Tarifas <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -146,7 +146,7 @@ export default function Bioparque() {
               <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center bg-brand-dark rounded-b-[28px]">
                 <h2 className="text-xl font-medium text-white mb-2">¿Tenés dudas?</h2>
                 <p className="text-xs text-white/50 mb-4 leading-relaxed">
-                  Antes de venir, revisá las preguntas frecuentes.
+                  Revisá información útil antes de venir.
                 </p>
                 <Link to="/bioparque/preguntas-frecuentes" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
                   Preguntas Frecuentes <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
@@ -289,16 +289,29 @@ export default function Bioparque() {
             </div>
           </div>
 
-          {/* Tarifas y Horarios */}
+          {/* Planificar tu visita */}
           <div id="tarifas-horarios" className="scroll-mt-32 mb-20">
-            <h2 className="text-3xl font-medium text-gray-900 mb-8">Horarios y Tarifas</h2>
-            <div className="bg-brand-dark rounded-2xl p-8 md:p-10 text-white">
-              <p className="text-base text-white/60 leading-relaxed mb-6 max-w-2xl">
-                Consultá los días de apertura, horarios de boletería, tarifas vigentes, promociones y medios de pago antes de planificar tu visita.
-              </p>
-              <Link to="/bioparque/horarios-y-tarifas" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm rounded-full hover:bg-gray-100 transition-colors">
-                Ver horarios y tarifas actualizados <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+            <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Planificar tu visita</p>
+            <h2 className="text-3xl font-medium text-gray-900 mb-8">Información para venir</h2>
+            <div className="grid md:grid-cols-2 gap-6">
+              <div className="bg-brand-dark rounded-2xl p-8 md:p-10 text-white">
+                <h3 className="text-2xl font-medium text-white mb-4">Horarios y Tarifas</h3>
+                <p className="text-base text-white/60 leading-relaxed mb-6">
+                  Consultá días, horarios, valores de entrada y promociones vigentes.
+                </p>
+                <Link to="/bioparque/horarios-y-tarifas" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm rounded-full hover:bg-gray-100 transition-colors">
+                  Ver horarios y tarifas <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+              <div className="bg-gray-50 rounded-2xl p-8 md:p-10 border border-gray-100">
+                <h3 className="text-2xl font-medium text-gray-900 mb-4">Preguntas Frecuentes</h3>
+                <p className="text-base text-gray-500 leading-relaxed mb-6">
+                  Revisá información útil antes de venir.
+                </p>
+                <Link to="/bioparque/preguntas-frecuentes" className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
+                  Ver preguntas frecuentes <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
           </div>
 
