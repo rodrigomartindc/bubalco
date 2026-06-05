@@ -44,7 +44,8 @@ export default function NuestroTrabajoPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 mb-16 items-center">
-            <div>
+            <img src={asset('/nuestro-trabajo-conservacion.jpeg')} alt="Trabajo de conservación de fauna silvestre en Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-80 md:order-last" />
+            <div className="md:order-first">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Conservación</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-4">Acciones para proteger</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -54,7 +55,6 @@ export default function NuestroTrabajoPage() {
                 Trabajamos en la conservación de especies en peligro de extinción a través de programas concretos: reproducción controlada, reinserción en hábitat natural, investigación científica aplicada y educación ambiental.
               </p>
             </div>
-            <img src={asset('/nuestro-trabajo-conservacion.jpeg')} alt="Trabajo de conservación de fauna silvestre en Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-80" />
           </div>
 
           <div className="mb-16">
