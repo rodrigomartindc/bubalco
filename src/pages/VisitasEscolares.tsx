@@ -14,38 +14,40 @@ export default function VisitasEscolares() {
         {/* Slide 1: Educación ambiental */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="slide-card__scroll px-6 py-8">
+            <div className="px-6 py-8 h-full flex flex-col justify-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación ambiental</p>
               <h1 className="text-2xl font-medium text-gray-900 mb-3">Un aula en la naturaleza</h1>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
                 Te acercamos a la conservación de forma directa y participativa.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-8">
-                Cada visita combina información científica, la historia de cada animal y actividades que fomentan la empatía y el compromiso con la naturaleza. Se adapta según nivel escolar y armamos experiencias únicas para las escuelas.
-              </p>
-              <a href={WA_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+              <a href={WA_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
                 Reservá para tu escuela <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
+              <p className="text-xs text-gray-400 leading-relaxed mt-5">
+                Armamos experiencias educativas según el nivel escolar y los objetivos del grupo.
+              </p>
             </div>
           </div>
         </section>
 
         {/* Slide 2: Información / cita */}
         <section className="bp-slide">
-          <div className="bp-card bg-white overflow-hidden">
-            <div className="h-full flex flex-col">
-              <div className="flex-shrink-0 overflow-hidden" style={{ height: '38%' }}>
-                <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-full object-cover" />
-              </div>
-              <div className="flex-1 slide-card__scroll px-6 py-5">
-                <p className="text-xs tracking-widest text-brand uppercase mb-2">Conciencia</p>
+          <div className="bp-card bg-gray-50">
+            <div className="slide-card__scroll px-6 py-6">
+              <p className="text-xs tracking-widest text-brand uppercase mb-3">Conciencia</p>
+              <div className="bg-white rounded-2xl border border-gray-100 border-l-4 border-l-brand p-5 mb-4">
                 <h2 className="text-lg font-medium text-gray-900 mb-3 leading-snug">
                   "El conocimiento sin amor no prende"
                 </h2>
-                <p className="text-xs text-gray-500 leading-relaxed mb-3">
+                <p className="text-sm text-gray-500 leading-relaxed">
                   Una cita de John Burroughs que representa nuestro objetivo con los guiados escolares: sembrar conciencia de conservación a través del amor, la empatía y la conexión.
                 </p>
-                <p className="text-xs text-gray-500 leading-relaxed">
+              </div>
+              <div className="bg-white rounded-2xl border border-gray-100 border-l-4 border-l-brand-dark p-5">
+                <p className="text-sm text-gray-500 leading-relaxed mb-3">
+                  Cada visita combina información científica, la historia de cada animal y actividades que fomentan la empatía y el compromiso con la naturaleza.
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
                   La educación es la base para generar un cambio real en cómo nos relacionamos con el medio ambiente y otras especies. Tomar conciencia de nuestro impacto es el primer paso para construir un futuro en el que a todos nos gustaría vivir.
                 </p>
               </div>
@@ -93,34 +95,33 @@ export default function VisitasEscolares() {
         <div className="max-w-4xl mx-auto px-6 space-y-20">
 
           {/* Bloque 1 */}
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <p className="text-xs tracking-widest text-brand uppercase mb-4">Educación ambiental</p>
-              <h1 className="text-4xl font-medium text-gray-900 mb-4">Un aula en la naturaleza</h1>
-              <p className="text-base text-gray-500 leading-relaxed mb-4">
-                Te acercamos a la conservación de forma directa y participativa.
-              </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-8">
-                Cada visita combina información científica, la historia de cada animal y actividades que fomentan la empatía y el compromiso con la naturaleza. Se adapta según nivel escolar y armamos experiencias únicas para las escuelas.
-              </p>
-              <a href={WA_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-                Reservá para tu escuela <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-            <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full rounded-2xl object-cover h-80" />
+          <div>
+            <p className="text-xs tracking-widest text-brand uppercase mb-4">Educación ambiental</p>
+            <h1 className="text-4xl font-medium text-gray-900 mb-4">Un aula en la naturaleza</h1>
+            <p className="text-base text-gray-500 leading-relaxed mb-4 max-w-2xl">
+              Te acercamos a la conservación de forma directa y participativa.
+            </p>
+            <p className="text-sm text-gray-500 leading-relaxed mb-8 max-w-2xl">
+              Cada visita combina información científica, la historia de cada animal y actividades que fomentan la empatía y el compromiso con la naturaleza. Se adapta según nivel escolar y armamos experiencias únicas para las escuelas.
+            </p>
+            <a href={WA_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+              Reservá para tu escuela <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
 
           {/* Bloque 2 */}
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <img src={asset('/bubalco-visitas.jpg')} alt="Actividad educativa en Bubalcó" className="w-full rounded-2xl object-cover h-80 order-last md:order-first" />
-            <div>
+          <div className="grid md:grid-cols-2 gap-6">
+            <div className="rounded-2xl border border-gray-100 border-l-4 border-l-brand bg-gray-50 p-8">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Conciencia</p>
-              <h2 className="text-3xl font-medium text-gray-900 mb-4 leading-snug">
+              <h2 className="text-2xl font-medium text-gray-900 mb-4 leading-snug">
                 "El conocimiento sin amor no prende"
               </h2>
-              <p className="text-base text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-gray-500 leading-relaxed">
                 Una cita de John Burroughs que representa nuestro objetivo con los guiados escolares: sembrar conciencia de conservación a través del amor, la empatía y la conexión.
               </p>
+            </div>
+            <div className="rounded-2xl border border-gray-100 border-l-4 border-l-brand-dark bg-gray-50 p-8">
+              <p className="text-xs tracking-widest text-brand-dark uppercase mb-4">Aprendizaje</p>
               <p className="text-sm text-gray-500 leading-relaxed">
                 La educación es la base para generar un cambio real en cómo nos relacionamos con el medio ambiente y otras especies. Tomar conciencia de nuestro impacto es el primer paso para construir un futuro en el que a todos nos gustaría vivir.
               </p>

@@ -163,7 +163,7 @@ export default function Donaciones() {
           </div>
 
           {/* Bloque 3 */}
-          <div className="grid md:grid-cols-2 gap-16 items-center">
+          <div className="grid md:grid-cols-[1fr_0.85fr] gap-8 items-start">
             <div>
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Beneficios impositivos</p>
               <h2 className="text-3xl font-medium text-gray-900 mb-4">Beneficios que quizás no conocías</h2>
@@ -174,7 +174,7 @@ export default function Donaciones() {
                 Consultar beneficios <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-10 border border-gray-100 flex flex-col justify-center h-64">
+            <div className="bg-brand/5 rounded-2xl p-8 border border-brand/10 border-l-4 border-l-brand">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Información para donantes</p>
               <p className="text-sm text-gray-500 leading-relaxed">
                 Podemos orientarte por mail sobre constancias, datos fiscales y beneficios aplicables a tu donación.
