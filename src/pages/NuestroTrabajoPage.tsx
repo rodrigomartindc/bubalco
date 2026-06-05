@@ -6,7 +6,7 @@ export default function NuestroTrabajoPage() {
 
   return (
     <div className="pt-[9rem] pb-20 bg-white">
-      <div className="max-w-4xl mx-auto px-6">
+      <div className="max-w-5xl mx-auto px-6">
         <div ref={ref} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Nuestro Trabajo</p>
           <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">Más que un refugio,<br />una familia</h1>
@@ -15,7 +15,7 @@ export default function NuestroTrabajoPage() {
           </p>
 
           <div className="grid md:grid-cols-2 gap-12 mb-16">
-            <img src={asset('/tucan-bubalco.jpg')} alt="Experiencia Bubalcó" className="w-full rounded-2xl object-cover h-[400px]" />
+            <img src={asset('/nuestro-trabajo-hero.jpeg')} alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-[400px]" />
             <div className="flex flex-col justify-center">
               <h2 className="text-2xl font-medium text-gray-900 mb-4">Nuestra historia</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -25,6 +25,34 @@ export default function NuestroTrabajoPage() {
                 Hoy, con 34 hectáreas a orillas del Río Negro, somos hogar de cientos de animales y recibimos miles de visitantes cada año.
               </p>
             </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16 items-center">
+            <img src={asset('/nuestro-trabajo-refugio.jpeg')} alt="Refugio para animales silvestres en Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-80" />
+            <div>
+              <p className="text-xs tracking-widest text-brand uppercase mb-4">Refugio</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4">Una casa para animales que no pueden volver a la naturaleza</h2>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                El Bioparque Bubalcó Patagonia es un espacio con instalaciones únicas en la región para el cuidado de animales silvestres que no pueden regresar a su hábitat natural.
+              </p>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Ubicado en una isla del río Negro, con 34 hectáreas íntegramente destinadas a los animales. Es hogar de más de 400 animales silvestres y cuenta con un equipo dedicado a garantizarles una vida digna y con bienestar.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12 mb-16 items-center">
+            <div>
+              <p className="text-xs tracking-widest text-brand uppercase mb-4">Conservación</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4">Acciones para proteger</h2>
+              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                Desarrollamos proyectos activos de conservación de fauna silvestre con especies de Argentina y de todo el mundo.
+              </p>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Trabajamos en la conservación de especies en peligro de extinción a través de programas concretos: reproducción controlada, reinserción en hábitat natural, investigación científica aplicada y educación ambiental.
+              </p>
+            </div>
+            <img src={asset('/nuestro-trabajo-conservacion.jpeg')} alt="Trabajo de conservación de fauna silvestre en Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-80" />
           </div>
 
           <div className="mb-16">
