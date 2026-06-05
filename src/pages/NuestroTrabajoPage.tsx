@@ -8,15 +8,15 @@ export default function NuestroTrabajoPage() {
     <div className="pt-[9rem] pb-20 bg-white">
       <div className="max-w-5xl mx-auto px-6">
         <div ref={ref} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-10 md:gap-12 mb-16 items-center">
-            <div>
-              <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Nuestro Trabajo</p>
+          <p className="text-xs tracking-widest text-gray-400 uppercase mb-4 md:mb-6">Nuestro Trabajo</p>
+          <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-6 md:gap-12 mb-16 items-center">
+            <img src={asset('/nuestro-trabajo-hero.jpeg')} alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-48 sm:h-64 md:h-[400px] md:order-last" />
+            <div className="md:order-first">
               <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">Más que un refugio,<br />una familia</h1>
               <p className="text-base text-gray-500 leading-relaxed">
                 Rescatamos, rehabilitamos y protegemos la fauna silvestre mientras educamos a la comunidad sobre la importancia de la conservación. Desde hace más de 30 años trabajamos en Allen, Río Negro, Patagonia Argentina.
               </p>
             </div>
-            <img src={asset('/nuestro-trabajo-hero.jpeg')} alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-[400px]" />
           </div>
 
           <div className="mb-16 max-w-3xl">
