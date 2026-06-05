@@ -70,7 +70,7 @@ const About = () => {
               ))}
             </div>
 
-            <Link to="/nosotros" className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+            <Link to="/nuestro-trabajo" className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
               Conocer más <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

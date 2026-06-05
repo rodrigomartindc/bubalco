@@ -1,4 +1,4 @@
-import { ArrowRight, Download, Instagram, Phone, MapPin, Heart, Copy } from 'lucide-react';
+import { ArrowRight, Instagram, Phone, MapPin, Heart, Copy } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { asset } from '../utils/asset';
@@ -7,6 +7,7 @@ const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Ho
 const embedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3051.5!2d-67.7601751!3d-39.0595151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a30fb8b3461c5%3A0x4edf452aaba697d8!2sFundaci%C3%B3n%20Bubalc%C3%B3%20Patagonia!5e0!3m2!1ses!2sar!4v1714600000000!5m2!1ses!2sar';
 const ALIAS = 'donacion.bubalco';
 const EMAIL = 'bubalco@bubalco.com';
+const BENEFITS_MAILTO = `mailto:${EMAIL}?subject=Consulta%20sobre%20beneficios%20impositivos`;
 
 function AliasCopiable() {
   const [copied, setCopied] = useState(false);
@@ -80,14 +81,10 @@ export default function Donaciones() {
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Beneficios impositivos</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-4">Beneficios que quizás no conocías</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-8">
-                Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Descargá el documento y conocé cómo se aplica en tu caso.
+                Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Escribinos y te contamos cómo se aplica en tu caso.
               </p>
-              <a
-                href={asset('/beneficios-impositivos-bubalco.pdf')}
-                download="beneficios-impositivos-bubalco.pdf"
-                className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors"
-              >
-                <Download size={14} /> Descargar documento
+              <a href={BENEFITS_MAILTO} className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+                Consultar beneficios <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
@@ -171,18 +168,17 @@ export default function Donaciones() {
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Beneficios impositivos</p>
               <h2 className="text-3xl font-medium text-gray-900 mb-4">Beneficios que quizás no conocías</h2>
               <p className="text-base text-gray-500 leading-relaxed mb-8">
-                Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Descargá el documento y conocé cómo se aplica en tu caso.
+                Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Escribinos y te contamos cómo se aplica en tu caso.
               </p>
-              <a
-                href={asset('/beneficios-impositivos-bubalco.pdf')}
-                download="beneficios-impositivos-bubalco.pdf"
-                className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors"
-              >
-                <Download size={16} /> Descargar documento
+              <a href={BENEFITS_MAILTO} className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+                Consultar beneficios <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-10 border border-gray-100 flex items-center justify-center h-64">
-              <p className="text-xs text-gray-400 tracking-widest uppercase">Documento PDF</p>
+            <div className="bg-gray-50 rounded-2xl p-10 border border-gray-100 flex flex-col justify-center h-64">
+              <p className="text-xs tracking-widest text-brand uppercase mb-4">Información para donantes</p>
+              <p className="text-sm text-gray-500 leading-relaxed">
+                Podemos orientarte por mail sobre constancias, datos fiscales y beneficios aplicables a tu donación.
+              </p>
             </div>
           </div>
 

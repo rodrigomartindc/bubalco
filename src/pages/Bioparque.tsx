@@ -1,4 +1,4 @@
-import { Sun, Moon, ArrowRight, Download, Instagram, Phone, MapPin, Heart } from 'lucide-react';
+import { ArrowRight, Download, Instagram, Phone, MapPin, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { asset } from '../utils/asset';
 
@@ -24,9 +24,9 @@ export default function Bioparque() {
                   Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
                 </p>
                 <div className="flex flex-col gap-3 w-full">
-                  <button onClick={() => { const el = document.getElementById('tarifas-horarios-m'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="px-6 py-3 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
+                  <Link to="/bioparque/horarios-y-tarifas" className="px-6 py-3 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors text-center">
                     Tarifas y Horarios
-                  </button>
+                  </Link>
                   <Link to="/visitas-escolares" className="px-6 py-3 border border-gray-200 text-gray-900 text-sm rounded-full text-center hover:bg-gray-50 transition-colors">
                     Visitas Escolares
                   </Link>
@@ -216,7 +216,7 @@ export default function Bioparque() {
               Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
             </p>
             <div className="flex gap-4 justify-center">
-              <a href="#tarifas-horarios" className="px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">Tarifas y Horarios</a>
+              <Link to="/bioparque/horarios-y-tarifas" className="px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">Tarifas y Horarios</Link>
               <Link to="/visitas-escolares" className="px-8 py-4 border border-gray-200 text-gray-900 text-sm rounded-full hover:bg-gray-50 transition-colors">Visitas Escolares</Link>
             </div>
           </div>
@@ -292,34 +292,13 @@ export default function Bioparque() {
           {/* Tarifas y Horarios */}
           <div id="tarifas-horarios" className="scroll-mt-32 mb-20">
             <h2 className="text-3xl font-medium text-gray-900 mb-8">Horarios y Tarifas</h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div className="bg-brand-dark p-8 rounded-2xl text-white">
-                <div className="flex items-center gap-2 mb-4"><Sun className="text-white/50" size={18} /><h3 className="font-medium">Jueves a Domingo y Feriados</h3></div>
-                <div className="space-y-3">
-                  <div className="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between"><span className="text-white/60 text-sm">Boletería</span><span className="font-medium">10:00 - 16:00</span></div>
-                  <div className="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between"><span className="text-white/60 text-sm">Cierre del Parque</span><span className="font-medium">18:00 hs</span></div>
-                </div>
-              </div>
-              <div className="bg-brand-dark p-8 rounded-2xl text-white">
-                <h3 className="font-medium mb-6">Tarifas de Ingreso</h3>
-                <div className="space-y-3">
-                  {[
-                    { name: 'Entrada General', sub: 'Mayores de 13 años', price: '$25.800' },
-                    { name: 'Menores y Jubilados', sub: '4 a 12 años', price: '$21.000' },
-                    { name: 'Menores de 4 años', sub: '', price: 'GRATIS' },
-                  ].map((t) => (
-                    <div key={t.name} className="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between items-center">
-                      <div><p className="text-sm font-medium">{t.name}</p>{t.sub && <p className="text-xs text-white/40 mt-0.5">{t.sub}</p>}</div>
-                      <span className="text-xl font-medium">{t.price}</span>
-                    </div>
-                  ))}
-                </div>
-                <p className="text-xs text-white/40 mt-4">Tu entrada contribuye directamente al trabajo de la fundación.</p>
-              </div>
-            </div>
-            <div className="bg-gray-100 p-4 rounded-xl flex justify-between items-center">
-              <div className="flex items-center gap-2"><Moon className="text-gray-400" size={16} /><span className="text-sm text-gray-600">Lunes, Martes, Miércoles</span></div>
-              <span className="text-sm font-medium text-gray-500">CERRADO</span>
+            <div className="bg-brand-dark rounded-2xl p-8 md:p-10 text-white">
+              <p className="text-base text-white/60 leading-relaxed mb-6 max-w-2xl">
+                Consultá los días de apertura, horarios de boletería, tarifas vigentes, promociones y medios de pago antes de planificar tu visita.
+              </p>
+              <Link to="/bioparque/horarios-y-tarifas" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm rounded-full hover:bg-gray-100 transition-colors">
+                Ver horarios y tarifas actualizados <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              </Link>
             </div>
           </div>
 

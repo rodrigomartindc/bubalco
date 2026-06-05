@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="hidden md:block">
             <h4 className="text-sm font-medium mb-6">Enlaces</h4>
             <ul className="space-y-3">
-              <li><Link to="/nosotros" className="text-sm text-gray-400 hover:text-white transition-colors">Quiénes Somos</Link></li>
+              <li><Link to="/nuestro-trabajo" className="text-sm text-gray-400 hover:text-white transition-colors">Nuestro Trabajo</Link></li>
               <li><Link to="/bioparque" className="text-sm text-gray-400 hover:text-white transition-colors">Bioparque</Link></li>
               <li><Link to="/donaciones" className="text-sm text-gray-400 hover:text-white transition-colors">Donaciones</Link></li>
               <li><Link to="/voluntariado" className="text-sm text-gray-400 hover:text-white transition-colors">Voluntariado</Link></li>

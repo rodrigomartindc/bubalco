@@ -34,8 +34,8 @@ export default function VisitasEscolares() {
         <section className="bp-slide">
           <div className="bp-card bg-white overflow-hidden">
             <div className="h-full flex flex-col">
-              <div className="flex-shrink-0 bg-gray-100 flex items-center justify-center" style={{ height: '38%' }}>
-                <p className="text-xs text-gray-400 tracking-widest uppercase">Foto</p>
+              <div className="flex-shrink-0 overflow-hidden" style={{ height: '38%' }}>
+                <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 slide-card__scroll px-6 py-5">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Conciencia</p>
@@ -107,16 +107,12 @@ export default function VisitasEscolares() {
                 Reservá para tu escuela <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
-            <div className="bg-gray-100 rounded-2xl flex items-center justify-center h-80">
-              <p className="text-xs text-gray-400 tracking-widest uppercase">Foto</p>
-            </div>
+            <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full rounded-2xl object-cover h-80" />
           </div>
 
           {/* Bloque 2 */}
           <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div className="bg-gray-100 rounded-2xl flex items-center justify-center h-80 order-last md:order-first">
-              <p className="text-xs text-gray-400 tracking-widest uppercase">Foto</p>
-            </div>
+            <img src={asset('/bubalco-visitas.jpg')} alt="Actividad educativa en Bubalcó" className="w-full rounded-2xl object-cover h-80 order-last md:order-first" />
             <div>
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Conciencia</p>
               <h2 className="text-3xl font-medium text-gray-900 mb-4 leading-snug">

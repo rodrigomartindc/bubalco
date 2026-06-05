@@ -33,7 +33,7 @@ const HeroMinimal = () => {
                 <Link to="/bioparque" className="flex-1 py-3 bg-white text-gray-900 text-sm tracking-wide rounded-full text-center hover:bg-gray-100 transition-colors">
                   Bioparque
                 </Link>
-                <Link to="/nosotros" className="flex-1 py-3 border border-white/20 text-white text-sm tracking-wide rounded-full text-center hover:bg-white/5 transition-colors">
+                <Link to="/nuestro-trabajo" className="flex-1 py-3 border border-white/20 text-white text-sm tracking-wide rounded-full text-center hover:bg-white/5 transition-colors">
                   Conservación
                 </Link>
               </div>
