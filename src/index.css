@@ -102,6 +102,10 @@
     box-shadow: none;
   }
 
+  .home-slides .slide-card__scroll {
+    overflow: hidden;
+  }
+
   .hero-full-card {
     width: 100%;
     height: calc(100dvh - var(--home-nav));
