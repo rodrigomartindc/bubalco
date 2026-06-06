@@ -6,42 +6,114 @@ const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Ho
 const embedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3051.5!2d-67.7601751!3d-39.0595151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a30fb8b3461c5%3A0x4edf452aaba697d8!2sFundaci%C3%B3n%20Bubalc%C3%B3%20Patagonia!5e0!3m2!1ses!2sar!4v1714600000000!5m2!1ses!2sar';
 
 const tarifas = [
-  { name: 'Entrada General',      sub: 'Mayores de 13 años',          price: '$29.900' },
-  { name: 'Menores y Jubilados',   sub: 'Entre 4 y 12 años (incluídos)', price: '$24.700' },
-  { name: 'Pase anual',            sub: '',                             price: '$126.700' },
-  { name: 'Menores de 4 años',     sub: '',                             price: 'Gratis' },
-  { name: 'Acompañante CUD',       sub: '',                             price: '$11.300' },
+  { nombre: 'Entrada General', detalle: 'Mayores de 13 años', valor: '$29.900' },
+  { nombre: 'Menores y Jubilados', detalle: 'Entre 4 y 12 años incluidos', valor: '$24.700' },
+  { nombre: 'Pase anual', detalle: '', valor: '$126.700' },
+  { nombre: 'Menores de 4 años', detalle: '', valor: 'Gratis' },
+  { nombre: 'Acompañante CUD', detalle: '', valor: '$11.300' },
 ];
 
-const grupos = [
-  { name: 'Grupo I',   sub: '2 generales y 2 de menores/jubilados', price: '$97.900' },
-  { name: 'Grupo II',  sub: '2 generales y 3 de menores/jubilados', price: '$112.300' },
-  { name: 'Grupo III', sub: '6 entradas generales',                  price: '$151.400' },
+const promociones = [
+  { nombre: 'Grupo I', detalle: '2 generales y 2 de menores/jubilados', valor: '$97.900' },
+  { nombre: 'Grupo II', detalle: '2 generales y 3 de menores/jubilados', valor: '$112.300' },
+  { nombre: 'Grupo III', detalle: '6 entradas generales', valor: '$151.400' },
 ];
 
-function PriceRow({ name, sub, price }: { name: string; sub: string; price: string }) {
+const clubRioNegro = [
+  { nombre: 'Entrada General', descuento: '15% de descuento' },
+  { nombre: 'Grupo I', descuento: '10% de descuento extra' },
+];
+
+const horarios = [
+  {
+    title: 'Jueves a Domingos',
+    rows: [
+      { label: 'Boletería', value: '10:00 a 16:00 hs' },
+      { label: 'Cierre del parque', value: '18:00 hs' },
+    ],
+    dark: true,
+  },
+  {
+    title: 'Días feriados',
+    rows: [
+      { label: 'Boletería', value: '10:00 a 16:00 hs' },
+      { label: 'Cierre del parque', value: '18:00 hs' },
+    ],
+    dark: true,
+  },
+  {
+    title: 'Lunes a Miércoles',
+    rows: [{ label: '', value: 'CERRADO' }],
+    dark: false,
+  },
+];
+
+const mediosPago = [
+  { src: '/tarjeta-visa.png', alt: 'Visa' },
+  { src: '/tarjeta-mastercard.png', alt: 'Mastercard' },
+  { src: '/tarjeta-maestro.png', alt: 'Maestro' },
+  { src: '/tarjeta-mercaddpago.png', alt: 'Mercado Pago' },
+  { src: '/tarjeta-tarjeta-naranja.png', alt: 'Naranja' },
+  { src: '/tarjeta-cabal.png', alt: 'Cabal' },
+  { src: '/tarjeta-faro.png', alt: 'Faro' },
+  { src: '/tarjeta-coopeplus.png', alt: 'Coopeplus' },
+  { src: '/tarjeta-huilen.png', alt: 'Huilen' },
+];
+
+function PriceRow({ nombre, detalle, valor }: { nombre: string; detalle: string; valor: string }) {
   return (
     <div className="flex justify-between items-center py-2.5 border-b border-gray-100 last:border-0">
       <div>
-        <p className="text-sm font-medium text-gray-900">{name}</p>
-        {sub && <p className="text-xs text-gray-400 mt-0.5">{sub}</p>}
+        <p className="text-sm font-medium text-gray-900">{nombre}</p>
+        {detalle && <p className="text-xs text-gray-400 mt-0.5">{detalle}</p>}
       </div>
-      <span className="text-sm font-medium text-gray-900 ml-4 flex-shrink-0">{price}</span>
+      <span className="text-sm font-medium text-gray-900 ml-4 flex-shrink-0">{valor}</span>
     </div>
   );
 }
 
-const paymentLogos = [
-  { src: '/tarjeta-visa.png',             alt: 'Visa' },
-  { src: '/tarjeta-mastercard.png',       alt: 'Mastercard' },
-  { src: '/tarjeta-maestro.png',          alt: 'Maestro' },
-  { src: '/tarjeta-mercaddpago.png',      alt: 'Mercado Pago' },
-  { src: '/tarjeta-tarjeta-naranja.png',  alt: 'Naranja' },
-  { src: '/tarjeta-cabal.png',            alt: 'Cabal' },
-  { src: '/tarjeta-faro.png',             alt: 'Faro' },
-  { src: '/tarjeta-coopeplus.png',        alt: 'Coopeplus' },
-  { src: '/tarjeta-huilen.png',           alt: 'Huilen' },
-];
+function CudNote() {
+  return (
+    <p className="text-xs text-gray-400 mt-4 leading-relaxed">
+      Las personas con CUD ingresan sin costo. Su acompañante abona el seguro o valor indicado cuando corresponde.
+    </p>
+  );
+}
+
+function ClubRioNegroCard() {
+  return (
+    <div className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100">
+      <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
+        <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-16 object-contain" />
+      </div>
+      <div className="space-y-1.5 md:space-y-2">
+        {clubRioNegro.map((item) => (
+          <div key={item.nombre} className="flex justify-between text-sm gap-4">
+            <span className="text-gray-600">{item.nombre}</span>
+            <span className="font-medium text-brand text-right">{item.descuento}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function HorarioCard({ title, rows, dark }: { title: string; rows: { label: string; value: string }[]; dark: boolean }) {
+  return (
+    <div className={`rounded-2xl p-4 md:p-6 ${dark ? 'bg-brand-dark text-white border border-white/10' : 'bg-gray-100 text-gray-700'}`}>
+      <div className="flex items-center gap-2 mb-4">
+        {dark ? <Sun className="text-white/50" size={16} /> : <Moon className="text-gray-400" size={16} />}
+        <h3 className="font-medium text-sm">{title}</h3>
+      </div>
+      {rows.map((row) => (
+        <div key={`${title}-${row.label || row.value}`} className="flex justify-between text-sm mb-1 last:mb-0">
+          {row.label && <span className={dark ? 'text-white/60' : 'text-gray-500'}>{row.label}</span>}
+          <span className={`font-medium ${!row.label ? 'mx-auto' : ''}`}>{row.value}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export default function HorariosYTarifas() {
   return (
@@ -57,8 +129,9 @@ export default function HorariosYTarifas() {
               <h2 className="text-2xl font-medium text-gray-900 mb-1">Tu visita los cuida</h2>
               <p className="text-xs text-gray-500 mb-4 leading-relaxed">No hay que reservar. La entrada se adquiere directo en boletería.</p>
               <div className="divide-y divide-gray-100">
-                {tarifas.map((t) => <PriceRow key={t.name} {...t} />)}
+                {tarifas.map((tarifa) => <PriceRow key={tarifa.nombre} {...tarifa} />)}
               </div>
+              <CudNote />
             </div>
           </div>
         </section>
@@ -68,74 +141,24 @@ export default function HorariosYTarifas() {
           <div className="bp-card bg-white">
             <div className="slide-card__scroll px-6 py-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Promociones</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">Precios Especiales</h2>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4">Promociones y descuentos</h2>
               <div className="divide-y divide-gray-100 mb-5">
-                {grupos.map((g) => <PriceRow key={g.name} {...g} />)}
+                {promociones.map((promocion) => <PriceRow key={promocion.nombre} {...promocion} />)}
               </div>
-              <div className="bg-gray-50 rounded-xl p-4 border border-gray-100">
-                <div className="flex items-center gap-3 mb-3">
-                  <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-16 object-contain" />
-                </div>
-                <div className="space-y-1.5">
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Entrada General</span>
-                    <span className="font-medium text-brand">15% de descuento</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Grupo I</span>
-                    <span className="font-medium text-brand">10% de descuento extra</span>
-                  </div>
-                </div>
-              </div>
+              <ClubRioNegroCard />
             </div>
           </div>
         </section>
 
         {/* Slide 3: Días y horarios */}
         <section className="bp-slide">
-          <div className="bp-card bg-brand-dark text-white">
+          <div className="bp-card bg-white">
             <div className="px-6 py-8 h-full flex flex-col justify-center">
-              <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Cuándo visitar</p>
-              <h2 className="text-2xl font-medium text-white mb-6">Días y horarios</h2>
+              <p className="text-xs tracking-widest text-brand uppercase mb-2">Cuándo visitar</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-6">Días y horarios</h2>
 
               <div className="space-y-3">
-                <div className="bg-white/10 rounded-xl p-4 border border-white/10">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Sun className="text-white/50" size={16} />
-                    <span className="text-sm font-medium">Jueves a Domingos</span>
-                  </div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-white/60">Boletería</span>
-                    <span>10:00 a 16:00 hs</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-white/60">Cierre del parque</span>
-                    <span>18:00 hs</span>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 rounded-xl p-4 border border-white/10">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Sun className="text-white/50" size={16} />
-                    <span className="text-sm font-medium">Días feriados</span>
-                  </div>
-                  <div className="flex justify-between text-sm mb-1">
-                    <span className="text-white/60">Boletería</span>
-                    <span>10:00 a 16:00 hs</span>
-                  </div>
-                  <div className="flex justify-between text-sm">
-                    <span className="text-white/60">Cierre del parque</span>
-                    <span>18:00 hs</span>
-                  </div>
-                </div>
-
-                <div className="bg-white/5 rounded-xl p-4 border border-white/10 flex justify-between items-center">
-                  <div className="flex items-center gap-2">
-                    <Moon className="text-white/40" size={14} />
-                    <span className="text-sm">Lunes a Miércoles</span>
-                  </div>
-                  <span className="text-sm text-white/50 font-medium">CERRADO</span>
-                </div>
+                {horarios.map((horario) => <HorarioCard key={horario.title} {...horario} />)}
               </div>
             </div>
           </div>
@@ -173,8 +196,8 @@ export default function HorariosYTarifas() {
                 La entrada se adquiere directo en boletería sin reserva.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
-                {paymentLogos.map((l) => (
-                  <img key={l.src} src={asset(l.src)} alt={l.alt} className="h-8 object-contain" />
+                {mediosPago.map((medio) => (
+                  <img key={medio.src} src={asset(medio.src)} alt={medio.alt} className="h-8 object-contain" />
                 ))}
               </div>
             </div>
@@ -226,48 +249,35 @@ export default function HorariosYTarifas() {
             <h1 className="text-4xl font-medium text-gray-900 mb-2">Tu visita los cuida</h1>
             <p className="text-base text-gray-500 mb-8">No hay que reservar. La entrada se adquiere directo en boletería.</p>
             <div className="border border-gray-100 rounded-2xl overflow-hidden">
-              {tarifas.map((t, i) => (
-                <div key={t.name} className={`flex justify-between items-center px-6 py-4 ${i < tarifas.length - 1 ? 'border-b border-gray-100' : ''}`}>
+              {tarifas.map((tarifa, i) => (
+                <div key={tarifa.nombre} className={`flex justify-between items-center px-6 py-4 ${i < tarifas.length - 1 ? 'border-b border-gray-100' : ''}`}>
                   <div>
-                    <p className="font-medium text-gray-900">{t.name}</p>
-                    {t.sub && <p className="text-sm text-gray-400 mt-0.5">{t.sub}</p>}
+                    <p className="font-medium text-gray-900">{tarifa.nombre}</p>
+                    {tarifa.detalle && <p className="text-sm text-gray-400 mt-0.5">{tarifa.detalle}</p>}
                   </div>
-                  <span className="text-lg font-medium text-gray-900">{t.price}</span>
+                  <span className="text-lg font-medium text-gray-900">{tarifa.valor}</span>
                 </div>
               ))}
             </div>
+            <CudNote />
           </div>
 
           {/* Bloque 2: Promociones */}
           <div>
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Promociones</p>
-            <h2 className="text-3xl font-medium text-gray-900 mb-8">Precios Especiales</h2>
+            <h2 className="text-3xl font-medium text-gray-900 mb-8">Promociones y descuentos</h2>
             <div className="border border-gray-100 rounded-2xl overflow-hidden mb-6">
-              {grupos.map((g, i) => (
-                <div key={g.name} className={`flex justify-between items-center px-6 py-4 ${i < grupos.length - 1 ? 'border-b border-gray-100' : ''}`}>
+              {promociones.map((promocion, i) => (
+                <div key={promocion.nombre} className={`flex justify-between items-center px-6 py-4 ${i < promociones.length - 1 ? 'border-b border-gray-100' : ''}`}>
                   <div>
-                    <p className="font-medium text-gray-900">{g.name}</p>
-                    {g.sub && <p className="text-sm text-gray-400 mt-0.5">{g.sub}</p>}
+                    <p className="font-medium text-gray-900">{promocion.nombre}</p>
+                    {promocion.detalle && <p className="text-sm text-gray-400 mt-0.5">{promocion.detalle}</p>}
                   </div>
-                  <span className="text-lg font-medium text-gray-900">{g.price}</span>
+                  <span className="text-lg font-medium text-gray-900">{promocion.valor}</span>
                 </div>
               ))}
             </div>
-            <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              <div className="flex items-center gap-4 mb-4">
-                <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-16 object-contain" />
-              </div>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Entrada General</span>
-                  <span className="font-medium text-brand">15% de descuento</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Grupo I</span>
-                  <span className="font-medium text-brand">10% de descuento extra</span>
-                </div>
-              </div>
-            </div>
+            <ClubRioNegroCard />
           </div>
 
           {/* Bloque 3: Días y horarios */}
@@ -275,24 +285,7 @@ export default function HorariosYTarifas() {
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Cuándo visitar</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-8">Días y horarios</h2>
             <div className="grid md:grid-cols-3 gap-4">
-              {[
-                { title: 'Jueves a Domingos', rows: [{ label: 'Boletería', value: '10:00 a 16:00 hs' }, { label: 'Cierre del parque', value: '18:00 hs' }], dark: true },
-                { title: 'Días feriados', rows: [{ label: 'Boletería', value: '10:00 a 16:00 hs' }, { label: 'Cierre del parque', value: '18:00 hs' }], dark: true },
-                { title: 'Lunes a Miércoles', rows: [{ label: '', value: 'CERRADO' }], dark: false },
-              ].map((d) => (
-                <div key={d.title} className={`rounded-2xl p-6 ${d.dark ? 'bg-brand-dark text-white' : 'bg-gray-100 text-gray-700'}`}>
-                  <div className="flex items-center gap-2 mb-4">
-                    {d.dark ? <Sun className="text-white/50" size={16} /> : <Moon className="text-gray-400" size={16} />}
-                    <h3 className="font-medium text-sm">{d.title}</h3>
-                  </div>
-                  {d.rows.map((r) => (
-                    <div key={r.label} className="flex justify-between text-sm">
-                      {r.label && <span className={d.dark ? 'text-white/60' : 'text-gray-500'}>{r.label}</span>}
-                      <span className={`font-medium ${!r.label ? 'mx-auto' : ''}`}>{r.value}</span>
-                    </div>
-                  ))}
-                </div>
-              ))}
+              {horarios.map((horario) => <HorarioCard key={horario.title} {...horario} />)}
             </div>
           </div>
 
@@ -320,8 +313,8 @@ export default function HorariosYTarifas() {
             <h2 className="text-3xl font-medium text-gray-900 mb-4">Medios de pago</h2>
             <p className="text-base text-gray-500 leading-relaxed mb-8">La entrada se adquiere directo en boletería sin reserva.</p>
             <div className="flex flex-wrap gap-4 items-center">
-              {paymentLogos.map((l) => (
-                <img key={l.src} src={asset(l.src)} alt={l.alt} className="h-10 object-contain" />
+              {mediosPago.map((medio) => (
+                <img key={medio.src} src={asset(medio.src)} alt={medio.alt} className="h-10 object-contain" />
               ))}
             </div>
           </div>
