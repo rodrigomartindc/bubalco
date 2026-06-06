@@ -7,7 +7,15 @@ const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Ho
 const embedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3051.5!2d-67.7601751!3d-39.0595151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a30fb8b3461c5%3A0x4edf452aaba697d8!2sFundaci%C3%B3n%20Bubalc%C3%B3%20Patagonia!5e0!3m2!1ses!2sar!4v1714600000000!5m2!1ses!2sar';
 const ALIAS = 'donacion.bubalco';
 const EMAIL = 'bubalco@bubalco.com';
-const BENEFITS_MAILTO = `mailto:${EMAIL}?subject=Consulta%20sobre%20beneficios%20impositivos`;
+
+const destinosAporte = [
+  'Alimento',
+  'Insumos veterinarios',
+  'Medicamentos',
+  'Rescates',
+  'Enriquecimiento ambiental',
+  'Mantenimiento de espacios',
+];
 
 function AliasCopiable() {
   const [copied, setCopied] = useState(false);
@@ -46,7 +54,7 @@ export default function Donaciones() {
                 Detrás de cada animal y de cada rescate hay un equipo que trabaja todos los días. Tu donación es parte de ese trabajo.
               </p>
               <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                Cada donación se destina directamente al cuidado de los animales y a los programas de conservación. Toda contribución, grande o pequeña, hace la diferencia.
+                Podés donar por transferencia al alias de la Fundación. Toda contribución, grande o pequeña, hace la diferencia.
               </p>
 
               <AliasCopiable />
@@ -58,15 +66,22 @@ export default function Donaciones() {
           </div>
         </section>
 
-        {/* Slide 2: Otras formas de ayudar */}
+        {/* Slide 2: En qué se transforma tu aporte */}
         <section className="bp-slide">
           <div className="bp-card bg-brand-dark text-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Otras formas de ayudar</p>
-              <h2 className="text-2xl font-medium text-white mb-4">El apoyo tiene muchas formas</h2>
-              <p className="text-sm text-white/60 leading-relaxed mb-8">
-                También se puede colaborar con alimentos, materiales, indumentaria, maquinaria y más. Todo suma. Si tenés algo para aportar, escribinos y lo coordinamos.
+            <div className="slide-card__scroll px-6 py-8 text-center">
+              <p className="text-xs tracking-widest text-white/40 uppercase mb-3">En qué se transforma tu aporte</p>
+              <h2 className="text-2xl font-medium text-white mb-4">Cuidado concreto para los animales</h2>
+              <p className="text-sm text-white/60 leading-relaxed mb-6">
+                Tu ayuda sostiene necesidades diarias y situaciones urgentes del refugio.
               </p>
+              <div className="grid grid-cols-2 gap-3 mb-6">
+                {destinosAporte.map((destino) => (
+                  <div key={destino} className="rounded-xl border border-white/10 bg-white/5 px-3 py-3">
+                    <p className="text-xs text-white/75 leading-tight">{destino}</p>
+                  </div>
+                ))}
+              </div>
               <a href={WA_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
                 Consultar por donaciones <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
@@ -74,23 +89,7 @@ export default function Donaciones() {
           </div>
         </section>
 
-        {/* Slide 3: Beneficios impositivos */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Beneficios impositivos</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">Beneficios que quizás no conocías</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-8">
-                Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Escribinos y te contamos cómo se aplica en tu caso.
-              </p>
-              <a href={BENEFITS_MAILTO} className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-                Consultar beneficios <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* Slide 4: Footer */}
+        {/* Slide 3: Footer */}
         <section className="bp-slide">
           <div className="bp-card bg-gray-900 text-white">
             <div className="h-full flex flex-col">
@@ -138,7 +137,7 @@ export default function Donaciones() {
                 Detrás de cada animal y de cada rescate hay un equipo que trabaja todos los días. Tu donación es parte de ese trabajo.
               </p>
               <p className="text-base text-gray-500 leading-relaxed">
-                Cada donación se destina directamente al cuidado de los animales y a los programas de conservación. Toda contribución, grande o pequeña, hace la diferencia.
+                Podés donar por transferencia al alias de la Fundación. Toda contribución, grande o pequeña, hace la diferencia.
               </p>
             </div>
             <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
@@ -152,34 +151,21 @@ export default function Donaciones() {
 
           {/* Bloque 2 */}
           <div className="bg-brand-dark rounded-2xl p-10 text-white">
-            <p className="text-xs tracking-widest text-white/40 uppercase mb-4">Otras formas de ayudar</p>
-            <h2 className="text-3xl font-medium text-white mb-4">El apoyo tiene muchas formas</h2>
+            <p className="text-xs tracking-widest text-white/40 uppercase mb-4">En qué se transforma tu aporte</p>
+            <h2 className="text-3xl font-medium text-white mb-4">Cuidado concreto para los animales</h2>
             <p className="text-base text-white/60 leading-relaxed mb-8 max-w-2xl">
-              También se puede colaborar con alimentos, materiales, indumentaria, maquinaria y más. Todo suma. Si tenés algo para aportar, escribinos y lo coordinamos.
+              Tu ayuda sostiene necesidades diarias y situaciones urgentes del refugio: desde alimento e insumos veterinarios hasta rescates y mantenimiento de espacios.
             </p>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
+              {destinosAporte.map((destino) => (
+                <div key={destino} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
+                  <p className="text-sm text-white/75">{destino}</p>
+                </div>
+              ))}
+            </div>
             <a href={WA_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
               Consultar por donaciones <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
-          </div>
-
-          {/* Bloque 3 */}
-          <div className="grid md:grid-cols-[1fr_0.85fr] gap-8 items-start">
-            <div>
-              <p className="text-xs tracking-widest text-brand uppercase mb-4">Beneficios impositivos</p>
-              <h2 className="text-3xl font-medium text-gray-900 mb-4">Beneficios que quizás no conocías</h2>
-              <p className="text-base text-gray-500 leading-relaxed mb-8">
-                Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Escribinos y te contamos cómo se aplica en tu caso.
-              </p>
-              <a href={BENEFITS_MAILTO} className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-                Consultar beneficios <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-            <div className="bg-brand/5 rounded-2xl p-8 border border-brand/10 border-l-4 border-l-brand">
-              <p className="text-xs tracking-widest text-brand uppercase mb-4">Información para donantes</p>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Podemos orientarte por mail sobre constancias, datos fiscales y beneficios aplicables a tu donación.
-              </p>
-            </div>
           </div>
 
         </div>
