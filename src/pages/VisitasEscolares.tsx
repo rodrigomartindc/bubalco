@@ -23,9 +23,6 @@ export default function VisitasEscolares() {
               <a href={WA_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
                 Reservá para tu escuela <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
-              <p className="text-xs text-gray-400 leading-relaxed mt-5">
-                Armamos experiencias educativas según el nivel escolar y los objetivos del grupo.
-              </p>
             </div>
           </div>
         </section>
