@@ -41,6 +41,10 @@ export default function VisitasEscolares() {
                 </p>
               </div>
               <div className="bg-white rounded-2xl border border-gray-100 border-l-4 border-l-brand-dark p-5">
+                <p className="text-xs tracking-widest text-brand-dark uppercase mb-3">Aprendizaje</p>
+                <h2 className="text-lg font-medium text-gray-900 mb-3 leading-snug">
+                  Experiencias adaptadas para escuelas
+                </h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-3">
                   Cada visita combina información científica, la historia de cada animal y actividades que fomentan la empatía y el compromiso con la naturaleza.
                 </p>
