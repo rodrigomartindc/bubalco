@@ -10,7 +10,7 @@ const Donations = () => {
     <section id="donaciones" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white">
       {/* Mobile: Donación + Bioparque mitad y mitad */}
       <div className="slide-card md:hidden">
-        <div className="slide-card__scroll bg-white">
+        <div className="h-full bg-white">
           <div className="h-full flex flex-col">
             <div className="flex-1 flex flex-col items-center justify-center px-6 py-3 text-center min-h-0">
               <p className="text-[11px] tracking-widest text-gray-400 uppercase mb-1.5">Cómo ayudar</p>

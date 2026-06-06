@@ -45,7 +45,7 @@ export default function Donaciones() {
         {/* Slide 1: Información básica */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="slide-card__scroll px-6 py-8">
+            <div className="h-full px-6 py-8 flex flex-col justify-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Donaciones</p>
               <h1 className="text-2xl font-medium text-gray-900 mb-4">Tu apoyo se convierte en cuidado</h1>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -67,7 +67,7 @@ export default function Donaciones() {
         {/* Slide 2: En qué se transforma tu aporte */}
         <section className="bp-slide">
           <div className="bp-card bg-brand-dark text-white">
-            <div className="slide-card__scroll px-6 py-8 text-center">
+            <div className="h-full px-6 py-8 flex flex-col justify-center text-center">
               <p className="text-xs tracking-widest text-white/40 uppercase mb-3">En qué se transforma tu aporte</p>
               <h2 className="text-2xl font-medium text-white mb-4">Cuidado concreto para los animales</h2>
               <p className="text-sm text-white/60 leading-relaxed mb-6">
