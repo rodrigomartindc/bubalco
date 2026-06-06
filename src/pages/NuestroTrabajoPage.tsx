@@ -6,20 +6,20 @@ export default function NuestroTrabajoPage() {
 
   return (
     <div className="pt-[9rem] pb-20 bg-white">
-      <div className="max-w-5xl mx-auto px-6">
-        <div ref={ref} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      <div ref={ref} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className="text-center">
           <p className="text-xs tracking-widest text-gray-400 uppercase mb-4 md:mb-6">Nuestro Trabajo</p>
-          <div className="grid md:grid-cols-[1.05fr_0.95fr] gap-6 md:gap-12 mb-16 items-center">
-            <img src={asset('/nuestro-trabajo-hero.jpeg')} alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-48 sm:h-64 md:h-[400px] md:order-last" />
-            <div className="md:order-first">
-              <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">Más que un refugio,<br />una familia</h1>
-              <p className="text-base text-gray-500 leading-relaxed">
+          <img src={asset('/nuestro-trabajo-hero.jpeg')} alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia" className="w-full object-cover h-56 sm:h-72 md:h-[480px] mb-10 md:mb-12" />
+          <div className="max-w-3xl mx-auto px-6 mb-16">
+            <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">Más que un refugio,<br />una familia</h1>
+            <p className="text-base text-gray-500 leading-relaxed">
                 Rescatamos, rehabilitamos y protegemos la fauna silvestre mientras educamos a la comunidad sobre la importancia de la conservación. Desde hace más de 30 años trabajamos en Allen, Río Negro, Patagonia Argentina.
-              </p>
-            </div>
+            </p>
           </div>
+        </div>
 
-          <div className="mb-16 max-w-3xl">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="mb-16 max-w-3xl mx-auto">
             <h2 className="text-2xl font-medium text-gray-900 mb-4">Nuestra historia</h2>
             <p className="text-sm text-gray-500 leading-relaxed mb-4">
               Bubalcó nació con la misión de dar refugio a animales silvestres que no pueden regresar a su hábitat natural. A lo largo de los años, nos convertimos en un centro de referencia en conservación y educación ambiental en la Patagonia.
@@ -32,8 +32,8 @@ export default function NuestroTrabajoPage() {
           <div className="grid md:grid-cols-2 gap-12 mb-16 items-center">
             <img src={asset('/nuestro-trabajo-refugio.jpeg')} alt="Refugio para animales silvestres en Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-80" />
             <div>
-              <p className="text-xs tracking-widest text-brand uppercase mb-4">Refugio</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">Una casa para animales que no pueden volver a la naturaleza</h2>
+              <p className="text-xs tracking-widest text-brand uppercase mb-4 text-center">Refugio</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4 text-center">Una casa para animales que no pueden volver a la naturaleza</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
                 El Bioparque Bubalcó Patagonia es un espacio con instalaciones únicas en la región para el cuidado de animales silvestres que no pueden regresar a su hábitat natural.
               </p>
@@ -46,8 +46,8 @@ export default function NuestroTrabajoPage() {
           <div className="grid md:grid-cols-2 gap-12 mb-16 items-center">
             <img src={asset('/nuestro-trabajo-conservacion.jpeg')} alt="Trabajo de conservación de fauna silvestre en Bubalcó Patagonia" className="w-full rounded-2xl object-cover h-72 md:h-80 md:order-last" />
             <div className="md:order-first">
-              <p className="text-xs tracking-widest text-brand uppercase mb-4">Conservación</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">Acciones para proteger</h2>
+              <p className="text-xs tracking-widest text-brand uppercase mb-4 text-center">Conservación</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4 text-center">Acciones para proteger</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
                 Desarrollamos proyectos activos de conservación de fauna silvestre con especies de Argentina y de todo el mundo.
               </p>
@@ -58,7 +58,7 @@ export default function NuestroTrabajoPage() {
           </div>
 
           <div className="mb-16">
-            <h2 className="text-2xl font-medium text-gray-900 mb-8">Nuestros valores</h2>
+            <h2 className="text-2xl font-medium text-gray-900 mb-8 text-center">Nuestros valores</h2>
             <div className="grid md:grid-cols-2 gap-4">
               {[
                 { title: 'Respeto por la vida', desc: 'Cada animal merece dignidad y cuidado, independientemente de su especie o condición.' },
