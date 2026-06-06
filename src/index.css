@@ -150,6 +150,11 @@
     padding: 0;
   }
 
+  .footer-standalone.footer-full-bleed {
+    height: calc(100dvh - var(--home-nav));
+    min-height: calc(100dvh - var(--home-nav));
+  }
+
   .bp-card {
     width: min(420px, 100%);
     height: calc(100dvh - var(--bp-nav) - 24px);
