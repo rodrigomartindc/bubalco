@@ -62,7 +62,7 @@ const mediosPago = [
 function PriceRow({ nombre, detalle, valor }: { nombre: string; detalle: string; valor: string }) {
   return (
     <div className="flex justify-between items-center py-2.5 border-b border-gray-100 last:border-0">
-      <div>
+      <div className="text-left">
         <p className="text-sm font-medium text-gray-900">{nombre}</p>
         {detalle && <p className="text-xs text-gray-400 mt-0.5">{detalle}</p>}
       </div>
@@ -73,15 +73,17 @@ function PriceRow({ nombre, detalle, valor }: { nombre: string; detalle: string;
 
 function CudNote() {
   return (
-    <p className="text-xs text-gray-400 mt-4 leading-relaxed">
-      Las personas con CUD ingresan sin costo. Su acompañante abona el seguro o valor indicado cuando corresponde.
-    </p>
+    <div className="mt-4 w-full rounded-xl bg-gray-50 p-3 text-left" style={{ textAlign: 'left' }}>
+      <p className="text-xs text-gray-500 leading-relaxed">
+        Las personas con CUD ingresan sin costo. Su acompañante abona el seguro o valor indicado cuando corresponde.
+      </p>
+    </div>
   );
 }
 
 function ClubRioNegroCard() {
   return (
-    <div className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100">
+    <div className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 text-left">
       <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
         <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-16 object-contain" />
       </div>
@@ -98,16 +100,19 @@ function ClubRioNegroCard() {
 }
 
 function HorarioCard({ title, rows, dark }: { title: string; rows: { label: string; value: string }[]; dark: boolean }) {
+  const isClosed = rows.length === 1 && !rows[0].label;
+
   return (
     <div className={`rounded-2xl p-4 md:p-6 ${dark ? 'bg-brand-dark text-white border border-white/10' : 'bg-gray-100 text-gray-700'}`}>
-      <div className="flex items-center gap-2 mb-4">
-        {dark ? <Sun className="text-white/50" size={16} /> : <Moon className="text-gray-400" size={16} />}
-        <h3 className="font-medium text-sm">{title}</h3>
+      <div className={`flex items-center gap-2 ${isClosed ? '' : 'mb-4'}`}>
+        {dark ? <Sun className="text-white/50 flex-shrink-0" size={16} /> : <Moon className="text-gray-400 flex-shrink-0" size={16} />}
+        <h3 className="font-medium text-sm text-left">{title}</h3>
+        {isClosed && <span className="text-sm font-medium ml-auto">{rows[0].value}</span>}
       </div>
-      {rows.map((row) => (
-        <div key={`${title}-${row.label || row.value}`} className="flex justify-between text-sm mb-1 last:mb-0">
-          {row.label && <span className={dark ? 'text-white/60' : 'text-gray-500'}>{row.label}</span>}
-          <span className={`font-medium ${!row.label ? 'mx-auto' : ''}`}>{row.value}</span>
+      {!isClosed && rows.map((row) => (
+        <div key={`${title}-${row.label || row.value}`} className="flex justify-between gap-4 text-sm mb-1 last:mb-0">
+          <span className={dark ? 'text-white/60' : 'text-gray-500'}>{row.label}</span>
+          <span className="font-medium text-right">{row.value}</span>
         </div>
       ))}
     </div>
