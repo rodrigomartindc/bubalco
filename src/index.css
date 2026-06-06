@@ -102,6 +102,11 @@
     box-shadow: none;
   }
 
+  .home-slides .slide-card *,
+  .home-slides .hero-full-card * {
+    border-radius: 0 !important;
+  }
+
   .hero-full-card {
     width: 100%;
     height: calc(100dvh - var(--home-nav));
