@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { asset } from '../utils/asset';
+import { ROUTES } from '../data/site';
 
 const HeroMinimal = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -30,10 +31,10 @@ const HeroMinimal = () => {
             {/* Bottom: CTAs */}
             <div className="px-7 pb-[20%]">
               <div className="flex gap-3">
-                <Link to="/bioparque" className="flex-1 py-3 bg-white text-gray-900 text-sm tracking-wide rounded-full text-center hover:bg-gray-100 transition-colors">
+                <Link to={ROUTES.bioparque} className="flex-1 py-3 bg-white text-gray-900 text-sm tracking-wide rounded-full text-center hover:bg-gray-100 transition-colors">
                   Bioparque
                 </Link>
-                <Link to="/nosotros" className="flex-1 py-3 border border-white/20 text-white text-sm tracking-wide rounded-full text-center hover:bg-white/5 transition-colors">
+                <Link to={ROUTES.nuestroTrabajo} className="flex-1 py-3 border border-white/20 text-white text-sm tracking-wide rounded-full text-center hover:bg-white/5 transition-colors">
                   Conservación
                 </Link>
               </div>

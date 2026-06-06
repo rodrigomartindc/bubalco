@@ -11,7 +11,7 @@ export const faqSections: FaqSection[] = [
     items: [
       {
         question: '¿Cuándo puedo visitar el bioparque?',
-        answer: 'El bioparque abre durante todo el año. Podés consultar los horarios actualizados en la sección de tarifas y horarios.',
+        answer: 'El bioparque abre durante todo el año. Podés consultar la información vigente en la página de Horarios y Tarifas.',
       },
       {
         question: '¿Necesito reservar?',

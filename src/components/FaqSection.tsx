@@ -3,6 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import FaqAccordion from './FaqAccordion';
 import { faqItems } from '../data/faq';
+import { ROUTES } from '../data/site';
 
 export default function FaqSection() {
   const { ref, isVisible } = useScrollAnimation();
@@ -24,7 +25,7 @@ export default function FaqSection() {
 
         <div className="text-center mt-8">
           <Link
-            to="/bioparque/preguntas-frecuentes"
+            to={ROUTES.faq}
             className="group inline-flex items-center gap-2 text-sm text-brand font-medium hover:text-brand-dark transition-colors"
           >
             Ver todas las preguntas frecuentes <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />

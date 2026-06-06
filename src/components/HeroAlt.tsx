@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { asset } from '../utils/asset';
+import { ROUTES } from '../data/site';
 
 const HeroAlt = () => {
   const { ref, isVisible } = useScrollAnimation();
@@ -25,10 +26,10 @@ const HeroAlt = () => {
                 Inspirando a salvar la fauna silvestre para el futuro
               </p>
               <div className="flex flex-col gap-3 items-stretch w-full">
-                <Link to="/bioparque" className="px-7 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors text-center">
+                <Link to={ROUTES.bioparque} className="px-7 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors text-center">
                   Descubrí el Bioparque
                 </Link>
-                <Link to="/nosotros" className="px-7 py-3 border border-gray-200 text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-50 transition-colors text-center">
+                <Link to={ROUTES.nuestroTrabajo} className="px-7 py-3 border border-gray-200 text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-50 transition-colors text-center">
                   Nuestro trabajo en conservación
                 </Link>
               </div>

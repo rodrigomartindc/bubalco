@@ -1,5 +1,3 @@
-import { ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useCountUp } from '../hooks/useCountUp';
 import { asset } from '../utils/asset';
@@ -70,9 +68,6 @@ const About = () => {
               ))}
             </div>
 
-            <Link to="/nosotros" className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-              Conocer más <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
           </div>
           <div className="flex justify-center">
             <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full max-w-md rounded-2xl object-cover h-[480px]" />
