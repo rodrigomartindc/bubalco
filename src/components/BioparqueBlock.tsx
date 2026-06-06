@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { asset } from '../utils/asset';
+import { ROUTES } from '../data/site';
 
 export default function BioparqueBlock() {
   const { ref, isVisible } = useScrollAnimation();
@@ -18,7 +19,7 @@ export default function BioparqueBlock() {
               abierto a la comunidad para educar y concientizar sobre la importancia de proteger nuestra biodiversidad.
             </p>
             <p className="text-sm text-white/40 mb-8">Visitas educativas · Grupos escolares · Actividades de concientización</p>
-            <Link to="/bioparque" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
+            <Link to={ROUTES.bioparque} className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
               Explorar Bioparque <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>

@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import { ROUTES } from '../data/site';
 
 type VerifyResponse =
   | { ok: true; status?: string | null; payer_email?: string | null; transaction_amount?: number | null; currency_id?: string | null }
@@ -102,13 +103,13 @@ export default function Gracias() {
 
           <div className="mt-8 flex flex-col sm:flex-row gap-3">
             <Link
-              to="/"
+              to={ROUTES.home}
               className="inline-flex items-center justify-center px-6 py-3 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors"
             >
               Volver al inicio
             </Link>
             <Link
-              to="/#donaciones"
+              to={`${ROUTES.home}#donaciones`}
               className="inline-flex items-center justify-center px-6 py-3 bg-white text-gray-900 text-sm rounded-full border border-gray-200 hover:bg-gray-50 transition-colors"
             >
               Ver donaciones

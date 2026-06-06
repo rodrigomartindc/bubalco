@@ -1,9 +1,9 @@
-const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
+import { WHATSAPP_URL_GENERAL } from '../data/site';
 
 export default function WhatsAppButton() {
   return (
     <a
-      href={WA_URL}
+      href={WHATSAPP_URL_GENERAL}
       target="_blank"
       rel="noreferrer"
       className="fixed bottom-6 right-6 z-[300] w-[60px] h-[60px] bg-[#25D366] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
