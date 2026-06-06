@@ -73,7 +73,7 @@ function PriceRow({ nombre, detalle, valor }: { nombre: string; detalle: string;
 
 function CudNote() {
   return (
-    <p className="text-xs text-gray-400 mt-4 leading-relaxed text-left">
+    <p className="block w-full text-xs text-gray-400 mt-4 leading-relaxed text-left" style={{ textAlign: 'left' }}>
       Las personas con CUD ingresan sin costo. Su acompañante abona el seguro o valor indicado cuando corresponde.
     </p>
   );
