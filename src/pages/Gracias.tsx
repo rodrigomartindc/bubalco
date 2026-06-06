@@ -44,8 +44,7 @@ export default function Gracias() {
         if (!isMounted) return;
         setVerify({ ok: false, error: 'No se pudo verificar el estado del pago todavía.' });
       } finally {
-        if (!isMounted) return;
-        setIsLoading(false);
+        if (isMounted) setIsLoading(false);
       }
     };
 
