@@ -23,8 +23,6 @@ const Donations = () => {
               </Link>
             </div>
 
-            <div className="mx-6 border-t border-gray-100" />
-
             <div className="flex-1 flex flex-col items-center justify-center px-6 py-3 text-center bg-brand-dark min-h-0">
               <h2 className="text-lg font-medium text-white mb-1.5">Visitá el bioparque</h2>
               <p className="text-xs text-white/50 mb-2.5 leading-snug">
