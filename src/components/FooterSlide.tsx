@@ -8,8 +8,10 @@ interface FooterSlideProps {
 }
 
 export default function FooterSlide({ sectionClassName = 'scroll-section' }: FooterSlideProps) {
+  const isDefaultSection = sectionClassName === 'scroll-section';
+
   return (
-    <section className={`${sectionClassName} footer-full-bleed md:hidden`}>
+    <section className={`${sectionClassName} footer-full-bleed ${isDefaultSection ? 'footer-standalone' : ''} md:hidden`}>
       <div className="h-full w-full bg-gray-900 text-white">
         <div className="h-full flex flex-col">
           <div className="relative h-[38%] flex-shrink-0">
