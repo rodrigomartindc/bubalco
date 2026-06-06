@@ -180,7 +180,7 @@ export default function HorariosYTarifas() {
                 </p>
               </div>
               <a href={WA_URL} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-                Consultar por WhatsApp <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                WhatsApp <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
