@@ -6,7 +6,6 @@ import NuestroTrabajo from '../components/NuestroTrabajo';
 import MapsBlock from '../components/MapsBlock';
 import Donations from '../components/Donations';
 import BioparqueBlock from '../components/BioparqueBlock';
-import FaqSection from '../components/FaqSection';
 import FooterSlide from '../components/FooterSlide';
 
 export default function Home() {
@@ -32,10 +31,7 @@ export default function Home() {
         <FooterSlide />
       </div>
       {isDesktop && (
-        <>
-          <BioparqueBlock />
-          <FaqSection />
-        </>
+        <BioparqueBlock />
       )}
     </>
   );
