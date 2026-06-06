@@ -23,7 +23,7 @@ export default function Bioparque() {
                 </p>
                 <div className="flex flex-col gap-3 w-full">
                   <Link to={ROUTES.horarios} className="px-6 py-3 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors text-center">
-                    Tarifas y Horarios
+                    Horarios y Tarifas
                   </Link>
                   <Link to={ROUTES.visitasEscolares} className="px-6 py-3 border border-gray-200 text-gray-900 text-sm rounded-full text-center hover:bg-gray-50 transition-colors">
                     Visitas Escolares
@@ -88,10 +88,9 @@ export default function Bioparque() {
                 <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-4">
                   Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-5">
+                <p className="text-sm text-gray-600 leading-relaxed font-medium italic">
                   Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.
                 </p>
-                <img src={asset('/leaves-img.png')} alt="" className="h-12 mx-auto opacity-40" />
               </div>
             </div>
           </div>
@@ -158,10 +157,10 @@ export default function Bioparque() {
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="px-6 py-6 h-full flex flex-col items-center justify-center text-center">
-              <h2 className="text-2xl font-medium text-gray-900 mb-3">Mapa del recorrido</h2>
-              <img src={asset('/bubalco-map-0.png')} alt="Mapa del recorrido Bubalcó" className="w-56 h-56 rounded-full object-cover mb-4 mx-auto" />
-              <p className="text-sm font-medium text-gray-700 mb-1">9 zonas temáticas.</p>
-              <p className="text-sm text-gray-500 mb-6">Descargá el mapa para planificar tu visita.</p>
+              <p className="text-xs tracking-widest text-brand uppercase mb-3">El recorrido</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-3">Mapa del Bioparque</h2>
+              <img src={asset('/bubalco-map-0.png')} alt="Mapa del Bioparque Bubalcó" className="w-52 h-52 rounded-full object-cover mb-4 mx-auto" />
+              <p className="text-sm text-gray-500 mb-6 leading-relaxed">Descargá el mapa en tu celular para recorrer el bioparque sin papel.</p>
               <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full">
                 Descargar mapa
               </a>
@@ -214,7 +213,7 @@ export default function Bioparque() {
               Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
             </p>
             <div className="flex gap-4 justify-center">
-              <Link to={ROUTES.horarios} className="px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">Tarifas y Horarios</Link>
+              <Link to={ROUTES.horarios} className="px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">Horarios y Tarifas</Link>
               <Link to={ROUTES.visitasEscolares} className="px-8 py-4 border border-gray-200 text-gray-900 text-sm rounded-full hover:bg-gray-50 transition-colors">Visitas Escolares</Link>
             </div>
           </div>
@@ -315,10 +314,10 @@ export default function Bioparque() {
 
           {/* Mapa descargable */}
           <div className="text-center">
-            <h2 className="text-2xl font-medium text-gray-900 mb-4">Mapa del recorrido</h2>
-            <img src={asset('/bubalco-map-0.png')} alt="Mapa del recorrido Bubalcó" className="w-72 h-72 rounded-full object-cover mb-6 mx-auto" />
-            <p className="text-sm font-medium text-gray-700 mb-1">9 zonas temáticas.</p>
-            <p className="text-sm text-gray-500 mb-8">Descargá el mapa para planificar tu visita.</p>
+            <p className="text-xs tracking-widest text-brand uppercase mb-4">El recorrido</p>
+            <h2 className="text-2xl font-medium text-gray-900 mb-4">Mapa del Bioparque</h2>
+            <img src={asset('/bubalco-map-0.png')} alt="Mapa del Bioparque Bubalcó" className="w-72 h-72 rounded-full object-cover mb-6 mx-auto" />
+            <p className="text-sm text-gray-500 mb-8">Descargá el mapa en tu celular para recorrer el bioparque sin papel.</p>
             <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
               <Download size={18} /> Descargar mapa
             </a>
