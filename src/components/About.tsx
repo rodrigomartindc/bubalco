@@ -9,7 +9,7 @@ const About = () => {
   const animals = useCountUp(500, 2000, isVisible);
 
   return (
-    <section id="quienes-somos" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:overflow-hidden">
+    <section id="quienes-somos" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:overflow-hidden md:pt-[130px]">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative bg-white">
           <div className="relative z-10 w-full px-6 py-6">
@@ -43,10 +43,10 @@ const About = () => {
         </div>
       </div>
 
-      <div className={`hidden md:block relative z-10 w-full transition-all duration-1000 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-stretch min-h-[calc(100vh-130px)]">
-          <div className="px-6 md:px-12 lg:pl-20 lg:pr-12 flex flex-col justify-center">
-            <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-14 w-auto mb-4" />
+      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 max-w-7xl mx-auto">
+        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center h-[calc(100vh-130px)] ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div>
+            <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-14 mb-4" />
             <p className="text-xs tracking-widest text-brand uppercase mb-6">Fundación Bubalcó</p>
             <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
               Aliados de la Naturaleza
@@ -55,7 +55,7 @@ const About = () => {
               Protegemos a la fauna silvestre y trabajamos para que la comunidad comprenda y valore la importancia de conservarla.
             </p>
 
-            <div className="grid grid-cols-3 gap-6 mb-10 bg-gray-50 rounded-2xl p-6 border border-gray-100">
+            <div className="grid grid-cols-3 gap-6 bg-gray-50 rounded-2xl p-6 border border-gray-100">
               {[
                 { value: `+${years}`, label: 'Años trabajando en conservación' },
                 { value: `${hectares}`, label: 'Hectáreas en la Patagonia Argentina' },
@@ -69,7 +69,7 @@ const About = () => {
             </div>
 
           </div>
-          <div className="h-full min-h-[520px]">
+          <div className="h-full min-h-0">
             <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
           </div>
         </div>
