@@ -49,6 +49,71 @@ function AppShell() {
   const hasOwnMobileFooter = isHome || isBioparque || isHorariosYTarifas || isVisitasEscolares || isFaq || isDonaciones || isNuestroTrabajo;
   const showAppFooter = hasOwnMobileFooter ? isDesktop : true;
 
+  useEffect(() => {
+    const usesMobileSnap = isHome || isBioparque;
+    const mq = window.matchMedia('(max-width: 767px)');
+
+    const apply = () => {
+      const shouldLock = usesMobileSnap && mq.matches;
+      document.documentElement.classList.toggle('mobile-snap-page', shouldLock);
+      document.body.classList.toggle('mobile-snap-page', shouldLock);
+    };
+
+    apply();
+    mq.addEventListener('change', apply);
+
+    return () => {
+      mq.removeEventListener('change', apply);
+      document.documentElement.classList.remove('mobile-snap-page');
+      document.body.classList.remove('mobile-snap-page');
+    };
+  }, [isHome, isBioparque]);
+
+  useEffect(() => {
+    const usesMobileSnap = isHome || isBioparque;
+    const mq = window.matchMedia('(max-width: 767px)');
+    if (!usesMobileSnap || !mq.matches) return;
+
+    const selector = isHome ? '.home-slides' : '.bioparque-slides';
+    const el = document.querySelector(selector) as HTMLElement | null;
+    if (!el) return;
+
+    let startY = 0;
+
+    const onTouchStart = (event: TouchEvent) => {
+      const touch = event.touches[0];
+      if (!touch) return;
+
+      startY = touch.clientY;
+    };
+
+    const onTouchMove = (event: TouchEvent) => {
+      const touch = event.touches[0];
+      if (!touch) return;
+
+      const currentY = touch.clientY;
+      const deltaY = currentY - startY;
+
+      const atTop = el.scrollTop <= 0;
+      const atBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight;
+
+      const pullingDownAtTop = atTop && deltaY > 0;
+      const pushingUpAtBottom = atBottom && deltaY < 0;
+
+      if (pullingDownAtTop || pushingUpAtBottom) {
+        event.preventDefault();
+      }
+    };
+
+    el.addEventListener('touchstart', onTouchStart, { passive: true });
+    el.addEventListener('touchmove', onTouchMove, { passive: false });
+
+    return () => {
+      el.removeEventListener('touchstart', onTouchStart);
+      el.removeEventListener('touchmove', onTouchMove);
+    };
+  }, [isHome, isBioparque, location.pathname]);
+
   return (
     <div className="min-h-screen bg-white">
       <ScrollToTop />

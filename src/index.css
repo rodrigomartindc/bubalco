@@ -60,7 +60,22 @@
 
 @media (max-width: 767px) {
   :root {
-    --mobile-fixed-header: 135px;
+    --mobile-nav-height: 80px;
+    --mobile-donation-height: 44px;
+    --mobile-fixed-header: calc(var(--mobile-nav-height) + var(--mobile-donation-height));
+  }
+
+  html.mobile-snap-page,
+  body.mobile-snap-page {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior-y: none;
+    overscroll-behavior-x: none;
+  }
+
+  body.mobile-snap-page #root {
+    height: 100dvh;
+    overflow: hidden;
   }
 
   .home-slides {
@@ -70,9 +85,14 @@
     left: 0;
     right: 0;
     bottom: 0;
+    height: calc(100dvh - var(--mobile-fixed-header));
+    max-height: calc(100dvh - var(--mobile-fixed-header));
     z-index: 10;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
+    overscroll-behavior-y: contain;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
     background: #ffffff;
   }
@@ -132,9 +152,14 @@
     left: 0;
     right: 0;
     bottom: 0;
+    height: calc(100dvh - var(--mobile-fixed-header));
+    max-height: calc(100dvh - var(--mobile-fixed-header));
     z-index: 10;
     overflow-y: auto;
     scroll-snap-type: y mandatory;
+    overscroll-behavior-y: contain;
+    overscroll-behavior-x: none;
+    touch-action: pan-y;
     -webkit-overflow-scrolling: touch;
     background: #ffffff;
   }
