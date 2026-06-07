@@ -45,7 +45,8 @@ function AppShell() {
   const isVisitasEscolares = location.pathname === '/visitas-escolares';
   const isFaq = location.pathname === '/bioparque/preguntas-frecuentes';
   const isDonaciones = location.pathname === '/donaciones';
-  const hasOwnMobileFooter = isHome || isBioparque || isHorariosYTarifas || isVisitasEscolares || isFaq || isDonaciones;
+  const isNuestroTrabajo = location.pathname === '/nuestro-trabajo';
+  const hasOwnMobileFooter = isHome || isBioparque || isHorariosYTarifas || isVisitasEscolares || isFaq || isDonaciones || isNuestroTrabajo;
   const showAppFooter = hasOwnMobileFooter ? isDesktop : true;
 
   return (
