@@ -59,8 +59,12 @@
 }
 
 @media (max-width: 767px) {
+  :root {
+    --mobile-fixed-header: 135px;
+  }
+
   .home-slides {
-    --home-nav: 135px;
+    --home-nav: var(--mobile-fixed-header);
     position: fixed;
     top: var(--home-nav);
     left: 0;
@@ -122,7 +126,7 @@
   }
 
   .bioparque-slides {
-    --bp-nav: 135px;
+    --bp-nav: var(--mobile-fixed-header);
     position: fixed;
     top: var(--bp-nav);
     left: 0;
@@ -151,8 +155,8 @@
   }
 
   .footer-standalone.footer-full-bleed {
-    height: calc(100dvh - var(--home-nav));
-    min-height: calc(100dvh - var(--home-nav));
+    height: calc(100dvh - var(--mobile-fixed-header));
+    min-height: calc(100dvh - var(--mobile-fixed-header));
   }
 
   .bp-card {
