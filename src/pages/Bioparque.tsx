@@ -39,14 +39,14 @@ export default function Bioparque() {
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full flex flex-col">
-              <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center bg-brand-dark rounded-t-[14px]">
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center bg-brand-dark">
                 <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Conservación en acción</p>
                 <h2 className="text-lg font-medium text-white mb-2">Un refugio para animales que no pueden volver a la naturaleza</h2>
-                <p className="text-xs text-white/60 leading-relaxed">
+                <p className="text-sm text-white/60 leading-relaxed">
                   En 34 hectáreas de la Patagonia argentina, cuidamos a nuestros habitantes, protegemos a las especies y enseñamos por qué conservar la naturaleza es responsabilidad de todos.
                 </p>
               </div>
-              <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center">
+              <div className="flex-1 flex flex-col items-center justify-start pt-7 px-6 pb-5 text-center">
                 <h2 className="text-lg font-medium text-gray-900 mb-3">Un proyecto reconocido por su aporte a la conservación y la educación</h2>
                 <img src={asset('/certif-legislatura-bubalco.webp')} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" />
               </div>
@@ -57,16 +57,20 @@ export default function Bioparque() {
         {/* Slide 3: Visitas escolares */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación</p>
-              <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-28 object-cover rounded-xl mb-3" />
-              <h2 className="text-xl font-medium text-gray-900 mb-3">Un aula en la naturaleza</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                Acercamos a estudiantes y visitantes a la fauna y la conservación de forma directa y participativa.
-              </p>
-              <Link to={ROUTES.visitasEscolares} className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full mx-auto">
-                Visitas Escolares <ArrowRight size={14} />
-              </Link>
+            <div className="h-full flex flex-col text-center">
+              <div className="w-full h-[32%] overflow-hidden">
+                <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-full object-cover" />
+              </div>
+              <div className="flex-1 flex flex-col justify-center px-6 py-6">
+                <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación</p>
+                <h2 className="text-xl font-medium text-gray-900 mb-3">Un aula en la naturaleza</h2>
+                <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                  Acercamos a estudiantes y visitantes a la fauna y la conservación de forma directa y participativa.
+                </p>
+                <Link to={ROUTES.visitasEscolares} className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full mx-auto">
+                  Visitas Escolares <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -82,16 +86,19 @@ export default function Bioparque() {
                   Cada animal tiene su historia. Conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
                 </p>
               </div>
-              <div className="flex-1 flex flex-col justify-center px-6 py-5 text-center">
-                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-4">
-                  Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.
-                </p>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-4">
-                  Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.
-                </p>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium italic">
-                  Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.
-                </p>
+              <div className="flex-1 flex flex-col justify-start pt-7 px-6 pb-5">
+                <div className="space-y-4">
+                  {[
+                    'Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.',
+                    'Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.',
+                    'Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.',
+                  ].map((text) => (
+                    <div key={text} className="flex items-start gap-3 text-left">
+                      <span className="text-[#2B5962] font-medium leading-relaxed">|</span>
+                      <p className="text-sm text-gray-600 leading-relaxed font-medium italic">{text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -141,7 +148,7 @@ export default function Bioparque() {
 
               <div className="mx-6 border-t border-gray-100" />
 
-              <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center bg-brand-dark rounded-b-[28px]">
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center bg-brand-dark">
                 <h2 className="text-xl font-medium text-white mb-2">¿Tenés dudas?</h2>
                 <p className="text-xs text-white/50 mb-4 leading-relaxed">
                   Revisá información útil antes de venir.
@@ -161,7 +168,10 @@ export default function Bioparque() {
               <p className="text-xs tracking-widest text-brand uppercase mb-3">El recorrido</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-3">Mapa del Bioparque</h2>
               <img src={asset('/bubalco-map-0.png')} alt="Mapa del Bioparque Bubalcó" className="w-52 h-52 rounded-full object-cover mb-4 mx-auto" />
-              <p className="text-sm text-gray-500 mb-6 leading-relaxed">Descargá el mapa en tu celular para recorrer el bioparque sin papel.</p>
+              <p className="text-sm text-gray-500 mb-6 leading-relaxed">
+                Descargá el mapa en tu celular<br />
+                para recorrer el bioparque sin papel.
+              </p>
               <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full">
                 Descargar mapa
               </a>
