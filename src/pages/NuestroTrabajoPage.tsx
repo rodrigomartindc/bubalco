@@ -73,22 +73,29 @@ export default function NuestroTrabajoPage() {
       <div className="bioparque-slides md:hidden">
         {/* Hero */}
         <section className="bp-slide">
-          <div className="bp-card bg-white relative overflow-hidden">
-            <img
-              src={asset('/nuestro-trabajo-hero.jpeg')}
-              alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-            <div className="absolute inset-0 bg-black/50" />
-            <div className="relative h-full flex flex-col justify-center px-6 py-8 text-center">
-              <p className="text-xs tracking-widest text-white/70 uppercase mb-3">Fundación Bubalcó Patagonia Argentina</p>
-              <h1 className="text-2xl font-medium text-white mb-4 leading-snug">Proteger la Biodiversidad</h1>
-              <p className="text-sm text-white/80 leading-relaxed mb-4">
-                En una isla del río Negro, en el corazón de la Patagonia argentina, Bubalcó trabaja para proteger la fauna silvestre, conservar especies en peligro de extinción y concientizar a la comunidad.
-              </p>
-              <p className="text-sm text-white/80 leading-relaxed">
-                Más de 400 animales refugiados y proyectos activos de rescate, conservación y educación en la región.
-              </p>
+          <div className="bp-card bg-white">
+            <div className="h-full flex flex-col">
+              <div className="w-full h-[42%] overflow-hidden flex-shrink-0">
+                <img
+                  src={asset('/nuestro-trabajo-hero.jpeg')}
+                  alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 px-6 py-6 flex flex-col justify-center text-center">
+                <p className="text-xs tracking-widest text-brand uppercase mb-3">
+                  Fundación Bubalcó Patagonia Argentina
+                </p>
+                <h1 className="text-2xl font-medium text-gray-900 mb-4 leading-snug">
+                  Proteger la Biodiversidad
+                </h1>
+                <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                  En una isla del río Negro, en el corazón de la Patagonia argentina, Bubalcó trabaja para proteger la fauna silvestre, conservar especies en peligro de extinción y concientizar a la comunidad.
+                </p>
+                <p className="text-sm text-gray-600 leading-relaxed font-medium">
+                  Más de 400 animales refugiados y proyectos activos de rescate, conservación y educación en la región.
+                </p>
+              </div>
             </div>
           </div>
         </section>
