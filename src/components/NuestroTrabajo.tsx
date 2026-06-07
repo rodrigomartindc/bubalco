@@ -2,28 +2,24 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const pillars = [
   {
-    n: '01',
     title: 'Refugio',
     desc: 'Una casa para animales que no pueden volver a la naturaleza.',
     accent: 'border-l-brand',
     topAccent: 'border-t-brand',
   },
   {
-    n: '02',
     title: 'Conservación',
     desc: 'Proyectos concretos para proteger especies.',
     accent: 'border-l-brand-dark',
     topAccent: 'border-t-brand-dark',
   },
   {
-    n: '03',
     title: 'Rescate',
     desc: 'Intervenimos cuando la fauna silvestre necesita ayuda.',
     accent: 'border-l-brand',
     topAccent: 'border-t-brand',
   },
   {
-    n: '04',
     title: 'Educación',
     desc: 'El conocimiento y el amor por la naturaleza son la base del cambio.',
     accent: 'border-l-accent/50',
@@ -47,11 +43,10 @@ export default function NuestroTrabajo() {
               </p>
               <div className="grid grid-cols-2 gap-3">
                 {pillars.map((c) => (
-                  <div key={c.n} className={`bg-white border border-gray-100 border-l-4 ${c.accent} rounded-2xl px-3 py-4 shadow-sm text-left`}>
-                    <p className="text-[10px] tracking-widest text-gray-400 mb-1">{c.n}</p>
-                    <h3 className="text-sm font-medium text-gray-900 mb-1">{c.title}</h3>
-                    <p className="text-[11px] text-gray-500 leading-snug">{c.desc}</p>
-                    </div>
+                  <div key={c.title} className={`bg-white border border-gray-100 border-l-4 ${c.accent} rounded-2xl px-3 py-4 shadow-sm text-left`}>
+                    <h3 className="text-base font-medium text-gray-900 mb-1.5">{c.title}</h3>
+                    <p className="text-sm text-gray-500 leading-snug">{c.desc}</p>
+                  </div>
                 ))}
               </div>
             </div>
@@ -69,10 +64,9 @@ export default function NuestroTrabajo() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((c, i) => (
-              <div key={c.n} className={`rounded-2xl p-7 md:p-8 bg-white border border-gray-100 border-t-4 ${c.topAccent} shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all ${isVisible ? `animate-scale-in delay-${(i + 1) * 100}` : 'opacity-0'}`}>
-                <p className="text-xs tracking-widest text-gray-400 mb-3">{c.n}</p>
-                <h3 className="text-lg font-medium text-gray-900 mb-3">{c.title}</h3>
-                <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
+              <div key={c.title} className={`rounded-2xl p-7 md:p-8 bg-white border border-gray-100 border-t-4 ${c.topAccent} shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all ${isVisible ? `animate-scale-in delay-${(i + 1) * 100}` : 'opacity-0'}`}>
+                <h3 className="text-xl font-medium text-gray-900 mb-3">{c.title}</h3>
+                <p className="text-base text-gray-500 leading-relaxed">{c.desc}</p>
               </div>
           ))}
         </div>
