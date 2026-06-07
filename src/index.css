@@ -195,6 +195,18 @@
       0 18px 50px rgba(0, 0, 0, 0.08),
       0 2px 10px rgba(0, 0, 0, 0.04);
   }
+
+  .bioparque-slides .bp-slide {
+    padding: 0;
+  }
+
+  .bioparque-slides .bp-card {
+    width: 100%;
+    height: calc(100dvh - var(--bp-nav));
+    border-radius: 0;
+    border: 0;
+    box-shadow: none;
+  }
 }
 
 @keyframes fadeInUp {
