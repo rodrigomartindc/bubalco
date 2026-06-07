@@ -97,7 +97,7 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Bloque 1: Nuestra misión */}
-        <section className="bg-white px-6 py-7">
+        <section className="bg-white px-6 py-7 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestra razón de ser</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">Misión y compromiso</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -106,7 +106,7 @@ export default function NuestroTrabajoPage() {
               <p className="text-sm text-gray-500 leading-relaxed mb-5">
                 Trabajamos para que la biodiversidad de la Patagonia, de Argentina y del mundo tenga defensores concretos, con proyectos reales y resultados medibles.
               </p>
-              <p className="text-sm font-medium text-gray-900 mb-3 text-left">Objetivos:</p>
+              <p className="text-sm font-medium text-gray-900 mb-3">Objetivos:</p>
               <div className="space-y-3">
                 {objetivos.map((item) => (
                   <DecoListItem key={item} desc={item} />
@@ -115,7 +115,7 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Bloque 2: Amenazas */}
-        <section className="bg-white px-6 py-7">
+        <section className="bg-white px-6 py-7 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">El contexto que nos convoca</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">Las principales amenazas a la fauna silvestre</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-5">
@@ -129,7 +129,7 @@ export default function NuestroTrabajoPage() {
         </section>
 
         {/* Bloque 3: Valores */}
-        <section className="bg-white px-6 py-7">
+        <section className="bg-white px-6 py-7 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestros valores</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">Lo que nos mueve</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-5">
@@ -249,7 +249,7 @@ export default function NuestroTrabajoPage() {
             </p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Nuestra razón de ser</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-4">Misión y compromiso</h2>
             <p className="text-base text-gray-500 leading-relaxed mb-4">
@@ -266,7 +266,7 @@ export default function NuestroTrabajoPage() {
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-4">El contexto que nos convoca</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-4">Las principales amenazas a la fauna silvestre</h2>
             <p className="text-base text-gray-500 leading-relaxed mb-6">
@@ -279,7 +279,7 @@ export default function NuestroTrabajoPage() {
             </div>
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Nuestros valores</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-4">Lo que nos mueve</h2>
             <p className="text-base text-gray-500 leading-relaxed mb-6">
@@ -298,7 +298,7 @@ export default function NuestroTrabajoPage() {
               alt="Refugio para animales silvestres en Bubalcó Patagonia"
               className="w-full rounded-2xl object-cover h-80"
             />
-            <div>
+            <div className="text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Refugio</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-4">Una casa para animales que no pueden volver a la naturaleza</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -311,7 +311,7 @@ export default function NuestroTrabajoPage() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="md:order-first">
+            <div className="md:order-first text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Conservación</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-4">Acciones para proteger</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -328,7 +328,7 @@ export default function NuestroTrabajoPage() {
             />
           </div>
 
-          <div className="max-w-3xl mx-auto">
+          <div className="max-w-3xl mx-auto text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Rescate</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-4">Cuando la fauna silvestre necesita ayuda</h2>
             <p className="text-base text-gray-500 leading-relaxed mb-4">
