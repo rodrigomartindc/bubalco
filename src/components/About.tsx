@@ -43,9 +43,9 @@ const About = () => {
         </div>
       </div>
 
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`grid lg:grid-cols-2 gap-16 items-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
-          <div>
+      <div className="hidden md:block relative z-10 w-full">
+        <div className={`grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-stretch min-h-screen ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+          <div className="px-6 md:px-12 lg:pl-20 lg:pr-12 py-20 flex flex-col justify-center">
             <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-14 mb-4" />
             <p className="text-xs tracking-widest text-brand uppercase mb-6">Fundación Bubalcó</p>
             <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
@@ -69,8 +69,8 @@ const About = () => {
             </div>
 
           </div>
-          <div className="flex justify-center">
-            <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full max-w-md rounded-2xl object-cover h-[480px]" />
+          <div className="h-full min-h-screen">
+            <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
           </div>
         </div>
       </div>

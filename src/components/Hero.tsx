@@ -8,7 +8,7 @@ const Hero = () => {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:justify-center md:bg-white md:pt-[130px]">
+    <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:pt-[130px]">
       {/* Mobile */}
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative h-full bg-white">
@@ -43,9 +43,9 @@ const Hero = () => {
       </div>
 
       {/* Desktop */}
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
-        <div className={`grid lg:grid-cols-2 gap-16 items-center min-h-[80vh] transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-          <div>
+      <div className={`hidden md:block relative z-10 w-full transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-stretch min-h-[calc(100vh-130px)]">
+          <div className="px-6 md:px-12 lg:pl-20 lg:pr-12 flex flex-col justify-center">
             <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight animate-fade-in-up delay-100">
               Refugio, rescate y conservación<br />en la Patagonia Argentina
             </h1>
@@ -61,8 +61,8 @@ const Hero = () => {
               </Link>
             </div>
           </div>
-          <div className="flex justify-center animate-fade-in-up delay-200">
-            <img src={asset('/hero-ciervos.jpg')} alt="Fauna silvestre en Bubalcó Patagonia" className="w-full max-w-md rounded-2xl object-cover h-[480px]" />
+          <div className="h-full min-h-[520px] animate-fade-in-up delay-200">
+            <img src={asset('/hero-ciervos.jpg')} alt="Fauna silvestre en Bubalcó Patagonia" className="w-full h-full object-cover" />
           </div>
         </div>
         <div className="flex justify-center pb-4 animate-fade-in-up delay-500">
