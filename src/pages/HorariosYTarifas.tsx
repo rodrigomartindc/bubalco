@@ -145,7 +145,7 @@ export default function HorariosYTarifas() {
           <div className="bp-card bg-white">
             <div className="slide-card__scroll px-6 py-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Promociones</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">Promociones y descuentos</h2>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4">Precios Especiales</h2>
               <div className="divide-y divide-gray-100 mb-5">
                 {promociones.map((promocion) => <PriceRow key={promocion.nombre} {...promocion} />)}
               </div>
@@ -184,7 +184,7 @@ export default function HorariosYTarifas() {
                 </p>
               </div>
               <a href={WHATSAPP_URL_GUIADOS} target="_blank" rel="noreferrer" className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-                WhatsApp <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                Consultar por guiados particulares <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
               </a>
             </div>
           </div>
@@ -275,7 +275,7 @@ export default function HorariosYTarifas() {
               </p>
             </div>
             <a href={WHATSAPP_URL_GUIADOS} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-              Consultar por WhatsApp para guiados particulares <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+              Consultar por guiados particulares <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
 
