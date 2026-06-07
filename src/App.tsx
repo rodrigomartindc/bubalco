@@ -50,7 +50,7 @@ function AppShell() {
   const showAppFooter = hasOwnMobileFooter ? isDesktop : true;
 
   useEffect(() => {
-    const usesMobileSnap = isHome || isBioparque || isVisitasEscolares;
+    const usesMobileSnap = isHome || isBioparque || isVisitasEscolares || isNuestroTrabajo;
     const mq = window.matchMedia('(max-width: 767px)');
 
     const apply = () => {
@@ -67,10 +67,10 @@ function AppShell() {
       document.documentElement.classList.remove('mobile-snap-page');
       document.body.classList.remove('mobile-snap-page');
     };
-  }, [isHome, isBioparque, isVisitasEscolares]);
+  }, [isHome, isBioparque, isVisitasEscolares, isNuestroTrabajo]);
 
   useEffect(() => {
-    const usesMobileSnap = isHome || isBioparque || isVisitasEscolares;
+    const usesMobileSnap = isHome || isBioparque || isVisitasEscolares || isNuestroTrabajo;
     const mq = window.matchMedia('(max-width: 767px)');
     if (!usesMobileSnap || !mq.matches) return;
 
@@ -112,7 +112,7 @@ function AppShell() {
       el.removeEventListener('touchstart', onTouchStart);
       el.removeEventListener('touchmove', onTouchMove);
     };
-  }, [isHome, isBioparque, isVisitasEscolares, location.pathname]);
+  }, [isHome, isBioparque, isVisitasEscolares, isNuestroTrabajo, location.pathname]);
 
   return (
     <div className="min-h-screen bg-white">
