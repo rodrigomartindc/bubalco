@@ -47,12 +47,18 @@ const Footer = () => {
 
           <div className="hidden md:block">
             <h4 className="text-sm font-medium mb-6">Enlaces</h4>
-            <ul className="space-y-3">
-              <li><Link to={ROUTES.nuestroTrabajo} className="text-sm text-gray-400 hover:text-white transition-colors">Nuestro Trabajo</Link></li>
-              <li><Link to={ROUTES.bioparque} className="text-sm text-gray-400 hover:text-white transition-colors">Bioparque</Link></li>
-              <li><Link to={ROUTES.donaciones} className="text-sm text-gray-400 hover:text-white transition-colors">Donaciones</Link></li>
-              <li><Link to="/voluntariado" className="text-sm text-gray-400 hover:text-white transition-colors">Voluntariado</Link></li>
-            </ul>
+            <div className="grid grid-cols-2 gap-x-8">
+              <ul className="space-y-3">
+                <li><Link to={ROUTES.bioparque} className="text-sm text-gray-400 hover:text-white transition-colors">Que es el Bioparque</Link></li>
+                <li><Link to={ROUTES.horarios} className="text-sm text-gray-400 hover:text-white transition-colors">Horarios y Tarifas</Link></li>
+                <li><Link to={ROUTES.visitasEscolares} className="text-sm text-gray-400 hover:text-white transition-colors">Visitas Escolares</Link></li>
+              </ul>
+              <ul className="space-y-3">
+                <li><Link to={ROUTES.faq} className="text-sm text-gray-400 hover:text-white transition-colors">Preguntas Frecuentes</Link></li>
+                <li><Link to={ROUTES.nuestroTrabajo} className="text-sm text-gray-400 hover:text-white transition-colors">Nuestro Trabajo</Link></li>
+                <li><Link to={ROUTES.donaciones} className="text-sm text-gray-400 hover:text-white transition-colors">Donaciones</Link></li>
+              </ul>
+            </div>
           </div>
         </div>
 
