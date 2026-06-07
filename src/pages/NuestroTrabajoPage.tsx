@@ -6,7 +6,7 @@ export default function NuestroTrabajoPage() {
   const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <div className="pt-[9rem] pb-20 bg-white">
+    <div className="pt-[9rem] bg-white">
       <div ref={ref} className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
         <div className="text-center">
           <p className="text-xs tracking-widest text-gray-400 uppercase mb-4 md:mb-6">Nuestro Trabajo</p>
@@ -75,7 +75,7 @@ export default function NuestroTrabajoPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-3 gap-6 rounded-2xl bg-brand-dark p-8 md:p-12">
+          <div className="grid grid-cols-3 gap-6 rounded-2xl bg-brand-dark p-8 md:p-12 mb-16 md:mb-20">
             {[
               { value: '+30', label: 'Años trabajando en conservación' },
               { value: '34', label: 'Hectáreas en la Patagonia Argentina' },
