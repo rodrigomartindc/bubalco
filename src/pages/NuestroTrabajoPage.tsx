@@ -231,24 +231,26 @@ export default function NuestroTrabajoPage() {
       </div>
 
       {/* Desktop */}
-      <div className="hidden md:block pt-[9rem] pb-20 bg-white">
-        <div className="max-w-5xl mx-auto px-6 space-y-20">
-          <div className="text-center">
-            <img
-              src={asset('/nuestro-trabajo-hero.jpeg')}
-              alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
-              className="w-full object-cover h-[480px] mb-10"
-            />
-            <p className="text-xs tracking-widest text-brand uppercase mb-4">Fundación Bubalcó Patagonia Argentina</p>
-            <h1 className="text-4xl font-medium text-gray-900 mb-6 max-w-3xl mx-auto">Proteger la Biodiversidad</h1>
-            <p className="text-base text-gray-500 leading-relaxed mb-4 max-w-3xl mx-auto">
+      <div className="hidden md:block pb-20 bg-white">
+        <section className="min-h-screen flex flex-col pt-[124px]">
+          <img
+            src={asset('/nuestro-trabajo-hero.jpeg')}
+            alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
+            className="w-full object-cover h-[clamp(180px,28vh,260px)] flex-shrink-0"
+          />
+          <div className="flex-1 flex flex-col justify-center text-center px-6 py-8 max-w-3xl mx-auto">
+            <p className="text-xs tracking-widest text-brand uppercase mb-3">Fundación Bubalcó Patagonia Argentina</p>
+            <h1 className="text-4xl font-medium text-gray-900 mb-4 leading-tight">Proteger la Biodiversidad</h1>
+            <p className="text-base text-gray-500 leading-relaxed mb-3">
               En una isla del río Negro, en el corazón de la Patagonia argentina, Bubalcó trabaja para proteger la fauna silvestre, conservar especies en peligro de extinción y concientizar a la comunidad.
             </p>
-            <p className="text-base text-gray-500 leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base text-gray-500 leading-relaxed">
               Más de 400 animales refugiados y proyectos activos de rescate, conservación y educación en la región.
             </p>
           </div>
+        </section>
 
+        <div className="max-w-5xl mx-auto px-6 space-y-20 pt-20">
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Nuestra razón de ser</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-4">Misión y compromiso</h2>

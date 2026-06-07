@@ -183,7 +183,7 @@ export default function Bioparque() {
       </div>
 
       {/* Desktop: normal flow */}
-      <div className="hidden md:block pt-[7.5rem] pb-20 bg-white">
+      <div className="hidden md:block pt-[9rem] pb-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           {/* Hero */}
           <div className="text-center mb-20">
