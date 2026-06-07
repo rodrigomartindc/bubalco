@@ -88,32 +88,32 @@ const Navbar = () => {
           style={{ paddingTop: '124px' }}
         >
           <div className="px-6 py-4 space-y-1">
-            <NavLink to={ROUTES.home} onClick={goHome} className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide underline underline-offset-4 decoration-gray-300 rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+            <NavLink to={ROUTES.home} onClick={goHome} className={({ isActive }) => `block px-4 py-3 text-base tracking-wide underline underline-offset-4 decoration-gray-300 rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
               Inicio
             </NavLink>
 
             <div>
-              <Link to={ROUTES.bioparque} className={`block px-4 py-3 text-sm tracking-wide underline underline-offset-4 decoration-gray-300 rounded-lg transition-colors ${isBioparque ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+              <Link to={ROUTES.bioparque} className={`block px-4 py-3 text-base tracking-wide underline underline-offset-4 decoration-gray-300 rounded-lg transition-colors ${isBioparque ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
                 Qué es el Bioparque
               </Link>
               <div className="ml-4 mt-1 space-y-1">
-                <Link to={ROUTES.horarios} className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                <Link to={ROUTES.horarios} className="block px-4 py-2 text-[15px] text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
                   Horarios y Tarifas
                 </Link>
-                <Link to={ROUTES.visitasEscolares} className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                <Link to={ROUTES.visitasEscolares} className="block px-4 py-2 text-[15px] text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
                   Visitas Escolares
                 </Link>
-                <Link to={ROUTES.faq} className="block px-4 py-2 text-sm text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
+                <Link to={ROUTES.faq} className="block px-4 py-2 text-[15px] text-gray-500 hover:text-gray-900 rounded-lg hover:bg-gray-50">
                   Preguntas Frecuentes
                 </Link>
               </div>
             </div>
 
-            <NavLink to={ROUTES.nuestroTrabajo} className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide underline underline-offset-4 decoration-gray-300 rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
+            <NavLink to={ROUTES.nuestroTrabajo} className={({ isActive }) => `block px-4 py-3 text-base tracking-wide underline underline-offset-4 decoration-gray-300 rounded-lg transition-colors ${isActive ? 'bg-gray-50 text-gray-900 font-medium' : 'text-gray-600 hover:bg-gray-50'}`}>
               Nuestro Trabajo
             </NavLink>
 
-            <NavLink to={ROUTES.donaciones} className={({ isActive }) => `block px-4 py-3 text-sm tracking-wide underline underline-offset-4 decoration-accent/50 rounded-lg font-medium transition-colors ${isActive ? 'bg-accent/10 text-accent' : 'text-accent hover:bg-accent/10'}`}>
+            <NavLink to={ROUTES.donaciones} className={({ isActive }) => `block px-4 py-3 text-base tracking-wide underline underline-offset-4 decoration-accent/50 rounded-lg font-medium transition-colors ${isActive ? 'bg-accent/10 text-accent' : 'text-accent hover:bg-accent/10'}`}>
               Apoyar la conservación. Doná ahora
             </NavLink>
           </div>
