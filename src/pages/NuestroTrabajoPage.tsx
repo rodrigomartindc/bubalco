@@ -1,5 +1,6 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { asset } from '../utils/asset';
+import FooterSlide from '../components/FooterSlide';
 
 export default function NuestroTrabajoPage() {
   const { ref, isVisible } = useScrollAnimation();
@@ -88,6 +89,7 @@ export default function NuestroTrabajoPage() {
           </div>
         </div>
       </div>
+      <FooterSlide />
     </div>
   );
 }
