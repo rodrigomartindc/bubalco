@@ -43,9 +43,9 @@ const Hero = () => {
       </div>
 
       {/* Desktop */}
-      <div className={`hidden md:block relative z-10 w-full transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-        <div className="grid lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] items-stretch min-h-[calc(100vh-130px)]">
-          <div className="relative px-6 md:px-12 lg:pl-20 lg:pr-12 flex flex-col justify-center">
+      <div className={`hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center min-h-[calc(100vh-130px)]">
+          <div>
             <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight animate-fade-in-up delay-100">
               Refugio, rescate y conservación<br />en la Patagonia Argentina
             </h1>
@@ -60,13 +60,13 @@ const Hero = () => {
                 Nuestro trabajo en conservación
               </Link>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-4 animate-fade-in-up delay-500">
-              <ChevronDown size={28} strokeWidth={1.5} className="text-gray-300 animate-bounce" />
-            </div>
           </div>
-          <div className="h-full min-h-[520px] animate-fade-in-up delay-200">
-            <img src={asset('/hero-ciervos.jpg')} alt="Fauna silvestre en Bubalcó Patagonia" className="w-full h-full object-cover" />
+          <div className="flex justify-center lg:justify-end animate-fade-in-up delay-200">
+            <img src={asset('/hero-ciervos.jpg')} alt="Fauna silvestre en Bubalcó Patagonia" className="w-full max-w-[520px] h-[420px] object-cover object-center" />
           </div>
+        </div>
+        <div className="flex justify-center pb-4 animate-fade-in-up delay-500">
+          <ChevronDown size={28} strokeWidth={1.5} className="text-gray-300 animate-bounce" />
         </div>
       </div>
     </section>
