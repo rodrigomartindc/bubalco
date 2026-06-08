@@ -237,6 +237,7 @@ export default function NuestroTrabajoPage() {
             src={asset('/nuestro-trabajo-hero.jpeg')}
             alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
             className="w-full object-cover h-[clamp(240px,38vh,360px)] flex-shrink-0"
+            style={{ objectPosition: 'center 28%' }}
           />
           <div className="flex-1 flex flex-col justify-center text-center px-6 py-5 max-w-3xl mx-auto">
             <p className="text-xs tracking-widest text-brand uppercase mb-3">Fundación Bubalcó Patagonia Argentina</p>
@@ -251,35 +252,47 @@ export default function NuestroTrabajoPage() {
         </section>
 
         <div className="max-w-5xl mx-auto px-6 space-y-20 pt-20">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xs tracking-widest text-brand uppercase mb-4">Nuestra razón de ser</p>
-            <h2 className="text-3xl font-medium text-gray-900 mb-4">Misión y compromiso</h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-4">
-              Nuestra misión es proteger la fauna silvestre, restaurar el equilibrio natural y concientizar a la comunidad sobre la importancia de conservar la naturaleza.
-            </p>
-            <p className="text-base text-gray-500 leading-relaxed mb-6">
-              Trabajamos para que la biodiversidad de la Patagonia, de Argentina y del mundo tenga defensores concretos, con proyectos reales y resultados medibles.
-            </p>
-            <p className="text-base font-medium text-gray-900 mb-4">Objetivos:</p>
-            <div className="space-y-3">
-              {objetivos.map((item) => (
-                <DecoListItem key={item} desc={item} />
-              ))}
+          <section className="rounded-[32px] bg-[#F7FAF8] border border-gray-100 px-10 lg:px-12 py-12 lg:py-14 border-t-2 border-t-brand/30">
+            <div className="grid lg:grid-cols-[0.95fr_1.05fr] gap-10 lg:gap-14 items-start">
+              <div className="text-left">
+                <p className="text-xs tracking-widest text-brand uppercase mb-4">Nuestra razón de ser</p>
+                <h2 className="text-3xl font-medium text-gray-900 mb-4">Misión y compromiso</h2>
+                <p className="text-base text-gray-500 leading-relaxed mb-4">
+                  Nuestra misión es proteger la fauna silvestre, restaurar el equilibrio natural y concientizar a la comunidad sobre la importancia de conservar la naturaleza.
+                </p>
+                <p className="text-base text-gray-500 leading-relaxed">
+                  Trabajamos para que la biodiversidad de la Patagonia, de Argentina y del mundo tenga defensores concretos, con proyectos reales y resultados medibles.
+                </p>
+              </div>
+              <div className="bg-white rounded-2xl border border-gray-100 p-7 shadow-sm">
+                <p className="text-base font-medium text-gray-900 mb-5">Objetivos:</p>
+                <div className="space-y-4">
+                  {objetivos.map((item) => (
+                    <DecoListItem key={item} desc={item} />
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
+          </section>
 
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-xs tracking-widest text-brand uppercase mb-4">El contexto que nos convoca</p>
-            <h2 className="text-3xl font-medium text-gray-900 mb-4">Las principales amenazas a la fauna silvestre</h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-6">
-              Organismos como Fundación Bubalcó nacen como respuesta a una crisis real: la fauna silvestre enfrenta amenazas crecientes que ponen en riesgo la biodiversidad de toda la región y del mundo.
-            </p>
-            <div className="space-y-4">
-              {amenazas.map((item) => (
-                <DecoListItem key={item.title} title={item.title} desc={item.desc} />
+          <section className="rounded-[32px] bg-gray-50 border border-gray-100 px-10 lg:px-12 py-12 lg:py-14">
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-4">El contexto que nos convoca</p>
+              <h2 className="text-3xl font-medium text-gray-900 mb-4">Las principales amenazas a la fauna silvestre</h2>
+              <p className="text-base text-gray-500 leading-relaxed">
+                Organismos como Fundación Bubalcó nacen como respuesta a una crisis real: la fauna silvestre enfrenta amenazas crecientes que ponen en riesgo la biodiversidad de toda la región y del mundo.
+              </p>
+            </div>
+            <div className="grid lg:grid-cols-3 gap-5 lg:gap-6 mt-10">
+              {amenazas.map((item, index) => (
+                <div key={item.title} className="bg-white rounded-2xl border border-gray-100 p-6 shadow-sm text-left">
+                  <p className="text-xs tracking-widest text-brand mb-4">{String(index + 1).padStart(2, '0')}</p>
+                  <h3 className="text-lg font-medium text-gray-900 mb-3">{item.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed">{item.desc}</p>
+                </div>
               ))}
             </div>
-          </div>
+          </section>
 
           <div className="max-w-3xl mx-auto text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Nuestros valores</p>

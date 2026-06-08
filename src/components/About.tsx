@@ -9,7 +9,7 @@ const About = () => {
   const animals = useCountUp(500, 2000, isVisible);
 
   return (
-    <section id="quienes-somos" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:overflow-hidden md:pt-[130px]">
+    <section id="quienes-somos" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:overflow-hidden">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative bg-white">
           <div className="relative z-10 w-full px-6 py-6">
@@ -43,8 +43,8 @@ const About = () => {
         </div>
       </div>
 
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 max-w-7xl mx-auto">
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center h-[calc(100vh-130px)] ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
+        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
           <div>
             <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-14 mb-4" />
             <p className="text-xs tracking-widest text-brand uppercase mb-6">Fundación Bubalcó</p>
@@ -69,8 +69,8 @@ const About = () => {
             </div>
 
           </div>
-          <div className="h-full min-h-0">
-            <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
+          <div className="flex justify-center lg:justify-end">
+            <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full max-w-[440px] h-[360px] object-cover object-center" />
           </div>
         </div>
       </div>
