@@ -3,10 +3,28 @@ import { faqSections } from '../data/faq';
 import { WHATSAPP_URL_FAQ } from '../data/site';
 import FooterSlide from '../components/FooterSlide';
 
+const faqPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqSections.flatMap((section) =>
+    section.items.map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer,
+      },
+    })),
+  ),
+};
 
 export default function PreguntasFrecuentes() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
+      />
       <div className="md:hidden pt-[9rem] bg-white">
         <div className="max-w-3xl mx-auto px-5 py-12">
           <p className="text-xs tracking-widest text-brand uppercase mb-2 text-center">FAQ</p>
