@@ -19,6 +19,18 @@ export default function Home() {
     return () => mq.removeEventListener('change', handle);
   }, []);
 
+  useEffect(() => {
+    const shouldEnable = isDesktop;
+
+    document.documentElement.classList.toggle('desktop-home-snap', shouldEnable);
+    document.body.classList.toggle('desktop-home-snap', shouldEnable);
+
+    return () => {
+      document.documentElement.classList.remove('desktop-home-snap');
+      document.body.classList.remove('desktop-home-snap');
+    };
+  }, [isDesktop]);
+
   return (
     <>
       <div className="home-slides md:contents">

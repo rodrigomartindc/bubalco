@@ -4,7 +4,7 @@ const mapsUrl = 'https://www.google.com/maps/place/Fundaci%C3%B3n+Bubalc%C3%B3+P
 
 export default function GoogleMapsFooter() {
   return (
-    <div className="relative">
+    <div className="relative desktop-footer-snap">
       <iframe
         title="Ubicación Bubalcó"
         src={MAP_EMBED_URL}
