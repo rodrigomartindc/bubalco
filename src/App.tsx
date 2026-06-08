@@ -16,6 +16,8 @@ import PreguntasFrecuentes from './pages/PreguntasFrecuentes';
 import HorariosYTarifas from './pages/HorariosYTarifas';
 import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
+import StructuredData from './components/StructuredData';
+import { usePageSEO } from './hooks/usePageSEO';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -29,6 +31,7 @@ function ScrollToTop() {
 
 function AppShell() {
   const location = useLocation();
+  usePageSEO();
   const [isDesktop, setIsDesktop] = useState(false);
 
   useEffect(() => {
@@ -116,6 +119,7 @@ function AppShell() {
 
   return (
     <div className="min-h-screen bg-white">
+      <StructuredData />
       <ScrollToTop />
       <Navbar />
       <DonationStrip />
