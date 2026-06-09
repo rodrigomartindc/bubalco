@@ -16,8 +16,8 @@ const pillars = [
   {
     title: 'Rescate',
     desc: 'Intervenimos cuando la fauna silvestre necesita ayuda.',
-    accent: 'border-l-brand',
-    topAccent: 'border-t-brand',
+    accent: 'border-l-[#C97A5A]',
+    topAccent: 'border-t-[#C97A5A]',
   },
   {
     title: 'Educación',

@@ -13,7 +13,7 @@ export default function Bioparque() {
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white">
             <div className="h-full flex flex-col">
-              <div className="overflow-hidden" style={{ flex: '0 0 40%' }}>
+              <div className="overflow-hidden" style={{ flex: '0 0 36%' }}>
                 <img src={asset('/bubalco-fondo.png')} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center">

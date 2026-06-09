@@ -29,6 +29,14 @@ export const faqSections: FaqSection[] = [
         question: '¿Puedo ingresar con mi mascota?',
         answer: 'No. Por la seguridad de los animales del bioparque no está permitido el ingreso con mascotas.',
       },
+      {
+        question: '¿Cómo es el ingreso con Certificado Único de Discapacidad (CUD)?',
+        answer: 'Las personas con CUD ingresan sin costo. Su acompañante abona únicamente el valor del seguro de entrada. Esta condición aplica solo a entradas individuales, no a grupos o contingentes.',
+      },
+      {
+        question: '¿Mi entrada contribuye al cuidado de los animales?',
+        answer: 'Sí, directamente. Cada entrada financia el trabajo de la Fundación: el cuidado diario de los animales, los programas de rescate, recuperación y reinserción de especies. Venir es también una forma de apoyar la conservación.',
+      },
     ],
   },
   {
@@ -53,19 +61,6 @@ export const faqSections: FaqSection[] = [
       {
         question: '¿Es accesible para sillas de ruedas o carriolas?',
         answer: 'El recorrido es de ripio, lo que puede dificultar el acceso con sillas de ruedas, sillas de paseo u otros dispositivos. Depende la silla o el carrito se puede hacer sin dificultad.',
-      },
-    ],
-  },
-  {
-    title: 'Entradas y precios',
-    items: [
-      {
-        question: '¿Cómo es el ingreso con Certificado Único de Discapacidad (CUD)?',
-        answer: 'Las personas con CUD ingresan sin costo. Su acompañante abona únicamente el valor del seguro de entrada. Esta condición aplica solo a entradas individuales, no a grupos o contingentes.',
-      },
-      {
-        question: '¿Mi entrada contribuye al cuidado de los animales?',
-        answer: 'Sí, directamente. Cada entrada financia el trabajo de la Fundación: el cuidado diario de los animales, los programas de rescate, recuperación y reinserción de especies. Venir es también una forma de apoyar la conservación.',
       },
     ],
   },

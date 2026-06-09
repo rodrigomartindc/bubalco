@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { WHATSAPP_URL_VISITAS_ESCOLARES } from '../data/site';
 import FooterSlide from '../components/FooterSlide';
+import { asset } from '../utils/asset';
 
 
 export default function VisitasEscolares() {
@@ -27,15 +28,24 @@ export default function VisitasEscolares() {
 
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="h-full px-6 py-8 flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Conciencia</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-4 leading-snug">"El conocimiento sin amor no prende"</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
-                Una cita de John Burroughs que representa nuestro objetivo con los guiados escolares: sembrar conciencia de conservación a través del amor, la empatía y la conexión.
-              </p>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                La educación es la base para generar un cambio real en cómo nos relacionamos con el medio ambiente y otras especies. Tomar conciencia de nuestro impacto es el primer paso para construir un futuro en el que a todos nos gustaría vivir.
-              </p>
+            <div className="h-full flex flex-col">
+              <div className="w-full h-[34%] overflow-hidden flex-shrink-0">
+                <img
+                  src={asset('/visitas-escolares-conciencia.jpeg')}
+                  alt="Educación ambiental en Bubalcó Patagonia"
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div className="flex-1 px-6 py-6 flex flex-col justify-center text-center">
+                <p className="text-xs tracking-widest text-brand uppercase mb-3">Conciencia</p>
+                <h2 className="text-2xl font-medium text-gray-900 mb-4 leading-snug">"El conocimiento sin amor no prende"</h2>
+                <p className="text-sm text-gray-500 leading-relaxed mb-5">
+                  Una cita de John Burroughs que representa nuestro objetivo con los guiados escolares: sembrar conciencia de conservación a través del amor, la empatía y la conexión.
+                </p>
+                <p className="text-sm text-gray-500 leading-relaxed">
+                  La educación es la base para generar un cambio real en cómo nos relacionamos con el medio ambiente y otras especies. Tomar conciencia de nuestro impacto es el primer paso para construir un futuro en el que a todos nos gustaría vivir.
+                </p>
+              </div>
             </div>
           </div>
         </section>

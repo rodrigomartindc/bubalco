@@ -21,7 +21,7 @@ export const WHATSAPP_URL_FAQ = whatsappUrl('¡Hola, tengo una consulta!');
 
 export const SOCIAL_LINKS = {
   instagram: 'https://www.instagram.com/bubalcopatagonia/',
-  facebook: 'https://www.facebook.com/bubalcopatagonia',
+  facebook: 'https://www.facebook.com/bubalco',
   tiktok: 'https://www.tiktok.com/@bubalcopatagonia',
   linkedin: 'https://www.linkedin.com/company/bubalcopatagonia',
 } as const;
