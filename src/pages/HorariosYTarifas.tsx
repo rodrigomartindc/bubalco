@@ -5,17 +5,18 @@ import FooterSlide from '../components/FooterSlide';
 
 
 const tarifas = [
-  { nombre: 'Entrada General', detalle: 'Mayores de 13 años', valor: '$29.900' },
-  { nombre: 'Menores y Jubilados', detalle: 'Entre 4 y 12 años incluidos', valor: '$24.700' },
-  { nombre: 'Pase anual', detalle: '', valor: '$126.700' },
+  { nombre: 'Entrada General', detalle: 'Mayores de 13 años', valor: '$30.800' },
+  { nombre: 'Menores y Jubilados', detalle: 'Entre 4 y 12 años incluidos', valor: '$25.400' },
+  { nombre: 'Pase anual', detalle: '', valor: '$130.500' },
+  { nombre: 'Acompañante CUD', detalle: '', valor: '$11.600' },
   { nombre: 'Menores de 4 años', detalle: '', valor: 'Gratis' },
-  { nombre: 'Acompañante CUD', detalle: '', valor: '$11.300' },
+  { nombre: 'CUD', detalle: '', valor: 'Gratis' },
 ];
 
 const promociones = [
-  { nombre: 'Grupo I', detalle: '2 generales y 2 de menores/jubilados', valor: '$97.900' },
-  { nombre: 'Grupo II', detalle: '2 generales y 3 de menores/jubilados', valor: '$112.300' },
-  { nombre: 'Grupo III', detalle: '6 entradas generales', valor: '$151.400' },
+  { nombre: 'Grupo I', detalle: '2 generales y 2 de menores/jubilados', valor: '$100.800' },
+  { nombre: 'Grupo II', detalle: '2 generales y 3 de menores/jubilados', valor: '$115.700' },
+  { nombre: 'Grupo III', detalle: '6 entradas generales', valor: '$155.900' },
 ];
 
 const clubRioNegro = [
@@ -131,7 +132,10 @@ export default function HorariosYTarifas() {
             <div className="slide-card__scroll px-6 py-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Tarifas</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-1">Tu visita los cuida</h2>
-              <p className="text-xs text-gray-500 mb-4 leading-relaxed">No hay que reservar. La entrada se adquiere directo en boletería.</p>
+              <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                <span className="block">No hay que reservar.</span>
+                <span className="block">La entrada se adquiere directo en boletería.</span>
+              </p>
               <div className="divide-y divide-gray-100">
                 {tarifas.map((tarifa) => <PriceRow key={tarifa.nombre} {...tarifa} />)}
               </div>
@@ -219,7 +223,10 @@ export default function HorariosYTarifas() {
           <div>
             <p className="text-xs tracking-widest text-brand uppercase mb-4">Tarifas</p>
             <h1 className="text-4xl font-medium text-gray-900 mb-2">Tu visita los cuida</h1>
-            <p className="text-base text-gray-500 mb-8">No hay que reservar. La entrada se adquiere directo en boletería.</p>
+            <p className="text-base text-gray-500 mb-8 leading-relaxed">
+              <span className="block">No hay que reservar.</span>
+              <span className="block">La entrada se adquiere directo en boletería.</span>
+            </p>
             <div className="border border-gray-100 rounded-2xl overflow-hidden">
               {tarifas.map((tarifa, i) => (
                 <div key={tarifa.nombre} className={`flex justify-between items-center px-6 py-4 ${i < tarifas.length - 1 ? 'border-b border-gray-100' : ''}`}>
