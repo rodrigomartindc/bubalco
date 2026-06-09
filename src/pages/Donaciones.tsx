@@ -24,13 +24,13 @@ function AliasCopiable() {
   return (
     <button
       onClick={copy}
-      className="flex items-center gap-2 bg-gray-50 border border-gray-200 rounded-xl px-4 py-3 w-full hover:bg-gray-100 transition-colors group"
+      className="flex items-center gap-2 bg-accent/10 border border-accent/50 rounded-xl px-4 py-3 w-full hover:bg-accent/15 transition-colors group shadow-sm"
     >
       <div className="flex-1 text-left">
-        <p className="text-xs text-gray-400 mb-0.5">Alias CBU/CVU</p>
+        <p className="text-xs text-accent/80 mb-0.5">Alias CBU/CVU</p>
         <p className="text-sm font-medium text-gray-900">{ALIAS}</p>
       </div>
-      <Copy size={15} className={`flex-shrink-0 transition-colors ${copied ? 'text-brand' : 'text-gray-400 group-hover:text-gray-600'}`} />
+      <Copy size={15} className={`flex-shrink-0 transition-colors ${copied ? 'text-brand' : 'text-accent group-hover:text-amber-600'}`} />
     </button>
   );
 }

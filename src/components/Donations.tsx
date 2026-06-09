@@ -13,9 +13,9 @@ const Donations = () => {
         <div className="h-full bg-white">
           <div className="h-full flex flex-col">
             <div className="flex-1 flex flex-col items-center justify-center px-6 py-3 text-center min-h-0">
-              <p className="text-[11px] tracking-widest text-gray-400 uppercase mb-1.5">Cómo ayudar</p>
-              <h2 className="text-lg font-medium text-gray-900 mb-1.5">Tu donación sostiene nuestro trabajo</h2>
-              <p className="text-xs text-gray-500 mb-2.5 leading-snug">
+              <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">Cómo ayudar</p>
+              <h2 className="text-xl font-medium text-gray-900 mb-2">Tu donación sostiene nuestro trabajo</h2>
+              <p className="text-sm text-gray-500 mb-3 leading-snug">
                 Cada aporte ayuda a rescatar animales e impulsar proyectos de conservación.
               </p>
               <Link to={ROUTES.donaciones} className="group inline-flex items-center gap-2 px-4 py-2 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors">
@@ -23,9 +23,9 @@ const Donations = () => {
               </Link>
             </div>
 
-            <div className="flex-1 flex flex-col items-center justify-center px-6 py-3 text-center bg-brand-dark min-h-0">
-              <h2 className="text-lg font-medium text-white mb-1.5">Visitá el bioparque</h2>
-              <p className="text-xs text-white/50 mb-2.5 leading-snug">
+            <div className="flex-1 flex flex-col items-center justify-start pt-8 px-6 pb-3 text-center bg-brand-dark min-h-0">
+              <h2 className="text-xl font-medium text-white mb-2">Visitá el bioparque</h2>
+              <p className="text-sm text-white/50 mb-3 leading-snug">
                 Cada visita contribuye al cuidado de los animales y a nuestros programas de educación.
               </p>
               <Link to={ROUTES.bioparque} className="group inline-flex items-center gap-2 px-4 py-2 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
