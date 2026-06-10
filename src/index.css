@@ -213,6 +213,19 @@
   }
 }
 
+html.page-navigating {
+  scroll-behavior: auto !important;
+}
+
+.route-transition {
+  opacity: 0;
+  transition: opacity 0.18s ease-out;
+}
+
+.route-transition--visible {
+  opacity: 1;
+}
+
 @media (min-width: 768px) {
   html.desktop-home-snap {
     scroll-snap-type: y mandatory;

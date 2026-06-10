@@ -1,5 +1,7 @@
-import { useEffect, useLayoutEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import RouteTransition from './components/RouteTransition';
+import { resetScroll } from './utils/resetScroll';
 import Navbar from './components/Navbar';
 import DonationStrip from './components/DonationStrip';
 import WhatsAppButton from './components/WhatsAppButton';
@@ -18,27 +20,6 @@ import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
 import StructuredData from './components/StructuredData';
 import { usePageSEO } from './hooks/usePageSEO';
-
-function ScrollToTop() {
-  const { pathname } = useLocation();
-
-  useEffect(() => {
-    if ('scrollRestoration' in window.history) {
-      window.history.scrollRestoration = 'manual';
-    }
-  }, []);
-
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-    document.documentElement.scrollTop = 0;
-    document.body.scrollTop = 0;
-
-    const snap = document.querySelector('.home-slides, .bioparque-slides') as HTMLElement | null;
-    if (snap) snap.scrollTop = 0;
-  }, [pathname]);
-
-  return null;
-}
 
 function AppShell() {
   const location = useLocation();
@@ -62,6 +43,32 @@ function AppShell() {
   const isNuestroTrabajo = location.pathname === '/nuestro-trabajo';
   const hasOwnMobileFooter = isHome || isBioparque || isHorariosYTarifas || isVisitasEscolares || isFaq || isDonaciones || isNuestroTrabajo;
   const showAppFooter = hasOwnMobileFooter ? isDesktop : true;
+
+  useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useEffect(() => {
+    const onClick = (event: MouseEvent) => {
+      const anchor = (event.target as HTMLElement | null)?.closest('a[href]') as HTMLAnchorElement | null;
+      if (!anchor || anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+
+      const href = anchor.getAttribute('href');
+      if (!href || !href.startsWith('/') || href.startsWith('//')) return;
+
+      const url = new URL(href, window.location.origin);
+      if (url.origin !== window.location.origin) return;
+      if (url.pathname === window.location.pathname && !url.hash) return;
+
+      document.documentElement.classList.add('page-navigating');
+      resetScroll();
+    };
+
+    document.addEventListener('click', onClick, true);
+    return () => document.removeEventListener('click', onClick, true);
+  }, []);
 
   useEffect(() => {
     const usesMobileSnap = isHome || isBioparque || isVisitasEscolares;
@@ -131,23 +138,24 @@ function AppShell() {
   return (
     <div className="min-h-screen bg-white">
       <StructuredData />
-      <ScrollToTop />
       <Navbar />
       <DonationStrip />
       <WhatsAppButton />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/bioparque" element={<Bioparque />} />
-        <Route path="/donaciones" element={<Donaciones />} />
-        <Route path="/visitas-escolares" element={<VisitasEscolares />} />
-        <Route path="/nuestro-trabajo" element={<NuestroTrabajoPage />} />
-        <Route path="/novedades" element={<Novedades />} />
-        <Route path="/bioparque/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
-        <Route path="/bioparque/horarios-y-tarifas" element={<HorariosYTarifas />} />
-        <Route path="/gracias" element={<Gracias />} />
-        <Route path="/voluntariado" element={<div className="pt-[9rem]"><Volunteering /></div>} />
-      </Routes>
+      <RouteTransition>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/bioparque" element={<Bioparque />} />
+          <Route path="/donaciones" element={<Donaciones />} />
+          <Route path="/visitas-escolares" element={<VisitasEscolares />} />
+          <Route path="/nuestro-trabajo" element={<NuestroTrabajoPage />} />
+          <Route path="/novedades" element={<Novedades />} />
+          <Route path="/bioparque/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
+          <Route path="/bioparque/horarios-y-tarifas" element={<HorariosYTarifas />} />
+          <Route path="/gracias" element={<Gracias />} />
+          <Route path="/voluntariado" element={<div className="pt-[9rem]"><Volunteering /></div>} />
+        </Routes>
+      </RouteTransition>
       {showAppFooter && isHome && isDesktop ? (
         <section className="desktop-footer-snap min-h-screen flex flex-col">
           <GoogleMapsFooter fill snap={false} />
