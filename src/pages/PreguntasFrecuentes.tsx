@@ -1,6 +1,7 @@
 import FaqAccordion from '../components/FaqAccordion';
 import { faqSections } from '../data/faq';
 import { WHATSAPP_URL_FAQ } from '../data/site';
+import { useIsDesktop } from '../hooks/useIsDesktop';
 import FooterSlide from '../components/FooterSlide';
 
 const faqPageSchema = {
@@ -19,13 +20,16 @@ const faqPageSchema = {
 };
 
 export default function PreguntasFrecuentes() {
+  const isDesktop = useIsDesktop();
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageSchema) }}
       />
-      <div className="md:hidden pt-[9rem] bg-white">
+      {!isDesktop && (
+      <div className="pt-[9rem] bg-white">
         <div className="max-w-3xl mx-auto px-5 py-12">
           <p className="text-xs tracking-widest text-brand uppercase mb-2 text-center">FAQ</p>
           <h1 className="text-3xl font-medium text-gray-900 mb-8 text-center">Preguntas frecuentes</h1>
@@ -51,9 +55,10 @@ export default function PreguntasFrecuentes() {
         </div>
         <FooterSlide />
       </div>
+      )}
 
-      {/* ── Desktop: normal flow ───────────────────────────────────── */}
-      <div className="hidden md:block pt-[9rem] pb-20 bg-white">
+      {isDesktop && (
+      <div className="pt-[9rem] pb-20 bg-white">
         <div className="max-w-3xl mx-auto px-6">
           <p className="text-xs tracking-widest text-brand uppercase mb-6">FAQ</p>
           <h1 className="text-4xl font-medium text-gray-900 mb-12">Preguntas frecuentes</h1>
@@ -78,6 +83,7 @@ export default function PreguntasFrecuentes() {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 }

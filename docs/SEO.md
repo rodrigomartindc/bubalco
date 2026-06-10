@@ -42,6 +42,8 @@ El build de producción genera HTML estático por ruta indexable con Playwright 
 
 Cada ruta queda en `dist/<ruta>/index.html` (la home en `dist/index.html`). Apache/LiteSpeed sirve esos archivos antes del fallback SPA gracias a `public/htaccess`.
 
+El prerender usa viewport mobile (390×844) y render condicional por breakpoint (`useIsDesktop`) para que el HTML estático tenga un solo `<h1>` y refleje la experiencia mobile-first.
+
 ### Comandos
 
 ```bash

@@ -9,41 +9,7 @@ const Hero = () => {
 
   return (
     <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:pt-[130px]">
-      {/* Mobile */}
-      <div className="slide-card md:hidden">
-        <div className="slide-card__scroll relative h-full bg-white">
-          <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-            <div className="flex items-center justify-center animate-fade-in-up delay-100 mt-auto">
-              <div className="w-[15rem] h-[15rem] rounded-full overflow-hidden flex-shrink-0">
-                <img
-                  src={asset('/hero-ciervos.jpg')}
-                  alt="Fauna silvestre en Bubalcó Patagonia"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col items-center justify-start px-6 py-3 text-center mb-auto">
-              <h1 className="text-xl font-medium text-gray-900 mb-2 animate-fade-in-up delay-200">
-                Refugio, rescate y conservación en la Patagonia Argentina
-              </h1>
-              <p className="text-sm text-gray-500 mb-5 animate-fade-in-up delay-300">
-                Inspirando a salvar la fauna silvestre para el futuro
-              </p>
-              <div className="flex flex-col gap-3 items-stretch w-full animate-fade-in-up delay-400">
-                <Link to={ROUTES.bioparque} className="px-7 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors text-center">
-                  Descubrí el Bioparque
-                </Link>
-                <Link to={ROUTES.nuestroTrabajo} className="px-7 py-3 border border-gray-200 text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-50 transition-colors text-center">
-                  Nuestro trabajo en conservación
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Desktop */}
-      <div className={`hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      <div className={`relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center min-h-[calc(100vh-130px)]">
           <div>
             <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight animate-fade-in-up delay-100">
@@ -62,7 +28,12 @@ const Hero = () => {
             </div>
           </div>
           <div className="flex justify-center lg:justify-end animate-fade-in-up delay-200">
-            <img src={asset('/hero-ciervos.jpg')} alt="Fauna silvestre en Bubalcó Patagonia" className="w-full max-w-[520px] h-[420px] object-cover object-center" />
+            <img
+              src={asset('/hero-ciervos.jpg')}
+              alt="Fauna silvestre en Bubalcó Patagonia"
+              className="w-full max-w-[520px] h-[420px] object-cover object-center"
+              fetchPriority="high"
+            />
           </div>
         </div>
         <div className="flex justify-center pb-4 animate-fade-in-up delay-500">

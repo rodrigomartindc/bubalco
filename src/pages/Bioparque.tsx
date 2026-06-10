@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { ArrowRight, Download, Search, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../data/site';
+import { useIsDesktop } from '../hooks/useIsDesktop';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
 
@@ -9,6 +10,7 @@ const MAP_PREVIEW = '/bubalco-map-0.png';
 const MAP_FULL = '/mapa-bubalco.jpg';
 
 export default function Bioparque() {
+  const isDesktop = useIsDesktop();
   const [isMapOpen, setIsMapOpen] = useState(false);
 
   useEffect(() => {
@@ -24,8 +26,8 @@ export default function Bioparque() {
 
   return (
     <>
-      {/* Mobile: scroll-snap slides */}
-      <div className="bioparque-slides md:hidden">
+      {!isDesktop && (
+      <div className="bioparque-slides">
         {/* Slide 1: Hero */}
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white">
@@ -65,7 +67,7 @@ export default function Bioparque() {
               </div>
               <div className="flex-1 flex flex-col items-center justify-start pt-7 px-6 pb-5 text-center">
                 <h2 className="text-lg font-medium text-gray-900 mb-3">Un proyecto reconocido por su aporte a la conservación y la educación</h2>
-                <img src={asset('/certif-legislatura-bubalco.webp')} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" />
+                <img src={asset('/certif-legislatura-bubalco.webp')} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" loading="lazy" />
               </div>
             </div>
           </div>
@@ -76,7 +78,7 @@ export default function Bioparque() {
           <div className="bp-card bg-white">
             <div className="h-full flex flex-col text-center">
               <div className="w-full h-[32%] overflow-hidden">
-                <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-full object-cover" />
+                <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="flex-1 flex flex-col justify-center px-6 py-6">
                 <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación</p>
@@ -218,6 +220,7 @@ export default function Bioparque() {
                         src={asset(MAP_PREVIEW)}
                         alt="Mapa del recorrido del Bioparque Bubalcó"
                         className="w-full h-full object-cover"
+                        loading="lazy"
                       />
                     </div>
                     <span className="absolute right-2 top-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur transition-transform group-active:scale-95">
@@ -244,9 +247,10 @@ export default function Bioparque() {
 
         <FooterSlide sectionClassName="bp-slide" />
       </div>
+      )}
 
-      {/* Desktop: normal flow */}
-      <div className="hidden md:block pt-[9rem] pb-20 bg-white">
+      {isDesktop && (
+      <div className="pt-[9rem] pb-20 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           {/* Hero */}
           <div className="text-center mb-20">
@@ -359,7 +363,7 @@ export default function Bioparque() {
           <div className="text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-4">El recorrido</p>
             <h2 className="text-2xl font-medium text-gray-900 mb-4">Mapa del Bioparque</h2>
-            <img src={asset('/bubalco-map-0.png')} alt="Mapa del Bioparque Bubalcó" className="w-72 h-72 rounded-full object-cover mb-6 mx-auto" />
+            <img src={asset('/bubalco-map-0.png')} alt="Mapa del Bioparque Bubalcó" className="w-72 h-72 rounded-full object-cover mb-6 mx-auto" loading="lazy" />
             <p className="text-sm text-gray-500 mb-8">Descargá el mapa en tu celular para recorrer el bioparque sin papel.</p>
             <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
               <Download size={18} /> Descargar mapa
@@ -367,6 +371,7 @@ export default function Bioparque() {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 }

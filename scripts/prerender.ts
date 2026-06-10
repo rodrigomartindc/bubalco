@@ -7,7 +7,7 @@ import { PRERENDER_ROUTES } from '../src/data/prerender-routes';
 import { injectHeadIntoHtml } from '../src/seo/renderHead';
 
 const PORT = 4173;
-const VIEWPORT = { width: 1280, height: 720 };
+const VIEWPORT = { width: 390, height: 844 };
 const MIN_ROOT_HTML_LENGTH = 500;
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');

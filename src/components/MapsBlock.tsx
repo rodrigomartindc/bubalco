@@ -16,8 +16,8 @@ export default function MapsBlock() {
                 En una isla de Río Negro, cerca del límite con Neuquén, rodeados de naturaleza y lejos de lo urbano. Una ubicación estratégica que nos permite trabajar directamente en los ecosistemas que protegemos.
               </p>
               <div className="flex gap-3">
-                <img src={asset('/bubalco-map-1.png')} alt="Mapa Bubalcó Patagonia 1" className="flex-1 min-w-0 rounded-xl object-cover" />
-                <img src={asset('/bubalco-map-2.png')} alt="Mapa Bubalcó Patagonia 2" className="flex-1 min-w-0 rounded-xl object-cover" />
+                <img src={asset('/bubalco-map-1.png')} alt="Mapa Bubalcó Patagonia 1" className="flex-1 min-w-0 rounded-xl object-cover" loading="lazy" />
+                <img src={asset('/bubalco-map-2.png')} alt="Mapa Bubalcó Patagonia 2" className="flex-1 min-w-0 rounded-xl object-cover" loading="lazy" />
               </div>
             </div>
           </div>
@@ -34,8 +34,8 @@ export default function MapsBlock() {
             </p>
           </div>
           <div className="flex justify-center gap-5 lg:gap-6 max-w-3xl mx-auto">
-            <img src={asset('/bubalco-map-1.png')} alt="Mapa Bubalcó Patagonia 1" className="w-full max-w-[304px] rounded-2xl object-cover" />
-            <img src={asset('/bubalco-map-2.png')} alt="Mapa Bubalcó Patagonia 2" className="w-full max-w-[304px] rounded-2xl object-cover" />
+            <img src={asset('/bubalco-map-1.png')} alt="Mapa Bubalcó Patagonia 1" className="w-full max-w-[304px] rounded-2xl object-cover" loading="lazy" />
+            <img src={asset('/bubalco-map-2.png')} alt="Mapa Bubalcó Patagonia 2" className="w-full max-w-[304px] rounded-2xl object-cover" loading="lazy" />
           </div>
         </div>
       </div>

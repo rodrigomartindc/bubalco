@@ -24,7 +24,7 @@ export default function BioparqueBlock() {
             </Link>
           </div>
           <div className="flex justify-center">
-            <img src={asset('/logos/isologo-colores.png')} alt="Bubalcó Patagonia" className="w-48 md:w-64 opacity-30" />
+            <img src={asset('/logos/isologo-colores.png')} alt="Bubalcó Patagonia" className="w-48 md:w-64 opacity-30" loading="lazy" />
           </div>
         </div>
       </div>

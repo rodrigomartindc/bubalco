@@ -1,13 +1,17 @@
 import { ArrowRight } from 'lucide-react';
 import { WHATSAPP_URL_VISITAS_ESCOLARES } from '../data/site';
+import { useIsDesktop } from '../hooks/useIsDesktop';
 import FooterSlide from '../components/FooterSlide';
 import { asset } from '../utils/asset';
 
 
 export default function VisitasEscolares() {
+  const isDesktop = useIsDesktop();
+
   return (
     <>
-      <div className="bioparque-slides md:hidden">
+      {!isDesktop && (
+      <div className="bioparque-slides">
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full px-6 py-8 flex flex-col justify-center text-center">
@@ -34,6 +38,7 @@ export default function VisitasEscolares() {
                   src={asset('/visitas-escolares-conciencia.jpeg')}
                   alt="Educación ambiental en Bubalcó Patagonia"
                   className="w-full h-full object-cover object-center"
+                  loading="lazy"
                 />
               </div>
               <div className="flex-1 px-6 py-6 flex flex-col justify-center text-center">
@@ -52,9 +57,10 @@ export default function VisitasEscolares() {
 
         <FooterSlide sectionClassName="bp-slide" />
       </div>
+      )}
 
-      {/* ── Desktop: normal flow ───────────────────────────────────── */}
-      <div className="hidden md:block pt-[9rem] pb-20 bg-white">
+      {isDesktop && (
+      <div className="pt-[9rem] pb-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 space-y-20">
 
           <div>
@@ -86,6 +92,7 @@ export default function VisitasEscolares() {
 
         </div>
       </div>
+      )}
     </>
   );
 }

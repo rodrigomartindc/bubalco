@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../data/site';
+import { useIsDesktop } from '../hooks/useIsDesktop';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
 
@@ -80,9 +81,12 @@ function DecoListItem({ title, desc }: { title?: string; desc: string }) {
 }
 
 export default function NuestroTrabajoPage() {
+  const isDesktop = useIsDesktop();
   const [activeSection, setActiveSection] = useState('nt-hero');
 
   useEffect(() => {
+    if (!isDesktop) return;
+
     const mq = window.matchMedia('(min-width: 1024px)');
     if (!mq.matches) return;
 
@@ -111,7 +115,7 @@ export default function NuestroTrabajoPage() {
     elements.forEach((element) => observer.observe(element));
 
     return () => observer.disconnect();
-  }, []);
+  }, [isDesktop]);
 
   const scrollToDesktopSection = (id: string) => {
     document.getElementById(id)?.scrollIntoView({
@@ -122,7 +126,8 @@ export default function NuestroTrabajoPage() {
 
   return (
     <>
-      <div className="md:hidden pt-[9rem] bg-white">
+      {!isDesktop && (
+      <div className="pt-[9rem] bg-white">
         {/* Hero */}
         <section className="bg-white">
           <div className="w-full h-56 overflow-hidden">
@@ -281,9 +286,10 @@ export default function NuestroTrabajoPage() {
 
         <FooterSlide />
       </div>
+      )}
 
-      {/* Desktop */}
-      <div className="hidden md:block pb-20 bg-white">
+      {isDesktop && (
+      <div className="pb-20 bg-white">
         <nav
           aria-label="Secciones de Nuestro Trabajo"
           className="hidden lg:flex fixed right-8 top-1/2 -translate-y-1/2 z-[80] flex-col items-center gap-3"
@@ -479,6 +485,7 @@ export default function NuestroTrabajoPage() {
           </section>
         </div>
       </div>
+      )}
     </>
   );
 }
