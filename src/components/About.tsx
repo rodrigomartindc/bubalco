@@ -1,5 +1,3 @@
-import { TUCAN_BUBALCO } from '../data/images';
-import OptimizedPicture from './OptimizedPicture';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useCountUp } from '../hooks/useCountUp';
 import { asset } from '../utils/asset';
@@ -45,34 +43,28 @@ const About = () => {
         </div>
       </div>
 
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
-        <div className={`grid lg:grid-cols-2 gap-14 lg:gap-16 items-center min-h-[calc(100vh-130px)] ${reveal()}`}>
-          <div>
-            <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-14 mb-4" />
-            <p className="text-xs tracking-widest text-brand uppercase mb-6">Fundación Bubalcó</p>
-            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
-              Aliados de la Naturaleza
-            </h2>
-            <p className="text-base md:text-lg text-gray-500 leading-relaxed mb-8">
-              Protegemos a la fauna silvestre y trabajamos para que la comunidad comprenda y valore la importancia de conservarla.
-            </p>
+      <div className="hidden md:flex relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-4xl mx-auto min-h-[calc(100vh-130px)] items-center justify-center">
+        <div className={`w-full text-center ${reveal()}`}>
+          <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-14 mb-4 mx-auto" />
+          <p className="text-xs tracking-widest text-brand uppercase mb-6">Fundación Bubalcó</p>
+          <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
+            Aliados de la Naturaleza
+          </h2>
+          <p className="text-base md:text-lg text-gray-500 leading-relaxed mb-8 max-w-2xl mx-auto">
+            Protegemos a la fauna silvestre y trabajamos para que la comunidad comprenda y valore la importancia de conservarla.
+          </p>
 
-            <div className="grid grid-cols-3 gap-6 bg-gray-50 rounded-2xl p-6 border border-gray-100">
-              {[
-                { value: `+${years}`, label: 'Años trabajando en conservación' },
-                { value: `${hectares}`, label: 'Hectáreas en la Patagonia Argentina' },
-                { value: `${animals}`, label: 'Animales protegidos en 2025' },
-              ].map((s) => (
-                <div key={s.label} className="text-center">
-                  <p className="text-4xl font-medium text-gray-900">{s.value}</p>
-                  <p className="text-xs text-gray-500 mt-2">{s.label}</p>
-                </div>
-              ))}
-            </div>
-
-          </div>
-          <div className="flex justify-center lg:justify-end">
-            <OptimizedPicture image={TUCAN_BUBALCO} className="w-full max-w-[520px] h-[420px] object-cover object-center" loading="lazy" />
+          <div className="grid grid-cols-3 gap-6 bg-gray-50 rounded-2xl p-6 border border-gray-100 max-w-3xl mx-auto">
+            {[
+              { value: `+${years}`, label: 'Años trabajando en conservación' },
+              { value: `${hectares}`, label: 'Hectáreas en la Patagonia Argentina' },
+              { value: `${animals}`, label: 'Animales protegidos en 2025' },
+            ].map((s) => (
+              <div key={s.label} className="text-center">
+                <p className="text-4xl font-medium text-gray-900">{s.value}</p>
+                <p className="text-xs text-gray-500 mt-2">{s.label}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>

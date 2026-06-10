@@ -46,7 +46,7 @@ export const MAP_1: OptimizedImage = {
     { path: '/bubalco-map-1-304.webp', width: 304 },
     { path: '/bubalco-map-1.webp', width: 608 },
   ],
-  sizes: '(max-width: 768px) 50vw, 220px',
+  sizes: '(max-width: 768px) 50vw, 280px',
 };
 
 export const MAP_2: OptimizedImage = {
@@ -58,7 +58,7 @@ export const MAP_2: OptimizedImage = {
     { path: '/bubalco-map-2-304.webp', width: 304 },
     { path: '/bubalco-map-2.webp', width: 608 },
   ],
-  sizes: '(max-width: 768px) 50vw, 220px',
+  sizes: '(max-width: 768px) 50vw, 280px',
 };
 
 export const LOGO_NEGRO = {
