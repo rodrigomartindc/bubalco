@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
+import { isPrerenderMode } from '../utils/isPrerenderMode';
 
 export const useScrollAnimation = (threshold = 0.1) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(isPrerenderMode());
 
   useEffect(() => {
     const observer = new IntersectionObserver(

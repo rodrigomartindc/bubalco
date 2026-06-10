@@ -1,11 +1,48 @@
-# SEO / GEO — Fase 1
+# SEO / GEO
 
-## Qué se implementó
+## Fase 1 (metadata client-side)
 
-- Metadata client-side por ruta (`src/data/seo.ts`, `src/hooks/usePageSEO.ts`)
+- Metadata por ruta (`src/data/seo.ts`, `src/hooks/usePageSEO.ts`)
 - Canonical, Open Graph, Twitter Cards y meta robots dinámicos
 - `public/robots.txt` y `public/sitemap.xml`
 - JSON-LD global (Organization + WebSite) y FAQPage en preguntas frecuentes
+
+## Fase 2 (prerender estático)
+
+El build de producción genera HTML estático por ruta indexable con Playwright post-build.
+
+### Rutas prerenderizadas
+
+- `/`
+- `/bioparque`
+- `/bioparque/horarios-y-tarifas`
+- `/bioparque/preguntas-frecuentes`
+- `/visitas-escolares`
+- `/nuestro-trabajo`
+- `/donaciones`
+
+Cada ruta queda en `dist/<ruta>/index.html` (la home en `dist/index.html`). Apache/LiteSpeed sirve esos archivos antes del fallback SPA gracias a `public/htaccess`.
+
+### Comandos
+
+```bash
+npm run build          # solo Vite (SPA)
+npm run build:static   # Vite + prerender de las 7 rutas
+```
+
+### Variables de entorno
+
+| Variable | Valores | Uso |
+|----------|---------|-----|
+| `VITE_SITE_ENV` | `production` \| `preview` | `preview` fuerza `noindex, nofollow` en el HTML estático del build |
+
+Usar `VITE_SITE_ENV=preview` si el deploy va a un dominio temporal (p. ej. `hostingersite.com`). En producción final usar `production`.
+
+En runtime, `usePageSEO` sigue forzando `noindex` si el hostname contiene `hostingersite.com`.
+
+### Redirects 301 (fuera de este repo)
+
+La web anterior sigue activa en su dominio/carpeta. Los **redirects 301** desde las URLs viejas hacia `https://fundacionbubalco.org.ar` se configuran en el **servidor del dominio anterior**, no en este proyecto.
 
 ## Dominio
 
@@ -13,10 +50,14 @@ Toda la configuración apunta al dominio final:
 
 `https://fundacionbubalco.org.ar`
 
-El dominio temporal de preview (`hostingersite.com`) fuerza `noindex, nofollow` en todas las páginas.
+## Verificación local
 
-## Limitación SPA
+Después de `npm run build:static`:
 
-Este proyecto es una SPA React/Vite. Algunas herramientas SEO que no ejecutan JavaScript pueden seguir viendo poco contenido por ruta.
+```bash
+npm run preview
+curl -s http://127.0.0.1:4173/bioparque/ | grep -c '<div id="root"></div>'   # debe ser 0
+curl -s http://127.0.0.1:4173/bioparque/ | grep '<title>'
+```
 
-Si herramientas como Seobility siguen sin leer bien el sitio, la fase 2 recomendada es prerender o SSR de las rutas principales.
+El `#root` no debe quedar vacío en las rutas prerenderizadas.
