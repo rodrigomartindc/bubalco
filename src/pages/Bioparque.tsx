@@ -390,26 +390,28 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 6: Planificar tu visita */}
-        <section id="tarifas-horarios" className={`${desktopSlide} md:bg-white scroll-mt-[130px]`}>
-          <div className="w-full px-6 md:px-12 lg:px-20 max-w-5xl mx-auto min-h-[calc(100vh-130px)] flex items-center">
-            <div className="grid md:grid-cols-2 w-full overflow-hidden rounded-2xl border border-gray-100">
-              <div className="px-8 lg:px-10 py-8 lg:py-10 text-center bg-white flex flex-col items-center justify-center">
-                <p className="text-xs tracking-widest text-gray-400 uppercase mb-3">Planificar tu visita</p>
-                <h2 className="text-2xl font-medium text-gray-900 mb-3">Horarios y Tarifas</h2>
-                <p className="text-sm text-gray-500 mb-6 leading-relaxed max-w-sm">
+        <section id="tarifas-horarios" className="scroll-section relative md:min-h-screen md:pt-[130px] md:p-0 scroll-mt-[130px]">
+          <div className="w-full min-h-[calc(100vh-130px)] grid md:grid-cols-2">
+            <div className="bg-white flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24 py-12 md:py-0">
+              <div className="max-w-md mx-auto md:mx-0 md:ml-auto md:mr-12 lg:mr-16">
+                <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Planificar tu visita</p>
+                <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4 leading-tight">Horarios y Tarifas</h2>
+                <p className="text-base text-gray-500 mb-8 leading-relaxed">
                   Consultá días, horarios, valores de entrada y promociones vigentes.
                 </p>
-                <Link to={ROUTES.horarios} className="group inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
-                  Horarios y Tarifas <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                <Link to={ROUTES.horarios} className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+                  Horarios y Tarifas <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
-              <div className="px-8 lg:px-10 py-8 lg:py-10 text-center bg-brand-dark flex flex-col items-center justify-center">
-                <h2 className="text-2xl font-medium text-white mb-3">¿Tenés dudas?</h2>
-                <p className="text-sm text-white/50 mb-6 leading-relaxed max-w-sm">
+            </div>
+            <div className="bg-brand-dark flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24 py-12 md:py-0">
+              <div className="max-w-md mx-auto md:mx-0 md:mr-auto md:ml-12 lg:ml-16">
+                <h2 className="text-3xl lg:text-4xl font-medium text-white mb-4 leading-tight">¿Tenés dudas?</h2>
+                <p className="text-base text-white/60 mb-8 leading-relaxed">
                   Revisá información útil antes de venir.
                 </p>
-                <Link to={ROUTES.faq} className="group inline-flex items-center gap-2 px-6 py-3 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
-                  Preguntas Frecuentes <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                <Link to={ROUTES.faq} className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
+                  Preguntas Frecuentes <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
             </div>
