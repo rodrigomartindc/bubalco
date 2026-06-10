@@ -1,5 +1,8 @@
 name: Deploy to Hostinger (static)
 
+# Título visible en Actions: mensaje del commit (push) o quién disparó manualmente.
+run-name: ${{ github.event.head_commit.message || format('Manual deploy — {0}', github.actor) }}
+
 on:
   push:
     branches: [main]
