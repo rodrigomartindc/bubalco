@@ -2,6 +2,7 @@ import { ArrowRight, Copy } from 'lucide-react';
 import { useState } from 'react';
 import { CONTACT, WHATSAPP_URL_DONACIONES } from '../data/site';
 import FooterSlide from '../components/FooterSlide';
+import { asset } from '../utils/asset';
 
 const ALIAS = 'donacion.bubalco';
 
@@ -86,6 +87,27 @@ export default function Donaciones() {
           </div>
         </section>
 
+        {/* Slide 3: Beneficios impositivos */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full px-6 py-8 flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-accent uppercase mb-3">Beneficios impositivos</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4">Beneficios que quizás no conocías</h2>
+              <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Descargá el documento y conocé cómo se aplica en tu caso.
+              </p>
+              <a
+                href={asset('/beneficios-impositivos-bubalco.pdf')}
+                download
+                className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors mx-auto"
+              >
+                Descargar documento
+                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </div>
+        </section>
+
         <FooterSlide sectionClassName="bp-slide" />
       </div>
 
@@ -130,6 +152,23 @@ export default function Donaciones() {
             </div>
             <a href={WHATSAPP_URL_DONACIONES} target="_blank" rel="noreferrer" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
               Consultar por donaciones <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+
+          {/* Bloque 3: Beneficios impositivos */}
+          <div className="bg-accent/10 rounded-2xl p-10 border border-accent/30">
+            <p className="text-xs tracking-widest text-accent uppercase mb-4">Beneficios impositivos</p>
+            <h2 className="text-3xl font-medium text-gray-900 mb-4">Beneficios que quizás no conocías</h2>
+            <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-2xl">
+              Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Descargá el documento y conocé cómo se aplica en tu caso.
+            </p>
+            <a
+              href={asset('/beneficios-impositivos-bubalco.pdf')}
+              download
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors"
+            >
+              Descargar documento
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
             </a>
           </div>
 
