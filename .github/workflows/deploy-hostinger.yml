@@ -40,28 +40,65 @@ jobs:
           HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
           HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
         run: |
-          python - <<'PY'
-          import os, socket, sys
+          python3 - <<'PY'
+          import os
+          import socket
+          import sys
+          import time
+
           host = os.environ.get("HOSTINGER_HOST", "").strip()
           port_raw = os.environ.get("HOSTINGER_PORT", "").strip()
           if not host or not port_raw:
             print("Missing HOSTINGER_HOST or HOSTINGER_PORT")
             sys.exit(1)
+
           port = int(port_raw)
-          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-          s.settimeout(10)
+          retry_delays_seconds = [0, 20, 40, 90, 120]
+
           try:
-            s.connect((host, port))
-          except Exception as e:
-            print("CONNECT_FAIL:", type(e).__name__, str(e))
+            resolved = socket.getaddrinfo(host, port, type=socket.SOCK_STREAM)
+            print(f"DNS OK: {len(resolved)} endpoint(s) for host")
+          except socket.gaierror as error:
+            print(f"DNS_FAIL: {error}")
+            print("Tip: probá usar la IP del servidor en HOSTINGER_HOST (hPanel → SSH Access).")
             sys.exit(1)
-          else:
-            print("CONNECT_OK")
-          finally:
-            try:
-              s.close()
-            except Exception:
-              pass
+
+          def try_connect() -> bool:
+            for family, _, _, _, sockaddr in resolved:
+              if family != socket.AF_INET:
+                continue
+              ip = sockaddr[0]
+              sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+              sock.settimeout(30)
+              try:
+                sock.connect((ip, port))
+                print(f"CONNECT_OK via {ip}:{port}")
+                return True
+              except OSError as error:
+                print(f"CONNECT_FAIL via {ip}:{port} -> {type(error).__name__}: {error}")
+              finally:
+                sock.close()
+            return False
+
+          for attempt, delay in enumerate(retry_delays_seconds, start=1):
+            if delay:
+              print(f"Waiting {delay}s before retry {attempt}/{len(retry_delays_seconds)}...")
+              time.sleep(delay)
+            print(f"Attempt {attempt}/{len(retry_delays_seconds)}...")
+            if try_connect():
+              sys.exit(0)
+
+          print("")
+          print("No se pudo abrir TCP al servidor SSH de Hostinger desde GitHub Actions.")
+          print("Esto NO es un error de contraseña: el timeout ocurre antes del login.")
+          print("")
+          print("Checklist:")
+          print("- hPanel → Advanced → SSH Access: SSH habilitado")
+          print("- HOSTINGER_PORT en shared hosting suele ser 65002 (no 22)")
+          print("- HOSTINGER_HOST: IP del servidor (más estable que el hostname)")
+          print("- Tras muchos reintentos seguidos, Hostinger puede bloquear IPs temporalmente")
+          print("- Esperá 30-60 min y reintentá, o probá: ssh -p PORT user@host desde tu PC")
+          sys.exit(1)
           PY
 
       # Required GitHub Secrets (Settings → Secrets and variables → Actions):
