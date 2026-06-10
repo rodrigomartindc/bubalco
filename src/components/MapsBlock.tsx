@@ -26,17 +26,17 @@ export default function MapsBlock() {
       </div>
 
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
-        <div className={`flex flex-col justify-center min-h-[calc(100vh-130px)] ${reveal()}`}>
-          <div className="text-center max-w-3xl mx-auto">
-            <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Dónde Estamos</p>
-            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">En el corazón de la Patagonia norte</h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-6">
+        <div className={`flex flex-col items-center justify-center min-h-[calc(100vh-130px)] py-2 ${reveal()}`}>
+          <div className="text-center max-w-3xl mx-auto mb-4">
+            <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">Dónde Estamos</p>
+            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-3">En el corazón de la Patagonia norte</h2>
+            <p className="text-base text-gray-500 leading-relaxed">
               Nos encontramos en una isla de Río Negro, cerca del límite con Neuquén, rodeados de naturaleza y lejos de lo urbano. Una ubicación estratégica que nos permite trabajar directamente en los ecosistemas que protegemos.
             </p>
           </div>
-          <div className="flex justify-center gap-4 max-w-xl mx-auto">
-            <OptimizedPicture image={MAP_1} className="w-full max-w-[220px] h-[200px] rounded-xl object-contain" loading="lazy" />
-            <OptimizedPicture image={MAP_2} className="w-full max-w-[220px] h-[200px] rounded-xl object-contain" loading="lazy" />
+          <div className="flex justify-center gap-5 max-w-2xl mx-auto">
+            <OptimizedPicture image={MAP_1} className="w-full max-w-[280px] h-[260px] rounded-xl object-contain" loading="lazy" />
+            <OptimizedPicture image={MAP_2} className="w-full max-w-[280px] h-[260px] rounded-xl object-contain" loading="lazy" />
           </div>
         </div>
       </div>

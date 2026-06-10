@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import DonationStrip from './components/DonationStrip';
@@ -21,11 +21,22 @@ import { usePageSEO } from './hooks/usePageSEO';
 
 function ScrollToTop() {
   const { pathname } = useLocation();
+
   useEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+  }, []);
+
+  useLayoutEffect(() => {
     window.scrollTo(0, 0);
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+
     const snap = document.querySelector('.home-slides, .bioparque-slides') as HTMLElement | null;
     if (snap) snap.scrollTop = 0;
   }, [pathname]);
+
   return null;
 }
 
