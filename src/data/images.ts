@@ -63,16 +63,16 @@ export const MAP_2: OptimizedImage = {
 
 export const LOGO_NEGRO = {
   alt: 'Bubalcó Patagonia',
-  width: 160,
-  height: 43,
+  width: 200,
+  height: 53,
   webp: '/logos/logo-negro.webp',
   fallback: '/logos/logo-negro.png',
 } as const;
 
 export const LOGO_BLANCO = {
   alt: 'Bubalcó Patagonia',
-  width: 144,
-  height: 38,
+  width: 200,
+  height: 53,
   webp: '/logos/logo-blanco.webp',
   fallback: '/logos/logo-blanco.png',
 } as const;
