@@ -4,8 +4,27 @@
 
 - Metadata por ruta (`src/data/seo.ts`, `src/hooks/usePageSEO.ts`)
 - Canonical, Open Graph, Twitter Cards y meta robots dinámicos
-- `public/robots.txt` y `public/sitemap.xml`
-- JSON-LD global (Organization + WebSite) y FAQPage en preguntas frecuentes
+- `public/robots.txt`, `public/sitemap.xml` y `public/llms.txt`
+- JSON-LD global (NGO + WebSite + Bioparque) y FAQPage en preguntas frecuentes
+
+## GEO (`llms.txt`)
+
+Archivo en `public/llms.txt`, servido en `/llms.txt`. Resume en texto plano quién es la fundación, páginas clave, horarios, contacto y redes. Ayuda a asistentes (ChatGPT, Perplexity, etc.) a citar información correcta.
+
+Actualizarlo cuando cambien tarifas, horarios o URLs importantes.
+
+## Schema.org (JSON-LD)
+
+Definido en `src/data/structured-data.ts` e inyectado desde `StructuredData.tsx`:
+
+| Schema | Tipo | Para qué sirve |
+|--------|------|----------------|
+| `organizationSchema` | `NGO` | Identidad de la fundación, contacto, dirección, geo |
+| `websiteSchema` | `WebSite` | Sitio web e idioma |
+| `bioparqueSchema` | `TouristAttraction` + `Zoo` | Lugar visitable: ubicación, horarios, relación con la ONG |
+| FAQ (solo en `/bioparque/preguntas-frecuentes`) | `FAQPage` | Preguntas frecuentes en resultados enriquecidos |
+
+Los horarios del schema deben mantenerse alineados con `HorariosYTarifas.tsx` cuando cambien.
 
 ## Fase 2 (prerender estático)
 
@@ -36,9 +55,17 @@ npm run build:static   # Vite + prerender de las 7 rutas
 |----------|---------|-----|
 | `VITE_SITE_ENV` | `production` \| `preview` | `preview` fuerza `noindex, nofollow` en el HTML estático del build |
 
-Usar `VITE_SITE_ENV=preview` si el deploy va a un dominio temporal (p. ej. `hostingersite.com`). En producción final usar `production`.
+### Dónde cambiar `VITE_SITE_ENV`
 
-En runtime, `usePageSEO` sigue forzando `noindex` si el hostname contiene `hostingersite.com`.
+| Contexto | Archivo / comando | Valor actual recomendado |
+|----------|-------------------|--------------------------|
+| Deploy automático a Hostinger | `.github/workflows/deploy-hostinger.yml` → paso `Build static site` → `env.VITE_SITE_ENV` | `preview` (mientras el link sea `hostingersite.com`) |
+| Build local manual | Terminal: `VITE_SITE_ENV=preview npm run build:static` | `preview` o `production` según necesidad |
+| Go-live con dominio final | Mismo workflow: cambiar a `production` y hacer push a `main` | `production` |
+
+`preview` escribe `noindex, nofollow` en el HTML estático del prerender. `production` permite `index, follow` en rutas indexables.
+
+En runtime, `usePageSEO` también fuerza `noindex` si el hostname contiene `hostingersite.com` (doble protección mientras dure el preview).
 
 ### Redirects 301 (fuera de este repo)
 

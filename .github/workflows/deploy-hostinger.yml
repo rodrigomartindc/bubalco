@@ -31,7 +31,8 @@ jobs:
 
       - name: Build static site (prerender)
         env:
-          VITE_SITE_ENV: production
+          # Cambiar a "production" cuando fundacionbubalco.org.ar esté en DNS y listo para indexar.
+          VITE_SITE_ENV: preview
         run: npm run build:static
 
       - name: Check connectivity to Hostinger (HOST:PORT)
