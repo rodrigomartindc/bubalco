@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { isPrerenderMode } from '../utils/isPrerenderMode';
 import Hero from '../components/Hero';
 import HeroFull from '../components/HeroFull';
 import About from '../components/About';
@@ -9,7 +10,7 @@ import BioparqueBlock from '../components/BioparqueBlock';
 import FooterSlide from '../components/FooterSlide';
 
 export default function Home() {
-  const [isDesktop, setIsDesktop] = useState(false);
+  const [isDesktop, setIsDesktop] = useState(isPrerenderMode());
 
   useEffect(() => {
     const mq = window.matchMedia('(min-width: 768px)');

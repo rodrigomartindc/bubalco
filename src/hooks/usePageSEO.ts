@@ -1,8 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { DEFAULT_OG_IMAGE, SITE_URL, getSeoForPath } from '../data/seo';
-
-const SITE_NAME = 'Fundación Bubalcó Patagonia';
+import { getHeadMetaForPath } from '../seo/renderHead';
 
 function upsertMeta(attribute: 'name' | 'property', key: string, content: string) {
   let element = document.head.querySelector(`meta[${attribute}="${key}"]`) as HTMLMetaElement | null;
@@ -24,55 +22,33 @@ function upsertLink(rel: string, href: string) {
   element.href = href;
 }
 
-function getRobotsDirective(noindex: boolean | undefined): string {
-  const hostname = window.location.hostname;
-
-  if (hostname.includes('hostingersite.com')) {
-    return 'noindex, nofollow';
-  }
-
-  if (noindex) {
-    return 'noindex, follow';
-  }
-
-  return 'index, follow';
-}
-
-function buildCanonicalUrl(path: string): string {
-  if (path === '/') {
-    return `${SITE_URL}/`;
-  }
-  return `${SITE_URL}${path}`;
-}
-
 export function usePageSEO() {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    const seo = getSeoForPath(pathname);
-    const { title, description, path, ogImage, noindex } = seo;
-    const canonicalUrl = buildCanonicalUrl(path);
-    const image = ogImage ?? DEFAULT_OG_IMAGE;
-    const robots = getRobotsDirective(noindex);
+    const meta = getHeadMetaForPath(pathname, {
+      siteEnv: import.meta.env.VITE_SITE_ENV,
+      hostname: window.location.hostname,
+    });
 
-    document.title = title;
+    document.title = meta.title;
 
-    upsertMeta('name', 'description', description);
-    upsertLink('canonical', canonicalUrl);
+    upsertMeta('name', 'description', meta.description);
+    upsertLink('canonical', meta.canonicalUrl);
 
-    upsertMeta('property', 'og:title', title);
-    upsertMeta('property', 'og:description', description);
-    upsertMeta('property', 'og:image', image);
-    upsertMeta('property', 'og:url', canonicalUrl);
+    upsertMeta('property', 'og:title', meta.title);
+    upsertMeta('property', 'og:description', meta.description);
+    upsertMeta('property', 'og:image', meta.image);
+    upsertMeta('property', 'og:url', meta.canonicalUrl);
     upsertMeta('property', 'og:type', 'website');
     upsertMeta('property', 'og:locale', 'es_AR');
-    upsertMeta('property', 'og:site_name', SITE_NAME);
+    upsertMeta('property', 'og:site_name', 'Fundación Bubalcó Patagonia');
 
     upsertMeta('name', 'twitter:card', 'summary_large_image');
-    upsertMeta('name', 'twitter:title', title);
-    upsertMeta('name', 'twitter:description', description);
-    upsertMeta('name', 'twitter:image', image);
+    upsertMeta('name', 'twitter:title', meta.title);
+    upsertMeta('name', 'twitter:description', meta.description);
+    upsertMeta('name', 'twitter:image', meta.image);
 
-    upsertMeta('name', 'robots', robots);
+    upsertMeta('name', 'robots', meta.robots);
   }, [pathname]);
 }

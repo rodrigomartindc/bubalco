@@ -2,3 +2,7 @@ User-agent: *
 Allow: /
 
 Sitemap: https://fundacionbubalco.org.ar/sitemap.xml
+
+# GEO: contexto para asistentes y motores generativos
+# https://llmstxt.org/
+# LLMs: https://fundacionbubalco.org.ar/llms.txt
