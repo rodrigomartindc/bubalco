@@ -1,10 +1,26 @@
-import { ArrowRight, Download } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { ArrowRight, Download, Search, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../data/site';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
 
+const MAP_IMAGE = '/mapa-bubalco.jpg';
+
 export default function Bioparque() {
+  const [isMapOpen, setIsMapOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isMapOpen) return;
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMapOpen(false);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [isMapOpen]);
+
   return (
     <>
       {/* Mobile: scroll-snap slides */}
@@ -166,23 +182,64 @@ export default function Bioparque() {
           <div className="bp-card bg-white">
             <div className="px-6 py-6 h-full flex flex-col items-center justify-center text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">El recorrido</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-3">Mapa del Bioparque</h2>
-              <img src={asset('/bubalco-map-0.png')} alt="Mapa del Bioparque Bubalcó" className="w-52 h-52 rounded-full object-cover mb-4 mx-auto" />
-              <p className="text-sm text-gray-500 mb-6 leading-relaxed">
-                Descargá el mapa en tu celular<br />
-                para recorrer el bioparque sin papel.
-              </p>
-              <div className="flex flex-col gap-3 w-full max-w-xs mx-auto">
-                <a href={asset('/mapa-bubalco.jpg')} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full">
-                  Ver mapa
-                </a>
-                <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-200 text-gray-900 text-sm rounded-full hover:bg-gray-50 transition-colors">
-                  Descargar mapa
-                </a>
-              </div>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4">Mapa del bioparque</h2>
+              <button
+                type="button"
+                onClick={() => setIsMapOpen(true)}
+                className="relative block w-full max-w-xs overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 group mb-4"
+                aria-label="Ampliar mapa del bioparque"
+              >
+                <img
+                  src={asset(MAP_IMAGE)}
+                  alt="Mapa del recorrido del Bioparque Bubalcó"
+                  className="w-full h-auto object-contain"
+                />
+                <span className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur transition-transform group-active:scale-95">
+                  <Search size={17} />
+                </span>
+              </button>
+              <a
+                href={asset(MAP_IMAGE)}
+                download="mapa-bubalco-patagonia.jpg"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full w-full max-w-xs"
+              >
+                Descargar mapa
+              </a>
             </div>
           </div>
         </section>
+
+        {isMapOpen && (
+          <div className="fixed inset-0 z-[210] bg-white flex flex-col md:hidden">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+              <p className="text-sm font-medium text-gray-900">Mapa del bioparque</p>
+              <button
+                type="button"
+                onClick={() => setIsMapOpen(false)}
+                className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700"
+                aria-label="Cerrar mapa"
+              >
+                <X size={18} />
+              </button>
+            </div>
+            <div className="flex-1 overflow-auto p-4 flex items-center justify-center">
+              <img
+                src={asset(MAP_IMAGE)}
+                alt="Mapa del recorrido del Bioparque Bubalcó"
+                className="max-w-none w-auto h-auto"
+              />
+            </div>
+            <div className="px-5 py-4 border-t border-gray-100">
+              <a
+                href={asset(MAP_IMAGE)}
+                download="mapa-bubalco-patagonia.jpg"
+                className="w-full inline-flex items-center justify-center px-6 py-3 bg-brand text-white text-sm rounded-full"
+              >
+                Descargar mapa
+              </a>
+            </div>
+          </div>
+        )}
 
         <FooterSlide sectionClassName="bp-slide" />
       </div>
