@@ -137,8 +137,17 @@ function AppShell() {
         <Route path="/gracias" element={<Gracias />} />
         <Route path="/voluntariado" element={<div className="pt-[9rem]"><Volunteering /></div>} />
       </Routes>
-      {showAppFooter && <GoogleMapsFooter />}
-      {showAppFooter && <Footer />}
+      {showAppFooter && isHome && isDesktop ? (
+        <section className="desktop-footer-snap min-h-screen flex flex-col">
+          <GoogleMapsFooter fill snap={false} />
+          <Footer snap={false} />
+        </section>
+      ) : (
+        <>
+          {showAppFooter && <GoogleMapsFooter />}
+          {showAppFooter && <Footer />}
+        </>
+      )}
     </div>
   );
 }
