@@ -1,8 +1,9 @@
 import { Menu, X, Instagram, ChevronDown } from 'lucide-react';
 import { useState, useEffect } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { LOGO_NEGRO } from '../data/images';
 import { ROUTES, SOCIAL_LINKS } from '../data/site';
-import { asset } from '../utils/asset';
+import OptimizedLogo from './OptimizedLogo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,10 +31,10 @@ const Navbar = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo — mobile: goHome handler; desktop: normal link */}
             <Link to={ROUTES.home} className="flex-shrink-0 md:hidden" onClick={goHome}>
-              <img src={asset('/logos/logo-negro.png')} alt="Bubalcó Patagonia" className="h-10 w-auto" />
+              <OptimizedLogo logo={LOGO_NEGRO} className="h-10 w-auto" />
             </Link>
             <Link to={ROUTES.home} className="flex-shrink-0 hidden md:block">
-              <img src={asset('/logos/logo-negro.png')} alt="Bubalcó Patagonia" className="h-10 w-auto" />
+              <OptimizedLogo logo={LOGO_NEGRO} className="h-10 w-auto" />
             </Link>
 
             {/* Desktop nav */}
@@ -73,7 +74,14 @@ const Navbar = () => {
               <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className="text-gray-900" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <button onClick={() => setIsOpen(!isOpen)} className="text-gray-900">
+              <button
+                type="button"
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-gray-900"
+                aria-label={isOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación'}
+                aria-expanded={isOpen}
+                aria-controls="mobile-nav-menu"
+              >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
@@ -84,6 +92,7 @@ const Navbar = () => {
       {/* Mobile menu */}
       {isOpen && (
         <div
+          id="mobile-nav-menu"
           className="md:hidden fixed inset-0 bg-white z-[199] overflow-y-auto"
           style={{ paddingTop: '124px' }}
         >

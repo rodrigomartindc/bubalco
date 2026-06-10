@@ -5,11 +5,11 @@ import { asset } from '../utils/asset';
 import { ROUTES } from '../data/site';
 
 export default function BioparqueBlock() {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   return (
     <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center bg-brand-dark">
-      <div className={`w-full max-w-7xl mx-auto px-6 md:px-12 py-20 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      <div className={`w-full max-w-7xl mx-auto px-6 md:px-12 py-20 ${reveal()}`}>
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
           <div className="max-w-xl">
             <p className="text-xs tracking-widest text-white/40 uppercase mb-6">Bioparque Bubalcó</p>

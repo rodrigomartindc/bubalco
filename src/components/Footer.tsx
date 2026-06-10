@@ -1,7 +1,8 @@
 import { Instagram, MapPin, Phone, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { LOGO_BLANCO } from '../data/images';
 import { CONTACT, ROUTES, SOCIAL_LINKS, WHATSAPP_URL_GENERAL } from '../data/site';
-import { asset } from '../utils/asset';
+import OptimizedLogo from './OptimizedLogo';
 
 const Footer = () => {
   return (
@@ -10,7 +11,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-12 mb-10">
           <div className="md:col-span-2 flex flex-col items-center md:items-start">
             <Link to={ROUTES.home}>
-              <img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-12 mb-4" />
+              <OptimizedLogo logo={LOGO_BLANCO} className="h-12 mb-4" />
             </Link>
             <div className="flex gap-3 mt-4">
               <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand transition-colors" aria-label="Instagram">
@@ -26,7 +27,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-sm font-medium mb-6 text-center md:text-left">Contacto</h4>
+            <p className="text-sm font-semibold mb-6 text-center md:text-left">Contacto</p>
             <ul className="space-y-4 flex flex-col items-center md:items-start">
               <li className="flex items-center gap-3">
                 <Phone size={16} className="text-gray-500 flex-shrink-0" />
@@ -40,7 +41,7 @@ const Footer = () => {
           </div>
 
           <div className="hidden md:block">
-            <h4 className="text-sm font-medium mb-6">Enlaces</h4>
+            <p className="text-sm font-semibold mb-6">Enlaces</p>
             <div className="grid grid-cols-2 gap-x-8">
               <ul className="space-y-3">
                 <li><Link to={ROUTES.bioparque} className="text-sm text-gray-400 hover:text-white transition-colors">Que es el Bioparque</Link></li>

@@ -2,7 +2,7 @@ import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { asset } from '../utils/asset';
 
 const ParkMap = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   const zones = [
     'Área Silvestre',
@@ -21,7 +21,7 @@ const ParkMap = () => {
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-white">
           <div className="px-4 py-8">
-            <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <div className={`${reveal()}`}>
               <p className="text-xs tracking-widest text-gray-400 uppercase mb-3 text-center">Recorrido</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-6 text-center">Mapa del Bioparque</h2>
 
@@ -37,7 +37,7 @@ const ParkMap = () => {
 
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div className={`${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
+          <div className={`${reveal('animate-fade-in-left')}`}>
             <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Recorrido</p>
 
             <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">
@@ -62,7 +62,7 @@ const ParkMap = () => {
             </div>
           </div>
 
-          <div className={`${isVisible ? 'animate-fade-in-right delay-200' : 'opacity-0'}`}>
+          <div className={`${reveal('animate-fade-in-right delay-200')}`}>
             <img
               src={asset('/mapa-bubalco.jpg')}
               alt="Mapa del Bioparque Bubalcó Patagonia"

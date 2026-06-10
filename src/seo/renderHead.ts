@@ -2,6 +2,9 @@ import { DEFAULT_OG_IMAGE, SITE_URL, getSeoForPath, type PageSEO } from '../data
 
 const SITE_NAME = 'Fundación Bubalcó Patagonia';
 
+const HEAD_ESSENTIALS_PATTERN =
+  /^(\s*<meta\s+charset="[^"]+"\s*\/?>\s*<link\s+rel="icon"[\s\S]*?<meta\s+name="viewport"[^>]*\/?>)/i;
+
 export function buildCanonicalUrl(path: string): string {
   if (path === '/') {
     return `${SITE_URL}/`;
@@ -94,6 +97,19 @@ export function injectHeadIntoHtml(
 ): string {
   const withoutSeoTags = html.replace(SEO_TAG_PATTERN, '');
   const headTags = renderHeadTags(pathname, options);
+  const essentialsMatch = withoutSeoTags.match(HEAD_ESSENTIALS_PATTERN);
+
+  if (essentialsMatch) {
+    return withoutSeoTags.replace(
+      HEAD_ESSENTIALS_PATTERN,
+      `${essentialsMatch[1]}\n    ${headTags}`,
+    );
+  }
+
+  const viewportPattern = /(<meta\s+name="viewport"[^>]*\/?>)/i;
+  if (viewportPattern.test(withoutSeoTags)) {
+    return withoutSeoTags.replace(viewportPattern, `$1\n    ${headTags}`);
+  }
 
   return withoutSeoTags.replace(/<head>/i, `<head>\n    ${headTags}`);
 }

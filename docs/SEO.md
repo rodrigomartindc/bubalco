@@ -44,6 +44,17 @@ Cada ruta queda en `dist/<ruta>/index.html` (la home en `dist/index.html`). Apac
 
 El prerender usa viewport mobile (390×844) y render condicional por breakpoint (`useIsDesktop`) para que el HTML estático tenga un solo `<h1>` y refleje la experiencia mobile-first.
 
+### Lighthouse / performance
+
+- `injectHeadIntoHtml` inserta SEO **después** de `charset` y `viewport`
+- Hero above-the-fold sin `opacity-0` ni animaciones que retrasen LCP
+- Imágenes críticas en WebP con `<picture>` (`src/data/images.ts`, `npm run optimize:images`)
+- `fetchPriority="high"` solo en el hero principal
+
+### SEO score en preview
+
+En `hostingersite.com` Lighthouse marca SEO bajo por `noindex,nofollow` — es esperado. Con `VITE_SITE_ENV=production` las rutas indexables usan `index, follow`.
+
 ### Comandos
 
 ```bash

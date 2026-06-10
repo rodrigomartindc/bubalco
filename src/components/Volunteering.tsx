@@ -2,12 +2,12 @@ import { Users, Heart, CheckCircle, ArrowRight } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Volunteering = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   return (
     <section id="voluntariados" ref={ref} className="scroll-section min-h-screen flex items-center relative bg-brand-dark overflow-hidden">
       <div className="relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`text-center mb-16 ${reveal()}`}>
           <p className="text-xs tracking-widest text-white/40 uppercase mb-6">Sumate</p>
 
           <h2 className="text-4xl md:text-5xl font-medium text-white mb-6">
@@ -22,7 +22,7 @@ const Volunteering = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          <div className={`bg-white/10 backdrop-blur p-10 rounded-2xl border border-white/10 ${isVisible ? 'animate-fade-in-left delay-100' : 'opacity-0'}`}>
+          <div className={`bg-white/10 backdrop-blur p-10 rounded-2xl border border-white/10 ${reveal('animate-fade-in-left delay-100')}`}>
             <Users size={32} className="text-white/50 mb-6" />
             <h3 className="text-2xl font-medium text-white mb-8">¿Por qué ser voluntario?</h3>
 
@@ -42,7 +42,7 @@ const Volunteering = () => {
             </div>
           </div>
 
-          <div className={`space-y-5 ${isVisible ? 'animate-fade-in-right delay-200' : 'opacity-0'}`}>
+          <div className={`space-y-5 ${reveal('animate-fade-in-right delay-200')}`}>
             <div className="group bg-brand p-8 rounded-2xl hover:shadow-lg transition-all cursor-pointer">
               <Heart size={28} className="text-white/70 mb-4" />
               <h4 className="text-lg font-medium text-white mb-2">Cuidado Animal</h4>
@@ -81,7 +81,7 @@ const Volunteering = () => {
           </div>
         </div>
 
-        <div className={`bg-white rounded-2xl p-10 text-center ${isVisible ? 'animate-scale-in delay-300' : 'opacity-0'}`}>
+        <div className={`bg-white rounded-2xl p-10 text-center ${reveal('animate-scale-in delay-300')}`}>
           <h3 className="text-2xl md:text-3xl font-medium text-gray-900 mb-4">
             ¿Listo para unirte?
           </h3>
