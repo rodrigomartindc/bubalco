@@ -7,13 +7,13 @@ import { asset } from '../utils/asset';
 
 const ALIAS = 'donacion.bubalco';
 
-const destinosAporte = [
-  'Alimento',
+const otrasFormasDeAyuda = [
+  'Alimentos',
   'Insumos veterinarios',
-  'Medicamentos',
-  'Rescates',
-  'Enriquecimiento ambiental',
+  'Insumos para rescates',
   'Mantenimiento de espacios',
+  'Indumentaria de seguridad y manejo',
+  'Materiales',
 ];
 
 function AliasCopiable() {
@@ -71,13 +71,13 @@ export default function Donaciones() {
         <section className="bp-slide">
           <div className="bp-card bg-brand-dark text-white">
             <div className="h-full px-6 py-8 flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-white/40 uppercase mb-3">En qué se transforma tu aporte</p>
-              <h2 className="text-2xl font-medium text-white mb-4">Cuidado concreto para los animales</h2>
+              <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Otras formas de ayudar</p>
+              <h2 className="text-2xl font-medium text-white mb-4">El apoyo tiene muchas formas</h2>
               <p className="text-sm text-white/60 leading-relaxed mb-6">
-                Tu ayuda sostiene necesidades diarias y situaciones urgentes del refugio.
+                Tu aporte se transforma en cuidados concretos para los animales y sostiene necesidades diarias. Si tenés algo para aportar, escribinos y lo coordinamos.
               </p>
               <div className="grid grid-cols-2 gap-3 mb-6">
-                {destinosAporte.map((destino) => (
+                {otrasFormasDeAyuda.map((destino) => (
                   <div key={destino} className="rounded-xl border border-white/10 bg-white/5 px-3 py-3">
                     <p className="text-xs text-white/75 leading-tight">{destino}</p>
                   </div>
@@ -142,13 +142,13 @@ export default function Donaciones() {
 
           {/* Bloque 2 */}
           <div className="bg-brand-dark rounded-2xl p-10 text-white">
-            <p className="text-xs tracking-widest text-white/40 uppercase mb-4">En qué se transforma tu aporte</p>
-            <h2 className="text-3xl font-medium text-white mb-4">Cuidado concreto para los animales</h2>
+            <p className="text-xs tracking-widest text-white/40 uppercase mb-4">Otras formas de ayudar</p>
+            <h2 className="text-3xl font-medium text-white mb-4">El apoyo tiene muchas formas</h2>
             <p className="text-base text-white/60 leading-relaxed mb-8 max-w-2xl">
-              Tu ayuda sostiene necesidades diarias y situaciones urgentes del refugio: desde alimento e insumos veterinarios hasta rescates y mantenimiento de espacios.
+              Tu aporte se transforma en cuidados concretos para los animales y sostiene necesidades diarias. Si tenés algo para aportar, escribinos y lo coordinamos.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
-              {destinosAporte.map((destino) => (
+              {otrasFormasDeAyuda.map((destino) => (
                 <div key={destino} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
                   <p className="text-sm text-white/75">{destino}</p>
                 </div>
