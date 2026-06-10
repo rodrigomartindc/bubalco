@@ -5,7 +5,8 @@ import { ROUTES } from '../data/site';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
 
-const MAP_IMAGE = '/mapa-bubalco.jpg';
+const MAP_PREVIEW = '/bubalco-map-0.png';
+const MAP_FULL = '/mapa-bubalco.jpg';
 
 export default function Bioparque() {
   const [isMapOpen, setIsMapOpen] = useState(false);
@@ -180,66 +181,58 @@ export default function Bioparque() {
         {/* Slide 7: Descargar mapa */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-6 h-full flex flex-col items-center justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">El recorrido</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-4">Mapa del bioparque</h2>
-              <button
-                type="button"
-                onClick={() => setIsMapOpen(true)}
-                className="relative block w-full max-w-xs overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 group mb-4"
-                aria-label="Ampliar mapa del bioparque"
-              >
-                <img
-                  src={asset(MAP_IMAGE)}
-                  alt="Mapa del recorrido del Bioparque Bubalcó"
-                  className="w-full h-auto object-contain"
-                />
-                <span className="absolute right-3 top-3 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur transition-transform group-active:scale-95">
-                  <Search size={17} />
-                </span>
-              </button>
+            <div className="px-6 py-6 h-full flex flex-col items-center text-center min-h-0">
+              <p className="text-xs tracking-widest text-brand uppercase mb-3 flex-shrink-0">El recorrido</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-4 flex-shrink-0">Mapa del bioparque</h2>
+
+              <div className="flex-1 min-h-0 w-full flex items-center justify-center mb-4">
+                {isMapOpen ? (
+                  <div className="relative w-full h-full min-h-0 flex items-center justify-center">
+                    <button
+                      type="button"
+                      onClick={() => setIsMapOpen(false)}
+                      className="absolute right-0 top-0 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur"
+                      aria-label="Cerrar mapa"
+                    >
+                      <X size={17} />
+                    </button>
+                    <img
+                      src={asset(MAP_FULL)}
+                      alt="Mapa del recorrido del Bioparque Bubalcó"
+                      className="max-w-full max-h-full w-auto h-auto object-contain"
+                    />
+                  </div>
+                ) : (
+                  <button
+                    type="button"
+                    onClick={() => setIsMapOpen(true)}
+                    className="relative inline-flex flex-shrink-0 group"
+                    aria-label="Ampliar mapa del bioparque"
+                  >
+                    <div className="w-52 h-52 rounded-full overflow-hidden">
+                      <img
+                        src={asset(MAP_PREVIEW)}
+                        alt="Mapa del recorrido del Bioparque Bubalcó"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <span className="absolute right-2 top-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur transition-transform group-active:scale-95">
+                      <Search size={17} />
+                    </span>
+                  </button>
+                )}
+              </div>
+
               <a
-                href={asset(MAP_IMAGE)}
+                href={asset(MAP_FULL)}
                 download="mapa-bubalco-patagonia.jpg"
-                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full w-full max-w-xs"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full w-full max-w-xs flex-shrink-0"
               >
                 Descargar mapa
               </a>
             </div>
           </div>
         </section>
-
-        {isMapOpen && (
-          <div className="fixed inset-0 z-[210] bg-white flex flex-col md:hidden">
-            <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
-              <p className="text-sm font-medium text-gray-900">Mapa del bioparque</p>
-              <button
-                type="button"
-                onClick={() => setIsMapOpen(false)}
-                className="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700"
-                aria-label="Cerrar mapa"
-              >
-                <X size={18} />
-              </button>
-            </div>
-            <div className="flex-1 overflow-auto p-4 flex items-center justify-center">
-              <img
-                src={asset(MAP_IMAGE)}
-                alt="Mapa del recorrido del Bioparque Bubalcó"
-                className="max-w-none w-auto h-auto"
-              />
-            </div>
-            <div className="px-5 py-4 border-t border-gray-100">
-              <a
-                href={asset(MAP_IMAGE)}
-                download="mapa-bubalco-patagonia.jpg"
-                className="w-full inline-flex items-center justify-center px-6 py-3 bg-brand text-white text-sm rounded-full"
-              >
-                Descargar mapa
-              </a>
-            </div>
-          </div>
-        )}
 
         <FooterSlide sectionClassName="bp-slide" />
       </div>
