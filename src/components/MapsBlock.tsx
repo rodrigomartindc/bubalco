@@ -6,7 +6,7 @@ export default function MapsBlock() {
   const { ref, reveal } = useScrollAnimation();
 
   return (
-    <section id="recorrido" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white">
+    <section id="recorrido" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:pt-[130px]">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-white">
           <div className="px-6 py-8">
@@ -25,18 +25,18 @@ export default function MapsBlock() {
         </div>
       </div>
 
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={reveal()}>
+      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
+        <div className={`flex flex-col justify-center min-h-[calc(100vh-130px)] ${reveal()}`}>
           <div className="text-center max-w-3xl mx-auto">
-            <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Dónde Estamos</p>
-            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">En el corazón de la Patagonia norte</h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-10">
+            <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Dónde Estamos</p>
+            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">En el corazón de la Patagonia norte</h2>
+            <p className="text-base text-gray-500 leading-relaxed mb-6">
               Nos encontramos en una isla de Río Negro, cerca del límite con Neuquén, rodeados de naturaleza y lejos de lo urbano. Una ubicación estratégica que nos permite trabajar directamente en los ecosistemas que protegemos.
             </p>
           </div>
-          <div className="flex justify-center gap-5 lg:gap-6 max-w-3xl mx-auto">
-            <OptimizedPicture image={MAP_1} className="w-full max-w-[304px] rounded-2xl object-cover" loading="lazy" />
-            <OptimizedPicture image={MAP_2} className="w-full max-w-[304px] rounded-2xl object-cover" loading="lazy" />
+          <div className="flex justify-center gap-4 max-w-xl mx-auto">
+            <OptimizedPicture image={MAP_1} className="w-full max-w-[220px] h-[200px] rounded-xl object-contain" loading="lazy" />
+            <OptimizedPicture image={MAP_2} className="w-full max-w-[220px] h-[200px] rounded-xl object-contain" loading="lazy" />
           </div>
         </div>
       </div>
