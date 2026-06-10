@@ -64,6 +64,14 @@ const valores = [
   },
 ];
 
+function SectionDivider() {
+  return (
+    <div className="flex justify-center py-2" aria-hidden="true">
+      <div className="w-14 border-t border-gray-200" />
+    </div>
+  );
+}
+
 function DecoListItem({ title, desc }: { title?: string; desc: string }) {
   return (
     <div className="flex items-start gap-3 text-left">
@@ -153,6 +161,8 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
+        <SectionDivider />
+
         {/* Bloque 1: Nuestra misión */}
         <section className="bg-white px-6 py-7 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestra razón de ser</p>
@@ -171,6 +181,8 @@ export default function NuestroTrabajoPage() {
               </div>
         </section>
 
+        <SectionDivider />
+
         {/* Bloque 2: Amenazas */}
         <section className="bg-white px-6 py-7 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">El contexto que nos convoca</p>
@@ -185,6 +197,8 @@ export default function NuestroTrabajoPage() {
               </div>
         </section>
 
+        <SectionDivider />
+
         {/* Bloque 3: Valores */}
         <section className="bg-white px-6 py-7 text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestros valores</p>
@@ -198,6 +212,8 @@ export default function NuestroTrabajoPage() {
                 ))}
               </div>
         </section>
+
+        <SectionDivider />
 
         {/* Bloque 4: Refugio */}
         <section className="bg-white">
@@ -220,6 +236,8 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
+        <SectionDivider />
+
         {/* Bloque 5: Conservación */}
         <section className="bg-white">
           <div className="w-full h-48 overflow-hidden">
@@ -241,6 +259,8 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
+        <SectionDivider />
+
         {/* Bloque 6: Rescate */}
         <section className="bg-white px-6 py-8 flex flex-col justify-center text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Rescate</p>
@@ -258,6 +278,8 @@ export default function NuestroTrabajoPage() {
                 También recibimos animales de otros centros, antiguos zoológicos y particulares que ya no pueden garantizarles las mejores condiciones. Para todos ellos, Bubalcó es una segunda oportunidad.
               </p>
         </section>
+
+        <SectionDivider />
 
         {/* Bloque 7: Educación */}
         <section className="bg-white px-6 py-8 flex flex-col justify-center text-center">

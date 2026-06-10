@@ -78,8 +78,8 @@ export default function Donaciones() {
               </p>
               <div className="grid grid-cols-2 gap-3 mb-6">
                 {otrasFormasDeAyuda.map((destino) => (
-                  <div key={destino} className="rounded-xl border border-white/10 bg-white/5 px-3 py-3">
-                    <p className="text-xs text-white/75 leading-tight">{destino}</p>
+                  <div key={destino} className="rounded-xl border border-white/10 bg-white/5 px-3 py-3 flex items-center justify-center min-h-[3.25rem]">
+                    <p className="text-xs text-white/75 leading-tight text-center">{destino}</p>
                   </div>
                 ))}
               </div>
@@ -149,8 +149,8 @@ export default function Donaciones() {
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8">
               {otrasFormasDeAyuda.map((destino) => (
-                <div key={destino} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3">
-                  <p className="text-sm text-white/75">{destino}</p>
+                <div key={destino} className="rounded-xl border border-white/10 bg-white/5 px-4 py-3 flex items-center justify-center min-h-[3.25rem]">
+                  <p className="text-sm text-white/75 text-center">{destino}</p>
                 </div>
               ))}
             </div>
