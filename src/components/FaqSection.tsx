@@ -6,11 +6,11 @@ import { faqItems } from '../data/faq';
 import { ROUTES } from '../data/site';
 
 export default function FaqSection() {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   return (
     <section ref={ref} className="bg-white py-16 md:py-20">
-      <div className={`max-w-3xl mx-auto px-6 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+      <div className={`max-w-3xl mx-auto px-6 ${reveal()}`}>
         <div className="text-center mb-10">
           <p className="text-xs tracking-widest text-brand uppercase mb-4">Preguntas frecuentes</p>
           <h2 className="text-2xl md:text-4xl font-medium text-gray-900 mb-3">

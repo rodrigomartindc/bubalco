@@ -1,9 +1,12 @@
 import { useEffect, useRef, useState } from 'react';
-import { isPrerenderMode } from '../utils/isPrerenderMode';
+
+export function scrollRevealClass(isVisible: boolean, animationClass = 'animate-fade-in-up'): string {
+  return isVisible ? animationClass : '';
+}
 
 export const useScrollAnimation = (threshold = 0.1) => {
   const ref = useRef<HTMLDivElement>(null);
-  const [isVisible, setIsVisible] = useState(isPrerenderMode());
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -12,7 +15,7 @@ export const useScrollAnimation = (threshold = 0.1) => {
           setIsVisible(true);
         }
       },
-      { threshold }
+      { threshold },
     );
 
     const currentRef = ref.current;
@@ -27,5 +30,5 @@ export const useScrollAnimation = (threshold = 0.1) => {
     };
   }, [threshold]);
 
-  return { ref, isVisible };
+  return { ref, isVisible, reveal: (animationClass?: string) => scrollRevealClass(isVisible, animationClass) };
 };

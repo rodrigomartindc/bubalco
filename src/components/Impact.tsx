@@ -1,12 +1,12 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Impact() {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   return (
     <section ref={ref} className="scroll-section md:hidden">
       <div className="slide-card">
-        <div className={`slide-card__scroll bg-white ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`slide-card__scroll bg-white ${reveal()}`}>
           <div className="px-6 py-10">
             <h3 className="text-2xl font-medium text-gray-900">Nuestro Impacto</h3>
             <p className="mt-4 text-sm text-gray-500 leading-relaxed">

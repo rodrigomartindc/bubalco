@@ -2,7 +2,7 @@ import { Calendar, Clock, Ticket, Sun, Moon, Info, MapPin } from 'lucide-react';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Bioparque = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   return (
     <section id="bioparque" ref={ref} className="scroll-section min-h-screen flex items-center relative bg-gradient-to-br from-gray-900 via-emerald-950 to-gray-900">
@@ -12,7 +12,7 @@ const Bioparque = () => {
       </div>
 
       <div className="relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`text-center mb-16 ${reveal()}`}>
           <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full mb-6">
             <MapPin className="text-emerald-300" size={18} />
             <span className="text-emerald-100 text-sm font-medium">Visitanos</span>
@@ -32,7 +32,7 @@ const Bioparque = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className={`glass-dark p-8 rounded-3xl transform hover:scale-105 transition-all ${isVisible ? 'animate-fade-in-up delay-100' : 'opacity-0'}`}>
+          <div className={`glass-dark p-8 rounded-3xl transform hover:scale-105 transition-all ${reveal('animate-fade-in-up delay-100')}`}>
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-emerald-500/20 p-4 rounded-2xl">
                 <Calendar className="text-emerald-400" size={32} />
@@ -85,7 +85,7 @@ const Bioparque = () => {
             </div>
           </div>
 
-          <div className={`glass-dark p-8 rounded-3xl transform hover:scale-105 transition-all ${isVisible ? 'animate-fade-in-up delay-200' : 'opacity-0'}`}>
+          <div className={`glass-dark p-8 rounded-3xl transform hover:scale-105 transition-all ${reveal('animate-fade-in-up delay-200')}`}>
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-emerald-500/20 p-4 rounded-2xl">
                 <Ticket className="text-emerald-400" size={32} />
@@ -158,7 +158,7 @@ const Bioparque = () => {
             </div>
           </div>
 
-          <div className={`glass-dark p-8 rounded-3xl transform hover:scale-105 transition-all ${isVisible ? 'animate-fade-in-up delay-300' : 'opacity-0'}`}>
+          <div className={`glass-dark p-8 rounded-3xl transform hover:scale-105 transition-all ${reveal('animate-fade-in-up delay-300')}`}>
             <div className="flex items-center gap-4 mb-6">
               <div className="bg-emerald-500/20 p-4 rounded-2xl">
                 <Clock className="text-emerald-400" size={32} />
@@ -200,7 +200,7 @@ const Bioparque = () => {
           </div>
         </div>
 
-        <div className={`glass-dark p-10 rounded-3xl ${isVisible ? 'animate-fade-in-up delay-400' : 'opacity-0'}`}>
+        <div className={`glass-dark p-10 rounded-3xl ${reveal('animate-fade-in-up delay-400')}`}>
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div>
               <h3 className="text-3xl font-black text-white mb-4">Información Importante</h3>

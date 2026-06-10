@@ -1,9 +1,11 @@
+import { TUCAN_BUBALCO } from '../data/images';
+import OptimizedPicture from './OptimizedPicture';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useCountUp } from '../hooks/useCountUp';
 import { asset } from '../utils/asset';
 
 const About = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, isVisible, reveal } = useScrollAnimation();
   const years = useCountUp(30, 2000, isVisible);
   const hectares = useCountUp(34, 2000, isVisible);
   const animals = useCountUp(500, 2000, isVisible);
@@ -13,7 +15,7 @@ const About = () => {
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative bg-white">
           <div className="relative z-10 w-full px-6 py-6">
-            <div className={`text-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <div className={`text-center ${reveal()}`}>
               <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-11 mx-auto mb-2" />
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Fundación Bubalcó</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-2 leading-tight">
@@ -44,7 +46,7 @@ const About = () => {
       </div>
 
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`grid lg:grid-cols-2 gap-12 lg:gap-16 items-center ${reveal()}`}>
           <div>
             <img src={asset('/logos/isologo-colores.png')} alt="Fundación Bubalcó" className="h-14 mb-4" />
             <p className="text-xs tracking-widest text-brand uppercase mb-6">Fundación Bubalcó</p>
@@ -70,7 +72,7 @@ const About = () => {
 
           </div>
           <div className="flex justify-center lg:justify-end">
-            <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full max-w-[440px] h-[360px] object-cover object-center" loading="lazy" />
+            <OptimizedPicture image={TUCAN_BUBALCO} className="w-full max-w-[440px] h-[360px] object-cover object-center" loading="lazy" />
           </div>
         </div>
       </div>

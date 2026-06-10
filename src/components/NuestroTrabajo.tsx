@@ -28,14 +28,14 @@ const pillars = [
 ];
 
 export default function NuestroTrabajo() {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   return (
     <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-gray-50">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-gray-50">
           <div className="px-6 py-8">
-            <div className={`${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+            <div className={`${reveal()}`}>
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestro Trabajo</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-2">Cómo protegemos<br />la vida silvestre</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-5">
@@ -55,7 +55,7 @@ export default function NuestroTrabajo() {
       </div>
 
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`text-center mb-16 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`text-center mb-16 ${reveal()}`}>
           <p className="text-xs tracking-widest text-brand uppercase mb-6">Nuestro Trabajo</p>
           <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">Cómo protegemos la vida silvestre</h2>
           <p className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">
@@ -64,7 +64,7 @@ export default function NuestroTrabajo() {
         </div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {pillars.map((c, i) => (
-              <div key={c.title} className={`rounded-2xl p-7 md:p-8 bg-white border border-gray-100 border-t-4 ${c.topAccent} shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all ${isVisible ? `animate-scale-in delay-${(i + 1) * 100}` : 'opacity-0'}`}>
+              <div key={c.title} className={`rounded-2xl p-7 md:p-8 bg-white border border-gray-100 border-t-4 ${c.topAccent} shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all ${reveal(`animate-scale-in delay-${(i + 1) * 100}`)}`}>
                 <h3 className="text-xl font-medium text-gray-900 mb-3">{c.title}</h3>
                 <p className="text-base text-gray-500 leading-relaxed">{c.desc}</p>
               </div>

@@ -4,7 +4,7 @@ import { ROUTES } from '../data/site';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Donations = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   return (
     <section id="donaciones" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white">
@@ -38,10 +38,10 @@ const Donations = () => {
 
       {/* Desktop */}
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`text-center mb-12 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`text-center mb-12 ${reveal()}`}>
           <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Cómo Ayudar</p>
         </div>
-        <div className={`grid md:grid-cols-2 gap-8 ${isVisible ? 'animate-fade-in-up' : 'opacity-0'}`}>
+        <div className={`grid md:grid-cols-2 gap-8 ${reveal()}`}>
           <div className="bg-gray-50 rounded-2xl p-10 border border-gray-100 text-center flex flex-col items-center justify-center">
             <h2 className="text-2xl font-medium text-gray-900 mb-4">Tu donación sostiene nuestro trabajo</h2>
             <p className="text-sm text-gray-500 leading-relaxed mb-8 max-w-md">

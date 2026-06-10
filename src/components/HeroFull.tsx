@@ -1,21 +1,19 @@
 import { Link } from 'react-router-dom';
-import { useScrollAnimation } from '../hooks/useScrollAnimation';
-import { asset } from '../utils/asset';
 import { ROUTES } from '../data/site';
+import { HERO_CIERVOS } from '../data/images';
+import OptimizedPicture from './OptimizedPicture';
 
 const HeroFull = () => {
-  const { ref, isVisible } = useScrollAnimation();
-
   return (
-    <section ref={ref} className="scroll-section md:hidden">
+    <section className="scroll-section md:hidden">
       <div className="hero-full-card">
-        <div className={`h-full flex flex-col bg-white transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+        <div className="h-full flex flex-col bg-white">
           <div className="overflow-hidden" style={{ flex: '1 1 0', maxHeight: '48%' }}>
-            <img
-              src={asset('/hero-ciervos.jpg')}
-              alt="Fauna silvestre en Bubalcó Patagonia"
+            <OptimizedPicture
+              image={HERO_CIERVOS}
               className="w-full h-full object-cover object-center"
               fetchPriority="high"
+              loading="eager"
             />
           </div>
           <div className="flex flex-col items-center justify-center px-6 py-3 text-center flex-shrink-0">

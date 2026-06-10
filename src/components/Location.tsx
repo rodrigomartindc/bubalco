@@ -3,14 +3,14 @@ import { CONTACT, SOCIAL_LINKS, WHATSAPP_URL_GENERAL } from '../data/site';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 const Location = () => {
-  const { ref, isVisible } = useScrollAnimation();
+  const { ref, reveal } = useScrollAnimation();
 
   return (
     <section id="ubicacion" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-gray-50">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-gray-50">
           <div className="w-full px-6 py-8">
-            <div className={`space-y-5 ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
+            <div className={`space-y-5 ${reveal('animate-fade-in-left')}`}>
               <div>
                 <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Ubicación</p>
                 <h2 className="text-2xl font-medium text-gray-900 mb-4 leading-tight">Vení a conocernos</h2>
@@ -48,7 +48,7 @@ const Location = () => {
       </div>
 
       <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`max-w-3xl ${isVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
+        <div className={`max-w-3xl ${reveal('animate-fade-in-left')}`}>
           <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Ubicación</p>
           <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6 leading-tight">Vení a<span className="block">conocernos</span></h2>
           <p className="text-base text-gray-500 leading-relaxed mb-12">
