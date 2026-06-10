@@ -22,7 +22,7 @@ export default function OptimizedLogo({ logo, className }: Props) {
         alt={logo.alt}
         width={logo.width}
         height={logo.height}
-        className={className}
+        className={className ? `w-auto max-w-full ${className}` : 'w-auto max-w-full'}
         decoding="async"
       />
     </picture>
