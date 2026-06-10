@@ -70,7 +70,7 @@ const About = () => {
 
           </div>
           <div className="flex justify-center lg:justify-end">
-            <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full max-w-[440px] h-[360px] object-cover object-center" />
+            <img src={asset('/tucan-bubalco.jpg')} alt="Bubalcó Patagonia" className="w-full max-w-[440px] h-[360px] object-cover object-center" loading="lazy" />
           </div>
         </div>
       </div>

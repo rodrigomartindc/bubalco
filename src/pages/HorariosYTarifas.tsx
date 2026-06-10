@@ -1,5 +1,6 @@
 import { Sun, Moon, ArrowRight } from 'lucide-react';
 import { WHATSAPP_URL_GUIADOS } from '../data/site';
+import { useIsDesktop } from '../hooks/useIsDesktop';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
 
@@ -121,17 +122,19 @@ function HorarioCard({ title, rows, dark }: { title: string; rows: { label: stri
 }
 
 export default function HorariosYTarifas() {
+  const isDesktop = useIsDesktop();
+
   return (
     <>
-      {/* ── Mobile: scroll-snap slides ────────────────────────────── */}
-      <div className="bioparque-slides md:hidden">
+      {!isDesktop && (
+      <div className="bioparque-slides">
 
         {/* Slide 1: Tarifas */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="slide-card__scroll px-6 py-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Tarifas</p>
-              <h2 className="text-2xl font-medium text-gray-900 mb-1">Tu visita los cuida</h2>
+              <h1 className="text-2xl font-medium text-gray-900 mb-1">Tu visita los cuida</h1>
               <p className="text-xs text-gray-500 mb-4 leading-relaxed">
                 <span className="block">No hay que reservar.</span>
                 <span className="block">La entrada se adquiere directo en boletería.</span>
@@ -205,7 +208,7 @@ export default function HorariosYTarifas() {
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 {mediosPago.map((medio) => (
-                  <img key={medio.src} src={asset(medio.src)} alt={medio.alt} className="h-8 object-contain" />
+                  <img key={medio.src} src={asset(medio.src)} alt={medio.alt} className="h-8 object-contain" loading="lazy" />
                 ))}
               </div>
             </div>
@@ -214,9 +217,10 @@ export default function HorariosYTarifas() {
 
         <FooterSlide sectionClassName="bp-slide" />
       </div>
+      )}
 
-      {/* ── Desktop: normal flow ───────────────────────────────────── */}
-      <div className="hidden md:block pt-[9rem] pb-20 bg-white">
+      {isDesktop && (
+      <div className="pt-[9rem] pb-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 space-y-20">
 
           {/* Bloque 1: Tarifas */}
@@ -293,13 +297,14 @@ export default function HorariosYTarifas() {
             <p className="text-base text-gray-500 leading-relaxed mb-8">La entrada se adquiere directo en boletería sin reserva.</p>
             <div className="flex flex-wrap gap-4 items-center">
               {mediosPago.map((medio) => (
-                <img key={medio.src} src={asset(medio.src)} alt={medio.alt} className="h-10 object-contain" />
+                <img key={medio.src} src={asset(medio.src)} alt={medio.alt} className="h-10 object-contain" loading="lazy" />
               ))}
             </div>
           </div>
 
         </div>
       </div>
+      )}
     </>
   );
 }

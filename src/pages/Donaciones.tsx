@@ -1,6 +1,7 @@
 import { ArrowRight, Copy } from 'lucide-react';
 import { useState } from 'react';
 import { CONTACT, WHATSAPP_URL_DONACIONES } from '../data/site';
+import { useIsDesktop } from '../hooks/useIsDesktop';
 import FooterSlide from '../components/FooterSlide';
 import { asset } from '../utils/asset';
 
@@ -37,10 +38,12 @@ function AliasCopiable() {
 }
 
 export default function Donaciones() {
+  const isDesktop = useIsDesktop();
+
   return (
     <>
-      {/* ── Mobile: scroll-snap slides ────────────────────────────── */}
-      <div className="bioparque-slides md:hidden">
+      {!isDesktop && (
+      <div className="bioparque-slides">
 
         {/* Slide 1: Información básica */}
         <section className="bp-slide">
@@ -110,9 +113,10 @@ export default function Donaciones() {
 
         <FooterSlide sectionClassName="bp-slide" />
       </div>
+      )}
 
-      {/* ── Desktop: normal flow ───────────────────────────────────── */}
-      <div className="hidden md:block pt-[9rem] pb-20 bg-white">
+      {isDesktop && (
+      <div className="pt-[9rem] pb-20 bg-white">
         <div className="max-w-4xl mx-auto px-6 space-y-20">
 
           {/* Bloque 1 */}
@@ -174,6 +178,7 @@ export default function Donaciones() {
 
         </div>
       </div>
+      )}
     </>
   );
 }

@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { isPrerenderMode } from '../utils/isPrerenderMode';
+import { useEffect } from 'react';
+import { useIsDesktop } from '../hooks/useIsDesktop';
 import Hero from '../components/Hero';
 import HeroFull from '../components/HeroFull';
 import About from '../components/About';
@@ -10,15 +10,7 @@ import BioparqueBlock from '../components/BioparqueBlock';
 import FooterSlide from '../components/FooterSlide';
 
 export default function Home() {
-  const [isDesktop, setIsDesktop] = useState(isPrerenderMode());
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
-    const handle = () => setIsDesktop(mq.matches);
-    handle();
-    mq.addEventListener('change', handle);
-    return () => mq.removeEventListener('change', handle);
-  }, []);
+  const isDesktop = useIsDesktop();
 
   useEffect(() => {
     const shouldEnable = isDesktop;
@@ -35,17 +27,14 @@ export default function Home() {
   return (
     <>
       <div className="home-slides md:contents">
-        {isDesktop && <Hero />}
-        <HeroFull />
+        {isDesktop ? <Hero /> : <HeroFull />}
         <About />
         <NuestroTrabajo />
         <MapsBlock />
         <Donations />
         <FooterSlide />
       </div>
-      {isDesktop && (
-        <BioparqueBlock />
-      )}
+      {isDesktop && <BioparqueBlock />}
     </>
   );
 }
