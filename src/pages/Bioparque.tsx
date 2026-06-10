@@ -16,7 +16,7 @@ export default function Bioparque() {
               <div className="overflow-hidden" style={{ flex: '0 0 36%' }}>
                 <img src={asset('/bubalco-fondo.png')} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
               </div>
-              <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center">
+              <div className="flex-1 flex flex-col items-center justify-start px-6 pt-4 pb-4 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Bioparque</p>
                 <h1 className="text-2xl font-medium text-gray-900 mb-2">Bubalcó Patagonia</h1>
                 <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -172,9 +172,14 @@ export default function Bioparque() {
                 Descargá el mapa en tu celular<br />
                 para recorrer el bioparque sin papel.
               </p>
-              <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full">
-                Descargar mapa
-              </a>
+              <div className="flex flex-col gap-3 w-full max-w-xs mx-auto">
+                <a href={asset('/mapa-bubalco.jpg')} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full">
+                  Ver mapa
+                </a>
+                <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-gray-200 text-gray-900 text-sm rounded-full hover:bg-gray-50 transition-colors">
+                  Descargar mapa
+                </a>
+              </div>
             </div>
           </div>
         </section>
