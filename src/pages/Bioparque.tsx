@@ -390,10 +390,10 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 6: Planificar tu visita */}
-        <section id="tarifas-horarios" className="scroll-section relative md:min-h-screen md:pt-[130px] md:p-0 scroll-mt-[130px]">
-          <div className="w-full min-h-[calc(100vh-130px)] grid md:grid-cols-2">
-            <div className="bg-white flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24 py-12 md:py-0">
-              <div className="max-w-md mx-auto md:mx-0 md:ml-auto md:mr-12 lg:mr-16">
+        <section id="tarifas-horarios" className="scroll-section relative md:min-h-screen md:pt-[130px] scroll-mt-[130px]">
+          <div className="w-full h-[calc(100vh-130px)] grid md:grid-cols-2 md:items-stretch">
+            <div className="bg-white flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24">
+              <div className="max-w-md mx-auto md:mx-0 md:ml-auto md:mr-12 lg:mr-16 w-full">
                 <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Planificar tu visita</p>
                 <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4 leading-tight">Horarios y Tarifas</h2>
                 <p className="text-base text-gray-500 mb-8 leading-relaxed">
@@ -404,8 +404,8 @@ export default function Bioparque() {
                 </Link>
               </div>
             </div>
-            <div className="bg-brand-dark flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24 py-12 md:py-0">
-              <div className="max-w-md mx-auto md:mx-0 md:mr-auto md:ml-12 lg:ml-16">
+            <div className="bg-brand-dark flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24">
+              <div className="max-w-md mx-auto md:mx-0 md:mr-auto md:ml-12 lg:ml-16 w-full">
                 <h2 className="text-3xl lg:text-4xl font-medium text-white mb-4 leading-tight">¿Tenés dudas?</h2>
                 <p className="text-base text-white/60 mb-8 leading-relaxed">
                   Revisá información útil antes de venir.
@@ -420,65 +420,68 @@ export default function Bioparque() {
 
         {/* Slide 7: Mapa descargable */}
         <section className={`${desktopSlide} md:bg-white`}>
-          <div className={`w-full px-6 md:px-12 lg:px-20 max-w-lg mx-auto min-h-[calc(100vh-130px)] flex flex-col items-center text-center ${isMapOpen ? 'justify-center py-4' : 'justify-center'}`}>
-            {!isMapOpen && (
-              <>
-                <p className="text-xs tracking-widest text-brand uppercase mb-3">El recorrido</p>
-                <h2 className="text-2xl font-medium text-gray-900 mb-5">Mapa del bioparque</h2>
-              </>
-            )}
-
-            {isMapOpen ? (
-              <div className="relative w-full max-h-[min(58vh,480px)] flex items-center justify-center mb-5">
+          {isMapOpen ? (
+            <div className="w-full px-6 md:px-12 lg:px-20 max-w-6xl mx-auto min-h-[calc(100vh-130px)] flex flex-col items-center justify-center">
+              <div className="relative w-full flex-1 min-h-0 flex items-center justify-center py-4">
                 <button
                   type="button"
                   onClick={() => setIsMapOpen(false)}
-                  className="absolute right-0 top-0 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur"
+                  className="absolute right-0 top-0 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-md backdrop-blur"
                   aria-label="Cerrar mapa"
                 >
-                  <X size={17} />
+                  <X size={18} />
                 </button>
                 <img
                   src={asset(MAP_FULL)}
                   alt="Mapa del recorrido del Bioparque Bubalcó"
-                  className="max-w-full max-h-full w-auto h-auto object-contain"
+                  className="max-w-full max-h-[min(68vh,620px)] w-auto h-auto object-contain"
                 />
               </div>
-            ) : (
-              <div className="flex flex-col items-center mb-5">
-                <button
-                  type="button"
-                  onClick={() => setIsMapOpen(true)}
-                  className="relative inline-flex group mb-4"
-                  aria-label="Ampliar mapa del bioparque"
-                >
-                  <div className="w-56 h-56 rounded-full overflow-hidden">
-                    <img
-                      src={asset(MAP_PREVIEW)}
-                      alt="Mapa del recorrido del Bioparque Bubalcó"
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                  </div>
-                  <span className="absolute right-2 top-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur transition-transform group-hover:scale-95">
-                    <Search size={17} />
-                  </span>
-                </button>
-                <p className="text-sm text-gray-500 leading-relaxed">
+              <a
+                href={asset(MAP_FULL)}
+                download="mapa-bubalco-patagonia.jpg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-brand text-white text-sm rounded-full flex-shrink-0 mt-4"
+              >
+                Descargar mapa
+              </a>
+            </div>
+          ) : (
+            <div className="w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto min-h-[calc(100vh-130px)] grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+              <div className="text-center lg:text-left">
+                <p className="text-xs tracking-widest text-brand uppercase mb-4">El recorrido</p>
+                <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4 leading-tight">Mapa del bioparque</h2>
+                <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
                   Descargá el mapa en tu celular<br />
                   para recorrer el bioparque sin papel.
                 </p>
+                <a
+                  href={asset(MAP_FULL)}
+                  download="mapa-bubalco-patagonia.jpg"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors"
+                >
+                  Descargar mapa
+                </a>
               </div>
-            )}
-
-            <a
-              href={asset(MAP_FULL)}
-              download="mapa-bubalco-patagonia.jpg"
-              className="inline-flex items-center justify-center gap-2 px-8 py-3 bg-brand text-white text-sm rounded-full"
-            >
-              Descargar mapa
-            </a>
-          </div>
+              <div className="flex justify-center lg:justify-end">
+                <button
+                  type="button"
+                  onClick={() => setIsMapOpen(true)}
+                  className="relative inline-flex group"
+                  aria-label="Ampliar mapa del bioparque"
+                >
+                  <img
+                    src={asset(MAP_PREVIEW)}
+                    alt="Mapa del recorrido del Bioparque Bubalcó"
+                    className="w-full max-w-[520px] h-[420px] object-contain rounded-2xl border border-gray-100 shadow-lg bg-white"
+                    loading="lazy"
+                  />
+                  <span className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-md backdrop-blur transition-transform group-hover:scale-95">
+                    <Search size={18} />
+                  </span>
+                </button>
+              </div>
+            </div>
+          )}
         </section>
       </div>
       )}
