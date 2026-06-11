@@ -420,11 +420,11 @@ export default function Bioparque() {
 
         {/* Slide 7: Mapa descargable */}
         <section id="bp-mapa" data-slide-label="Mapa" className={`${desktopSlide} md:bg-white`}>
-          <div className="w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto min-h-[calc(100vh-130px)] grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
-            <div className="text-center lg:text-left">
+          <div className="w-full px-6 md:px-12 lg:px-20 max-w-5xl mx-auto min-h-[calc(100vh-130px)] grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+            <div className="text-center lg:text-left lg:justify-self-end w-full max-w-md">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">El recorrido</p>
               <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4 leading-tight">Mapa del bioparque</h2>
-              <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-md mx-auto lg:mx-0">
+              <p className="text-base text-gray-500 leading-relaxed mb-8">
                 Descargá el mapa en tu celular<br />
                 para recorrer el bioparque sin papel.
               </p>
@@ -436,7 +436,7 @@ export default function Bioparque() {
                 Descargar mapa
               </a>
             </div>
-            <div className="flex justify-center lg:justify-end">
+            <div className="flex justify-center lg:justify-start">
               <button
                 type="button"
                 onClick={() => setIsMapOpen(true)}
