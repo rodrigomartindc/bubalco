@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { ArrowRight, Search, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../data/site';
@@ -28,12 +29,18 @@ export default function Bioparque() {
   useEffect(() => {
     if (!isMapOpen) return;
 
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
     const onKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') setIsMapOpen(false);
     };
 
     document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKeyDown);
+    };
   }, [isMapOpen]);
 
   return (
@@ -390,8 +397,8 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 6: Planificar tu visita */}
-        <section id="tarifas-horarios" className="scroll-section relative md:min-h-screen md:pt-[130px] scroll-mt-[130px]">
-          <div className="w-full h-[calc(100vh-130px)] grid md:grid-cols-2 md:items-stretch">
+        <section id="tarifas-horarios" className="scroll-section relative md:h-screen md:min-h-0 md:overflow-hidden scroll-mt-[130px]">
+          <div className="absolute inset-x-0 top-[130px] bottom-0 grid md:grid-cols-2">
             <div className="bg-white flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24">
               <div className="max-w-md mx-auto md:mx-0 md:ml-auto md:mr-12 lg:mr-16 w-full">
                 <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Planificar tu visita</p>
@@ -436,26 +443,50 @@ export default function Bioparque() {
                 Descargar mapa
               </a>
             </div>
-            <div className="flex items-center justify-center lg:justify-end gap-4 xl:gap-6">
-              <img
-                src={asset(MAP_PREVIEW)}
-                alt="Mapa del recorrido del Bioparque Bubalcó"
-                className="w-full max-w-[380px] xl:max-w-[420px] h-[360px] xl:h-[420px] object-contain rounded-2xl border border-gray-100 shadow-lg bg-white flex-shrink-0"
-                loading="lazy"
-              />
-              <div
-                className="hidden lg:block w-[240px] xl:w-[300px] 2xl:w-[340px] aspect-[900/580] bg-no-repeat flex-shrink-0"
-                style={{
-                  backgroundImage: `url(${asset(MAP_FULL)})`,
-                  backgroundSize: '100% auto',
-                  backgroundPosition: 'center bottom',
-                }}
-                role="img"
-                aria-label="Referencias del mapa: instalaciones y zonas del bioparque"
-              />
+            <div className="flex justify-center lg:justify-end">
+              <button
+                type="button"
+                onClick={() => setIsMapOpen(true)}
+                className="relative inline-flex group"
+                aria-label="Ampliar mapa del bioparque"
+              >
+                <img
+                  src={asset(MAP_PREVIEW)}
+                  alt="Mapa del recorrido del Bioparque Bubalcó"
+                  className="w-full max-w-[520px] h-[420px] object-contain rounded-2xl border border-gray-100 shadow-lg bg-white"
+                  loading="lazy"
+                />
+                <span className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-md backdrop-blur transition-transform group-hover:scale-95">
+                  <Search size={18} />
+                </span>
+              </button>
             </div>
           </div>
         </section>
+
+        {isMapOpen && isDesktop && createPortal(
+          <div
+            className="fixed inset-0 z-[500] flex items-center justify-center bg-black/85 p-6 md:p-10"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mapa ampliado del bioparque"
+          >
+            <button
+              type="button"
+              onClick={() => setIsMapOpen(false)}
+              className="absolute top-5 right-5 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-lg backdrop-blur hover:bg-white transition-colors"
+              aria-label="Cerrar mapa"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={asset(MAP_FULL)}
+              alt="Mapa del recorrido del Bioparque Bubalcó"
+              className="max-w-[min(96vw,1100px)] max-h-[92vh] w-auto h-auto object-contain"
+            />
+          </div>,
+          document.body,
+        )}
       </div>
       )}
     </>
