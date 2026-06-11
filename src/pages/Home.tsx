@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import { useIsDesktop } from '../hooks/useIsDesktop';
+import { useDesktopSnap } from '../hooks/useDesktopSnap';
 import Hero from '../components/Hero';
 import HeroFull from '../components/HeroFull';
 import About from '../components/About';
@@ -11,18 +11,7 @@ import FooterSlide from '../components/FooterSlide';
 
 export default function Home() {
   const isDesktop = useIsDesktop();
-
-  useEffect(() => {
-    const shouldEnable = isDesktop;
-
-    document.documentElement.classList.toggle('desktop-home-snap', shouldEnable);
-    document.body.classList.toggle('desktop-home-snap', shouldEnable);
-
-    return () => {
-      document.documentElement.classList.remove('desktop-home-snap');
-      document.body.classList.remove('desktop-home-snap');
-    };
-  }, [isDesktop]);
+  useDesktopSnap(isDesktop);
 
   return (
     <>

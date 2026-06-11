@@ -6,7 +6,7 @@ export default function MapsBlock() {
   const { ref, reveal } = useScrollAnimation();
 
   return (
-    <section id="recorrido" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:pt-[130px]">
+    <section id="recorrido" data-slide-label="Recorrido" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:pt-[130px]">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-white">
           <div className="px-6 py-8">

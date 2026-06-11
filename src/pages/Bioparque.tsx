@@ -4,6 +4,7 @@ import { ArrowRight, Search, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../data/site';
 import { useIsDesktop } from '../hooks/useIsDesktop';
+import { useDesktopSnap } from '../hooks/useDesktopSnap';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
 
@@ -16,15 +17,7 @@ export default function Bioparque() {
   const isDesktop = useIsDesktop();
   const [isMapOpen, setIsMapOpen] = useState(false);
 
-  useEffect(() => {
-    document.documentElement.classList.toggle('desktop-home-snap', isDesktop);
-    document.body.classList.toggle('desktop-home-snap', isDesktop);
-
-    return () => {
-      document.documentElement.classList.remove('desktop-home-snap');
-      document.body.classList.remove('desktop-home-snap');
-    };
-  }, [isDesktop]);
+  useDesktopSnap(isDesktop);
 
   useEffect(() => {
     if (!isMapOpen) return;
@@ -271,7 +264,7 @@ export default function Bioparque() {
       {isDesktop && (
       <div className="md:contents">
         {/* Slide 1: Hero */}
-        <section className={`${desktopSlide} md:bg-white`}>
+        <section id="bp-hero" data-slide-label="Inicio" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center min-h-[calc(100vh-130px)]">
               <div>
@@ -298,7 +291,7 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 2: Qué es + Legislatura */}
-        <section className={`${desktopSlide} md:bg-white`}>
+        <section id="bp-que-es" data-slide-label="Qué es" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full px-6 md:px-12 lg:px-20 max-w-4xl mx-auto min-h-[calc(100vh-130px)] flex items-center">
             <div className="flex flex-col w-full overflow-hidden rounded-2xl border border-gray-100 max-h-[min(72vh,600px)]">
               <div className="flex-1 bg-brand-dark flex flex-col items-center justify-center px-10 lg:px-14 py-8 text-center min-h-0">
@@ -317,7 +310,7 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 3: Visitas escolares */}
-        <section className={`${desktopSlide} md:bg-white`}>
+        <section id="bp-educacion" data-slide-label="Educación" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center min-h-[calc(100vh-130px)]">
               <div className="flex justify-center lg:justify-start">
@@ -343,7 +336,7 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 4: De dónde vienen */}
-        <section className={`${desktopSlide} md:bg-white`}>
+        <section id="bp-historias" data-slide-label="Historias" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full px-6 md:px-12 lg:px-20 max-w-5xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-center">
             <div className="bg-brand/5 rounded-2xl px-10 lg:px-12 py-8 text-center mb-6">
               <p className="text-xs tracking-widest text-brand uppercase mb-3">Historias que merecen ser contadas</p>
@@ -368,7 +361,7 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 5: Convivencia Responsable */}
-        <section className={`${desktopSlide} md:bg-white`}>
+        <section id="bp-mision" data-slide-label="Misión" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full px-6 md:px-12 lg:px-20 max-w-5xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-center text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestra misión</p>
             <h2 className="text-2xl font-medium text-gray-900 mb-6">Convivencia Responsable</h2>
@@ -397,7 +390,7 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 6: Planificar tu visita — full bleed bajo header fijo (sin pt/top extra) */}
-        <section id="tarifas-horarios" className="scroll-section relative md:h-screen md:min-h-0 md:overflow-hidden">
+        <section id="tarifas-horarios" data-slide-label="Planificar" className="scroll-section relative md:h-screen md:min-h-0 md:overflow-hidden">
           <div className="absolute inset-0 grid md:grid-cols-2">
             <div className="bg-white flex flex-col justify-center h-full px-8 md:px-14 lg:px-20 xl:px-24 md:pt-[130px]">
               <div className="max-w-md mx-auto md:mx-0 md:ml-auto md:mr-12 lg:mr-16 w-full">
@@ -426,7 +419,7 @@ export default function Bioparque() {
         </section>
 
         {/* Slide 7: Mapa descargable */}
-        <section className={`${desktopSlide} md:bg-white`}>
+        <section id="bp-mapa" data-slide-label="Mapa" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto min-h-[calc(100vh-130px)] grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
             <div className="text-center lg:text-left">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">El recorrido</p>

@@ -5,6 +5,7 @@ import { resetScroll } from './utils/resetScroll';
 import Navbar from './components/Navbar';
 import DonationStrip from './components/DonationStrip';
 import WhatsAppButton from './components/WhatsAppButton';
+import DesktopSlideIndicator from './components/DesktopSlideIndicator';
 import Footer from './components/Footer';
 import GoogleMapsFooter from './components/GoogleMapsFooter';
 import Home from './pages/Home';
@@ -141,6 +142,7 @@ function AppShell() {
       <Navbar />
       <DonationStrip />
       <WhatsAppButton />
+      <DesktopSlideIndicator />
       <RouteTransition>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -157,7 +159,7 @@ function AppShell() {
         </Routes>
       </RouteTransition>
       {showAppFooter && isHome && isDesktop ? (
-        <section className="desktop-footer-snap min-h-screen flex flex-col">
+        <section id="contacto" data-slide-label="Contacto" className="desktop-footer-snap scroll-section min-h-screen flex flex-col">
           <GoogleMapsFooter fill snap={false} />
           <Footer snap={false} />
         </section>
