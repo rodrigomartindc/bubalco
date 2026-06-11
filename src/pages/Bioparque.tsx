@@ -396,10 +396,10 @@ export default function Bioparque() {
           </div>
         </section>
 
-        {/* Slide 6: Planificar tu visita */}
-        <section id="tarifas-horarios" className="scroll-section relative md:h-screen md:min-h-0 md:overflow-hidden scroll-mt-[130px]">
-          <div className="absolute inset-x-0 top-[130px] bottom-0 grid md:grid-cols-2">
-            <div className="bg-white flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24">
+        {/* Slide 6: Planificar tu visita — full bleed bajo header fijo (sin pt/top extra) */}
+        <section id="tarifas-horarios" className="scroll-section relative md:h-screen md:min-h-0 md:overflow-hidden">
+          <div className="absolute inset-0 grid md:grid-cols-2">
+            <div className="bg-white flex flex-col justify-center h-full px-8 md:px-14 lg:px-20 xl:px-24 md:pt-[130px]">
               <div className="max-w-md mx-auto md:mx-0 md:ml-auto md:mr-12 lg:mr-16 w-full">
                 <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Planificar tu visita</p>
                 <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4 leading-tight">Horarios y Tarifas</h2>
@@ -411,7 +411,7 @@ export default function Bioparque() {
                 </Link>
               </div>
             </div>
-            <div className="bg-brand-dark flex flex-col justify-center px-8 md:px-14 lg:px-20 xl:px-24">
+            <div className="bg-brand-dark flex flex-col justify-center h-full px-8 md:px-14 lg:px-20 xl:px-24 md:pt-[130px]">
               <div className="max-w-md mx-auto md:mx-0 md:mr-auto md:ml-12 lg:ml-16 w-full">
                 <h2 className="text-3xl lg:text-4xl font-medium text-white mb-4 leading-tight">¿Tenés dudas?</h2>
                 <p className="text-base text-white/60 mb-8 leading-relaxed">
