@@ -6,7 +6,7 @@ import OptimizedPicture from './OptimizedPicture';
 
 const Hero = () => {
   return (
-    <section className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:pt-[130px]">
+    <section id="inicio" data-slide-label="Inicio" className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:pt-[130px]">
       <div className="relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center min-h-[calc(100vh-130px)]">
           <div>

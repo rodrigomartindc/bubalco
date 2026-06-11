@@ -7,7 +7,7 @@ const Donations = () => {
   const { ref, reveal } = useScrollAnimation();
 
   return (
-    <section id="donaciones" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white">
+    <section id="donaciones" data-slide-label="Donar" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white">
       {/* Mobile: Donación + Bioparque mitad y mitad */}
       <div className="slide-card md:hidden">
         <div className="h-full bg-white">

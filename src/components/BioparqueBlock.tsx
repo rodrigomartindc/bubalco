@@ -8,7 +8,7 @@ export default function BioparqueBlock() {
   const { ref, reveal } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center bg-brand-dark">
+    <section id="visita-bioparque" data-slide-label="Bioparque" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center bg-brand-dark">
       <div className={`w-full max-w-7xl mx-auto px-6 md:px-12 py-20 ${reveal()}`}>
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[70vh]">
           <div className="max-w-xl">

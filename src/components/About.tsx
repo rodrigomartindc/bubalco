@@ -9,7 +9,7 @@ const About = () => {
   const animals = useCountUp(500, 2000, isVisible);
 
   return (
-    <section id="quienes-somos" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:overflow-hidden md:pt-[130px]">
+    <section id="quienes-somos" data-slide-label="Quiénes somos" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:overflow-hidden md:pt-[130px]">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll relative bg-white">
           <div className="relative z-10 w-full px-6 py-6">

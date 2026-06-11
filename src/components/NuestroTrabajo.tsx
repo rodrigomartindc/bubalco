@@ -31,7 +31,7 @@ export default function NuestroTrabajo() {
   const { ref, reveal } = useScrollAnimation();
 
   return (
-    <section ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-gray-50">
+    <section id="pilares" data-slide-label="Pilares" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-gray-50">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-gray-50">
           <div className="px-6 py-8">
