@@ -158,7 +158,7 @@ function AppShell() {
           <Route path="/voluntariado" element={<div className="pt-[9rem]"><Volunteering /></div>} />
         </Routes>
       </RouteTransition>
-      {showAppFooter && isHome && isDesktop ? (
+      {showAppFooter && isDesktop ? (
         <section id="contacto" data-slide-label="Contacto" className="desktop-footer-snap scroll-section min-h-screen flex flex-col">
           <GoogleMapsFooter fill snap={false} />
           <Footer snap={false} />

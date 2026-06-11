@@ -354,7 +354,7 @@ export default function NuestroTrabajoPage() {
               alt="Refugio para animales silvestres en Bubalcó Patagonia"
               className="w-full rounded-2xl object-cover h-80"
             />
-            <div className="text-center">
+            <div className="text-center md:text-left">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Refugio</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-4">Una casa para animales que no pueden volver a la naturaleza</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
@@ -369,7 +369,7 @@ export default function NuestroTrabajoPage() {
 
         <section id="nt-conservacion" data-slide-label="Conservación" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full max-w-5xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-130px)]">
-            <div className="md:order-first text-center">
+            <div className="md:order-first text-center md:text-left">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Conservación</p>
               <h2 className="text-2xl font-medium text-gray-900 mb-4">Acciones para proteger</h2>
               <p className="text-sm text-gray-500 leading-relaxed mb-4">
