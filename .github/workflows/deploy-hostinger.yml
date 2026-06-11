@@ -17,16 +17,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Preflight connectivity to Hostinger (with retries)
-        env:
-          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
-          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
-          CONNECT_MAX_ATTEMPTS: "8"
-          CONNECT_TIMEOUT_SECONDS: "25"
-          CONNECT_RETRY_DELAY_SECONDS: "15"
-          CONNECT_RETRY_MAX_DELAY_SECONDS: "90"
-        run: python3 scripts/check-hostinger-connectivity.py
-
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -45,6 +35,17 @@ jobs:
           VITE_SITE_ENV: preview
         run: npm run build:static
 
+      - name: Preflight connectivity to Hostinger (quick, max 60s)
+        env:
+          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
+          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
+          CONNECT_MAX_ATTEMPTS: "4"
+          CONNECT_TIMEOUT_SECONDS: "10"
+          CONNECT_RETRY_DELAY_SECONDS: "8"
+          CONNECT_RETRY_MAX_DELAY_SECONDS: "20"
+          CONNECT_MAX_SECONDS: "60"
+        run: python3 scripts/check-hostinger-connectivity.py
+
       # Required GitHub Secrets (Settings → Secrets and variables → Actions):
       # - HOSTINGER_HOST        (e.g. "123.123.123.123" or "srv123.hostinger.com")
       # - HOSTINGER_PORT        (usually "22")
@@ -55,7 +56,8 @@ jobs:
       # Notes:
       # - This workflow uploads dist/** into a temp folder then activates by moving into HOSTINGER_TARGET.
       # - We deploy "htaccess" (no dot) then rename to ".htaccess" on the server to avoid dotfile issues.
-      # - Hostinger SSH can time out intermittently from GitHub runners; preflight + deploy steps retry automatically.
+      # - Hostinger SSH can time out intermittently from GitHub runners.
+      # - Quick preflight after build (60s budget); SCP/SSH retry up to 6 times each.
 
       - name: Upload dist/ to Hostinger (temp) via SCP
         uses: Wandalen/wretry.action@v3.8.0
