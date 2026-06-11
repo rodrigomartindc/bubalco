@@ -17,6 +17,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Preflight connectivity to Hostinger (with retries)
+        env:
+          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
+          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
+          CONNECT_MAX_ATTEMPTS: "8"
+          CONNECT_TIMEOUT_SECONDS: "25"
+          CONNECT_RETRY_DELAY_SECONDS: "15"
+          CONNECT_RETRY_MAX_DELAY_SECONDS: "90"
+        run: python3 scripts/check-hostinger-connectivity.py
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -35,35 +45,6 @@ jobs:
           VITE_SITE_ENV: preview
         run: npm run build:static
 
-      - name: Check connectivity to Hostinger (HOST:PORT)
-        env:
-          HOSTINGER_HOST: ${{ secrets.HOSTINGER_HOST }}
-          HOSTINGER_PORT: ${{ secrets.HOSTINGER_PORT }}
-        run: |
-          python - <<'PY'
-          import os, socket, sys
-          host = os.environ.get("HOSTINGER_HOST", "").strip()
-          port_raw = os.environ.get("HOSTINGER_PORT", "").strip()
-          if not host or not port_raw:
-            print("Missing HOSTINGER_HOST or HOSTINGER_PORT")
-            sys.exit(1)
-          port = int(port_raw)
-          s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-          s.settimeout(10)
-          try:
-            s.connect((host, port))
-          except Exception as e:
-            print("CONNECT_FAIL:", type(e).__name__, str(e))
-            sys.exit(1)
-          else:
-            print("CONNECT_OK")
-          finally:
-            try:
-              s.close()
-            except Exception:
-              pass
-          PY
-
       # Required GitHub Secrets (Settings → Secrets and variables → Actions):
       # - HOSTINGER_HOST        (e.g. "123.123.123.123" or "srv123.hostinger.com")
       # - HOSTINGER_PORT        (usually "22")
@@ -74,52 +55,61 @@ jobs:
       # Notes:
       # - This workflow uploads dist/** into a temp folder then activates by moving into HOSTINGER_TARGET.
       # - We deploy "htaccess" (no dot) then rename to ".htaccess" on the server to avoid dotfile issues.
+      # - Hostinger SSH can time out intermittently from GitHub runners; preflight + deploy steps retry automatically.
 
       - name: Upload dist/ to Hostinger (temp) via SCP
-        uses: appleboy/scp-action@v0.1.7
+        uses: Wandalen/wretry.action@v3.8.0
         with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          password: ${{ secrets.HOSTINGER_PASSWORD }}
-          port: ${{ secrets.HOSTINGER_PORT }}
-          timeout: 300s
-          source: "dist/**"
-          target: "${{ secrets.HOSTINGER_TARGET }}/__deploy_tmp"
+          attempt_limit: 6
+          attempt_delay: 30000
+          time_out: 1200000
+          action: appleboy/scp-action@v0.1.7
+          with: |
+            host: ${{ secrets.HOSTINGER_HOST }}
+            username: ${{ secrets.HOSTINGER_USERNAME }}
+            password: ${{ secrets.HOSTINGER_PASSWORD }}
+            port: ${{ secrets.HOSTINGER_PORT }}
+            timeout: 300s
+            source: "dist/**"
+            target: ${{ secrets.HOSTINGER_TARGET }}/__deploy_tmp
 
       - name: Activate deployment (move build to target root)
-        uses: appleboy/ssh-action@v1.0.3
+        uses: Wandalen/wretry.action@v3.8.0
         with:
-          host: ${{ secrets.HOSTINGER_HOST }}
-          username: ${{ secrets.HOSTINGER_USERNAME }}
-          password: ${{ secrets.HOSTINGER_PASSWORD }}
-          port: ${{ secrets.HOSTINGER_PORT }}
-          timeout: 300s
-          command_timeout: 300s
-          script: |
-            set -e
+          attempt_limit: 6
+          attempt_delay: 30000
+          time_out: 600000
+          action: appleboy/ssh-action@v1.0.3
+          with: |
+            host: ${{ secrets.HOSTINGER_HOST }}
+            username: ${{ secrets.HOSTINGER_USERNAME }}
+            password: ${{ secrets.HOSTINGER_PASSWORD }}
+            port: ${{ secrets.HOSTINGER_PORT }}
+            timeout: 300s
+            command_timeout: 300s
+            script: |
+              set -e
 
-            TARGET="${{ secrets.HOSTINGER_TARGET }}"
-            TMP="$TARGET/__deploy_tmp"
+              TARGET="${{ secrets.HOSTINGER_TARGET }}"
+              TMP="$TARGET/__deploy_tmp"
 
-            # Remove everything in target except the temp folder
-            find "$TARGET" -mindepth 1 -maxdepth 1 ! -name "__deploy_tmp" -exec rm -rf {} +
+              # Remove everything in target except the temp folder
+              find "$TARGET" -mindepth 1 -maxdepth 1 ! -name "__deploy_tmp" -exec rm -rf {} +
 
-            # Some SCP setups create TMP/dist/...; handle both cases.
-            if [ -d "$TMP/dist" ]; then
-              SRC="$TMP/dist"
-            else
-              SRC="$TMP"
-            fi
+              # Some SCP setups create TMP/dist/...; handle both cases.
+              if [ -d "$TMP/dist" ]; then
+                SRC="$TMP/dist"
+              else
+                SRC="$TMP"
+              fi
 
-            # Move build artifacts to the target root
-            mv "$SRC"/* "$TARGET"/
+              # Move build artifacts to the target root
+              mv "$SRC"/* "$TARGET"/
 
-            # Ensure SPA fallback works on Hostinger: Apache/LiteSpeed reads ".htaccess" (dotfile).
-            if [ -f "$TARGET/htaccess" ]; then
-              mv "$TARGET/htaccess" "$TARGET/.htaccess"
-            fi
+              # Ensure SPA fallback works on Hostinger: Apache/LiteSpeed reads ".htaccess" (dotfile).
+              if [ -f "$TARGET/htaccess" ]; then
+                mv "$TARGET/htaccess" "$TARGET/.htaccess"
+              fi
 
-            # Cleanup
-            rm -rf "$TMP"
-
-
+              # Cleanup
+              rm -rf "$TMP"
