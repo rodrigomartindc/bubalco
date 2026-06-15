@@ -6,14 +6,13 @@ import OptimizedLogo from './OptimizedLogo';
 
 interface FooterProps {
   snap?: boolean;
-  fill?: boolean;
 }
 
-const Footer = ({ snap = true, fill = false }: FooterProps) => {
+const Footer = ({ snap = true }: FooterProps) => {
   return (
-    <footer className={`bg-gray-900 text-white ${snap ? 'desktop-footer-snap' : ''} ${fill ? 'flex-1 flex flex-col justify-center' : ''}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-8">
-        <div className="grid md:grid-cols-4 gap-12 md:gap-8 mb-10 md:mb-5">
+    <footer className={`bg-gray-900 text-white flex-shrink-0 ${snap ? 'desktop-footer-snap' : ''}`}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-6">
+        <div className="grid md:grid-cols-4 gap-12 md:gap-6 mb-10 md:mb-4">
           <div className="md:col-span-2 flex flex-col items-center md:items-start">
             <Link to={ROUTES.home}>
               <OptimizedLogo logo={LOGO_BLANCO} className="h-12 md:h-10 mb-4 md:mb-3" />
@@ -62,12 +61,23 @@ const Footer = ({ snap = true, fill = false }: FooterProps) => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 md:pt-4 flex flex-col items-center gap-1 md:gap-1 text-center">
+        <div className="border-t border-gray-800 pt-6 md:pt-3 flex flex-col items-center gap-1 md:gap-0.5 text-center">
           <p className="text-xs md:text-[11px] text-gray-500 flex items-center gap-1">
             Hecho con <Heart size={12} className="text-accent md:w-2.5 md:h-2.5" fill="currentColor" /> para los animales
           </p>
           <p className="text-xs md:text-[11px] text-gray-600">
             © 2026 Fundación Bubalcó Patagonia
+          </p>
+          <p className="text-[11px] md:text-[10px] text-gray-600">
+            Powered by{' '}
+            <a
+              href="https://webfine.com.ar/"
+              target="_blank"
+              rel="noreferrer"
+              className="text-gray-500 hover:text-white transition-colors"
+            >
+              WebFine
+            </a>
           </p>
         </div>
       </div>
