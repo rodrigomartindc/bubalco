@@ -336,13 +336,15 @@ export default function NuestroTrabajoPage() {
           <div className="w-full max-w-5xl lg:max-w-6xl mx-auto px-6 md:px-12 text-center min-h-[calc(100vh-130px)] flex flex-col justify-center py-4">
             <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestros valores</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-3">Lo que nos mueve</h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-4 max-w-4xl mx-auto">
-              Bubalcó es una convicción: que la naturaleza merece defensores concretos y que el conocimiento verdadero es la herramienta de cambio más poderosa.
-            </p>
-            <div className="space-y-3">
-              {valores.map((item) => (
-                <DecoListItem key={item.title} title={item.title} desc={item.desc} />
-              ))}
+            <div className="w-full max-w-4xl mx-auto text-left">
+              <p className="text-base text-gray-500 leading-relaxed mb-4">
+                Bubalcó es una convicción: que la naturaleza merece defensores concretos y que el conocimiento verdadero es la herramienta de cambio más poderosa.
+              </p>
+              <div className="space-y-3">
+                {valores.map((item) => (
+                  <DecoListItem key={item.title} title={item.title} desc={item.desc} />
+                ))}
+              </div>
             </div>
           </div>
         </section>

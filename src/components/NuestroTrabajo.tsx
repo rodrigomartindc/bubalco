@@ -54,7 +54,7 @@ export default function NuestroTrabajo() {
         </div>
       </div>
 
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-center py-4">
+      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-start pt-10 pb-4">
         <div className={`text-center mb-6 lg:mb-8 ${reveal()}`}>
           <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestro Trabajo</p>
           <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-2">Cómo protegemos la vida silvestre</h2>

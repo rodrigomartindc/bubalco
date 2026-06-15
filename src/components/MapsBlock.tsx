@@ -25,7 +25,7 @@ export default function MapsBlock() {
         </div>
       </div>
 
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-6xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-center py-4">
+      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-6xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-start pt-10 pb-4">
         <div className={`text-center mb-6 lg:mb-8 ${reveal()}`}>
           <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">Dónde Estamos</p>
           <h2 className="text-3xl lg:text-4xl font-medium text-gray-900">En el corazón de la Patagonia norte</h2>

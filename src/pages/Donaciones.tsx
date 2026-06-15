@@ -16,17 +16,20 @@ const otrasFormasDeAyuda = [
   'Materiales',
 ];
 
-function AliasCopiable() {
+function AliasCopiable({ variant = 'default' }: { variant?: 'default' | 'onAccent' }) {
   const [copied, setCopied] = useState(false);
   const copy = () => {
     navigator.clipboard.writeText(ALIAS);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
+  const buttonClass = variant === 'onAccent'
+    ? 'flex items-center gap-2 bg-white border border-accent/40 rounded-xl px-4 py-3 w-full hover:bg-accent/5 transition-colors group shadow-sm'
+    : 'flex items-center gap-2 bg-accent/10 border border-accent/50 rounded-xl px-4 py-3 w-full hover:bg-accent/15 transition-colors group shadow-sm';
   return (
     <button
       onClick={copy}
-      className="flex items-center gap-2 bg-accent/10 border border-accent/50 rounded-xl px-4 py-3 w-full hover:bg-accent/15 transition-colors group shadow-sm"
+      className={buttonClass}
     >
       <div className="flex-1 text-left">
         <p className="text-xs text-accent/80 mb-0.5">Alias CBU/CVU</p>
@@ -117,11 +120,11 @@ export default function Donaciones() {
 
       {isDesktop && (
       <div className="pt-[9rem] pb-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 space-y-20">
+        <div className="max-w-5xl lg:max-w-6xl mx-auto px-6 space-y-20">
 
           {/* Bloque 1 */}
-          <div className="grid md:grid-cols-2 gap-16 items-start">
-            <div>
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-stretch">
+            <div className="flex flex-col justify-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-4">Donaciones</p>
               <h1 className="text-4xl font-medium text-gray-900 mb-6">Tu apoyo se convierte en cuidado</h1>
               <p className="text-base text-gray-500 leading-relaxed mb-4">
@@ -131,11 +134,11 @@ export default function Donaciones() {
                 Podés donar por transferencia al alias de la Fundación. Toda contribución, grande o pequeña, hace la diferencia.
               </p>
             </div>
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
+            <div className="bg-accent/10 rounded-2xl p-8 border border-accent/30 flex flex-col justify-center h-full">
               <p className="text-sm font-medium text-gray-900 mb-4">Cómo donar</p>
-              <AliasCopiable />
-              <p className="text-sm text-gray-500 mt-4 leading-relaxed">
-                Enviá el comprobante a <span className="font-medium text-gray-700">{CONTACT.donationEmail}</span> con el asunto "Mi donación".
+              <AliasCopiable variant="onAccent" />
+              <p className="text-sm text-gray-600 mt-4 leading-relaxed">
+                Enviá el comprobante a <span className="font-medium text-gray-800">{CONTACT.donationEmail}</span> con el asunto "Mi donación".
               </p>
             </div>
           </div>
@@ -160,10 +163,10 @@ export default function Donaciones() {
           </div>
 
           {/* Bloque 3: Beneficios impositivos */}
-          <div className="bg-accent/10 rounded-2xl p-10 border border-accent/30">
-            <p className="text-xs tracking-widest text-accent uppercase mb-4">Beneficios impositivos</p>
+          <div className="bg-gray-50 rounded-2xl p-10 border border-gray-100">
+            <p className="text-xs tracking-widest text-brand uppercase mb-4">Beneficios impositivos</p>
             <h2 className="text-3xl font-medium text-gray-900 mb-4">Beneficios que quizás no conocías</h2>
-            <p className="text-base text-gray-600 leading-relaxed mb-8 max-w-2xl">
+            <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-2xl">
               Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Descargá el documento y conocé cómo se aplica en tu caso.
             </p>
             <a

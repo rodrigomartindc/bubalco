@@ -9,7 +9,7 @@ interface GoogleMapsFooterProps {
 
 export default function GoogleMapsFooter({ fill = false, snap = true }: GoogleMapsFooterProps) {
   return (
-    <div className={`relative ${fill ? 'flex-1 min-h-0' : ''} ${snap ? 'desktop-footer-snap' : ''}`}>
+    <div className={`relative ${fill ? 'h-full w-full' : ''} ${snap ? 'desktop-footer-snap' : ''}`}>
       <iframe
         title="Ubicación Bubalcó"
         src={MAP_EMBED_URL}
