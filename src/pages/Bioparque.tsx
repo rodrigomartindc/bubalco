@@ -365,15 +365,15 @@ export default function Bioparque() {
           <div className="w-full px-6 md:px-12 lg:px-20 max-w-5xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-center text-center">
             <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestra misión</p>
             <h2 className="text-2xl font-medium text-gray-900 mb-6">Convivencia Responsable</h2>
-            <div className="grid md:grid-cols-2 gap-4 text-left">
+            <div className="flex flex-col gap-4 text-left w-full">
               {[
                 { n: '1', title: 'Educación para generar cambio', desc: 'La educación es un pilar de nuestro trabajo. Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
                 { n: '2', title: 'Animales que encontraron un hogar', desc: 'Los animales del parque no pueden volver a la naturaleza y están habituados a convivir con personas que respetan su bienestar y los cuidan. Les damos un hogar seguro y nos aseguramos que sus historias no sean en vano.' },
-                { n: '3', title: 'Conectar con lo que protegemos', desc: 'Cada vez vivimos más alejados de la naturaleza y es difícil proteger lo que no se conoce. Conectar con cada animal y entender sus desafíos nos impulsa a buscar un mundo en armonía con la naturaleza.', span: true },
+                { n: '3', title: 'Conectar con lo que protegemos', desc: 'Cada vez vivimos más alejados de la naturaleza y es difícil proteger lo que no se conoce. Conectar con cada animal y entender sus desafíos nos impulsa a buscar un mundo en armonía con la naturaleza.' },
               ].map((b) => (
                 <div
                   key={b.n}
-                  className={`rounded-2xl border border-gray-100 px-6 py-5 ${'span' in b && b.span ? 'md:col-span-2' : ''}`}
+                  className="rounded-2xl border border-gray-100 px-6 py-5"
                   style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n) - 1] }}
                 >
                   <div className="flex items-start gap-3">

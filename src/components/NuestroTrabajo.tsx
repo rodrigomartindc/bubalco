@@ -31,7 +31,7 @@ export default function NuestroTrabajo() {
   const { ref, reveal } = useScrollAnimation();
 
   return (
-    <section id="pilares" data-slide-label="Pilares" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-gray-50">
+    <section id="pilares" data-slide-label="Pilares" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-gray-50 md:pt-[130px]">
       <div className="slide-card md:hidden">
         <div className="slide-card__scroll bg-gray-50">
           <div className="px-6 py-8">
@@ -54,19 +54,19 @@ export default function NuestroTrabajo() {
         </div>
       </div>
 
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`text-center mb-16 ${reveal()}`}>
-          <p className="text-xs tracking-widest text-brand uppercase mb-6">Nuestro Trabajo</p>
-          <h2 className="text-4xl md:text-5xl font-medium text-gray-900 mb-6">Cómo protegemos la vida silvestre</h2>
+      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-center py-4">
+        <div className={`text-center mb-6 lg:mb-8 ${reveal()}`}>
+          <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestro Trabajo</p>
+          <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-2">Cómo protegemos la vida silvestre</h2>
           <p className="text-base text-gray-500 max-w-2xl mx-auto leading-relaxed">
             Cuatro ejes de trabajo que orientan todo lo que hacemos cada día para proteger la vida silvestre.
           </p>
         </div>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
           {pillars.map((c, i) => (
-              <div key={c.title} className={`rounded-2xl p-7 md:p-8 bg-white border border-gray-100 border-t-4 ${c.topAccent} shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all ${reveal(`animate-scale-in delay-${(i + 1) * 100}`)}`}>
-                <h3 className="text-xl font-medium text-gray-900 mb-3">{c.title}</h3>
-                <p className="text-base text-gray-500 leading-relaxed">{c.desc}</p>
+              <div key={c.title} className={`rounded-2xl p-5 lg:p-6 bg-white border border-gray-100 border-t-4 ${c.topAccent} shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all ${reveal(`animate-scale-in delay-${(i + 1) * 100}`)}`}>
+                <h3 className="text-lg font-medium text-gray-900 mb-2">{c.title}</h3>
+                <p className="text-sm text-gray-500 leading-relaxed">{c.desc}</p>
               </div>
           ))}
         </div>
