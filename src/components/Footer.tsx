@@ -6,18 +6,19 @@ import OptimizedLogo from './OptimizedLogo';
 
 interface FooterProps {
   snap?: boolean;
+  fill?: boolean;
 }
 
-const Footer = ({ snap = true }: FooterProps) => {
+const Footer = ({ snap = true, fill = false }: FooterProps) => {
   return (
-    <footer className={`bg-gray-900 text-white ${snap ? 'desktop-footer-snap' : ''}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-4">
-        <div className="grid md:grid-cols-4 gap-12 md:gap-6 mb-10 md:mb-3">
+    <footer className={`bg-gray-900 text-white ${snap ? 'desktop-footer-snap' : ''} ${fill ? 'flex-1 flex flex-col justify-center' : ''}`}>
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-8">
+        <div className="grid md:grid-cols-4 gap-12 md:gap-8 mb-10 md:mb-5">
           <div className="md:col-span-2 flex flex-col items-center md:items-start">
             <Link to={ROUTES.home}>
-              <OptimizedLogo logo={LOGO_BLANCO} className="h-12 md:h-9 mb-4 md:mb-2" />
+              <OptimizedLogo logo={LOGO_BLANCO} className="h-12 md:h-10 mb-4 md:mb-3" />
             </Link>
-            <div className="flex gap-3 md:gap-2 mt-4 md:mt-2">
+            <div className="flex gap-3 md:gap-2.5 mt-4 md:mt-3">
               <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noreferrer" className="w-10 h-10 md:w-8 md:h-8 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-brand transition-colors" aria-label="Instagram">
                 <Instagram className="w-[18px] h-[18px] md:w-3.5 md:h-3.5" />
               </a>
@@ -31,7 +32,7 @@ const Footer = ({ snap = true }: FooterProps) => {
           </div>
 
           <div>
-            <p className="text-sm md:text-xs font-semibold mb-6 md:mb-2 text-center md:text-left">Contacto</p>
+            <p className="text-sm md:text-xs font-semibold mb-6 md:mb-3 text-center md:text-left">Contacto</p>
             <ul className="space-y-4 md:space-y-1.5 flex flex-col items-center md:items-start">
               <li className="flex items-center gap-3 md:gap-2">
                 <Phone className="text-gray-500 flex-shrink-0 w-4 h-4 md:w-3.5 md:h-3.5" />
@@ -45,7 +46,7 @@ const Footer = ({ snap = true }: FooterProps) => {
           </div>
 
           <div className="hidden md:block">
-            <p className="text-sm md:text-xs font-semibold mb-6 md:mb-2">Enlaces</p>
+            <p className="text-sm md:text-xs font-semibold mb-6 md:mb-3">Enlaces</p>
             <div className="grid grid-cols-2 gap-x-6 md:gap-x-5">
               <ul className="space-y-3 md:space-y-1.5">
                 <li><Link to={ROUTES.bioparque} className="text-sm md:text-xs text-gray-400 hover:text-white transition-colors">Que es el Bioparque</Link></li>
@@ -61,7 +62,7 @@ const Footer = ({ snap = true }: FooterProps) => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 md:pt-2.5 flex flex-col items-center gap-1 md:gap-0.5 text-center">
+        <div className="border-t border-gray-800 pt-6 md:pt-4 flex flex-col items-center gap-1 md:gap-1 text-center">
           <p className="text-xs md:text-[11px] text-gray-500 flex items-center gap-1">
             Hecho con <Heart size={12} className="text-accent md:w-2.5 md:h-2.5" fill="currentColor" /> para los animales
           </p>

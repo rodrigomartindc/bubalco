@@ -26,8 +26,8 @@ const About = () => {
               <div className="space-y-2 w-full">
                 {[
                   { value: `+${years}`, line1: 'Años trabajando', line2: 'en conservación' },
-                  { value: `${hectares}`, line1: 'Hectáreas en', line2: 'Patagonia Argentina' },
-                  { value: `${animals}`, line1: 'Animales protegidos', line2: 'en 2025' },
+                  { value: `+${hectares}`, line1: 'Hectáreas en', line2: 'Patagonia Argentina' },
+                  { value: `+${animals}`, line1: 'Animales protegidos', line2: 'en 2025' },
                 ].map((s) => (
                   <div key={s.line1} className="flex items-center gap-4 bg-gray-50 rounded-xl px-5 py-2 border border-gray-100">
                     <p className="text-3xl font-medium text-brand w-16 text-right flex-shrink-0">{s.value}</p>
@@ -57,8 +57,8 @@ const About = () => {
           <div className="grid grid-cols-3 gap-6 bg-gray-50 rounded-2xl p-6 border border-gray-100 max-w-3xl mx-auto">
             {[
               { value: `+${years}`, label: 'Años trabajando en conservación' },
-              { value: `${hectares}`, label: 'Hectáreas en la Patagonia Argentina' },
-              { value: `${animals}`, label: 'Animales protegidos en 2025' },
+              { value: `+${hectares}`, label: 'Hectáreas en la Patagonia Argentina' },
+              { value: `+${animals}`, label: 'Animales protegidos en 2025' },
             ].map((s) => (
               <div key={s.label} className="text-center">
                 <p className="text-4xl font-medium text-gray-900">{s.value}</p>

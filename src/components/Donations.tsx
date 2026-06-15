@@ -7,7 +7,7 @@ const Donations = () => {
   const { ref, reveal } = useScrollAnimation();
 
   return (
-    <section id="donaciones" data-slide-label="Donar" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white">
+    <section id="donaciones" data-slide-label="Donar" ref={ref} className="scroll-section relative md:min-h-screen md:flex md:items-center md:bg-white md:pt-[130px]">
       {/* Mobile: Donación + Bioparque mitad y mitad */}
       <div className="slide-card md:hidden">
         <div className="h-full bg-white">
@@ -37,9 +37,9 @@ const Donations = () => {
       </div>
 
       {/* Desktop */}
-      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 py-20 max-w-7xl mx-auto">
-        <div className={`text-center mb-12 ${reveal()}`}>
-          <p className="text-xs tracking-widest text-gray-400 uppercase mb-6">Cómo Ayudar</p>
+      <div className="hidden md:block relative z-10 w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-start pt-8 lg:pt-12">
+        <div className={`text-center mb-8 lg:mb-10 ${reveal()}`}>
+          <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Cómo Ayudar</p>
         </div>
         <div className={`grid md:grid-cols-2 gap-8 ${reveal()}`}>
           <div className="bg-gray-50 rounded-2xl p-10 border border-gray-100 text-center flex flex-col items-center justify-center">
