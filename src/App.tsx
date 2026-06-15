@@ -159,11 +159,17 @@ function AppShell() {
         </Routes>
       </RouteTransition>
       {showAppFooter && isDesktop ? (
-        <section id="contacto" data-slide-label="Contacto" className="desktop-footer-snap scroll-section h-screen flex flex-col bg-white overflow-hidden">
-          <div className="h-[clamp(190px,28vh,260px)] flex-shrink-0 relative">
-            <GoogleMapsFooter fill snap={false} />
+        <section
+          id="contacto"
+          data-slide-label="Contacto"
+          className="desktop-footer-snap scroll-section h-screen flex flex-col overflow-hidden pt-[var(--desktop-fixed-header)] box-border"
+        >
+          <div className="flex flex-col flex-1 min-h-0">
+            <div className="h-[40%] min-h-0 relative shrink-0">
+              <GoogleMapsFooter fill snap={false} />
+            </div>
+            <Footer snap={false} slide />
           </div>
-          <Footer snap={false} />
         </section>
       ) : (
         <>

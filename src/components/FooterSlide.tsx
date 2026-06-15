@@ -49,6 +49,17 @@ export default function FooterSlide({ sectionClassName = 'scroll-section' }: Foo
                 Hecho con <Heart size={12} className="text-accent" fill="currentColor" /> para los animales
               </p>
               <p className="text-xs text-gray-600">© 2026 Fundación Bubalcó Patagonia</p>
+              <p className="text-[10px] text-gray-700 mt-2">
+                Powered by{' '}
+                <a
+                  href="https://webfine.com.ar/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-gray-600 hover:text-white transition-colors"
+                >
+                  WebFine
+                </a>
+              </p>
             </div>
           </div>
         </div>
