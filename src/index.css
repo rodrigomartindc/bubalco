@@ -31,6 +31,10 @@
 }
 
 @layer base {
+  :root {
+    --desktop-fixed-header: 130px;
+  }
+
   html {
     scroll-behavior: smooth;
     font-size: 18px;

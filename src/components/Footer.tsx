@@ -6,13 +6,36 @@ import OptimizedLogo from './OptimizedLogo';
 
 interface FooterProps {
   snap?: boolean;
+  slide?: boolean;
 }
 
-const Footer = ({ snap = true }: FooterProps) => {
+const WEBFINE_CREDIT = (
+  <p className="text-[10px] text-gray-700 mt-2">
+    Powered by{' '}
+    <a
+      href="https://webfine.com.ar/"
+      target="_blank"
+      rel="noreferrer"
+      className="text-gray-600 hover:text-white transition-colors"
+    >
+      WebFine
+    </a>
+  </p>
+);
+
+const Footer = ({ snap = true, slide = false }: FooterProps) => {
   return (
-    <footer className={`bg-gray-900 text-white flex-shrink-0 ${snap ? 'desktop-footer-snap' : ''}`}>
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-6">
-        <div className="grid md:grid-cols-4 gap-12 md:gap-6 mb-10 md:mb-4">
+    <footer
+      className={`bg-gray-900 text-white ${snap ? 'desktop-footer-snap' : ''} ${
+        slide ? 'h-[60%] min-h-0 flex flex-col overflow-hidden shrink-0' : 'flex-shrink-0'
+      }`}
+    >
+      <div
+        className={`max-w-7xl mx-auto px-6 md:px-12 w-full ${
+          slide ? 'h-full flex flex-col justify-center py-4 md:py-3' : 'py-12 md:py-6'
+        }`}
+      >
+        <div className={`grid md:grid-cols-4 gap-12 ${slide ? 'md:gap-5 md:mb-3' : 'md:gap-6 mb-10 md:mb-4'}`}>
           <div className="md:col-span-2 flex flex-col items-center md:items-start">
             <Link to={ROUTES.home}>
               <OptimizedLogo logo={LOGO_BLANCO} className="h-12 md:h-10 mb-4 md:mb-3" />
@@ -61,24 +84,14 @@ const Footer = ({ snap = true }: FooterProps) => {
           </div>
         </div>
 
-        <div className="border-t border-gray-800 pt-6 md:pt-3 flex flex-col items-center gap-1 md:gap-0.5 text-center">
+        <div className={`border-t border-gray-800 flex flex-col items-center text-center ${slide ? 'pt-3' : 'pt-6 md:pt-3 gap-1 md:gap-0.5'}`}>
           <p className="text-xs md:text-[11px] text-gray-500 flex items-center gap-1">
             Hecho con <Heart size={12} className="text-accent md:w-2.5 md:h-2.5" fill="currentColor" /> para los animales
           </p>
           <p className="text-xs md:text-[11px] text-gray-600">
             © 2026 Fundación Bubalcó Patagonia
           </p>
-          <p className="text-[11px] md:text-[10px] text-gray-600">
-            Powered by{' '}
-            <a
-              href="https://webfine.com.ar/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-gray-500 hover:text-white transition-colors"
-            >
-              WebFine
-            </a>
-          </p>
+          {WEBFINE_CREDIT}
         </div>
       </div>
     </footer>
