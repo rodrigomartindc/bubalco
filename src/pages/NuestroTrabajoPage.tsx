@@ -55,11 +55,9 @@ const valores = [
   },
 ];
 
-function SectionDivider() {
+function MiniTag({ children }: { children: string }) {
   return (
-    <div className="flex justify-center py-2" aria-hidden="true">
-      <div className="w-14 border-t border-gray-200" />
-    </div>
+    <p className="text-[10px] tracking-wide text-gray-400 uppercase mb-2">{children}</p>
   );
 }
 
@@ -86,178 +84,223 @@ export default function NuestroTrabajoPage() {
   return (
     <>
       {!isDesktop && (
-      <div className="pt-[9rem] bg-white">
-        {/* Hero */}
-        <section className="bg-white">
-          <div className="w-full h-56 overflow-hidden">
-            <img
-              src={asset('/nuestro-trabajo-hero.jpeg')}
-              alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="px-6 py-6 flex flex-col justify-center text-center">
-                <p className="text-xs tracking-widest text-brand uppercase mb-3">
+      <div className="bioparque-slides">
+        {/* Slide 1: Hero */}
+        <section className="bp-slide" style={{ padding: 0 }}>
+          <div className="w-full h-full bg-white">
+            <div className="h-full flex flex-col">
+              <div className="overflow-hidden flex-shrink-0" style={{ flex: '0 0 36%' }}>
+                <img
+                  src={asset('/nuestro-trabajo-hero.jpeg')}
+                  alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 flex flex-col items-center justify-start px-6 pt-4 pb-4 text-center min-h-0">
+                <p className="text-xs tracking-widest text-brand uppercase mb-2">
                   Fundación Bubalcó Patagonia Argentina
                 </p>
-                <h1 className="text-2xl font-medium text-gray-900 mb-4 leading-snug">
+                <h1 className="text-2xl font-medium text-gray-900 mb-2 leading-snug">
                   Proteger la Biodiversidad
                 </h1>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                <p className="text-sm text-gray-500 leading-relaxed mb-3">
                   En una isla del río Negro, en el corazón de la Patagonia argentina, Bubalcó trabaja para proteger la fauna silvestre, conservar especies en peligro de extinción y concientizar a la comunidad.
                 </p>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                  Más de 400 animales refugiados y proyectos activos de rescate, conservación y educación en la región.
-                </p>
+                <div className="border-l-[3px] border-accent pl-3 text-left w-full">
+                  <p className="text-sm text-gray-700 leading-relaxed font-medium">
+                    Más de 400 animales refugiados y proyectos activos de rescate, conservación y educación en la región.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
-        <SectionDivider />
-
-        {/* Bloque 1: Nuestra misión */}
-        <section className="bg-white px-6 py-7 text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestra razón de ser</p>
+        {/* Slide 2: Misión y compromiso */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestra razón de ser</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">Misión y compromiso</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-gray-500 leading-relaxed mb-3">
                 Nuestra misión es proteger la fauna silvestre, restaurar el equilibrio natural y concientizar a la comunidad sobre la importancia de conservar la naturaleza.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+              <p className="text-sm text-gray-500 leading-relaxed mb-4">
                 Trabajamos para que la biodiversidad de la Patagonia, de Argentina y del mundo tenga defensores concretos, con proyectos reales y resultados medibles.
               </p>
-              <p className="text-sm font-medium text-gray-900 mb-3">Objetivos:</p>
-              <div className="space-y-3">
+              <p className="text-sm font-medium text-gray-900 mb-2">Objetivos:</p>
+              <div className="space-y-2.5">
                 {objetivos.map((item) => (
                   <DecoListItem key={item} desc={item} />
                 ))}
               </div>
+            </div>
+          </div>
         </section>
 
-        <SectionDivider />
-
-        {/* Bloque 2: Amenazas */}
-        <section className="bg-white px-6 py-7 text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">El contexto que nos convoca</p>
+        {/* Slide 3: Amenazas 1/2 */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-2">El contexto que nos convoca</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">Las principales amenazas a la fauna silvestre</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+              <p className="text-sm text-gray-500 leading-relaxed mb-4">
                 Organismos como Fundación Bubalcó nacen como respuesta a una crisis real: la fauna silvestre enfrenta amenazas crecientes que ponen en riesgo la biodiversidad de toda la región y del mundo.
               </p>
-              <div className="space-y-4">
-                {amenazas.map((item) => (
-                  <DecoListItem key={item.title} title={item.title} desc={item.desc} />
-                ))}
+              <div className="space-y-3">
+                <DecoListItem title={amenazas[0].title} desc={amenazas[0].desc} />
               </div>
+            </div>
+          </div>
         </section>
 
-        <SectionDivider />
+        {/* Slide 4: Amenazas 2/2 */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+              <MiniTag>El contexto que nos convoca · 2/2</MiniTag>
+              <div className="space-y-3">
+                <DecoListItem title={amenazas[1].title} desc={amenazas[1].desc} />
+                <DecoListItem title={amenazas[2].title} desc={amenazas[2].desc} />
+              </div>
+            </div>
+          </div>
+        </section>
 
-        {/* Bloque 3: Valores */}
-        <section className="bg-white px-6 py-7 text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestros valores</p>
+        {/* Slide 5: Valores 1/2 */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestros valores</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">Lo que nos mueve</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+              <p className="text-sm text-gray-500 leading-relaxed mb-4">
                 Bubalcó es una convicción: que la naturaleza merece defensores concretos y que el conocimiento verdadero es la herramienta de cambio más poderosa.
               </p>
-              <div className="space-y-4">
-                {valores.map((item) => (
+              <div className="space-y-2.5">
+                {valores.slice(0, 3).map((item) => (
                   <DecoListItem key={item.title} title={item.title} desc={item.desc} />
                 ))}
               </div>
+            </div>
+          </div>
         </section>
 
-        <SectionDivider />
-
-        {/* Bloque 4: Refugio */}
-        <section className="bg-white">
-          <div className="w-full h-48 overflow-hidden">
-            <img
-              src={asset('/nuestro-trabajo-refugio.jpeg')}
-              alt="Refugio para animales silvestres en Bubalcó Patagonia"
-              className="w-full h-full object-cover"
-            />
+        {/* Slide 6: Valores 2/2 */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+              <MiniTag>Nuestros valores · 2/2</MiniTag>
+              <div className="space-y-2.5">
+                {valores.slice(3).map((item) => (
+                  <DecoListItem key={item.title} title={item.title} desc={item.desc} />
+                ))}
+              </div>
+            </div>
           </div>
-          <div className="px-6 py-6 text-center">
-                <p className="text-xs tracking-widest text-brand uppercase mb-3">Refugio</p>
+        </section>
+
+        {/* Slide 7: Refugio */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full flex flex-col">
+              <div className="w-full h-[32%] overflow-hidden flex-shrink-0">
+                <img
+                  src={asset('/nuestro-trabajo-refugio.jpeg')}
+                  alt="Refugio para animales silvestres en Bubalcó Patagonia"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 px-6 py-5 flex flex-col justify-center text-center min-h-0">
+                <p className="text-xs tracking-widest text-brand uppercase mb-2">Refugio</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-3">Una casa para animales que no pueden volver a la naturaleza</h2>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                <p className="text-sm text-gray-500 leading-relaxed mb-3">
                   El Bioparque Bubalcó Patagonia es un espacio con instalaciones únicas en la región para el cuidado de animales silvestres que no pueden regresar a su hábitat natural.
                 </p>
                 <p className="text-sm text-gray-500 leading-relaxed">
                   El Bioparque Bubalcó es un espacio de conservación de fauna silvestre ubicado en una isla del río Negro, Patagonia argentina, con 34 hectáreas íntegramente destinadas a los animales. Es hogar de más de 400 animales silvestres y cuenta con un equipo dedicado a garantizarles una vida digna y con bienestar.
                 </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <SectionDivider />
-
-        {/* Bloque 5: Conservación */}
-        <section className="bg-white">
-          <div className="w-full h-48 overflow-hidden">
-            <img
-              src={asset('/nuestro-trabajo-conservacion.jpeg')}
-              alt="Trabajo de conservación de fauna silvestre en Bubalcó Patagonia"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="px-6 py-6 flex flex-col justify-center text-center">
-                <p className="text-xs tracking-widest text-brand uppercase mb-3">Conservación</p>
+        {/* Slide 8: Conservación */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full flex flex-col">
+              <div className="w-full h-[32%] overflow-hidden flex-shrink-0">
+                <img
+                  src={asset('/nuestro-trabajo-conservacion.jpeg')}
+                  alt="Trabajo de conservación de fauna silvestre en Bubalcó Patagonia"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 px-6 py-5 flex flex-col justify-center text-center min-h-0">
+                <p className="text-xs tracking-widest text-brand uppercase mb-2">Conservación</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-3">Acciones para proteger</h2>
-                <p className="text-sm text-gray-500 leading-relaxed mb-4">
+                <p className="text-sm text-gray-500 leading-relaxed mb-3">
                   Desarrollamos proyectos activos de conservación de fauna silvestre con especies de Argentina y de todo el mundo.
                 </p>
                 <p className="text-sm text-gray-500 leading-relaxed">
                   En Bubalcó trabajamos en la conservación de especies en peligro de extinción a través de programas concretos: reproducción controlada, reinserción en hábitat natural, investigación científica aplicada y educación ambiental.
                 </p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <SectionDivider />
-
-        {/* Bloque 6: Rescate */}
-        <section className="bg-white px-6 py-8 flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Rescate</p>
+        {/* Slide 9: Rescate */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-2">Rescate</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">Cuando la fauna silvestre necesita ayuda</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-gray-500 leading-relaxed mb-3">
                 Rescate y rehabilitación de fauna silvestre en Río Negro y Neuquén.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-gray-500 leading-relaxed mb-3">
                 En Bubalcó asistimos con rescates, tránsitos, liberaciones y cuidados permanentes de fauna silvestre a Fauna Río Negro y Neuquén. Colaboramos con instituciones afines y con la comunidad cuando es necesario.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-gray-500 leading-relaxed mb-3">
                 Hoy el 40% de los animales que habitan el bioparque provienen de rescates cuya reinserción en la naturaleza no fue posible.
               </p>
               <p className="text-sm text-gray-500 leading-relaxed">
                 También recibimos animales de otros centros, antiguos zoológicos y particulares que ya no pueden garantizarles las mejores condiciones. Para todos ellos, Bubalcó es una segunda oportunidad.
               </p>
+            </div>
+          </div>
         </section>
 
-        <SectionDivider />
-
-        {/* Bloque 7: Educación */}
-        <section className="bg-white px-6 py-8 flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación Ambiental</p>
+        {/* Slide 10: Educación */}
+        <section className="bp-slide">
+          <div className="bp-card bg-white">
+            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-2">Educación Ambiental</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">El conocimiento es la base del cambio</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-gray-500 leading-relaxed mb-2">
                 Abrimos nuestras puertas a la comunidad, las escuelas y a todo aquel que quiera conectar con la naturaleza y sumar al proyecto.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-gray-500 leading-relaxed mb-2">
                 En Bubalcó creemos que la conservación de la fauna silvestre empieza por el conocimiento y la empatía.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <p className="text-sm text-gray-500 leading-relaxed mb-2">
                 Por eso trabajamos de la mano con la comunidad de Río Negro y la Patagonia, recibimos escuelas y desarrollamos espacios de aprendizaje para todo público.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-5">
+              <p className="text-sm text-gray-500 leading-relaxed mb-3">
                 Una experiencia de educación ambiental concreta: una forma de enseñar, concientizar y lograr que el amor por los animales se convierta en acción real.
               </p>
-              <p className="text-sm font-medium text-gray-900 mb-6 italic">Que nada le gane al verdadero conocimiento.</p>
+              <p className="text-sm font-medium text-gray-900 mb-4 italic">Que nada le gane al verdadero conocimiento.</p>
               <Link
                 to={ROUTES.visitasEscolares}
                 className="inline-flex items-center justify-center px-6 py-3 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors mx-auto"
               >
                 Visitas educativas
               </Link>
+            </div>
+          </div>
         </section>
 
-        <FooterSlide />
+        <FooterSlide sectionClassName="bp-slide" />
       </div>
       )}
 
