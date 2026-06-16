@@ -55,6 +55,15 @@ const valores = [
   },
 ];
 
+const valorAccents = [
+  'border-t-brand',
+  'border-t-brand-dark',
+  'border-t-[#C97A5A]',
+  'border-t-accent/60',
+  'border-t-brand/70',
+  'border-t-brand-dark/80',
+];
+
 function MiniTag({ children }: { children: string }) {
   return (
     <p className="text-[10px] tracking-wide text-gray-400 uppercase mb-2">{children}</p>
@@ -167,57 +176,48 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 5: Valores 1/2 */}
+        {/* Slide 5: Nuestros valores */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+            <div className="h-full px-6 py-5 flex flex-col justify-center text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestros valores</p>
-              <h2 className="text-xl font-medium text-gray-900 mb-3">Lo que nos mueve</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <h2 className="text-xl font-medium text-gray-900 mb-2">Lo que nos mueve</h2>
+              <p className="text-sm text-gray-500 leading-snug mb-4">
                 Bubalcó es una convicción: que la naturaleza merece defensores concretos y que el conocimiento verdadero es la herramienta de cambio más poderosa.
               </p>
-              <div className="space-y-2.5">
-                {valores.slice(0, 3).map((item) => (
-                  <DecoListItem key={item.title} title={item.title} desc={item.desc} />
+              <div className="grid grid-cols-2 gap-2.5">
+                {valores.map((item, i) => (
+                  <div
+                    key={item.title}
+                    className={`bg-white border border-gray-100 border-t-[3px] ${valorAccents[i]} rounded-xl px-2 py-3 shadow-sm flex items-center justify-center min-h-[3rem]`}
+                  >
+                    <p className="text-xs font-medium text-gray-900 leading-snug text-center">{item.title}</p>
+                  </div>
                 ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Slide 6: Valores 2/2 */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white">
-            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
-              <MiniTag>Nuestros valores · 2/2</MiniTag>
-              <div className="space-y-2.5">
-                {valores.slice(3).map((item) => (
-                  <DecoListItem key={item.title} title={item.title} desc={item.desc} />
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Slide 7: Refugio */}
+        {/* Slide 6: Refugio */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full flex flex-col">
-              <div className="w-full h-[32%] overflow-hidden flex-shrink-0">
+              <div className="w-full h-[30%] overflow-hidden flex-shrink-0">
                 <img
                   src={asset('/nuestro-trabajo-refugio.jpeg')}
                   alt="Refugio para animales silvestres en Bubalcó Patagonia"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex-1 px-6 py-5 flex flex-col justify-center text-center min-h-0">
+              <div className="flex-1 px-6 py-4 flex flex-col justify-center text-center min-h-0">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Refugio</p>
-                <h2 className="text-xl font-medium text-gray-900 mb-3">Una casa para animales que no pueden volver a la naturaleza</h2>
-                <p className="text-sm text-gray-500 leading-relaxed mb-3">
+                <h2 className="text-xl font-medium text-gray-900 mb-3 leading-snug">Una casa para animales que no pueden volver a la naturaleza</h2>
+                <p className="text-sm text-gray-500 leading-snug mb-3">
                   El Bioparque Bubalcó Patagonia es un espacio con instalaciones únicas en la región para el cuidado de animales silvestres que no pueden regresar a su hábitat natural.
                 </p>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  El Bioparque Bubalcó es un espacio de conservación de fauna silvestre ubicado en una isla del río Negro, Patagonia argentina, con 34 hectáreas íntegramente destinadas a los animales. Es hogar de más de 400 animales silvestres y cuenta con un equipo dedicado a garantizarles una vida digna y con bienestar.
+                <p className="text-sm text-gray-500 leading-snug">
+                  Es el hogar de más de 400 animales silvestres y cuenta con un equipo dedicado a garantizarles una vida digna y con bienestar.
                 </p>
               </div>
             </div>
@@ -252,21 +252,27 @@ export default function NuestroTrabajoPage() {
         {/* Slide 9: Rescate */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-2">Rescate</p>
-              <h2 className="text-xl font-medium text-gray-900 mb-3">Cuando la fauna silvestre necesita ayuda</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-3">
-                Rescate y rehabilitación de fauna silvestre en Río Negro y Neuquén.
-              </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-3">
-                En Bubalcó asistimos con rescates, tránsitos, liberaciones y cuidados permanentes de fauna silvestre a Fauna Río Negro y Neuquén. Colaboramos con instituciones afines y con la comunidad cuando es necesario.
-              </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-3">
-                Hoy el 40% de los animales que habitan el bioparque provienen de rescates cuya reinserción en la naturaleza no fue posible.
-              </p>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                También recibimos animales de otros centros, antiguos zoológicos y particulares que ya no pueden garantizarles las mejores condiciones. Para todos ellos, Bubalcó es una segunda oportunidad.
-              </p>
+            <div className="h-full flex flex-col">
+              <div className="w-full h-[30%] overflow-hidden flex-shrink-0">
+                <img
+                  src={asset('/nuestro-trabajo-rescate.jpeg')}
+                  alt="Rescate de fauna silvestre en Bubalcó Patagonia"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex-1 px-6 py-4 flex flex-col justify-center text-center min-h-0">
+                <p className="text-xs tracking-widest text-brand uppercase mb-2">Rescate</p>
+                <h2 className="text-xl font-medium text-gray-900 mb-3 leading-snug">Cuando la fauna silvestre necesita ayuda</h2>
+                <p className="text-sm text-gray-500 leading-snug mb-2">
+                  Hacemos rescates, rehabilitación, tránsito, liberaciones y cuidados permanentes de fauna silvestre colaborando con Fauna Río Negro y Neuquén, con instituciones afines y con la comunidad.
+                </p>
+                <p className="text-sm text-gray-500 leading-snug mb-2">
+                  El 40% de los animales que habitan el bioparque son rescatados.
+                </p>
+                <p className="text-sm text-gray-500 leading-snug">
+                  Recibimos animales de antiguos zoológicos que ya no pueden garantizarles las mejores condiciones. Para todos ellos, Bubalcó es una segunda oportunidad.
+                </p>
+              </div>
             </div>
           </div>
         </section>
@@ -274,19 +280,16 @@ export default function NuestroTrabajoPage() {
         {/* Slide 10: Educación */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+            <div className="h-full px-6 py-5 flex flex-col justify-center text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">Educación Ambiental</p>
               <h2 className="text-xl font-medium text-gray-900 mb-3">El conocimiento es la base del cambio</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-2">
+              <p className="text-sm text-gray-500 leading-snug mb-2">
                 Abrimos nuestras puertas a la comunidad, las escuelas y a todo aquel que quiera conectar con la naturaleza y sumar al proyecto.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-2">
+              <p className="text-sm text-gray-500 leading-snug mb-2">
                 En Bubalcó creemos que la conservación de la fauna silvestre empieza por el conocimiento y la empatía.
               </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-2">
-                Por eso trabajamos de la mano con la comunidad de Río Negro y la Patagonia, recibimos escuelas y desarrollamos espacios de aprendizaje para todo público.
-              </p>
-              <p className="text-sm text-gray-500 leading-relaxed mb-3">
+              <p className="text-sm text-gray-500 leading-snug mb-3">
                 Una experiencia de educación ambiental concreta: una forma de enseñar, concientizar y lograr que el amor por los animales se convierta en acción real.
               </p>
               <p className="text-sm font-medium text-gray-900 mb-4 italic">Que nada le gane al verdadero conocimiento.</p>
