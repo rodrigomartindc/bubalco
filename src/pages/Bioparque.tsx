@@ -195,11 +195,11 @@ export default function Bioparque() {
         {/* Slide 7: Descargar mapa */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className={`px-6 h-full flex flex-col items-center text-center min-h-0 ${isMapOpen ? 'py-3' : 'py-6'}`}>
+            <div className={`px-6 h-full flex flex-col items-center text-center min-h-0 ${isMapOpen ? 'py-3' : 'pt-5 pb-6 justify-start'}`}>
               {!isMapOpen && (
                 <>
-                  <p className="text-xs tracking-widest text-brand uppercase mb-3 flex-shrink-0">El recorrido</p>
-                  <h2 className="text-2xl font-medium text-gray-900 mb-4 flex-shrink-0">Mapa del bioparque</h2>
+                  <p className="text-xs tracking-widest text-brand uppercase mb-2 flex-shrink-0">El recorrido</p>
+                  <h2 className="text-2xl font-medium text-gray-900 mb-3 flex-shrink-0">Mapa del bioparque</h2>
                 </>
               )}
 
@@ -220,7 +220,7 @@ export default function Bioparque() {
                   />
                 </div>
               ) : (
-                <div className="flex-1 min-h-0 w-full flex flex-col items-center justify-center mb-4">
+                <div className="w-full flex flex-col items-center flex-shrink-0">
                   <button
                     type="button"
                     onClick={() => setIsMapOpen(true)}
@@ -239,7 +239,7 @@ export default function Bioparque() {
                       <Search size={17} />
                     </span>
                   </button>
-                  <p className="text-sm text-gray-500 mt-4 leading-relaxed">
+                  <p className="text-sm text-gray-500 mt-3 mb-4 leading-relaxed">
                     Descargá el mapa en tu celular<br />
                     para recorrer el bioparque sin papel.
                   </p>
