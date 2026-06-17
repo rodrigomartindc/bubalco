@@ -3,7 +3,7 @@ export const ROUTES = {
   bioparque: '/bioparque',
   horarios: '/bioparque/horarios-y-tarifas',
   faq: '/bioparque/preguntas-frecuentes',
-  visitasEscolares: '/visitas-escolares',
+  visitasEscolares: '/bioparque/visitas-escolares',
   donaciones: '/donaciones',
   nuestroTrabajo: '/nuestro-trabajo',
 } as const;

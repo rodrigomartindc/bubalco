@@ -14,7 +14,7 @@
 - Bioparque: https://fundacionbubalco.org.ar/bioparque
 - Horarios y tarifas: https://fundacionbubalco.org.ar/bioparque/horarios-y-tarifas
 - Preguntas frecuentes: https://fundacionbubalco.org.ar/bioparque/preguntas-frecuentes
-- Visitas escolares: https://fundacionbubalco.org.ar/visitas-escolares
+- Visitas escolares: https://fundacionbubalco.org.ar/bioparque/visitas-escolares
 - Nuestro trabajo: https://fundacionbubalco.org.ar/nuestro-trabajo
 - Donaciones: https://fundacionbubalco.org.ar/donaciones
 

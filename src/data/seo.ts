@@ -34,11 +34,11 @@ export const seoByPath: Record<string, PageSEO> = {
       'Respondemos las preguntas más frecuentes para planificar tu visita al Bioparque Bubalcó Patagonia: horarios, entradas, recorrido, accesibilidad y servicios.',
     path: '/bioparque/preguntas-frecuentes',
   },
-  '/visitas-escolares': {
+  '/bioparque/visitas-escolares': {
     title: 'Visitas escolares | Educación ambiental en Bubalcó Patagonia',
     description:
       'Propuestas educativas para escuelas en el Bioparque Bubalcó Patagonia. Una experiencia de educación ambiental directa, participativa y conectada con la fauna silvestre.',
-    path: '/visitas-escolares',
+    path: '/bioparque/visitas-escolares',
   },
   '/nuestro-trabajo': {
     title: 'Nuestro trabajo | Conservación, rescate y educación ambiental',

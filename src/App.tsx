@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import RouteTransition from './components/RouteTransition';
 import { resetScroll } from './utils/resetScroll';
 import Navbar from './components/Navbar';
@@ -21,6 +21,7 @@ import Volunteering from './components/Volunteering';
 import Gracias from './pages/Gracias';
 import StructuredData from './components/StructuredData';
 import { usePageSEO } from './hooks/usePageSEO';
+import { ROUTES } from './data/site';
 
 function AppShell() {
   const location = useLocation();
@@ -38,7 +39,7 @@ function AppShell() {
   const isHome = location.pathname === '/';
   const isBioparque = location.pathname === '/bioparque';
   const isHorariosYTarifas = location.pathname === '/bioparque/horarios-y-tarifas';
-  const isVisitasEscolares = location.pathname === '/visitas-escolares';
+  const isVisitasEscolares = location.pathname === ROUTES.visitasEscolares;
   const isFaq = location.pathname === '/bioparque/preguntas-frecuentes';
   const isDonaciones = location.pathname === '/donaciones';
   const isNuestroTrabajo = location.pathname === '/nuestro-trabajo';
@@ -149,7 +150,8 @@ function AppShell() {
           <Route path="/nosotros" element={<Nosotros />} />
           <Route path="/bioparque" element={<Bioparque />} />
           <Route path="/donaciones" element={<Donaciones />} />
-          <Route path="/visitas-escolares" element={<VisitasEscolares />} />
+          <Route path="/bioparque/visitas-escolares" element={<VisitasEscolares />} />
+          <Route path="/visitas-escolares" element={<Navigate to={ROUTES.visitasEscolares} replace />} />
           <Route path="/nuestro-trabajo" element={<NuestroTrabajoPage />} />
           <Route path="/novedades" element={<Novedades />} />
           <Route path="/bioparque/preguntas-frecuentes" element={<PreguntasFrecuentes />} />

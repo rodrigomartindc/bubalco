@@ -36,7 +36,7 @@ El build de producción genera HTML estático por ruta indexable con Playwright 
 - `/bioparque`
 - `/bioparque/horarios-y-tarifas`
 - `/bioparque/preguntas-frecuentes`
-- `/visitas-escolares`
+- `/bioparque/visitas-escolares`
 - `/nuestro-trabajo`
 - `/donaciones`
 
