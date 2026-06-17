@@ -6,6 +6,10 @@
   RewriteRule ^api/ - [L]
   RewriteRule ^assets/ - [L]
 
+  # Legacy route: visitas escolares moved under bioparque
+  RewriteRule ^visitas-escolares/?$ /bioparque/visitas-escolares [R=301,L]
+  RewriteRule ^visitas-escolares/index\.html$ /bioparque/visitas-escolares [R=301,L]
+
   # Serve existing files/directories as-is
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
