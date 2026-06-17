@@ -28,6 +28,21 @@ const amenazas = [
   },
 ];
 
+const amenazasMobile = [
+  {
+    title: 'Pérdida de hábitat',
+    desc: 'La expansión humana, la deforestación, la urbanización y la agricultura intensiva que reducen el espacio disponible.',
+  },
+  {
+    title: 'Explotación y comercio ilegal',
+    desc: 'La caza furtiva, la pesca excesiva y el tráfico ilegal de animales silvestres.',
+  },
+  {
+    title: 'Cambio climático y contaminación',
+    desc: 'Afectan directamente la disponibilidad de recursos alimenticios y reproductivos de la fauna silvestre.',
+  },
+];
+
 const valores = [
   {
     title: 'Bienestar animal',
@@ -63,12 +78,6 @@ const valorAccents = [
   'border-t-brand/70',
   'border-t-brand-dark/80',
 ];
-
-function MiniTag({ children }: { children: string }) {
-  return (
-    <p className="text-[10px] tracking-wide text-gray-400 uppercase mb-2">{children}</p>
-  );
-}
 
 function DecoListItem({ title, desc }: { title?: string; desc: string }) {
   return (
@@ -147,36 +156,25 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 3: Amenazas 1/2 */}
+        {/* Slide 3: El contexto que nos convoca */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
+            <div className="h-full px-6 py-5 flex flex-col justify-center text-center">
               <p className="text-xs tracking-widest text-brand uppercase mb-2">El contexto que nos convoca</p>
-              <h2 className="text-xl font-medium text-gray-900 mb-3">Las principales amenazas a la fauna silvestre</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-4">
+              <h2 className="text-xl font-medium text-gray-900 mb-2 leading-snug">Las principales amenazas a la fauna silvestre</h2>
+              <p className="text-sm text-gray-500 leading-snug mb-3">
                 Organismos como Fundación Bubalcó nacen como respuesta a una crisis real: la fauna silvestre enfrenta amenazas crecientes que ponen en riesgo la biodiversidad de toda la región y del mundo.
               </p>
-              <div className="space-y-3">
-                <DecoListItem title={amenazas[0].title} desc={amenazas[0].desc} />
+              <div className="space-y-2.5">
+                {amenazasMobile.map((item) => (
+                  <DecoListItem key={item.title} title={item.title} desc={item.desc} />
+                ))}
               </div>
             </div>
           </div>
         </section>
 
-        {/* Slide 4: Amenazas 2/2 */}
-        <section className="bp-slide">
-          <div className="bp-card bg-white">
-            <div className="h-full px-6 py-6 flex flex-col justify-center text-center">
-              <MiniTag>El contexto que nos convoca · 2/2</MiniTag>
-              <div className="space-y-3">
-                <DecoListItem title={amenazas[1].title} desc={amenazas[1].desc} />
-                <DecoListItem title={amenazas[2].title} desc={amenazas[2].desc} />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Slide 5: Nuestros valores */}
+        {/* Slide 4: Nuestros valores */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full px-6 py-5 flex flex-col justify-center text-center">
@@ -199,7 +197,7 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 6: Refugio */}
+        {/* Slide 5: Refugio */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full flex flex-col">
@@ -224,7 +222,7 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 8: Conservación */}
+        {/* Slide 6: Conservación */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full flex flex-col">
@@ -249,7 +247,7 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 9: Rescate */}
+        {/* Slide 7: Rescate */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full flex flex-col">
@@ -277,7 +275,7 @@ export default function NuestroTrabajoPage() {
           </div>
         </section>
 
-        {/* Slide 10: Educación */}
+        {/* Slide 8: Educación */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full px-6 py-5 flex flex-col justify-center text-center">
