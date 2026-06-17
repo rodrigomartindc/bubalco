@@ -44,9 +44,9 @@ export default function VisitasEscolares() {
                   loading="lazy"
                 />
               </div>
-              <div className="flex-1 px-6 py-6 flex flex-col justify-center text-center">
-                <p className="text-xs tracking-widest text-brand uppercase mb-3">Conciencia</p>
-                <h2 className="text-2xl font-medium text-gray-900 mb-4 leading-snug">"El conocimiento sin amor no prende"</h2>
+              <div className="flex-1 px-6 pt-3 pb-5 flex flex-col justify-start text-center min-h-0">
+                <p className="text-xs tracking-widest text-brand uppercase mb-2">Conciencia</p>
+                <h2 className="text-lg font-medium text-gray-900 mb-3 leading-tight">"El conocimiento sin amor no prende"</h2>
                 <p className="text-sm text-gray-500 leading-relaxed mb-5">
                   Una cita de John Burroughs que representa nuestro objetivo con los guiados escolares: sembrar conciencia de conservación a través del amor, la empatía y la conexión.
                 </p>
