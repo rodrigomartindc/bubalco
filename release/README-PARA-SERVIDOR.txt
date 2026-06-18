@@ -40,6 +40,7 @@ REQUISITOS DEL SERVIDOR
 - Hosting con Apache (o compatible) y soporte para .htaccess
 - mod_rewrite habilitado (o equivalente para fallback SPA)
 - El archivo .htaccess debe conservar su nombre con punto inicial
+  (no renombrar a htaccess.txt ni similar)
 
 
 QUÉ HACE EL .htaccess
@@ -52,7 +53,7 @@ QUÉ HACE EL .htaccess
 
 PRUEBAS RECOMENDADAS TRAS EL DESPLIEGUE
 ---------------------------------------
-Rutas principales:
+Rutas principales (deben cargar correctamente):
   https://fundacionbubalco.org.ar/
   https://fundacionbubalco.org.ar/bioparque
   https://fundacionbubalco.org.ar/bioparque/horarios-y-tarifas
@@ -63,13 +64,26 @@ Rutas principales:
 
 Redirección 301:
   https://fundacionbubalco.org.ar/visitas-escolares
+  → debe llevar a /bioparque/visitas-escolares
 
-SEO:
+SEO / indexación (en las páginas principales):
   https://fundacionbubalco.org.ar/robots.txt
   https://fundacionbubalco.org.ar/sitemap.xml
+
+  En el HTML de cada página principal debe aparecer:
+    <meta name="robots" content="index, follow" />
+  y el canonical debe apuntar a https://fundacionbubalco.org.ar/...
 
 
 API MERCADO PAGO (OPCIONAL)
 ---------------------------
 La carpeta api/ incluye endpoints PHP para donaciones con Mercado Pago.
-Solo es necesaria si se activará el checkout online.
+Solo es necesaria si se activará el checkout online. Requiere PHP 8.x,
+extensión curl y configuración de credenciales en api/mp/config.php.
+
+
+CONTACTO TÉCNICO
+----------------
+Sitio desarrollado por WebFine.
+Para dudas sobre el paquete de producción, consultar al equipo que
+entregó este release.
