@@ -3,6 +3,7 @@ import { WHATSAPP_URL_VISITAS_ESCOLARES } from '../data/site';
 import { useIsDesktop } from '../hooks/useIsDesktop';
 import { useDesktopSnap } from '../hooks/useDesktopSnap';
 import FooterSlide from '../components/FooterSlide';
+import { VISITAS_ESCOLARES_CONCIENCIA } from '../data/images';
 import { asset } from '../utils/asset';
 
 const desktopSlide = 'scroll-section relative md:min-h-screen md:flex md:items-center md:pt-[130px]';
@@ -38,7 +39,7 @@ export default function VisitasEscolares() {
             <div className="h-full flex flex-col">
               <div className="w-full h-[34%] overflow-hidden flex-shrink-0">
                 <img
-                  src={asset('/visitas-escolares-conciencia.jpeg')}
+                  src={asset(VISITAS_ESCOLARES_CONCIENCIA)}
                   alt="Educación ambiental en Bubalcó Patagonia"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
@@ -96,7 +97,7 @@ export default function VisitasEscolares() {
             </div>
             <div className="flex justify-center lg:justify-end">
               <img
-                src={asset('/visitas-escolares-conciencia.jpeg')}
+                src={asset(VISITAS_ESCOLARES_CONCIENCIA)}
                 alt="Educación ambiental en Bubalcó Patagonia"
                 className="w-full max-w-[520px] h-[420px] object-cover rounded-2xl shadow-lg"
                 loading="lazy"

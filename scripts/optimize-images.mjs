@@ -6,33 +6,25 @@ const publicDir = path.resolve('public');
 
 const jobs = [
   {
-    input: 'hero-ciervos.jpg',
+    input: 'images/hero/hero-ciervos.jpg',
     outputs: [
-      { file: 'hero-ciervos-480.webp', width: 480, quality: 82 },
-      { file: 'hero-ciervos-780.webp', width: 780, quality: 82 },
-      { file: 'hero-ciervos-1040.webp', width: 1040, quality: 82 },
-      { file: 'hero-ciervos.webp', width: 1040, quality: 82 },
+      { file: 'images/hero/hero-ciervos-480.webp', width: 480, quality: 82 },
+      { file: 'images/hero/hero-ciervos-780.webp', width: 780, quality: 82 },
+      { file: 'images/hero/hero-ciervos-1040.webp', width: 1040, quality: 82 },
     ],
   },
   {
-    input: 'tucan-bubalco.jpg',
+    input: 'images/bioparque/bubalco-map-1.png',
     outputs: [
-      { file: 'tucan-bubalco-440.webp', width: 440, quality: 82 },
-      { file: 'tucan-bubalco.webp', width: 880, quality: 82 },
+      { file: 'images/bioparque/bubalco-map-1-304.webp', width: 304, quality: 85 },
+      { file: 'images/bioparque/bubalco-map-1.webp', width: 608, quality: 85 },
     ],
   },
   {
-    input: 'bubalco-map-1.png',
+    input: 'images/bioparque/bubalco-map-2.png',
     outputs: [
-      { file: 'bubalco-map-1-304.webp', width: 304, quality: 85 },
-      { file: 'bubalco-map-1.webp', width: 608, quality: 85 },
-    ],
-  },
-  {
-    input: 'bubalco-map-2.png',
-    outputs: [
-      { file: 'bubalco-map-2-304.webp', width: 304, quality: 85 },
-      { file: 'bubalco-map-2.webp', width: 608, quality: 85 },
+      { file: 'images/bioparque/bubalco-map-2-304.webp', width: 304, quality: 85 },
+      { file: 'images/bioparque/bubalco-map-2.webp', width: 608, quality: 85 },
     ],
   },
   {

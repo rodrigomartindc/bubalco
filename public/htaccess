@@ -5,6 +5,8 @@
   # Do not rewrite API endpoints (PHP) or built assets
   RewriteRule ^api/ - [L]
   RewriteRule ^assets/ - [L]
+  RewriteRule ^images/ - [L]
+  RewriteRule ^docs/ - [L]
 
   # Legacy route: visitas escolares moved under bioparque
   RewriteRule ^visitas-escolares/?$ /bioparque/visitas-escolares [R=301,L]

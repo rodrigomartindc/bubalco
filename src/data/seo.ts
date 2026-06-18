@@ -1,5 +1,5 @@
 export const SITE_URL = 'https://fundacionbubalco.org.ar';
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/hero-ciervos.jpg`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/images/hero/hero-ciervos.jpg`;
 
 export interface PageSEO {
   title: string;

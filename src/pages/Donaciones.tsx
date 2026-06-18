@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { CONTACT, WHATSAPP_URL_DONACIONES } from '../data/site';
 import { useIsDesktop } from '../hooks/useIsDesktop';
 import FooterSlide from '../components/FooterSlide';
+import { DONACIONES_BENEFICIOS_PDF } from '../data/images';
 import { asset } from '../utils/asset';
 
 const ALIAS = 'donacion.bubalco';
@@ -103,7 +104,7 @@ export default function Donaciones() {
                 Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Descargá el documento y conocé cómo se aplica en tu caso.
               </p>
               <a
-                href={asset('/beneficios-impositivos-bubalco.pdf')}
+                href={asset(DONACIONES_BENEFICIOS_PDF)}
                 download
                 className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors mx-auto"
               >
@@ -170,7 +171,7 @@ export default function Donaciones() {
               Las donaciones a Bubalcó tienen beneficios impositivos para empresas y particulares. Descargá el documento y conocé cómo se aplica en tu caso.
             </p>
             <a
-              href={asset('/beneficios-impositivos-bubalco.pdf')}
+              href={asset(DONACIONES_BENEFICIOS_PDF)}
               download
               className="group inline-flex items-center gap-2 px-8 py-4 bg-accent text-white text-sm tracking-wide rounded-full hover:bg-amber-500 transition-colors"
             >

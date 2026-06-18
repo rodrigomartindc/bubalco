@@ -2,6 +2,12 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../data/site';
 import { useIsDesktop } from '../hooks/useIsDesktop';
 import { useDesktopSnap } from '../hooks/useDesktopSnap';
+import {
+  NUESTRO_TRABAJO_CONSERVACION,
+  NUESTRO_TRABAJO_HERO,
+  NUESTRO_TRABAJO_REFUGIO,
+  NUESTRO_TRABAJO_RESCATE,
+} from '../data/images';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
 
@@ -109,7 +115,7 @@ export default function NuestroTrabajoPage() {
             <div className="h-full flex flex-col">
               <div className="overflow-hidden flex-shrink-0" style={{ flex: '0 0 36%' }}>
                 <img
-                  src={asset('/nuestro-trabajo-hero.jpeg')}
+                  src={asset(NUESTRO_TRABAJO_HERO)}
                   alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
                   className="w-full h-full object-cover"
                 />
@@ -203,7 +209,7 @@ export default function NuestroTrabajoPage() {
             <div className="h-full flex flex-col">
               <div className="w-full h-[30%] overflow-hidden flex-shrink-0">
                 <img
-                  src={asset('/nuestro-trabajo-refugio.jpeg')}
+                  src={asset(NUESTRO_TRABAJO_REFUGIO)}
                   alt="Refugio para animales silvestres en Bubalcó Patagonia"
                   className="w-full h-full object-cover"
                 />
@@ -228,7 +234,7 @@ export default function NuestroTrabajoPage() {
             <div className="h-full flex flex-col">
               <div className="w-full h-[32%] overflow-hidden flex-shrink-0">
                 <img
-                  src={asset('/nuestro-trabajo-conservacion.jpeg')}
+                  src={asset(NUESTRO_TRABAJO_CONSERVACION)}
                   alt="Trabajo de conservación de fauna silvestre en Bubalcó Patagonia"
                   className="w-full h-full object-cover"
                 />
@@ -253,7 +259,7 @@ export default function NuestroTrabajoPage() {
             <div className="h-full flex flex-col">
               <div className="w-full h-[30%] overflow-hidden flex-shrink-0">
                 <img
-                  src={asset('/nuestro-trabajo-rescate.jpeg')}
+                  src={asset(NUESTRO_TRABAJO_RESCATE)}
                   alt="Rescate de fauna silvestre en Bubalcó Patagonia"
                   className="w-full h-full object-cover"
                 />
@@ -311,7 +317,7 @@ export default function NuestroTrabajoPage() {
           <div className="grid md:grid-cols-[52fr_48fr] min-h-[calc(100vh-130px)]">
             <div className="relative min-h-[240px] md:min-h-0">
               <img
-                src={asset('/nuestro-trabajo-hero.jpeg')}
+                src={asset(NUESTRO_TRABAJO_HERO)}
                 alt="Fauna silvestre bajo el cuidado de Bubalcó Patagonia"
                 className="absolute inset-0 w-full h-full object-cover"
                 style={{ objectPosition: 'center 18%' }}
@@ -414,7 +420,7 @@ export default function NuestroTrabajoPage() {
         <section id="nt-refugio" data-slide-label="Refugio" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full max-w-5xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-130px)]">
             <img
-              src={asset('/nuestro-trabajo-refugio.jpeg')}
+              src={asset(NUESTRO_TRABAJO_REFUGIO)}
               alt="Refugio para animales silvestres en Bubalcó Patagonia"
               className="w-full rounded-2xl object-cover h-80"
             />
@@ -444,7 +450,7 @@ export default function NuestroTrabajoPage() {
               </p>
             </div>
             <img
-              src={asset('/nuestro-trabajo-conservacion.jpeg')}
+              src={asset(NUESTRO_TRABAJO_CONSERVACION)}
               alt="Trabajo de conservación de fauna silvestre en Bubalcó Patagonia"
               className="w-full rounded-2xl object-cover h-80 md:order-last"
             />
@@ -454,7 +460,7 @@ export default function NuestroTrabajoPage() {
         <section id="nt-rescate" data-slide-label="Rescate" className={`${desktopSlide} md:bg-white`}>
           <div className="w-full max-w-5xl mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center min-h-[calc(100vh-130px)]">
             <img
-              src={asset('/nuestro-trabajo-rescate.jpeg')}
+              src={asset(NUESTRO_TRABAJO_RESCATE)}
               alt="Rescate de fauna silvestre en Bubalcó Patagonia"
               className="w-full rounded-2xl object-cover h-80"
             />
