@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown, ArrowRight } from 'lucide-react';
 import { faqItems } from '../data/faq';
+import { ROUTES } from '../data/site';
 
 export default function FaqSlide() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -42,7 +43,7 @@ export default function FaqSlide() {
 
             <div className="text-center pt-3">
               <Link
-                to="/preguntas-frecuentes"
+                to={ROUTES.faq}
                 className="group inline-flex items-center gap-2 text-sm text-brand font-medium"
               >
                 Ver todas <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />

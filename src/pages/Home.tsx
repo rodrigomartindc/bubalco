@@ -1,48 +1,27 @@
-import { useState, useEffect } from 'react';
+import { useIsDesktop } from '../hooks/useIsDesktop';
+import { useDesktopSnap } from '../hooks/useDesktopSnap';
 import Hero from '../components/Hero';
-import HeroAlt from '../components/HeroAlt';
 import HeroFull from '../components/HeroFull';
-import HeroMinimal from '../components/HeroMinimal';
 import About from '../components/About';
 import NuestroTrabajo from '../components/NuestroTrabajo';
 import MapsBlock from '../components/MapsBlock';
 import Donations from '../components/Donations';
-import BioparqueBlock from '../components/BioparqueBlock';
-import FaqSection from '../components/FaqSection';
-import FaqSlide from '../components/FaqSlide';
 import FooterSlide from '../components/FooterSlide';
 
 export default function Home() {
-  const [isDesktop, setIsDesktop] = useState(false);
-
-  useEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)');
-    const handle = () => setIsDesktop(mq.matches);
-    handle();
-    mq.addEventListener('change', handle);
-    return () => mq.removeEventListener('change', handle);
-  }, []);
+  const isDesktop = useIsDesktop();
+  useDesktopSnap(isDesktop);
 
   return (
     <>
       <div className="home-slides md:contents">
-        <Hero />
-        <HeroAlt />
-        <HeroFull />
-        <HeroMinimal />
+        {isDesktop ? <Hero /> : <HeroFull />}
         <About />
         <NuestroTrabajo />
         <MapsBlock />
         <Donations />
-        <FaqSlide />
         <FooterSlide />
       </div>
-      {isDesktop && (
-        <>
-          <BioparqueBlock />
-          <FaqSection />
-        </>
-      )}
     </>
   );
 }

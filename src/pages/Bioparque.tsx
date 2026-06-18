@@ -1,33 +1,67 @@
-import { Sun, Moon, ArrowRight, Download, Instagram, Phone, MapPin, Heart } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
+import { ArrowRight, Search, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { ROUTES } from '../data/site';
+import { useIsDesktop } from '../hooks/useIsDesktop';
+import { useDesktopSnap } from '../hooks/useDesktopSnap';
+import {
+  BIOPARQUE_CERTIF,
+  BIOPARQUE_FONDO,
+  BIOPARQUE_MAP_FULL,
+  BIOPARQUE_MAP_PREVIEW,
+  BIOPARQUE_VISITAS,
+} from '../data/images';
 import { asset } from '../utils/asset';
+import FooterSlide from '../components/FooterSlide';
 
-const WA_URL = 'https://api.whatsapp.com/send/?phone=5492984731612&text=%C2%A1Hola%2C+Bubalc%C3%B3%21&type=phone_number&app_absent=0';
-const embedUrl = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3051.5!2d-67.7601751!3d-39.0595151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x960a30fb8b3461c5%3A0x4edf452aaba697d8!2sFundaci%C3%B3n%20Bubalc%C3%B3%20Patagonia!5e0!3m2!1ses!2sar!4v1714600000000!5m2!1ses!2sar';
+const desktopSlide = 'scroll-section relative md:min-h-screen md:flex md:items-center md:pt-[130px]';
 
 export default function Bioparque() {
+  const isDesktop = useIsDesktop();
+  const [isMapOpen, setIsMapOpen] = useState(false);
+
+  useDesktopSnap(isDesktop);
+
+  useEffect(() => {
+    if (!isMapOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsMapOpen(false);
+    };
+
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isMapOpen]);
+
   return (
     <>
-      {/* Mobile: scroll-snap slides */}
-      <div className="bioparque-slides md:hidden">
+      {!isDesktop && (
+      <div className="bioparque-slides">
         {/* Slide 1: Hero */}
         <section className="bp-slide" style={{ padding: 0 }}>
           <div className="w-full h-full bg-white">
             <div className="h-full flex flex-col">
-              <div className="overflow-hidden" style={{ flex: '0 0 40%' }}>
-                <img src={asset('/bubalco-fondo.png')} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
+              <div className="overflow-hidden" style={{ flex: '0 0 36%' }}>
+                <img src={asset(BIOPARQUE_FONDO)} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
               </div>
-              <div className="flex-1 flex flex-col items-center justify-center px-6 py-4 text-center">
+              <div className="flex-1 flex flex-col items-center justify-start px-6 pt-4 pb-4 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Bioparque</p>
                 <h1 className="text-2xl font-medium text-gray-900 mb-2">Bubalcó Patagonia</h1>
                 <p className="text-sm text-gray-500 leading-relaxed mb-4">
                   Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
                 </p>
                 <div className="flex flex-col gap-3 w-full">
-                  <button onClick={() => { const el = document.getElementById('tarifas-horarios-m'); if (el) el.scrollIntoView({ behavior: 'smooth' }); }} className="px-6 py-3 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
-                    Tarifas y Horarios
-                  </button>
-                  <Link to="/visitas-escolares" className="px-6 py-3 border border-gray-200 text-gray-900 text-sm rounded-full text-center hover:bg-gray-50 transition-colors">
+                  <Link to={ROUTES.horarios} className="px-6 py-3 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors text-center">
+                    Horarios y Tarifas
+                  </Link>
+                  <Link to={ROUTES.visitasEscolares} className="px-6 py-3 border border-gray-200 text-gray-900 text-sm rounded-full text-center hover:bg-gray-50 transition-colors">
                     Visitas Escolares
                   </Link>
                 </div>
@@ -40,16 +74,16 @@ export default function Bioparque() {
         <section className="bp-slide">
           <div className="bp-card bg-white">
             <div className="h-full flex flex-col">
-              <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center bg-brand-dark rounded-t-[14px]">
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center bg-brand-dark">
                 <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Conservación en acción</p>
                 <h2 className="text-lg font-medium text-white mb-2">Un refugio para animales que no pueden volver a la naturaleza</h2>
-                <p className="text-xs text-white/60 leading-relaxed">
+                <p className="text-sm text-white/60 leading-relaxed">
                   En 34 hectáreas de la Patagonia argentina, cuidamos a nuestros habitantes, protegemos a las especies y enseñamos por qué conservar la naturaleza es responsabilidad de todos.
                 </p>
               </div>
-              <div className="flex-1 flex flex-col items-center justify-center px-6 py-5 text-center">
-                <h3 className="text-base font-medium text-gray-900 mb-3">Un proyecto reconocido por su aporte a la conservación y la educación</h3>
-                <img src={asset('/certif-legislatura-bubalco.webp')} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" />
+              <div className="flex-1 flex flex-col items-center justify-start pt-7 px-6 pb-5 text-center">
+                <h2 className="text-lg font-medium text-gray-900 mb-3">Un proyecto reconocido por su aporte a la conservación y la educación</h2>
+                <img src={asset(BIOPARQUE_CERTIF)} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" loading="lazy" />
               </div>
             </div>
           </div>
@@ -58,16 +92,20 @@ export default function Bioparque() {
         {/* Slide 3: Visitas escolares */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-8 h-full flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación</p>
-              <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-28 object-cover rounded-xl mb-3" />
-              <h2 className="text-xl font-medium text-gray-900 mb-3">Un aula en la naturaleza</h2>
-              <p className="text-sm text-gray-500 leading-relaxed mb-6">
-                Acercamos a estudiantes a la fauna y la conservación de forma directa y participativa.
-              </p>
-              <Link to="/visitas-escolares" className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full mx-auto">
-                Visitas Escolares <ArrowRight size={14} />
-              </Link>
+            <div className="h-full flex flex-col text-center">
+              <div className="w-full h-[32%] overflow-hidden">
+                <img src={asset(BIOPARQUE_VISITAS)} alt="Visitas escolares en Bubalcó" className="w-full h-full object-cover" loading="lazy" />
+              </div>
+              <div className="flex-1 flex flex-col justify-center px-6 py-6">
+                <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación</p>
+                <h2 className="text-xl font-medium text-gray-900 mb-3">Un aula en la naturaleza</h2>
+                <p className="text-sm text-gray-500 leading-relaxed mb-6">
+                  Acercamos a estudiantes y visitantes a la fauna y la conservación de forma directa y participativa.
+                </p>
+                <Link to={ROUTES.visitasEscolares} className="group inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full mx-auto">
+                  Visitas Escolares <ArrowRight size={14} />
+                </Link>
+              </div>
             </div>
           </div>
         </section>
@@ -80,17 +118,22 @@ export default function Bioparque() {
                 <p className="text-xs tracking-widest text-brand uppercase mb-3">Historias que merecen<br />ser contadas</p>
                 <h2 className="text-xl font-medium text-gray-900 mb-3">De dónde vienen<br />los habitantes del parque</h2>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Cada animal tiene su historia y conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
+                  Cada animal tiene su historia. Conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
                 </p>
               </div>
-              <div className="flex-1 flex flex-col justify-center px-6 py-5 text-center">
-                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-4">
-                  Algunos animales llegaron como rescates, otros nacen y se crían en cautiverio dentro de programas de conservación de especies en peligro.
-                </p>
-                <p className="text-sm text-gray-600 leading-relaxed font-medium italic mb-5">
-                  Cada historia nos muestra los desafíos que enfrentan y por qué su cuidado es esencial: en el bioparque y en la naturaleza.
-                </p>
-                <img src={asset('/leaves-img.png')} alt="" className="h-12 mx-auto opacity-40" />
+              <div className="flex-1 flex flex-col justify-start pt-7 px-6 pb-5">
+                <div className="space-y-4">
+                  {[
+                    'Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.',
+                    'Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.',
+                    'Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.',
+                  ].map((text) => (
+                    <div key={text} className="flex items-start gap-3 text-left">
+                      <span className="text-[#2B5962] font-medium leading-relaxed">|</span>
+                      <p className="text-sm text-gray-600 leading-relaxed font-medium italic">{text}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -99,16 +142,16 @@ export default function Bioparque() {
         {/* Slide 5: Por qué abrimos */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-5 h-full flex flex-col justify-center text-center">
-              <p className="text-xs tracking-widest text-brand uppercase mb-2">Nuestra misión</p>
-              <h2 className="text-lg font-medium text-gray-900 mb-4">Por qué abrimos el bioparque<br />al público</h2>
-              <div className="space-y-2">
+            <div className="py-5 h-full flex flex-col justify-center text-center">
+              <p className="text-xs tracking-widest text-brand uppercase mb-2 px-6">Nuestra misión</p>
+              <h2 className="text-lg font-medium text-gray-900 mb-4 px-6">Convivencia Responsable</h2>
+              <div className="space-y-px">
                 {[
-                  { n: '1', title: 'Educación para generar cambio', desc: 'Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
-                  { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro.' },
-                  { n: '3', title: 'Conectar con la naturaleza', desc: 'Cada vez estamos más alejados de la naturaleza. Conocer a los animales y sus historias nos ayuda a reconectar y comprender por qué protegerla es fundamental.' },
+                  { n: '1', title: 'Educación para generar cambio', desc: 'La educación es un pilar de nuestro trabajo. Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
+                  { n: '2', title: 'Animales que encontraron un hogar', desc: 'Los animales del parque no pueden volver a la naturaleza y están habituados a convivir con personas que respetan su bienestar y los cuidan. Les damos un hogar seguro y nos aseguramos que sus historias no sean en vano.' },
+                  { n: '3', title: 'Conectar con lo que protegemos', desc: 'Cada vez vivimos más alejados de la naturaleza y es difícil proteger lo que no se conoce. Conectar con cada animal y entender sus desafíos nos impulsa a buscar un mundo en armonía con la naturaleza.' },
                 ].map((b) => (
-                  <div key={b.n} className="rounded-xl p-3 text-left" style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n)-1] }}>
+                  <div key={b.n} className="px-5 py-3 text-left" style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n)-1] }}>
                     <div className="flex items-start gap-2">
                       <span className="w-5 h-5 rounded-full bg-brand/15 text-brand text-[11px] font-medium flex items-center justify-center flex-shrink-0 mt-0.5">{b.n}</span>
                       <div>
@@ -123,47 +166,32 @@ export default function Bioparque() {
           </div>
         </section>
 
-        {/* Slide 6: Tarifas y Horarios */}
+        {/* Slide 6: Planificar tu visita */}
         <section id="tarifas-horarios-m" className="bp-slide">
-          <div className="bp-card bg-brand-dark text-white">
-            <div className="px-6 pt-5 pb-[50px] h-full flex flex-col justify-between text-center">
-              <div>
-                <p className="text-xs tracking-widest text-white/40 uppercase mb-2">Planificá tu visita</p>
-                <h2 className="text-xl font-medium text-white mb-1">Horarios y Tarifas</h2>
-                <p className="text-xs text-white/40">Tu entrada contribuye directamente al trabajo de la fundación</p>
+          <div className="bp-card bg-white">
+            <div className="h-full flex flex-col">
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center">
+                <p className="text-xs tracking-widest text-gray-400 uppercase mb-2">Planificar tu visita</p>
+                <h2 className="text-xl font-medium text-gray-900 mb-2">Horarios y Tarifas</h2>
+                <p className="text-xs text-gray-500 mb-4 leading-relaxed">
+                  Consultá días, horarios, valores de entrada y promociones vigentes.
+                </p>
+                <Link to={ROUTES.horarios} className="group inline-flex items-center gap-2 px-5 py-2.5 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+                  Horarios y Tarifas <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
 
-              <div className="w-full">
-                <h3 className="text-sm font-medium text-white/70 mb-2 text-left">Horarios</h3>
-                <div className="bg-white/10 p-4 rounded-xl border border-white/10 mb-2">
-                  <div className="flex items-center gap-2 mb-3">
-                    <Sun className="text-white/50" size={16} />
-                    <span className="text-base font-medium">Jueves a Domingo</span>
-                  </div>
-                  <div className="flex justify-between text-sm"><span className="text-white/60">Boletería</span><span>10:00 - 16:00</span></div>
-                  <div className="flex justify-between text-sm mt-1"><span className="text-white/60">Cierre</span><span>18:00 hs</span></div>
-                </div>
-                <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between items-center">
-                  <div className="flex items-center gap-2"><Moon className="text-white/40" size={14} /><span className="text-sm">Lun, Mar, Mié</span></div>
-                  <span className="text-sm text-white/50">CERRADO</span>
-                </div>
-              </div>
+              <div className="mx-6 border-t border-gray-100" />
 
-              <div className="w-full">
-                <h3 className="text-sm font-medium text-white/70 mb-2 text-left">Tarifas</h3>
-                <div className="space-y-2">
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
-                    <span>Entrada General</span><span className="font-medium">$25.800</span>
-                  </div>
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
-                    <span>Menores y Jubilados</span><span className="font-medium">$21.000</span>
-                  </div>
-                  <div className="bg-white/5 p-3 rounded-xl border border-white/10 flex justify-between text-sm">
-                    <span>Menores de 4</span><span className="font-medium">GRATIS</span>
-                  </div>
-                </div>
+              <div className="flex-1 flex flex-col items-center justify-center px-6 py-6 text-center bg-brand-dark">
+                <h2 className="text-xl font-medium text-white mb-2">¿Tenés dudas?</h2>
+                <p className="text-xs text-white/50 mb-4 leading-relaxed">
+                  Revisá información útil antes de venir.
+                </p>
+                <Link to={ROUTES.faq} className="group inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
+                  Preguntas Frecuentes <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
-
             </div>
           </div>
         </section>
@@ -171,178 +199,293 @@ export default function Bioparque() {
         {/* Slide 7: Descargar mapa */}
         <section className="bp-slide">
           <div className="bp-card bg-white">
-            <div className="px-6 py-10 h-full flex flex-col items-center justify-center text-center">
-              <Download size={32} className="text-brand mb-4" />
-              <h2 className="text-2xl font-medium text-gray-900 mb-3">Mapa del recorrido</h2>
-              <p className="text-sm text-gray-500 mb-8">
-                9 zonas temáticas. Descargá el mapa para planificar tu visita.
-              </p>
-              <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full">
+            <div className={`px-6 h-full flex flex-col items-center text-center min-h-0 ${isMapOpen ? 'py-3' : 'pt-5 pb-6 justify-start'}`}>
+              {!isMapOpen && (
+                <>
+                  <p className="text-xs tracking-widest text-brand uppercase mb-2 flex-shrink-0">El recorrido</p>
+                  <h2 className="text-2xl font-medium text-gray-900 mb-3 flex-shrink-0">Mapa del bioparque</h2>
+                </>
+              )}
+
+              {isMapOpen ? (
+                <div className="relative flex-1 min-h-0 w-full flex items-center justify-center">
+                  <button
+                    type="button"
+                    onClick={() => setIsMapOpen(false)}
+                    className="absolute right-0 top-0 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur"
+                    aria-label="Cerrar mapa"
+                  >
+                    <X size={17} />
+                  </button>
+                  <img
+                    src={asset(BIOPARQUE_MAP_FULL)}
+                    alt="Mapa del recorrido del Bioparque Bubalcó"
+                    className="max-w-full max-h-full w-auto h-auto object-contain"
+                  />
+                </div>
+              ) : (
+                <div className="w-full flex flex-col items-center flex-shrink-0">
+                  <button
+                    type="button"
+                    onClick={() => setIsMapOpen(true)}
+                    className="relative inline-flex flex-shrink-0 group"
+                    aria-label="Ampliar mapa del bioparque"
+                  >
+                    <div className="w-52 h-52 rounded-full overflow-hidden">
+                      <img
+                        src={asset(BIOPARQUE_MAP_PREVIEW)}
+                        alt="Mapa del recorrido del Bioparque Bubalcó"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </div>
+                    <span className="absolute right-2 top-2 inline-flex h-9 w-9 items-center justify-center rounded-full bg-white/90 text-gray-800 shadow-sm backdrop-blur transition-transform group-active:scale-95">
+                      <Search size={17} />
+                    </span>
+                  </button>
+                  <p className="text-sm text-gray-500 mt-3 mb-4 leading-relaxed">
+                    Descargá el mapa en tu celular<br />
+                    para recorrer el bioparque sin papel.
+                  </p>
+                </div>
+              )}
+
+              <a
+                href={asset(BIOPARQUE_MAP_FULL)}
+                download="mapa-bubalco-patagonia.jpg"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full w-full max-w-xs flex-shrink-0"
+              >
                 Descargar mapa
               </a>
             </div>
           </div>
         </section>
 
-        {/* Slide 8: Footer */}
-        <section className="bp-slide">
-          <div className="bp-card bg-gray-900 text-white">
-            <div className="h-full flex flex-col">
-              <div className="relative h-[38%] flex-shrink-0">
-                <iframe title="Ubicación Bubalcó" src={embedUrl} className="w-full h-full" loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
+        <FooterSlide sectionClassName="bp-slide" />
+      </div>
+      )}
+
+      {isDesktop && (
+      <div className="md:contents">
+        {/* Slide 1: Hero */}
+        <section id="bp-hero" data-slide-label="Inicio" className={`${desktopSlide} md:bg-white`}>
+          <div className="w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-14 lg:gap-16 items-center min-h-[calc(100vh-130px)]">
+              <div>
+                <p className="text-xs tracking-widest text-brand uppercase mb-6">Bioparque</p>
+                <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4 leading-tight">Bubalcó Patagonia</h1>
+                <p className="text-base text-gray-500 leading-relaxed mb-10">
+                  Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 items-start">
+                  <Link to={ROUTES.horarios} className="px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">Horarios y Tarifas</Link>
+                  <Link to={ROUTES.visitasEscolares} className="px-8 py-4 border border-gray-200 text-gray-900 text-sm rounded-full hover:bg-gray-50 transition-colors">Visitas Escolares</Link>
+                </div>
               </div>
-              <div className="flex-1 px-6 py-4 flex flex-col justify-between items-center text-center">
-                <div className="flex flex-col items-center">
-                  <Link to="/"><img src={asset('/logos/logo-blanco.png')} alt="Bubalcó Patagonia" className="h-9 mb-3" /></Link>
-                  <div className="flex gap-2 mb-3">
-                    <a href="https://www.instagram.com/bubalcopatagonia/" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center" aria-label="Instagram"><Instagram size={14} /></a>
-                    <a href="https://www.facebook.com/bubalcopatagonia" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center" aria-label="Facebook"><svg viewBox="0 0 24 24" className="w-[14px] h-[14px] fill-white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
-                    <a href="https://www.tiktok.com/@bubalcopatagonia" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center" aria-label="TikTok"><svg viewBox="0 0 24 24" className="w-[14px] h-[14px] fill-white"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg></a>
-                    <a href="https://www.linkedin.com/company/bubalcopatagonia" target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center" aria-label="LinkedIn"><svg viewBox="0 0 24 24" className="w-[14px] h-[14px] fill-white"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
-                    <a href={WA_URL} target="_blank" rel="noreferrer" className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center" aria-label="WhatsApp"><svg viewBox="0 0 24 24" className="w-[14px] h-[14px] fill-white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-                  </div>
-                  <h4 className="text-sm font-medium mb-2">Contacto</h4>
-                  <div className="space-y-1.5">
-                    <div className="flex items-center gap-2"><Phone size={13} className="text-gray-500" /><a href={WA_URL} target="_blank" rel="noreferrer" className="text-sm text-gray-400">+54 9 298 473-1612</a></div>
-                    <div className="flex items-center gap-2"><MapPin size={13} className="text-gray-500" /><span className="text-sm text-gray-400">Isla 19, Contralmirante Guerrico</span></div>
-                    <p className="text-sm text-gray-400">Allen, Río Negro, Argentina</p>
-                  </div>
-                </div>
-                <div className="border-t border-gray-800 pt-3 w-full flex flex-col items-center gap-0.5">
-                  <p className="text-xs text-gray-500 flex items-center gap-1">Hecho con <Heart size={12} className="text-accent" fill="currentColor" /> para los animales</p>
-                  <p className="text-xs text-gray-600">© 2026 Fundación Bubalcó Patagonia</p>
-                </div>
+              <div className="flex justify-center lg:justify-end">
+                <img
+                  src={asset(BIOPARQUE_FONDO)}
+                  alt="Bubalcó Patagonia"
+                  className="w-full max-w-[520px] h-[420px] object-cover object-center"
+                  loading="eager"
+                />
               </div>
             </div>
           </div>
         </section>
-      </div>
 
-      {/* Desktop: normal flow */}
-      <div className="hidden md:block pt-[7.5rem] pb-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
-          {/* Hero */}
-          <div className="text-center mb-20">
-            <p className="text-xs tracking-widest text-brand uppercase mb-6">Bioparque</p>
-            <h1 className="text-4xl md:text-5xl font-medium text-gray-900 mb-4">Bubalcó Patagonia</h1>
-            <p className="text-base text-gray-500 leading-relaxed mb-10 max-w-3xl mx-auto">
-              Refugio y centro de rescate de fauna en la Patagonia. Un recorrido educativo para conocer de cerca las historias de los animales y comprender por qué proteger la naturaleza es fundamental.
-            </p>
-            <div className="flex gap-4 justify-center">
-              <a href="#tarifas-horarios" className="px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">Tarifas y Horarios</a>
-              <Link to="/visitas-escolares" className="px-8 py-4 border border-gray-200 text-gray-900 text-sm rounded-full hover:bg-gray-50 transition-colors">Visitas Escolares</Link>
-            </div>
-          </div>
-
-          {/* Qué es */}
-          <div className="grid md:grid-cols-2 gap-12 mb-20">
-            <div>
-              <p className="text-xs tracking-widest text-brand uppercase mb-4">Conservación en acción</p>
-              <h2 className="text-3xl font-medium text-gray-900 mb-4">Un refugio para animales que no pueden volver a la naturaleza</h2>
-              <p className="text-base text-gray-500 leading-relaxed">
-                En 34 hectáreas de la Patagonia argentina, cuidamos a nuestros habitantes, protegemos a las especies y enseñamos por qué conservar la naturaleza es responsabilidad de todos.
-              </p>
-            </div>
-            <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-              <h3 className="text-lg font-medium text-gray-900 mb-3">Reconocimiento provincial</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Declarado de interés científico, educativo, conservacionista y turístico por la Legislatura de la Provincia de Río Negro.
-              </p>
-            </div>
-          </div>
-
-          {/* Educación */}
-          <div className="bg-brand-dark rounded-2xl p-10 mb-20 text-center">
-            <p className="text-xs tracking-widest text-white/40 uppercase mb-4">Educación</p>
-            <h2 className="text-3xl font-medium text-white mb-4">Un aula en la naturaleza</h2>
-            <p className="text-sm text-white/60 leading-relaxed mb-8 max-w-2xl mx-auto">
-              Acercamos a estudiantes y visitantes a la fauna y la conservación de forma directa y participativa. Nuestros recorridos combinan información científica, historias de los animales y actividades que fomentan la empatía.
-            </p>
-            <Link to="/visitas-escolares" className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm rounded-full hover:bg-gray-100 transition-colors">
-              Visitas Escolares <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
-            </Link>
-          </div>
-
-          {/* De dónde vienen */}
-          <div className="mb-20">
-            <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Historias que merecen ser contadas</p>
-            <h2 className="text-3xl font-medium text-gray-900 mb-4">De dónde vienen los habitantes del parque</h2>
-            <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-3xl">
-              Cada animal tiene su historia y conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
-            </p>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <p className="text-sm text-gray-500 leading-relaxed">Algunos animales llegaron como rescates, otros nacen y se crían en cautiverio dentro de programas de conservación de especies en peligro.</p>
+        {/* Slide 2: Qué es + Legislatura */}
+        <section id="bp-que-es" data-slide-label="Qué es" className={`${desktopSlide} md:bg-white`}>
+          <div className="w-full px-6 md:px-12 lg:px-20 max-w-4xl mx-auto min-h-[calc(100vh-130px)] flex items-center">
+            <div className="flex flex-col w-full overflow-hidden rounded-2xl border border-gray-100 max-h-[min(72vh,600px)]">
+              <div className="flex-1 bg-brand-dark flex flex-col items-center justify-center px-10 lg:px-14 py-8 text-center min-h-0">
+                <p className="text-xs tracking-widest text-white/40 uppercase mb-3">Conservación en acción</p>
+                <h2 className="text-2xl font-medium text-white mb-3 max-w-2xl">Un refugio para animales que no pueden volver a la naturaleza</h2>
+                <p className="text-sm text-white/60 leading-relaxed max-w-2xl">
+                  En 34 hectáreas de la Patagonia argentina, cuidamos a nuestros habitantes, protegemos a las especies y enseñamos por qué conservar la naturaleza es responsabilidad de todos.
+                </p>
               </div>
-              <div className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                <p className="text-sm text-gray-500 leading-relaxed">Cada historia nos muestra los desafíos que enfrentan y por qué su cuidado es esencial, tanto en el bioparque como en la naturaleza.</p>
+              <div className="flex-1 bg-white flex flex-col items-center justify-center px-10 lg:px-14 py-8 text-center min-h-0">
+                <h2 className="text-xl font-medium text-gray-900 mb-5 max-w-xl">Un proyecto reconocido por su aporte a la conservación y la educación</h2>
+                <img src={asset(BIOPARQUE_CERTIF)} alt="Declarado de interés por la Legislatura de Río Negro" className="h-28" loading="lazy" />
               </div>
             </div>
           </div>
+        </section>
 
-          {/* Por qué abrimos */}
-          <div className="mb-20">
-            <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Nuestra misión</p>
-            <h2 className="text-3xl font-medium text-gray-900 mb-8">Por qué abrimos el bioparque al público</h2>
-            <div className="grid md:grid-cols-3 gap-6">
+        {/* Slide 3: Visitas escolares */}
+        <section id="bp-educacion" data-slide-label="Educación" className={`${desktopSlide} md:bg-white`}>
+          <div className="w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center min-h-[calc(100vh-130px)]">
+              <div className="flex justify-center lg:justify-start">
+                <img
+                  src={asset(BIOPARQUE_VISITAS)}
+                  alt="Visitas escolares en Bubalcó"
+                  className="w-full max-w-[520px] h-[420px] object-cover object-center"
+                  loading="lazy"
+                />
+              </div>
+              <div className="text-center lg:text-left">
+                <p className="text-xs tracking-widest text-brand uppercase mb-4">Educación</p>
+                <h2 className="text-3xl font-medium text-gray-900 mb-4">Un aula en la naturaleza</h2>
+                <p className="text-base text-gray-500 leading-relaxed mb-8 max-w-lg mx-auto lg:mx-0">
+                  Acercamos a estudiantes y visitantes a la fauna y la conservación de forma directa y participativa.
+                </p>
+                <Link to={ROUTES.visitasEscolares} className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
+                  Visitas Escolares <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Slide 4: De dónde vienen */}
+        <section id="bp-historias" data-slide-label="Historias" className={`${desktopSlide} md:bg-white`}>
+          <div className="w-full px-6 md:px-12 lg:px-20 max-w-5xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-center">
+            <div className="bg-brand/5 rounded-2xl px-10 lg:px-12 py-8 text-center mb-6">
+              <p className="text-xs tracking-widest text-brand uppercase mb-3">Historias que merecen ser contadas</p>
+              <h2 className="text-2xl font-medium text-gray-900 mb-3">De dónde vienen los habitantes del parque</h2>
+              <p className="text-sm lg:text-base text-gray-500 leading-relaxed max-w-4xl mx-auto">
+                Cada animal tiene su historia. Conocerla nos ayuda a entender por qué protegemos la fauna y sus ecosistemas.
+              </p>
+            </div>
+            <div className="space-y-4">
               {[
-                { n: '1', title: 'Conectar con la naturaleza', desc: 'Cada vez estamos más alejados de la naturaleza. Conocer a los animales y sus historias nos ayuda a reconectar y comprender por qué protegerla es fundamental.' },
-                { n: '2', title: 'Animales que necesitan cuidado humano', desc: 'Los animales del recorrido no pueden volver a la naturaleza y están habituados a la presencia respetuosa de las personas. Les damos un hogar seguro.' },
-                { n: '3', title: 'Educación para generar cambio', desc: 'Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
-              ].map((b) => (
-                <div key={b.n} className="bg-gray-50 rounded-2xl p-8 border border-gray-100">
-                  <span className="w-8 h-8 rounded-full bg-brand/10 text-brand text-sm font-medium flex items-center justify-center mb-4">{b.n}</span>
-                  <h3 className="text-lg font-medium text-gray-900 mb-3">{b.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{b.desc}</p>
+                'Algunos llegaron como rescates; otros nacieron en otros centros y se crían dentro de programas de conservación.',
+                'Todos viven con nosotros porque no pueden volver a su hábitat, por eso los cuidamos.',
+                'Cada historia revela las problemáticas de las especies y nos conecta con su cuidado, en el bioparque y en la naturaleza.',
+              ].map((text) => (
+                <div key={text} className="flex items-start gap-3 text-left">
+                  <span className="text-[#2B5962] font-medium leading-relaxed flex-shrink-0">|</span>
+                  <p className="text-sm text-gray-600 leading-relaxed font-medium italic">{text}</p>
                 </div>
               ))}
             </div>
           </div>
+        </section>
 
-          {/* Tarifas y Horarios */}
-          <div id="tarifas-horarios" className="scroll-mt-32 mb-20">
-            <h2 className="text-3xl font-medium text-gray-900 mb-8">Horarios y Tarifas</h2>
-            <div className="grid md:grid-cols-2 gap-6 mb-6">
-              <div className="bg-brand-dark p-8 rounded-2xl text-white">
-                <div className="flex items-center gap-2 mb-4"><Sun className="text-white/50" size={18} /><h3 className="font-medium">Jueves a Domingo y Feriados</h3></div>
-                <div className="space-y-3">
-                  <div className="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between"><span className="text-white/60 text-sm">Boletería</span><span className="font-medium">10:00 - 16:00</span></div>
-                  <div className="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between"><span className="text-white/60 text-sm">Cierre del Parque</span><span className="font-medium">18:00 hs</span></div>
-                </div>
-              </div>
-              <div className="bg-brand-dark p-8 rounded-2xl text-white">
-                <h3 className="font-medium mb-6">Tarifas de Ingreso</h3>
-                <div className="space-y-3">
-                  {[
-                    { name: 'Entrada General', sub: 'Mayores de 13 años', price: '$25.800' },
-                    { name: 'Menores y Jubilados', sub: '4 a 12 años', price: '$21.000' },
-                    { name: 'Menores de 4 años', sub: '', price: 'GRATIS' },
-                  ].map((t) => (
-                    <div key={t.name} className="bg-white/5 p-4 rounded-xl border border-white/10 flex justify-between items-center">
-                      <div><p className="text-sm font-medium">{t.name}</p>{t.sub && <p className="text-xs text-white/40 mt-0.5">{t.sub}</p>}</div>
-                      <span className="text-xl font-medium">{t.price}</span>
+        {/* Slide 5: Convivencia Responsable */}
+        <section id="bp-mision" data-slide-label="Misión" className={`${desktopSlide} md:bg-white`}>
+          <div className="w-full px-6 md:px-12 lg:px-20 max-w-5xl mx-auto min-h-[calc(100vh-130px)] flex flex-col justify-center text-center">
+            <p className="text-xs tracking-widest text-brand uppercase mb-3">Nuestra misión</p>
+            <h2 className="text-2xl font-medium text-gray-900 mb-6">Convivencia Responsable</h2>
+            <div className="flex flex-col gap-4 text-left w-full">
+              {[
+                { n: '1', title: 'Educación para generar cambio', desc: 'La educación es un pilar de nuestro trabajo. Compartimos información sobre las especies y la historia de cada animal, porque conocimiento y empatía son la base para un vínculo responsable con la naturaleza.' },
+                { n: '2', title: 'Animales que encontraron un hogar', desc: 'Los animales del parque no pueden volver a la naturaleza y están habituados a convivir con personas que respetan su bienestar y los cuidan. Les damos un hogar seguro y nos aseguramos que sus historias no sean en vano.' },
+                { n: '3', title: 'Conectar con lo que protegemos', desc: 'Cada vez vivimos más alejados de la naturaleza y es difícil proteger lo que no se conoce. Conectar con cada animal y entender sus desafíos nos impulsa a buscar un mundo en armonía con la naturaleza.' },
+              ].map((b) => (
+                <div
+                  key={b.n}
+                  className="rounded-2xl border border-gray-100 px-6 py-5"
+                  style={{ background: ['rgba(65,117,88,0.06)', 'rgba(43,89,98,0.06)', 'rgba(65,117,88,0.03)'][Number(b.n) - 1] }}
+                >
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-brand/15 text-brand text-xs font-medium flex items-center justify-center flex-shrink-0 mt-0.5">{b.n}</span>
+                    <div>
+                      <h3 className="text-sm font-medium text-gray-900 mb-1">{b.title}</h3>
+                      <p className="text-sm text-gray-500 leading-relaxed">{b.desc}</p>
                     </div>
-                  ))}
+                  </div>
                 </div>
-                <p className="text-xs text-white/40 mt-4">Tu entrada contribuye directamente al trabajo de la fundación.</p>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Slide 6: Planificar tu visita — full bleed bajo header fijo (sin pt/top extra) */}
+        <section id="tarifas-horarios" data-slide-label="Planificar" className="scroll-section relative md:h-screen md:min-h-0 md:overflow-hidden">
+          <div className="absolute inset-0 grid md:grid-cols-2">
+            <div className="bg-white flex flex-col justify-center h-full px-8 md:px-14 lg:px-20 xl:px-24 md:pt-[130px]">
+              <div className="max-w-md mx-auto md:mx-0 md:ml-auto md:mr-12 lg:mr-16 w-full">
+                <p className="text-xs tracking-widest text-gray-400 uppercase mb-4">Planificar tu visita</p>
+                <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4 leading-tight">Horarios y Tarifas</h2>
+                <p className="text-base text-gray-500 mb-8 leading-relaxed">
+                  Consultá días, horarios, valores de entrada y promociones vigentes.
+                </p>
+                <Link to={ROUTES.horarios} className="group inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm tracking-wide rounded-full hover:bg-brand-dark transition-colors">
+                  Horarios y Tarifas <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
               </div>
             </div>
-            <div className="bg-gray-100 p-4 rounded-xl flex justify-between items-center">
-              <div className="flex items-center gap-2"><Moon className="text-gray-400" size={16} /><span className="text-sm text-gray-600">Lunes, Martes, Miércoles</span></div>
-              <span className="text-sm font-medium text-gray-500">CERRADO</span>
+            <div className="bg-brand-dark flex flex-col justify-center h-full px-8 md:px-14 lg:px-20 xl:px-24 md:pt-[130px]">
+              <div className="max-w-md mx-auto md:mx-0 md:mr-auto md:ml-12 lg:ml-16 w-full">
+                <h2 className="text-3xl lg:text-4xl font-medium text-white mb-4 leading-tight">¿Tenés dudas?</h2>
+                <p className="text-base text-white/60 mb-8 leading-relaxed">
+                  Revisá información útil antes de venir.
+                </p>
+                <Link to={ROUTES.faq} className="group inline-flex items-center gap-2 px-8 py-4 bg-white text-gray-900 text-sm tracking-wide rounded-full hover:bg-gray-100 transition-colors">
+                  Preguntas Frecuentes <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </div>
             </div>
           </div>
+        </section>
 
-          {/* Mapa descargable */}
-          <div className="text-center">
-            <h2 className="text-2xl font-medium text-gray-900 mb-4">Mapa del recorrido</h2>
-            <p className="text-sm text-gray-500 mb-8">9 zonas temáticas. Descargá el mapa para planificar tu visita.</p>
-            <a href={asset('/mapa-bubalco.jpg')} download="mapa-bubalco-patagonia.jpg" className="inline-flex items-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors">
-              <Download size={18} /> Descargar mapa
-            </a>
+        {/* Slide 7: Mapa descargable */}
+        <section id="bp-mapa" data-slide-label="Mapa" className={`${desktopSlide} md:bg-white`}>
+          <div className="w-full px-6 md:px-12 lg:px-20 max-w-5xl mx-auto min-h-[calc(100vh-130px)] grid lg:grid-cols-2 gap-6 lg:gap-8 items-center">
+            <div className="text-center lg:text-left lg:justify-self-end w-full max-w-md">
+              <p className="text-xs tracking-widest text-brand uppercase mb-4">El recorrido</p>
+              <h2 className="text-3xl lg:text-4xl font-medium text-gray-900 mb-4 leading-tight">Mapa del bioparque</h2>
+              <p className="text-base text-gray-500 leading-relaxed mb-8">
+                Descargá el mapa en tu celular<br />
+                para recorrer el bioparque sin papel.
+              </p>
+              <a
+                href={asset(BIOPARQUE_MAP_FULL)}
+                download="mapa-bubalco-patagonia.jpg"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors"
+              >
+                Descargar mapa
+              </a>
+            </div>
+            <div className="flex justify-center lg:justify-start">
+              <button
+                type="button"
+                onClick={() => setIsMapOpen(true)}
+                className="relative inline-flex group"
+                aria-label="Ampliar mapa del bioparque"
+              >
+                <img
+                  src={asset(BIOPARQUE_MAP_PREVIEW)}
+                  alt="Mapa del recorrido del Bioparque Bubalcó"
+                  className="w-full max-w-[520px] h-[420px] object-contain rounded-2xl border border-gray-100 shadow-lg bg-white"
+                  loading="lazy"
+                />
+                <span className="absolute right-4 top-4 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-md backdrop-blur transition-transform group-hover:scale-95">
+                  <Search size={18} />
+                </span>
+              </button>
+            </div>
           </div>
-        </div>
+        </section>
+
+        {isMapOpen && isDesktop && createPortal(
+          <div
+            className="fixed inset-0 z-[500] flex items-center justify-center bg-black/85 p-6 md:p-10"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Mapa ampliado del bioparque"
+          >
+            <button
+              type="button"
+              onClick={() => setIsMapOpen(false)}
+              className="absolute top-5 right-5 inline-flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-gray-800 shadow-lg backdrop-blur hover:bg-white transition-colors"
+              aria-label="Cerrar mapa"
+            >
+              <X size={20} />
+            </button>
+            <img
+              src={asset(BIOPARQUE_MAP_FULL)}
+              alt="Mapa del recorrido del Bioparque Bubalcó"
+              className="max-w-[min(96vw,1100px)] max-h-[92vh] w-auto h-auto object-contain"
+            />
+          </div>,
+          document.body,
+        )}
       </div>
+      )}
     </>
   );
 }

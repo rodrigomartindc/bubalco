@@ -8,7 +8,10 @@ export default {
           DEFAULT: '#417558',
           dark: '#2b5962',
         },
-        accent: '#ffa300',
+        accent: {
+          DEFAULT: '#ffa300',
+          dark: '#e07b00',
+        },
       },
       fontFamily: {
         brandon: ['Brandon', 'system-ui', 'sans-serif'],

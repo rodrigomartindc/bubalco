@@ -1,5 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
+export function scrollRevealClass(isVisible: boolean, animationClass = 'animate-fade-in-up'): string {
+  return isVisible ? animationClass : '';
+}
+
 export const useScrollAnimation = (threshold = 0.1) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -11,7 +15,7 @@ export const useScrollAnimation = (threshold = 0.1) => {
           setIsVisible(true);
         }
       },
-      { threshold }
+      { threshold },
     );
 
     const currentRef = ref.current;
@@ -26,5 +30,5 @@ export const useScrollAnimation = (threshold = 0.1) => {
     };
   }, [threshold]);
 
-  return { ref, isVisible };
+  return { ref, isVisible, reveal: (animationClass?: string) => scrollRevealClass(isVisible, animationClass) };
 };

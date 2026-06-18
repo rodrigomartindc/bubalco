@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import { isPrerenderMode } from '../utils/isPrerenderMode';
 
 export interface FaqItem {
   question: string;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export default function FaqAccordion({ items }: Props) {
+  const prerender = isPrerenderMode();
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i);
@@ -18,7 +20,7 @@ export default function FaqAccordion({ items }: Props) {
   return (
     <div className="space-y-2">
       {items.map((item, i) => {
-        const isOpen = openIndex === i;
+        const isOpen = prerender || openIndex === i;
         const id = `faq-${i}`;
         return (
           <div key={i} className="border border-gray-100 rounded-xl overflow-hidden">
@@ -36,9 +38,9 @@ export default function FaqAccordion({ items }: Props) {
               id={`${id}-panel`}
               role="region"
               aria-labelledby={`${id}-btn`}
-              className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-96' : 'max-h-0'}`}
+              className={`overflow-hidden transition-all duration-200 ${isOpen ? 'max-h-[600px]' : 'max-h-0'}`}
             >
-              <p className="px-5 pb-4 text-sm text-gray-500 leading-relaxed">{item.answer}</p>
+              <p className="px-5 pt-2 pb-4 text-sm text-gray-500 leading-relaxed whitespace-pre-line">{item.answer}</p>
             </div>
           </div>
         );

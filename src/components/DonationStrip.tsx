@@ -12,9 +12,9 @@ export default function DonationStrip() {
   return (
     <button
       onClick={goToDonations}
-      className="fixed top-20 left-0 right-0 z-[190] bg-accent hover:bg-amber-500 transition-colors h-11 flex items-center justify-center cursor-pointer"
+      className="fixed top-20 left-0 right-0 z-[190] bg-accent-dark hover:bg-[#c46e00] transition-colors h-11 flex items-center justify-center cursor-pointer"
     >
-      <span className="text-sm font-medium text-white tracking-wide border border-white/40 rounded-full px-5 py-1 hover:bg-white/10 transition-colors">Donar para apoyar la conservación</span>
+      <span className="text-sm font-medium text-white tracking-wide border border-white/50 rounded-full px-5 py-1">Donar para apoyar la conservación</span>
     </button>
   );
 }
