@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { HERO_CIERVOS } from '../data/images';
 import { asset } from '../utils/asset';
 import { ROUTES } from '../data/site';
 
@@ -13,7 +14,7 @@ const HeroAlt = () => {
           <div className={`h-full flex flex-col transition-all duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             <div className="overflow-hidden flex-1">
               <img
-                src={asset('/hero-ciervos.jpg')}
+                src={asset(HERO_CIERVOS.fallback)}
                 alt="Fauna silvestre en Bubalcó Patagonia"
                 className="w-full h-full object-cover"
               />

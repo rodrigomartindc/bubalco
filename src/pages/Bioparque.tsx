@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom';
 import { ROUTES } from '../data/site';
 import { useIsDesktop } from '../hooks/useIsDesktop';
 import { useDesktopSnap } from '../hooks/useDesktopSnap';
+import {
+  BIOPARQUE_CERTIF,
+  BIOPARQUE_FONDO,
+  BIOPARQUE_MAP_FULL,
+  BIOPARQUE_MAP_PREVIEW,
+  BIOPARQUE_VISITAS,
+} from '../data/images';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
-
-const MAP_PREVIEW = '/bubalco-map-0.png';
-const MAP_FULL = '/mapa-bubalco.jpg';
 
 const desktopSlide = 'scroll-section relative md:min-h-screen md:flex md:items-center md:pt-[130px]';
 
@@ -45,7 +49,7 @@ export default function Bioparque() {
           <div className="w-full h-full bg-white">
             <div className="h-full flex flex-col">
               <div className="overflow-hidden" style={{ flex: '0 0 36%' }}>
-                <img src={asset('/bubalco-fondo.png')} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
+                <img src={asset(BIOPARQUE_FONDO)} alt="Bubalcó Patagonia" className="w-full h-full object-cover" />
               </div>
               <div className="flex-1 flex flex-col items-center justify-start px-6 pt-4 pb-4 text-center">
                 <p className="text-xs tracking-widest text-brand uppercase mb-2">Bioparque</p>
@@ -79,7 +83,7 @@ export default function Bioparque() {
               </div>
               <div className="flex-1 flex flex-col items-center justify-start pt-7 px-6 pb-5 text-center">
                 <h2 className="text-lg font-medium text-gray-900 mb-3">Un proyecto reconocido por su aporte a la conservación y la educación</h2>
-                <img src={asset('/certif-legislatura-bubalco.webp')} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" loading="lazy" />
+                <img src={asset(BIOPARQUE_CERTIF)} alt="Declarado de interés por la Legislatura de Río Negro" className="h-24 mx-auto" loading="lazy" />
               </div>
             </div>
           </div>
@@ -90,7 +94,7 @@ export default function Bioparque() {
           <div className="bp-card bg-white">
             <div className="h-full flex flex-col text-center">
               <div className="w-full h-[32%] overflow-hidden">
-                <img src={asset('/bubalco-visitas.jpg')} alt="Visitas escolares en Bubalcó" className="w-full h-full object-cover" loading="lazy" />
+                <img src={asset(BIOPARQUE_VISITAS)} alt="Visitas escolares en Bubalcó" className="w-full h-full object-cover" loading="lazy" />
               </div>
               <div className="flex-1 flex flex-col justify-center px-6 py-6">
                 <p className="text-xs tracking-widest text-brand uppercase mb-3">Educación</p>
@@ -214,7 +218,7 @@ export default function Bioparque() {
                     <X size={17} />
                   </button>
                   <img
-                    src={asset(MAP_FULL)}
+                    src={asset(BIOPARQUE_MAP_FULL)}
                     alt="Mapa del recorrido del Bioparque Bubalcó"
                     className="max-w-full max-h-full w-auto h-auto object-contain"
                   />
@@ -229,7 +233,7 @@ export default function Bioparque() {
                   >
                     <div className="w-52 h-52 rounded-full overflow-hidden">
                       <img
-                        src={asset(MAP_PREVIEW)}
+                        src={asset(BIOPARQUE_MAP_PREVIEW)}
                         alt="Mapa del recorrido del Bioparque Bubalcó"
                         className="w-full h-full object-cover"
                         loading="lazy"
@@ -247,7 +251,7 @@ export default function Bioparque() {
               )}
 
               <a
-                href={asset(MAP_FULL)}
+                href={asset(BIOPARQUE_MAP_FULL)}
                 download="mapa-bubalco-patagonia.jpg"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand text-white text-sm rounded-full w-full max-w-xs flex-shrink-0"
               >
@@ -280,7 +284,7 @@ export default function Bioparque() {
               </div>
               <div className="flex justify-center lg:justify-end">
                 <img
-                  src={asset('/bubalco-fondo.png')}
+                  src={asset(BIOPARQUE_FONDO)}
                   alt="Bubalcó Patagonia"
                   className="w-full max-w-[520px] h-[420px] object-cover object-center"
                   loading="eager"
@@ -303,7 +307,7 @@ export default function Bioparque() {
               </div>
               <div className="flex-1 bg-white flex flex-col items-center justify-center px-10 lg:px-14 py-8 text-center min-h-0">
                 <h2 className="text-xl font-medium text-gray-900 mb-5 max-w-xl">Un proyecto reconocido por su aporte a la conservación y la educación</h2>
-                <img src={asset('/certif-legislatura-bubalco.webp')} alt="Declarado de interés por la Legislatura de Río Negro" className="h-28" loading="lazy" />
+                <img src={asset(BIOPARQUE_CERTIF)} alt="Declarado de interés por la Legislatura de Río Negro" className="h-28" loading="lazy" />
               </div>
             </div>
           </div>
@@ -315,7 +319,7 @@ export default function Bioparque() {
             <div className="grid lg:grid-cols-2 gap-10 lg:gap-14 items-center min-h-[calc(100vh-130px)]">
               <div className="flex justify-center lg:justify-start">
                 <img
-                  src={asset('/bubalco-visitas.jpg')}
+                  src={asset(BIOPARQUE_VISITAS)}
                   alt="Visitas escolares en Bubalcó"
                   className="w-full max-w-[520px] h-[420px] object-cover object-center"
                   loading="lazy"
@@ -429,7 +433,7 @@ export default function Bioparque() {
                 para recorrer el bioparque sin papel.
               </p>
               <a
-                href={asset(MAP_FULL)}
+                href={asset(BIOPARQUE_MAP_FULL)}
                 download="mapa-bubalco-patagonia.jpg"
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-brand text-white text-sm rounded-full hover:bg-brand-dark transition-colors"
               >
@@ -444,7 +448,7 @@ export default function Bioparque() {
                 aria-label="Ampliar mapa del bioparque"
               >
                 <img
-                  src={asset(MAP_PREVIEW)}
+                  src={asset(BIOPARQUE_MAP_PREVIEW)}
                   alt="Mapa del recorrido del Bioparque Bubalcó"
                   className="w-full max-w-[520px] h-[420px] object-contain rounded-2xl border border-gray-100 shadow-lg bg-white"
                   loading="lazy"
@@ -473,7 +477,7 @@ export default function Bioparque() {
               <X size={20} />
             </button>
             <img
-              src={asset(MAP_FULL)}
+              src={asset(BIOPARQUE_MAP_FULL)}
               alt="Mapa del recorrido del Bioparque Bubalcó"
               className="max-w-[min(96vw,1100px)] max-h-[92vh] w-auto h-auto object-contain"
             />

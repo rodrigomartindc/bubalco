@@ -1,6 +1,7 @@
 import { Sun, Moon, ArrowRight } from 'lucide-react';
 import { WHATSAPP_URL_GUIADOS } from '../data/site';
 import { useIsDesktop } from '../hooks/useIsDesktop';
+import { PARTNER_CLUB_RIO_NEGRO, TARJETAS } from '../data/images';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
 
@@ -49,17 +50,7 @@ const horarios = [
   },
 ];
 
-const mediosPago = [
-  { src: '/tarjeta-visa.png', alt: 'Visa' },
-  { src: '/tarjeta-mastercard.png', alt: 'Mastercard' },
-  { src: '/tarjeta-maestro.png', alt: 'Maestro' },
-  { src: '/tarjeta-mercaddpago.png', alt: 'Mercado Pago' },
-  { src: '/tarjeta-tarjeta-naranja.png', alt: 'Naranja' },
-  { src: '/tarjeta-cabal.png', alt: 'Cabal' },
-  { src: '/tarjeta-faro.png', alt: 'Faro' },
-  { src: '/tarjeta-coopeplus.png', alt: 'Coopeplus' },
-  { src: '/tarjeta-huilen.png', alt: 'Huilen' },
-];
+const mediosPago = TARJETAS;
 
 function PriceRow({ nombre, detalle, valor }: { nombre: string; detalle: string; valor: string }) {
   return (
@@ -87,7 +78,7 @@ function ClubRioNegroCard() {
   return (
     <div className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 text-left">
       <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-        <img src={asset('/logo-club-rio-negro.png')} alt="Club Río Negro" className="h-16 object-contain" />
+        <img src={asset(PARTNER_CLUB_RIO_NEGRO)} alt="Club Río Negro" className="h-16 object-contain" />
       </div>
       <div className="space-y-1.5 md:space-y-2">
         {clubRioNegro.map((item) => (

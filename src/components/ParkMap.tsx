@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { BIOPARQUE_MAP_FULL } from '../data/images';
 import { asset } from '../utils/asset';
 
 const ParkMap = () => {
@@ -26,7 +27,7 @@ const ParkMap = () => {
               <h2 className="text-2xl font-medium text-gray-900 mb-6 text-center">Mapa del Bioparque</h2>
 
               <img
-                src={asset('/mapa-bubalco.jpg')}
+                src={asset(BIOPARQUE_MAP_FULL)}
                 alt="Mapa del Bioparque Bubalcó Patagonia"
                 className="w-full rounded-2xl"
               />
@@ -64,7 +65,7 @@ const ParkMap = () => {
 
           <div className={`${reveal('animate-fade-in-right delay-200')}`}>
             <img
-              src={asset('/mapa-bubalco.jpg')}
+              src={asset(BIOPARQUE_MAP_FULL)}
               alt="Mapa del Bioparque Bubalcó Patagonia"
               className="w-full rounded-2xl shadow-sm"
             />
