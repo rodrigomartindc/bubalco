@@ -65,6 +65,11 @@ async function main() {
         const url = `${baseUrl}${route}?prerender=1`;
 
         await page.goto(url, { waitUntil: 'networkidle' });
+
+        if (route === '/bioparque/horarios-y-tarifas') {
+          await page.waitForSelector('[data-tarifas-ready="true"]', { timeout: 60_000, state: 'attached' });
+        }
+
         await page.waitForFunction(
           (minLength) => {
             const root = document.getElementById('root');

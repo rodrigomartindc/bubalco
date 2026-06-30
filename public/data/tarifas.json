@@ -1,0 +1,19 @@
+{
+  "tarifas": [
+    { "nombre": "Entrada General", "detalle": "Mayores de 13 años", "valor": "$30.800" },
+    { "nombre": "Menores y Jubilados", "detalle": "Entre 4 y 12 años incluidos", "valor": "$25.400" },
+    { "nombre": "Pase anual", "detalle": "", "valor": "$130.500" },
+    { "nombre": "Acompañante CUD", "detalle": "", "valor": "$11.600" },
+    { "nombre": "Menores de 4 años", "detalle": "", "valor": "Gratis" },
+    { "nombre": "CUD", "detalle": "", "valor": "Gratis" }
+  ],
+  "promociones": [
+    { "nombre": "Grupo I", "detalle": "2 generales y 2 de menores/jubilados", "valor": "$100.800" },
+    { "nombre": "Grupo II", "detalle": "2 generales y 3 de menores/jubilados", "valor": "$115.700" },
+    { "nombre": "Grupo III", "detalle": "6 entradas generales", "valor": "$155.900" }
+  ],
+  "clubRioNegro": [
+    { "nombre": "Entrada General", "descuento": "15% de descuento" },
+    { "nombre": "Grupo I", "descuento": "10% de descuento extra" }
+  ]
+}
