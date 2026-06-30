@@ -1,30 +1,11 @@
 import { Sun, Moon, ArrowRight } from 'lucide-react';
 import { WHATSAPP_URL_GUIADOS } from '../data/site';
 import { useIsDesktop } from '../hooks/useIsDesktop';
+import { useTarifas } from '../hooks/useTarifas';
+import type { ClubRioNegroItem } from '../data/tarifas';
 import { PARTNER_CLUB_RIO_NEGRO, TARJETAS } from '../data/images';
 import { asset } from '../utils/asset';
 import FooterSlide from '../components/FooterSlide';
-
-
-const tarifas = [
-  { nombre: 'Entrada General', detalle: 'Mayores de 13 años', valor: '$30.800' },
-  { nombre: 'Menores y Jubilados', detalle: 'Entre 4 y 12 años incluidos', valor: '$25.400' },
-  { nombre: 'Pase anual', detalle: '', valor: '$130.500' },
-  { nombre: 'Acompañante CUD', detalle: '', valor: '$11.600' },
-  { nombre: 'Menores de 4 años', detalle: '', valor: 'Gratis' },
-  { nombre: 'CUD', detalle: '', valor: 'Gratis' },
-];
-
-const promociones = [
-  { nombre: 'Grupo I', detalle: '2 generales y 2 de menores/jubilados', valor: '$100.800' },
-  { nombre: 'Grupo II', detalle: '2 generales y 3 de menores/jubilados', valor: '$115.700' },
-  { nombre: 'Grupo III', detalle: '6 entradas generales', valor: '$155.900' },
-];
-
-const clubRioNegro = [
-  { nombre: 'Entrada General', descuento: '15% de descuento' },
-  { nombre: 'Grupo I', descuento: '10% de descuento extra' },
-];
 
 const horarios = [
   {
@@ -74,14 +55,14 @@ function CudNote() {
   );
 }
 
-function ClubRioNegroCard() {
+function ClubRioNegroCard({ items }: { items: ClubRioNegroItem[] }) {
   return (
     <div className="bg-gray-50 rounded-xl md:rounded-2xl p-4 md:p-6 border border-gray-100 text-left">
       <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
         <img src={asset(PARTNER_CLUB_RIO_NEGRO)} alt="Club Río Negro" className="h-16 object-contain" />
       </div>
       <div className="space-y-1.5 md:space-y-2">
-        {clubRioNegro.map((item) => (
+        {items.map((item) => (
           <div key={item.nombre} className="flex justify-between text-sm gap-4">
             <span className="text-gray-600">{item.nombre}</span>
             <span className="font-medium text-brand text-right">{item.descuento}</span>
@@ -114,9 +95,12 @@ function HorarioCard({ title, rows, dark }: { title: string; rows: { label: stri
 
 export default function HorariosYTarifas() {
   const isDesktop = useIsDesktop();
+  const { data, isLoading } = useTarifas();
+  const { tarifas, promociones, clubRioNegro } = data;
+  const tarifasReady = !isLoading;
 
   return (
-    <>
+    <div data-tarifas-ready={tarifasReady ? 'true' : 'false'}>
       {!isDesktop && (
       <div className="bioparque-slides">
 
@@ -147,7 +131,7 @@ export default function HorariosYTarifas() {
               <div className="divide-y divide-gray-100 mb-5">
                 {promociones.map((promocion) => <PriceRow key={promocion.nombre} {...promocion} />)}
               </div>
-              <ClubRioNegroCard />
+              <ClubRioNegroCard items={clubRioNegro} />
             </div>
           </div>
         </section>
@@ -251,7 +235,7 @@ export default function HorariosYTarifas() {
                 </div>
               ))}
             </div>
-            <ClubRioNegroCard />
+            <ClubRioNegroCard items={clubRioNegro} />
           </div>
 
           {/* Bloque 3: Días y horarios */}
@@ -296,6 +280,6 @@ export default function HorariosYTarifas() {
         </div>
       </div>
       )}
-    </>
+    </div>
   );
 }
